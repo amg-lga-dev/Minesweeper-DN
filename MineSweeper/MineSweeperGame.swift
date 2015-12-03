@@ -13,10 +13,13 @@ class MineSweeperGame: NSObject {
     var tiles: [Tile]
     var gvc: GameViewController
     var timer: NSTimer!
+    var time: Int
+    var timeLabel: UILabel!
     
     init(gameSize: Int, vc: GameViewController) {
         self.gvc = vc
         self.gameSize = gameSize
+        self.time = 0
         tiles = []
         super.init()
         setTilesInView()
@@ -42,6 +45,22 @@ class MineSweeperGame: NSObject {
     
     func initTimer() {
         timer = NSTimer(timeInterval: 1.0, target: self, selector: "timerFired:", userInfo: nil, repeats: true)
+        timeLabel = UILabel(frame: CGRect(x: 0, y: gvc.view.bounds.height - 80, width: gvc.view.bounds.width, height: 30))
+        timeLabel.text = "0.00"
+        gvc.view.addSubview(timeLabel)
+    }
+    
+    func timerFired(sender: NSTimer) {
+        print("called")
+        time++
+        let seconds = time % 60
+        let minutes = time / 60
+        if seconds < 10 {
+            timeLabel.text = "\(minutes):0\(seconds)"
+        }
+        else {
+            timeLabel.text = "\(minutes):\(seconds)"
+        }
     }
     
     func setBombs() {
@@ -193,13 +212,6 @@ class MineSweeperGame: NSObject {
                 tile.number = counter
             }
         }
-        
-        func timerFired(sender: NSTimer) {
-            
-            
-        }
     }
-    
-    
 
 }
