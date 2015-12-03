@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:MineSweeper.xcodeproj">
+      location = "self:/Users/andrewgrossfeld/Documents/CS 4999/MineSweeper/MineSweeper.xcodeproj">
    </FileRef>
 </Workspace>

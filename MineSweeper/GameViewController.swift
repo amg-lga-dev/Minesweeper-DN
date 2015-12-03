@@ -9,11 +9,50 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    var game: MineSweeperGame!
+    var gameSize: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        game = MineSweeperGame(gameSize: gameSize, vc: self)
+        for tile in game.tiles {
+            tile.addTarget(self, action: "tilePressed:", forControlEvents: .TouchUpInside)
+            let longPress = UILongPressGestureRecognizer(target: self, action: "tileLongPressed:")
+            longPress.minimumPressDuration = 1
+            tile.addGestureRecognizer(longPress)
+        }
+        
+    }
+    
+    @IBAction func tilePressed(sender: UIButton) {
+        let tile = sender as! Tile
+        if tile.flipped == false {
+            tile.flipped = true
+            tile.marked = false
+            
+            if tile.isBomb {
+                tile.layer.backgroundColor = UIColor.whiteColor().CGColor
+                tile.setImage(UIImage(named: "bomb"), forState: .Normal)
+                game.loseGame()
+            }
+            else {
+                tile.layer.backgroundColor = UIColor.grayColor().CGColor
+                tile.setImage(nil, forState: .Normal)
+                game.checkWinGame()
+                if (tile.number == 0) {
+                    game.clearOut(tile)
+                }
+                else {
+                    tile.setTitle("\(tile.number)", forState: .Normal)
+                }
+            }
+        }
+    }
+    
+    @IBAction func tileLongPressed(sender: UILongPressGestureRecognizer) {
+        let tile = sender.view as! Tile
+        tile.marked = true
+        tile.setImage(UIImage(named: "flag"), forState: .Normal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +60,8 @@ class GameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func shouldAutorotate() -> Bool {
+        return false
     }
-    */
 
 }
