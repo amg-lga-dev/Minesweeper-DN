@@ -44,14 +44,14 @@ class MineSweeperGame: NSObject {
     }
     
     func initTimer() {
-        timer = NSTimer(timeInterval: 1.0, target: self, selector: "timerFired:", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "timerFired:", userInfo: nil, repeats: true)
         timeLabel = UILabel(frame: CGRect(x: 0, y: gvc.view.bounds.height - 80, width: gvc.view.bounds.width, height: 30))
+        timeLabel.textAlignment = NSTextAlignment.Center
         timeLabel.text = "0.00"
         gvc.view.addSubview(timeLabel)
     }
     
     func timerFired(sender: NSTimer) {
-        print("called")
         time++
         let seconds = time % 60
         let minutes = time / 60
