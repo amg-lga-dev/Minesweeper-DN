@@ -39,8 +39,22 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nw4-T2-iXz">
+                    <rect key="frame" x="196" y="359" width="209" height="29"/>
+                    <animations/>
+                    <segments>
+                        <segment title="Easy"/>
+                        <segment title="Medium"/>
+                        <segment title="Hard"/>
+                    </segments>
+                </segmentedControl>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnI-W8-fi5">
+                    <rect key="frame" x="270" y="277" width="61" height="30"/>
+                    <animations/>
+                    <state key="normal" title="Settings:"/>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kD2-ww-apo">
-                    <rect key="frame" x="254" y="436" width="93" height="30"/>
+                    <rect key="frame" x="254" y="413" width="93" height="30"/>
                     <animations/>
                     <color key="backgroundColor" red="0.60494495169999996" green="0.76860813169999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Start Game">
@@ -51,20 +65,6 @@
                         <action selector="startGame:" destination="-1" eventType="touchUpInside" id="DjE-5y-ejO"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnI-W8-fi5">
-                    <rect key="frame" x="270" y="277" width="61" height="30"/>
-                    <animations/>
-                    <state key="normal" title="Settings:"/>
-                </button>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nw4-T2-iXz">
-                    <rect key="frame" x="196" y="351" width="209" height="29"/>
-                    <animations/>
-                    <segments>
-                        <segment title="Easy"/>
-                        <segment title="Medium"/>
-                        <segment title="Hard"/>
-                    </segments>
-                </segmentedControl>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="1" green="0.9921926070283118" blue="0.89747278033964706" alpha="1" colorSpace="calibratedRGB"/>

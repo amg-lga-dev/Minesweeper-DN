@@ -22,6 +22,14 @@ class GameViewController: UIViewController {
             tile.addGestureRecognizer(longPress)
         }
         
+        let alertController = UIAlertController(title: "Ready to Start?", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Go!", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+            // action to happen when okay is selected
+            self.game.initTimer()
+        }))
+        
+        alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
+        presentViewController(alertController, animated: true, completion: nil)
     }
     
     @IBAction func tilePressed(sender: UIButton) {

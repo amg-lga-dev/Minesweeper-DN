@@ -12,14 +12,13 @@ class MineSweeperGame: NSObject {
     var gameSize: Int!
     var tiles: [Tile]
     var gvc: GameViewController
-    var timer: NSTimer
+    var timer: NSTimer!
     
     init(gameSize: Int, vc: GameViewController) {
         self.gvc = vc
         self.gameSize = gameSize
         tiles = []
         super.init()
-        timer = NSTimer(timeInterval: 1.0, target: self, selector: "timerFired:", userInfo: nil, repeats: true)
         setTilesInView()
     }
     
@@ -39,6 +38,10 @@ class MineSweeperGame: NSObject {
         }
         setBombs()
         setNumbers()
+    }
+    
+    func initTimer() {
+        timer = NSTimer(timeInterval: 1.0, target: self, selector: "timerFired:", userInfo: nil, repeats: true)
     }
     
     func setBombs() {
