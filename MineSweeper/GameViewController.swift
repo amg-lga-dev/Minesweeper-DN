@@ -11,10 +11,13 @@ import UIKit
 class GameViewController: UIViewController {
     var game: MineSweeperGame!
     var gameSize: Int!
+    var gameLevel: Int!
 
     override func viewDidLoad() {
+        self.view.backgroundColor = UIColor.grayColor()
         super.viewDidLoad()
-        game = MineSweeperGame(gameSize: gameSize, vc: self)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
         for tile in game.tiles {
             tile.addTarget(self, action: "tilePressed:", forControlEvents: .TouchUpInside)
             let longPress = UILongPressGestureRecognizer(target: self, action: "tileLongPressed:")
@@ -59,8 +62,11 @@ class GameViewController: UIViewController {
     
     @IBAction func tileLongPressed(sender: UILongPressGestureRecognizer) {
         let tile = sender.view as! Tile
-        tile.marked = true
-        tile.setImage(UIImage(named: "flag"), forState: .Normal)
+        if tile.flipped == false {
+            tile.marked = true
+            let image = UIImage(named: "flag")
+            tile.setImage(image, forState: .Normal)
+        }
     }
 
     override func didReceiveMemoryWarning() {

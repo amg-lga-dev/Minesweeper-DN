@@ -11,11 +11,15 @@ import UIKit
 class IntroViewController: UIViewController {
     
     @IBOutlet weak var gameTypeSelect: UISegmentedControl!
+    @IBOutlet weak var gameLevelSelect: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,6 +30,7 @@ class IntroViewController: UIViewController {
     @IBAction func startGame (sender: UIButton) {
         let gameVC = GameViewController()
         let type = gameTypeSelect.selectedSegmentIndex
+        let gameLevel = gameLevelSelect.selectedSegmentIndex
         var gameType = 0
         
         if type == 0 { gameType  =  8}
@@ -33,8 +38,15 @@ class IntroViewController: UIViewController {
         else { gameType = 12 }
         
         gameVC.gameSize = gameType
+        gameVC.gameLevel = gameLevel
         self.navigationController?.pushViewController(gameVC, animated: true)
         
+    }
+    
+    @IBAction func showScores (sender: UIButton) {
+        let svc = HighScoreViewController()
+        //self.navigationController?.pushViewController(svc, animated: true)
+        self.presentViewController(svc, animated: true, completion: nil)
     }
 
 }

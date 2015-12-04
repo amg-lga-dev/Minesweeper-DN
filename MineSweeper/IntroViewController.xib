@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroViewController" customModule="MineSweeper" customModuleProvider="target">
             <connections>
+                <outlet property="gameLevelSelect" destination="nw4-T2-iXz" id="eoW-05-T9u"/>
                 <outlet property="gameTypeSelect" destination="QDK-13-c7f" id="Ezi-xh-0R9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -16,59 +17,128 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Developed By : Andrew Grossfeld &amp; Logan Allen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFq-Ev-zjg">
-                    <rect key="frame" x="117" y="143" width="366" height="21"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landmine" translatesAutoresizingMaskIntoConstraints="NO" id="Ufz-9M-itV">
+                    <rect key="frame" x="173" y="50" width="255" height="255"/>
                     <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="255" id="eyb-lP-v6d"/>
+                        <constraint firstAttribute="width" constant="255" id="srW-Bc-FbI"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed By : Andrew Grossfeld &amp; Logan Allen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFq-Ev-zjg">
+                    <rect key="frame" x="117" y="117" width="366" height="21"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="366" id="Aqp-00-RKq"/>
+                        <constraint firstAttribute="height" constant="21" id="cnS-2C-yjk"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QDK-13-c7f">
-                    <rect key="frame" x="196" y="315" width="209" height="29"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mine Sweeper" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMo-dK-xeP">
+                    <rect key="frame" x="166" y="61" width="269" height="48"/>
                     <animations/>
-                    <segments>
-                        <segment title="8 x 8"/>
-                        <segment title="10 x 10"/>
-                        <segment title="12 x 12"/>
-                    </segments>
-                </segmentedControl>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mine Sweeper" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMo-dK-xeP">
-                    <rect key="frame" x="166" y="87" width="269" height="48"/>
-                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="269" id="Q3X-k6-ed4"/>
+                        <constraint firstAttribute="height" constant="48" id="TLh-Oz-aFn"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nw4-T2-iXz">
-                    <rect key="frame" x="196" y="359" width="209" height="29"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9X-Ne-6fV">
+                    <rect key="frame" x="503" y="562" width="89" height="30"/>
                     <animations/>
+                    <color key="backgroundColor" red="0.38039215686274508" green="0.60392156862745094" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="89" id="V1b-ww-xji"/>
+                        <constraint firstAttribute="height" constant="30" id="iJW-jj-hLb"/>
+                    </constraints>
+                    <state key="normal" title="See Scores">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="showScores:" destination="-1" eventType="touchUpInside" id="a9C-uG-p0w"/>
+                    </connections>
+                </button>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nw4-T2-iXz">
+                    <rect key="frame" x="196" y="429" width="209" height="29"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="Xea-Fe-FRT"/>
+                        <constraint firstAttribute="width" constant="209" id="YaL-ql-yME"/>
+                    </constraints>
                     <segments>
                         <segment title="Easy"/>
                         <segment title="Medium"/>
                         <segment title="Hard"/>
                     </segments>
+                    <color key="tintColor" red="0.44760317831294527" green="0.67734581552577833" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnI-W8-fi5">
-                    <rect key="frame" x="270" y="277" width="61" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kD2-ww-apo">
+                    <rect key="frame" x="254" y="477" width="93" height="30"/>
                     <animations/>
-                    <state key="normal" title="Settings:"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kD2-ww-apo">
-                    <rect key="frame" x="254" y="413" width="93" height="30"/>
-                    <animations/>
-                    <color key="backgroundColor" red="0.60494495169999996" green="0.76860813169999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.38039215686274508" green="0.60392156862745094" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="GK9-FM-bOt"/>
+                        <constraint firstAttribute="width" constant="93" id="ojv-MW-nkL"/>
+                    </constraints>
                     <state key="normal" title="Start Game">
                         <color key="titleColor" red="0.011171105354764791" green="0.014195303608677627" blue="0.018426865183246099" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="startGame:" destination="-1" eventType="touchUpInside" id="DjE-5y-ejO"/>
                     </connections>
                 </button>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QDK-13-c7f">
+                    <rect key="frame" x="196" y="387" width="209" height="29"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="gac-pK-Sqe"/>
+                        <constraint firstAttribute="width" constant="209" id="y1m-OW-Pvh"/>
+                    </constraints>
+                    <segments>
+                        <segment title="8 x 8"/>
+                        <segment title="10 x 10"/>
+                        <segment title="12 x 12"/>
+                    </segments>
+                    <color key="tintColor" red="0.44760317831294527" green="0.67734581552577833" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </segmentedControl>
             </subviews>
             <animations/>
-            <color key="backgroundColor" red="1" green="0.9921926070283118" blue="0.89747278033964706" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="V9X-Ne-6fV" secondAttribute="trailing" constant="8" id="5ga-dJ-3ou"/>
+                <constraint firstItem="QDK-13-c7f" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6Lv-0F-Uhb"/>
+                <constraint firstItem="kD2-ww-apo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7QJ-q0-XPX"/>
+                <constraint firstItem="YMo-dK-xeP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="61" id="8Bi-OM-Jiq"/>
+                <constraint firstItem="Ufz-9M-itV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="Itp-z5-tTX"/>
+                <constraint firstItem="fFq-Ev-zjg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="P0c-L3-GpY"/>
+                <constraint firstAttribute="bottom" secondItem="V9X-Ne-6fV" secondAttribute="bottom" constant="8" id="RvG-sH-U0N"/>
+                <constraint firstItem="YMo-dK-xeP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UXR-Ra-C22"/>
+                <constraint firstItem="fFq-Ev-zjg" firstAttribute="top" secondItem="YMo-dK-xeP" secondAttribute="bottom" constant="8" id="ZM1-9b-xWW"/>
+                <constraint firstAttribute="bottom" secondItem="kD2-ww-apo" secondAttribute="bottom" constant="93" id="jMg-Ht-0h0"/>
+                <constraint firstItem="nw4-T2-iXz" firstAttribute="top" secondItem="QDK-13-c7f" secondAttribute="bottom" constant="14" id="o4U-DA-fzY"/>
+                <constraint firstItem="Ufz-9M-itV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rZd-pv-Pjx"/>
+                <constraint firstItem="nw4-T2-iXz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="sTv-Mb-7Pl"/>
+                <constraint firstItem="kD2-ww-apo" firstAttribute="top" secondItem="nw4-T2-iXz" secondAttribute="bottom" constant="20" id="xmG-US-nRA"/>
+            </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="landmine" width="300" height="292"/>
+    </resources>
 </document>

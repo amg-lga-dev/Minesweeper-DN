@@ -15,8 +15,11 @@ class MineSweeperGame: NSObject {
     var timer: NSTimer!
     var time: Int
     var timeLabel: UILabel!
+    var bestTimeLabel: UILabel!
+    var gameLevel: Int
     
-    init(gameSize: Int, vc: GameViewController) {
+    init(gameSize: Int, gameLevel: Int, vc: GameViewController) {
+        self.gameLevel = gameLevel
         self.gvc = vc
         self.gameSize = gameSize
         self.time = 0
@@ -39,16 +42,22 @@ class MineSweeperGame: NSObject {
                 gvc.view.addSubview(newTile)
             }
         }
+        
+        bestTimeLabel = UILabel(frame: CGRect(x: 10.0, y: Double(gvc.view.bounds.width) + 80, width: Double(gvc.view.bounds.width / 3), height: 30.0))
+        bestTimeLabel.text = "Best Time: \(boardArray[(gameSize - 8) / 2].times[gameLevel])"
+        gvc.view.addSubview(bestTimeLabel)
+        
+        timeLabel = UILabel(frame: CGRect(x: Double(gvc.view.bounds.width / 2), y: Double(gvc.view.bounds.width) + 80, width: Double(gvc.view.bounds.width / 2) - 10.0, height: 30.0))
+        timeLabel.textAlignment = NSTextAlignment.Right
+        timeLabel.text = "Time: 0:00"
+        gvc.view.addSubview(timeLabel)
+        
         setBombs()
         setNumbers()
     }
     
     func initTimer() {
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "timerFired:", userInfo: nil, repeats: true)
-        timeLabel = UILabel(frame: CGRect(x: 0, y: gvc.view.bounds.height - 80, width: gvc.view.bounds.width, height: 30))
-        timeLabel.textAlignment = NSTextAlignment.Center
-        timeLabel.text = "0.00"
-        gvc.view.addSubview(timeLabel)
     }
     
     func timerFired(sender: NSTimer) {
@@ -56,17 +65,17 @@ class MineSweeperGame: NSObject {
         let seconds = time % 60
         let minutes = time / 60
         if seconds < 10 {
-            timeLabel.text = "\(minutes):0\(seconds)"
+            timeLabel.text = "Time: \(minutes):0\(seconds)"
         }
         else {
-            timeLabel.text = "\(minutes):\(seconds)"
+            timeLabel.text = "Time: \(minutes):\(seconds)"
         }
     }
     
     func setBombs() {
         for tile in tiles {
-            let x = Int(arc4random_uniform(9)) + 1
-            if (x == 1 || x == 2) {
+            let x = Int(arc4random_uniform(5)) + 1 - gameLevel  // makes more bombs if level is higher
+            if (x == 1) {
                 tile.isBomb = true
             }
         }
@@ -77,12 +86,13 @@ class MineSweeperGame: NSObject {
             tile.enabled = false
         }
         
-        let endLabel = UILabel(frame: CGRect(x: 0, y: gvc.view.bounds.height - 40, width: gvc.view.bounds.width, height: 30))
+        timer.invalidate()
+        
+        let endLabel = UILabel(frame: CGRect(x: 0, y: gvc.view.bounds.height - 60, width: gvc.view.bounds.width, height: 30))
         endLabel.text = "Game Over"
         endLabel.textColor = UIColor.redColor()
         endLabel.textAlignment = NSTextAlignment.Center
-        endLabel.font = UIFont.systemFontOfSize(20, weight: 1)
-        endLabel.layer.backgroundColor = UIColor.whiteColor().CGColor
+        endLabel.font = UIFont.systemFontOfSize(40, weight: 1)
         gvc.view.addSubview(endLabel)
     }
     
@@ -101,14 +111,14 @@ class MineSweeperGame: NSObject {
             for tile in tiles {
                 tile.enabled = false
             }
-            
-            let endLabel = UILabel(frame: CGRect(x: 0, y: gvc.view.bounds.height - 40, width: gvc.view.bounds.width, height: 30))
+            timer.invalidate()
+            let endLabel = UILabel(frame: CGRect(x: 0, y: gvc.view.bounds.height - 60, width: gvc.view.bounds.width, height: 30))
             endLabel.text = "You Win"
-            endLabel.textColor = UIColor.redColor()
+            endLabel.textColor = UIColor.greenColor()
             endLabel.textAlignment = NSTextAlignment.Center
-            endLabel.font = UIFont.systemFontOfSize(20, weight: 1)
-            endLabel.layer.backgroundColor = UIColor.whiteColor().CGColor
+            endLabel.font = UIFont.systemFontOfSize(40, weight: 1)
             gvc.view.addSubview(endLabel)
+            boardArray[(gameSize - 8) / 2].updateScore(gameLevel, time: time)
         }
     }
     

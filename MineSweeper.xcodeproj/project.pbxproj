@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		500689121C0FCF69007BC5E0 /* MineSweeperGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500689111C0FCF69007BC5E0 /* MineSweeperGame.swift */; };
 		500689141C0FCFBB007BC5E0 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500689131C0FCFBB007BC5E0 /* Tile.swift */; };
+		507968581C1105830096E9F6 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507968571C1105830096E9F6 /* Data.swift */; };
+		5079685F1C1109580096E9F6 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079685D1C1109580096E9F6 /* HighScoreViewController.swift */; };
+		507968601C1109580096E9F6 /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5079685E1C1109580096E9F6 /* HighScoreViewController.xib */; };
 		50C1458D1C0FCD03001D5575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C1458C1C0FCD03001D5575 /* AppDelegate.swift */; };
 		50C145941C0FCD03001D5575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50C145931C0FCD03001D5575 /* Assets.xcassets */; };
 		50C145971C0FCD03001D5575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50C145951C0FCD03001D5575 /* LaunchScreen.storyboard */; };
@@ -20,6 +23,9 @@
 /* Begin PBXFileReference section */
 		500689111C0FCF69007BC5E0 /* MineSweeperGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineSweeperGame.swift; sourceTree = "<group>"; };
 		500689131C0FCFBB007BC5E0 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		507968571C1105830096E9F6 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		5079685D1C1109580096E9F6 /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighScoreViewController.swift; path = ../HighScoreViewController.swift; sourceTree = "<group>"; };
+		5079685E1C1109580096E9F6 /* HighScoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HighScoreViewController.xib; path = ../HighScoreViewController.xib; sourceTree = "<group>"; };
 		50C145891C0FCD03001D5575 /* MineSweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MineSweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50C1458C1C0FCD03001D5575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50C145931C0FCD03001D5575 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,9 +68,12 @@
 			children = (
 				50C145A81C0FCEDC001D5575 /* IntroViewController.swift */,
 				50C145A91C0FCEDC001D5575 /* IntroViewController.xib */,
+				5079685D1C1109580096E9F6 /* HighScoreViewController.swift */,
+				5079685E1C1109580096E9F6 /* HighScoreViewController.xib */,
 				50C145A61C0FCE52001D5575 /* GameViewController.swift */,
 				500689111C0FCF69007BC5E0 /* MineSweeperGame.swift */,
 				500689131C0FCFBB007BC5E0 /* Tile.swift */,
+				507968571C1105830096E9F6 /* Data.swift */,
 				50C1458C1C0FCD03001D5575 /* AppDelegate.swift */,
 				50C145931C0FCD03001D5575 /* Assets.xcassets */,
 				50C145951C0FCD03001D5575 /* LaunchScreen.storyboard */,
@@ -135,6 +144,7 @@
 				50C145971C0FCD03001D5575 /* LaunchScreen.storyboard in Resources */,
 				50C145941C0FCD03001D5575 /* Assets.xcassets in Resources */,
 				50C145AB1C0FCEDC001D5575 /* IntroViewController.xib in Resources */,
+				507968601C1109580096E9F6 /* HighScoreViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +156,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				50C145AA1C0FCEDC001D5575 /* IntroViewController.swift in Sources */,
+				5079685F1C1109580096E9F6 /* HighScoreViewController.swift in Sources */,
+				507968581C1105830096E9F6 /* Data.swift in Sources */,
 				50C145A71C0FCE52001D5575 /* GameViewController.swift in Sources */,
 				500689141C0FCFBB007BC5E0 /* Tile.swift in Sources */,
 				500689121C0FCF69007BC5E0 /* MineSweeperGame.swift in Sources */,
