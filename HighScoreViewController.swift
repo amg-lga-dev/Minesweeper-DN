@@ -21,30 +21,19 @@ class HighScoreViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        e8.text = "Easy: 0:00"
-        e10.text = "Easy: 0:00"
-        e12.text = "Easy: 0:00"
-        m8.text = "Medium: 0:00"
-        m10.text = "Medium: 0:00"
-        m12.text = "Medium: 0:00"
-        h8.text = "Hard: 0:00"
-        h10.text = "Hard: 0:00"
-        h12.text = "Hard: 0:00"
-        
-        
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
-        e8.text = "Easy: \(boardArray[0].times[0] / 60):\(boardArray[0].times[0] % 60)"
-        e10.text = "Easy: \(boardArray[0].times[1] / 60):\(boardArray[0].times[1] % 60)"
-        e12.text = "Easy: \(boardArray[0].times[2] / 60):\(boardArray[0].times[2] % 60)"
-        m8.text = "Medium: \(boardArray[1].times[0] / 60):\(boardArray[1].times[0] % 60)"
-        m10.text = "Medium: \(boardArray[1].times[1] / 60):\(boardArray[1].times[1] % 60)"
-        m12.text = "Medium: \(boardArray[1].times[2] / 60):\(boardArray[1].times[2] % 60)"
-        h8.text = "Hard: \(boardArray[2].times[0] / 60):\(boardArray[2].times[0] % 60)"
-        h10.text = "Hard: \(boardArray[2].times[1] / 60):\(boardArray[2].times[1] % 60)"
-        h12.text = "Hard: \(boardArray[2].times[2] / 60):\(boardArray[2].times[2] % 60)"
+        e8.text = "Easy: \(boardArray[0].times[0] / 60) min, \(boardArray[0].times[0] % 60) sec"
+        e10.text = "Easy: \(boardArray[0].times[1] / 60) min, \(boardArray[0].times[1] % 60) sec"
+        e12.text = "Easy: \(boardArray[0].times[2] / 60) min, \(boardArray[0].times[2] % 60) sec"
+        m8.text = "Medium: \(boardArray[1].times[0] / 60) min, \(boardArray[1].times[0] % 60) sec"
+        m10.text = "Medium: \(boardArray[1].times[1] / 60) min, \(boardArray[1].times[1] % 60) sec"
+        m12.text = "Medium: \(boardArray[1].times[2] / 60) min, \(boardArray[1].times[2] % 60) sec"
+        h8.text = "Hard: \(boardArray[2].times[0] / 60) min, \(boardArray[2].times[0] % 60) sec"
+        h10.text = "Hard: \(boardArray[2].times[1] / 60) min, \(boardArray[2].times[1] % 60) sec"
+        h12.text = "Hard: \(boardArray[2].times[2] / 60) min, \(boardArray[2].times[2] % 60) sec"
     }
 
     override func didReceiveMemoryWarning() {
