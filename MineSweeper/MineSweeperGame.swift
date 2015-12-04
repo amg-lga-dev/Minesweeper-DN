@@ -76,7 +76,7 @@ class MineSweeperGame: NSObject {
         for tile in tiles {
             let y = UInt32(5 - gameLevel)
             let x = Int(arc4random_uniform(y)) + 1  // makes more bombs if level is higher
-            if (x == 0) {
+            if (x == 1) {
                 tile.isBomb = true
             }
         }

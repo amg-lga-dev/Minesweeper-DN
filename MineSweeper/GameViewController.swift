@@ -55,6 +55,13 @@ class GameViewController: UIViewController {
                 }
                 else {
                     tile.setTitle("\(tile.number)", forState: .Normal)
+                    switch tile.number {
+                    case 1: tile.setTitleColor(UIColor.greenColor(), forState: .Normal)
+                    case 2: tile.setTitleColor(UIColor.blueColor(), forState: .Normal)
+                    case 3: tile.setTitleColor(UIColor.yellowColor(), forState: .Normal)
+                    case 4: tile.setTitleColor(UIColor.magentaColor(), forState: .Normal)
+                    default: tile.setTitleColor(UIColor.redColor(), forState: .Normal)
+                    }
                 }
             }
         }
