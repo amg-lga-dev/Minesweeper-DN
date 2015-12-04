@@ -84,6 +84,10 @@ class MineSweeperGame: NSObject {
     func loseGame() {
         for tile in tiles {
             tile.enabled = false
+            if tile.isBomb {
+                tile.layer.backgroundColor = UIColor.whiteColor().CGColor
+                tile.setImage(UIImage(named: "bomb"), forState: .Normal)
+            }
         }
         
         timer.invalidate()
