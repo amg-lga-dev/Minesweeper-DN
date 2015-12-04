@@ -18,9 +18,10 @@ class Board{
     }
     
     func updateScore(level: Int, time: Int){
+        print("called")
         var curTime = times[level]
         // Check if time is better
-        if (time < curTime){
+        if (time < curTime || curTime == 0){
             curTime = time
         }
     }

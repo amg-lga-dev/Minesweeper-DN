@@ -21,15 +21,15 @@ class HighScoreViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        e8.text = "Easy: \(boardArray[0].times[0])"
-        e10.text = "Easy: \(boardArray[0].times[1])"
-        e12.text = "Easy: \(boardArray[0].times[2])"
-        m8.text = "Medium: \(boardArray[1].times[0])"
-        m10.text = "Medium: \(boardArray[1].times[1])"
-        m12.text = "Medium: \(boardArray[1].times[2])"
-        h8.text = "Hard: \(boardArray[2].times[0])"
-        h10.text = "Hard: \(boardArray[2].times[1])"
-        h12.text = "Hard: \(boardArray[2].times[2])"
+        e8.text = "Easy: \(boardArray[0].times[0] / 60):\(boardArray[0].times[0] % 60)"
+        e10.text = "Easy: \(boardArray[0].times[1] / 60):\(boardArray[0].times[1] % 60)"
+        e12.text = "Easy: \(boardArray[0].times[2] / 60):\(boardArray[0].times[2] % 60)"
+        m8.text = "Medium: \(boardArray[1].times[0] / 60):\(boardArray[1].times[0] % 60)"
+        m10.text = "Medium: \(boardArray[1].times[1] / 60):\(boardArray[1].times[1] % 60)"
+        m12.text = "Medium: \(boardArray[1].times[2] / 60):\(boardArray[1].times[2] % 60)"
+        h8.text = "Hard: \(boardArray[2].times[0] / 60):\(boardArray[2].times[0] % 60)"
+        h10.text = "Hard: \(boardArray[2].times[1] / 60):\(boardArray[2].times[1] % 60)"
+        h12.text = "Hard: \(boardArray[2].times[2] / 60):\(boardArray[2].times[2] % 60)"
         
         
         // Do any additional setup after loading the view.
