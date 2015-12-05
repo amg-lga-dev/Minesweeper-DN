@@ -17,12 +17,16 @@ class MineSweeperGame: NSObject {
     var timeLabel: UILabel!
     var bestTimeLabel: UILabel!
     var gameLevel: Int
+    var pauseGame: Int
+    var loseOrWin: Int
     
     init(gameSize: Int, gameLevel: Int, vc: GameViewController) {
         self.gameLevel = gameLevel
         self.gvc = vc
         self.gameSize = gameSize
         self.time = 0
+        self.pauseGame = 0
+        self.loseOrWin = 0
         tiles = []
         super.init()
         setTilesInView()
@@ -61,14 +65,16 @@ class MineSweeperGame: NSObject {
     }
     
     func timerFired(sender: NSTimer) {
-        time++
-        let seconds = time % 60
-        let minutes = time / 60
-        if seconds < 10 {
-            timeLabel.text = "Time: \(minutes):0\(seconds)"
-        }
-        else {
-            timeLabel.text = "Time: \(minutes):\(seconds)"
+        if pauseGame == 0{
+            time++
+            let seconds = time % 60
+            let minutes = time / 60
+            if seconds < 10 {
+                timeLabel.text = "Time: \(minutes):0\(seconds)"
+            }
+            else {
+                timeLabel.text = "Time: \(minutes):\(seconds)"
+            }
         }
     }
     
@@ -99,6 +105,7 @@ class MineSweeperGame: NSObject {
         endLabel.textAlignment = NSTextAlignment.Center
         endLabel.font = UIFont.systemFontOfSize(40, weight: 1)
         gvc.view.addSubview(endLabel)
+        loseOrWin = 1
     }
     
     func checkWinGame() {
@@ -124,6 +131,7 @@ class MineSweeperGame: NSObject {
             endLabel.font = UIFont.systemFontOfSize(40, weight: 1)
             gvc.view.addSubview(endLabel)
             boardArray[(gameSize - 8) / 2].updateScore(gameLevel, time: time)
+            loseOrWin = 1
         }
     }
     

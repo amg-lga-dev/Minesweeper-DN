@@ -83,28 +83,6 @@
                     </segments>
                     <color key="tintColor" red="0.44760317831294527" green="0.67734581552577833" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kD2-ww-apo">
-                    <rect key="frame" x="240" y="381" width="120" height="43"/>
-                    <animations/>
-                    <color key="backgroundColor" red="0.38039215686274508" green="0.60392156862745094" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="120" id="TYb-fR-xdr"/>
-                        <constraint firstAttribute="height" constant="43" id="V4Q-v4-r7C"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
-                    <state key="normal" title="Start Game">
-                        <color key="titleColor" red="0.011171105354764791" green="0.014195303608677627" blue="0.018426865183246099" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="startGame:" destination="-1" eventType="touchUpInside" id="DjE-5y-ejO"/>
-                    </connections>
-                </button>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QDK-13-c7f">
                     <rect key="frame" x="196" y="437" width="209" height="29"/>
                     <animations/>
@@ -119,11 +97,33 @@
                     </segments>
                     <color key="tintColor" red="0.44760317831294527" green="0.67734581552577833" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kD2-ww-apo">
+                    <rect key="frame" x="231" y="378" width="138" height="43"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.38039215686274508" green="0.60392156862745094" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="138" id="TYb-fR-xdr"/>
+                        <constraint firstAttribute="height" constant="43" id="V4Q-v4-r7C"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                    <state key="normal" title="START GAME">
+                        <color key="titleColor" red="0.011171105354764791" green="0.014195303608677627" blue="0.018426865183246099" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="startGame:" destination="-1" eventType="touchUpInside" id="DjE-5y-ejO"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="QDK-13-c7f" firstAttribute="top" secondItem="kD2-ww-apo" secondAttribute="bottom" constant="13" id="1qB-0t-CDJ"/>
+                <constraint firstItem="QDK-13-c7f" firstAttribute="top" secondItem="kD2-ww-apo" secondAttribute="bottom" constant="16" id="1qB-0t-CDJ"/>
                 <constraint firstItem="YMo-dK-xeP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="61" id="8Bi-OM-Jiq"/>
                 <constraint firstItem="Ufz-9M-itV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="Itp-z5-tTX"/>
                 <constraint firstItem="fFq-Ev-zjg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="P0c-L3-GpY"/>

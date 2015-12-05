@@ -12,6 +12,7 @@ class GameViewController: UIViewController {
     var game: MineSweeperGame!
     var gameSize: Int!
     var gameLevel: Int!
+    var screenCover: UIView!
 
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.grayColor()
@@ -25,42 +26,75 @@ class GameViewController: UIViewController {
             tile.addGestureRecognizer(longPress)
         }
         
-        let alertController = UIAlertController(title: "Ready to Start?", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Go!", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+        let alertController = UIAlertController(title: "Ready to Sweep?", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Mine!", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
             // action to happen when okay is selected
             self.game.initTimer()
+            self.screenCover = UIView(frame: CGRect(x: 0, y: 65, width: self.view.bounds.width, height: self.view.bounds.width))
+            self.screenCover.backgroundColor = UIColor.blackColor()
+            self.screenCover.hidden = true
+            let w = self.screenCover.bounds.width
+            let mine = UIImageView(frame: CGRect(x: w/4, y: 65, width: w/2, height: w/2))
+            mine.image = UIImage(named: "landmine")
+            self.screenCover.addSubview(mine)
+            self.view.addSubview(self.screenCover)
         }))
         
         alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
         presentViewController(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func tilePressed(sender: UIButton) {
-        let tile = sender as! Tile
-        if tile.flipped == false {
-            tile.flipped = true
-            tile.marked = false
-            
-            if tile.isBomb {
-                tile.layer.backgroundColor = UIColor.whiteColor().CGColor
-                tile.setImage(UIImage(named: "bomb"), forState: .Normal)
-                game.loseGame()
+    override func viewWillAppear(animated: Bool) {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: " Quit", style: .Plain, target: self, action: "quit:")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: .Plain, target: self, action: "pauseButtonPressed:")
+    }
+    
+    func quit(sender: AnyObject){
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    func pauseButtonPressed(sender: AnyObject){
+        if game.loseOrWin == 0{
+            if self.navigationItem.rightBarButtonItem?.title == "Pause"{
+                game.pauseGame = 1
+                self.navigationItem.rightBarButtonItem?.title = "Play"
+                screenCover.hidden = false
+            }else{
+                game.pauseGame = 0
+                self.navigationItem.rightBarButtonItem?.title = "Pause"
+                screenCover.hidden = true
             }
-            else {
-                tile.layer.backgroundColor = UIColor.grayColor().CGColor
-                tile.setImage(nil, forState: .Normal)
-                game.checkWinGame()
-                if (tile.number == 0) {
-                    game.clearOut(tile)
+        }
+    }
+    
+    @IBAction func tilePressed(sender: UIButton) {
+        if game.pauseGame == 0{
+            let tile = sender as! Tile
+            if tile.flipped == false {
+                tile.flipped = true
+                tile.marked = false
+            
+                if tile.isBomb {
+                    tile.layer.backgroundColor = UIColor.whiteColor().CGColor
+                    tile.setImage(UIImage(named: "bomb"), forState: .Normal)
+                    game.loseGame()
                 }
                 else {
-                    tile.setTitle("\(tile.number)", forState: .Normal)
-                    switch tile.number {
-                    case 1: tile.setTitleColor(UIColor.greenColor(), forState: .Normal)
-                    case 2: tile.setTitleColor(UIColor.blueColor(), forState: .Normal)
-                    case 3: tile.setTitleColor(UIColor.yellowColor(), forState: .Normal)
-                    case 4: tile.setTitleColor(UIColor.magentaColor(), forState: .Normal)
-                    default: tile.setTitleColor(UIColor.redColor(), forState: .Normal)
+                    tile.layer.backgroundColor = UIColor.grayColor().CGColor
+                    tile.setImage(nil, forState: .Normal)
+                    game.checkWinGame()
+                    if (tile.number == 0) {
+                        game.clearOut(tile)
+                    }
+                    else {
+                        tile.setTitle("\(tile.number)", forState: .Normal)
+                        switch tile.number {
+                        case 1: tile.setTitleColor(UIColor.greenColor(), forState: .Normal)
+                        case 2: tile.setTitleColor(UIColor.blueColor(), forState: .Normal)
+                        case 3: tile.setTitleColor(UIColor.yellowColor(), forState: .Normal)
+                        case 4: tile.setTitleColor(UIColor.magentaColor(), forState: .Normal)
+                        default: tile.setTitleColor(UIColor.redColor(), forState: .Normal)
+                        }
                     }
                 }
             }
@@ -68,11 +102,13 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func tileLongPressed(sender: UILongPressGestureRecognizer) {
-        let tile = sender.view as! Tile
-        if tile.flipped == false {
-            tile.marked = true
-            let image = UIImage(named: "flag")
-            tile.setImage(image, forState: .Normal)
+        if game.pauseGame == 0{
+            let tile = sender.view as! Tile
+            if tile.flipped == false {
+                tile.marked = true
+                let image = UIImage(named: "flag")
+                tile.setImage(image, forState: .Normal)
+            }
         }
     }
 
