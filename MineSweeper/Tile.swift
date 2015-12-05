@@ -13,6 +13,7 @@ class Tile: UIButton {
     var marked: Bool
     var isBomb: Bool
     var number: Int
+    var centerLoc: CGPoint!
     
     override init(frame: CGRect) {
         self.number = -2

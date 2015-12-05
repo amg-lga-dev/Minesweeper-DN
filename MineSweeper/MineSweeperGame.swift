@@ -19,6 +19,7 @@ class MineSweeperGame: NSObject {
     var gameLevel: Int
     var pauseGame: Int
     var loseOrWin: Int
+    var firstTilePressed: Int
     
     init(gameSize: Int, gameLevel: Int, vc: GameViewController) {
         self.gameLevel = gameLevel
@@ -27,6 +28,7 @@ class MineSweeperGame: NSObject {
         self.time = 0
         self.pauseGame = 0
         self.loseOrWin = 0
+        self.firstTilePressed = 0
         tiles = []
         super.init()
         setTilesInView()
