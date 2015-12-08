@@ -50,7 +50,13 @@ class MineSweeperGame: NSObject {
         }
         
         bestTimeLabel = UILabel(frame: CGRect(x: 10.0, y: Double(gvc.view.bounds.width) + 80, width: Double(gvc.view.bounds.width / 3), height: 30.0))
-        bestTimeLabel.text = "Best Time: \(boardArray[(gameSize - 8) / 2].times[gameLevel])"
+        let bestTime = boardArray[(gameSize - 8) / 2].times[gameLevel]
+        if (bestTime % 60 < 10) {
+            bestTimeLabel.text = "Best Time: \(bestTime / 60):0\(bestTime % 60)"
+        }
+        else {
+            bestTimeLabel.text = "Best Time: \(bestTime / 60):\(bestTime % 60)"
+        }
         gvc.view.addSubview(bestTimeLabel)
         
         timeLabel = UILabel(frame: CGRect(x: Double(gvc.view.bounds.width / 2), y: Double(gvc.view.bounds.width) + 80, width: Double(gvc.view.bounds.width / 2) - 10.0, height: 30.0))
