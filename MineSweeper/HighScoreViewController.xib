@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HighScoreViewController" customModule="MineSweeper" customModuleProvider="target">
@@ -26,7 +26,6 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landmine" translatesAutoresizingMaskIntoConstraints="NO" id="pFt-NP-Vsn">
                     <rect key="frame" x="468" y="464" width="105" height="105"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="105" id="J9o-pW-TF5"/>
                         <constraint firstAttribute="width" constant="105" id="VNN-eT-31x"/>
@@ -34,7 +33,6 @@
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 x 8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSN-lL-3At">
                     <rect key="frame" x="8" y="152" width="65" height="27"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.38034281573230477" green="0.60073620121569204" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="65" id="PjW-3g-Bxn"/>
@@ -46,7 +44,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 x 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pH1-Po-dY0">
                     <rect key="frame" x="8" y="286" width="65" height="28"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.3803428157" green="0.60073620120000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="NLf-a4-GeL"/>
@@ -58,7 +55,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 x 12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUv-fL-HFR">
                     <rect key="frame" x="8" y="422" width="65" height="27"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.3803428157" green="0.60073620120000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="65" id="Taa-hG-m3z"/>
@@ -70,7 +66,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hard: No Score Yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGz-zT-6Eq">
                     <rect key="frame" x="197" y="184" width="209" height="21"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="b11-C1-aoN"/>
                         <constraint firstAttribute="width" constant="208.5" id="jyC-ww-LfG"/>
@@ -81,7 +76,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medium: No Score Yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVS-mQ-2fo">
                     <rect key="frame" x="197" y="155" width="209" height="21"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="208.5" id="1V0-Qo-664"/>
                         <constraint firstAttribute="height" constant="21" id="GAA-sX-aNx"/>
@@ -92,7 +86,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easy: No Score Yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBj-0e-K7y">
                     <rect key="frame" x="197" y="126" width="209" height="21"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="208.5" id="12Q-0g-8et"/>
                         <constraint firstAttribute="height" constant="21" id="r5b-lO-iZZ"/>
@@ -103,7 +96,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hard: No Score Yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wj-YC-kA3">
                     <rect key="frame" x="197" y="319" width="209" height="21"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="pBD-jj-oAZ"/>
                         <constraint firstAttribute="width" constant="208.5" id="r9F-hw-1SF"/>
@@ -114,7 +106,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medium: No Score Yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdq-hz-fb7">
                     <rect key="frame" x="197" y="290" width="209" height="21"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="f7w-tU-O9a"/>
                         <constraint firstAttribute="width" constant="208.5" id="wbV-Ed-3Sg"/>
@@ -125,7 +116,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easy: No Score Yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGu-zt-aXb">
                     <rect key="frame" x="197" y="261" width="209" height="21"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="208.5" id="9KU-hc-lP8"/>
                         <constraint firstAttribute="height" constant="21" id="x4P-ck-5qt"/>
@@ -136,7 +126,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hard: No Score Yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKn-z4-ykU">
                     <rect key="frame" x="197" y="454" width="209" height="21"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="208.5" id="Fno-gY-JNa"/>
                         <constraint firstAttribute="height" constant="21" id="et6-b0-0hV"/>
@@ -147,7 +136,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medium: No Score Yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lug-MO-R0q">
                     <rect key="frame" x="196" y="425" width="208" height="21"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="208" id="mNB-Ys-Bdm"/>
                         <constraint firstAttribute="height" constant="21" id="rgA-Gf-voU"/>
@@ -158,7 +146,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easy: No Score Yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdU-mY-qyY">
                     <rect key="frame" x="197" y="396" width="209" height="21"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="WFY-kW-XVr"/>
                         <constraint firstAttribute="width" constant="208.5" id="ga0-XI-DRO"/>
@@ -169,7 +156,6 @@
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landmine" translatesAutoresizingMaskIntoConstraints="NO" id="BTp-gE-ns0">
                     <rect key="frame" x="8" y="8" width="150" height="150"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="5tY-hi-7al"/>
                         <constraint firstAttribute="width" constant="150" id="vfn-3b-cfF"/>
@@ -177,7 +163,6 @@
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptX-jM-y1c">
                     <rect key="frame" x="271" y="554" width="58" height="30"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.3803921569" green="0.60392156860000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="QK4-k7-phh"/>
@@ -206,7 +191,6 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <animations/>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="bUv-fL-HFR" firstAttribute="top" secondItem="pH1-Po-dY0" secondAttribute="bottom" constant="108" id="3Zw-iw-uFF"/>

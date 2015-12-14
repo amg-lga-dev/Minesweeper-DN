@@ -26,13 +26,13 @@ class HighScoreViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         e8.text = "Easy: \(boardArray[0].times[0] / 60) min, \(boardArray[0].times[0] % 60) sec"
-        e10.text = "Easy: \(boardArray[0].times[1] / 60) min, \(boardArray[0].times[1] % 60) sec"
-        e12.text = "Easy: \(boardArray[0].times[2] / 60) min, \(boardArray[0].times[2] % 60) sec"
-        m8.text = "Medium: \(boardArray[1].times[0] / 60) min, \(boardArray[1].times[0] % 60) sec"
+        e10.text = "Easy: \(boardArray[1].times[0] / 60) min, \(boardArray[1].times[0] % 60) sec"
+        e12.text = "Easy: \(boardArray[2].times[0] / 60) min, \(boardArray[2].times[0] % 60) sec"
+        m8.text = "Medium: \(boardArray[0].times[1] / 60) min, \(boardArray[0].times[1] % 60) sec"
         m10.text = "Medium: \(boardArray[1].times[1] / 60) min, \(boardArray[1].times[1] % 60) sec"
-        m12.text = "Medium: \(boardArray[1].times[2] / 60) min, \(boardArray[1].times[2] % 60) sec"
-        h8.text = "Hard: \(boardArray[2].times[0] / 60) min, \(boardArray[2].times[0] % 60) sec"
-        h10.text = "Hard: \(boardArray[2].times[1] / 60) min, \(boardArray[2].times[1] % 60) sec"
+        m12.text = "Medium: \(boardArray[2].times[1] / 60) min, \(boardArray[2].times[1] % 60) sec"
+        h8.text = "Hard: \(boardArray[0].times[2] / 60) min, \(boardArray[0].times[2] % 60) sec"
+        h10.text = "Hard: \(boardArray[1].times[2] / 60) min, \(boardArray[1].times[2] % 60) sec"
         h12.text = "Hard: \(boardArray[2].times[2] / 60) min, \(boardArray[2].times[2] % 60) sec"
     }
 
