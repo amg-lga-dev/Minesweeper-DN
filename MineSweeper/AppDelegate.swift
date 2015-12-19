@@ -24,6 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.whiteColor()
         window?.makeKeyAndVisible()
         
+        let kArray = ["8Easy", "10Easy", "12Easy", "8Medium", "10Medium", "12Medium", "8Hard", "10Hard", "12Hard"]
+        for key in kArray {
+            if NSUserDefaults.standardUserDefaults().valueForKey(key) == nil {
+                NSUserDefaults.standardUserDefaults().setValue(0, forKey: key)
+            }
+        }
+        
         return true
     }
 

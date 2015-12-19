@@ -190,6 +190,26 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AM3-il-vOi">
+                    <rect key="frame" x="8" y="552" width="107" height="32.5"/>
+                    <color key="backgroundColor" red="0.99607843139999996" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="107" id="xZV-ex-U92"/>
+                        <constraint firstAttribute="height" constant="32.5" id="zfC-ud-bHv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <state key="normal" title="Clear High Scores">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="clearHighScores:" destination="-1" eventType="touchUpInside" id="95z-bK-fcD"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -202,6 +222,7 @@
                 <constraint firstItem="LSN-lL-3At" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="FZd-N4-kzh"/>
                 <constraint firstItem="pH1-Po-dY0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="H50-C9-Sh5"/>
                 <constraint firstItem="EKn-z4-ykU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1.25" id="HcT-ld-m8a"/>
+                <constraint firstItem="AM3-il-vOi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="IDV-LO-yz2"/>
                 <constraint firstItem="qBj-0e-K7y" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1.25" id="Me7-yy-zCi"/>
                 <constraint firstItem="pH1-Po-dY0" firstAttribute="top" secondItem="LSN-lL-3At" secondAttribute="bottom" constant="107" id="MtW-BQ-k56"/>
                 <constraint firstItem="3wj-YC-kA3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1.25" id="Q7I-OU-za4"/>
@@ -212,6 +233,7 @@
                 <constraint firstItem="Qdq-hz-fb7" firstAttribute="top" secondItem="tGu-zt-aXb" secondAttribute="bottom" constant="8" id="a8X-Ch-Oyt"/>
                 <constraint firstItem="iGz-zT-6Eq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1.25" id="gRR-vs-w7J"/>
                 <constraint firstItem="ibq-e7-0Fc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="gjK-Af-pvr"/>
+                <constraint firstAttribute="bottom" secondItem="AM3-il-vOi" secondAttribute="bottom" constant="16" id="ipB-8f-NyZ"/>
                 <constraint firstItem="BTp-gE-ns0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="j1C-mI-xYI"/>
                 <constraint firstItem="EdU-mY-qyY" firstAttribute="top" secondItem="3wj-YC-kA3" secondAttribute="bottom" constant="56" id="jPv-di-Ur4"/>
                 <constraint firstItem="ptX-jM-y1c" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kYE-Pc-703"/>

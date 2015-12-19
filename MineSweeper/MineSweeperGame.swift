@@ -139,7 +139,18 @@ class MineSweeperGame: NSObject {
             endLabel.font = UIFont.systemFontOfSize(40, weight: 1)
             gvc.view.addSubview(endLabel)
             boardArray[(gameSize - 8) / 2].updateScore(gameLevel, time: time)
+            var key = ""
+            switch self.gameLevel {
+            case 0: key = "\(gameSize)Easy"
+            case 1: key = "\(gameSize)Medium"
+            case 2: key = "\(gameSize)Hard"
+            default: key = "error"
+            }
+            if ((NSUserDefaults.standardUserDefaults().valueForKey(key) as! Int) < time) {
+                NSUserDefaults.standardUserDefaults().setValue(time, forKey: key)
+            }
             loseOrWin = 1
+            NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
     

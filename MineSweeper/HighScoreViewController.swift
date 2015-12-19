@@ -24,16 +24,33 @@ class HighScoreViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+//    override func viewWillAppear(animated: Bool) {
+//        e8.text = "Easy: \(boardArray[0].times[0] / 60) min, \(boardArray[0].times[0] % 60) sec"
+//        e10.text = "Easy: \(boardArray[1].times[0] / 60) min, \(boardArray[1].times[0] % 60) sec"
+//        e12.text = "Easy: \(boardArray[2].times[0] / 60) min, \(boardArray[2].times[0] % 60) sec"
+//        m8.text = "Medium: \(boardArray[0].times[1] / 60) min, \(boardArray[0].times[1] % 60) sec"
+//        m10.text = "Medium: \(boardArray[1].times[1] / 60) min, \(boardArray[1].times[1] % 60) sec"
+//        m12.text = "Medium: \(boardArray[2].times[1] / 60) min, \(boardArray[2].times[1] % 60) sec"
+//        h8.text = "Hard: \(boardArray[0].times[2] / 60) min, \(boardArray[0].times[2] % 60) sec"
+//        h10.text = "Hard: \(boardArray[1].times[2] / 60) min, \(boardArray[1].times[2] % 60) sec"
+//        h12.text = "Hard: \(boardArray[2].times[2] / 60) min, \(boardArray[2].times[2] % 60) sec"
+//    }
+    
+    
     override func viewWillAppear(animated: Bool) {
-        e8.text = "Easy: \(boardArray[0].times[0] / 60) min, \(boardArray[0].times[0] % 60) sec"
-        e10.text = "Easy: \(boardArray[1].times[0] / 60) min, \(boardArray[1].times[0] % 60) sec"
-        e12.text = "Easy: \(boardArray[2].times[0] / 60) min, \(boardArray[2].times[0] % 60) sec"
-        m8.text = "Medium: \(boardArray[0].times[1] / 60) min, \(boardArray[0].times[1] % 60) sec"
-        m10.text = "Medium: \(boardArray[1].times[1] / 60) min, \(boardArray[1].times[1] % 60) sec"
-        m12.text = "Medium: \(boardArray[2].times[1] / 60) min, \(boardArray[2].times[1] % 60) sec"
-        h8.text = "Hard: \(boardArray[0].times[2] / 60) min, \(boardArray[0].times[2] % 60) sec"
-        h10.text = "Hard: \(boardArray[1].times[2] / 60) min, \(boardArray[1].times[2] % 60) sec"
-        h12.text = "Hard: \(boardArray[2].times[2] / 60) min, \(boardArray[2].times[2] % 60) sec"
+        displayScores()
+    }
+    
+    func displayScores() {
+        e8.text = "Easy: \((NSUserDefaults.standardUserDefaults().valueForKey("8Easy") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("8Easy") as! Int) % 60) sec"
+        e10.text = "Easy: \((NSUserDefaults.standardUserDefaults().valueForKey("10Easy") as! Int)) min, \((NSUserDefaults.standardUserDefaults().valueForKey("10Easy") as! Int) % 60) sec"
+        e12.text = "Easy: \((NSUserDefaults.standardUserDefaults().valueForKey("12Easy") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("12Easy") as! Int) % 60) sec"
+        m8.text = "Medium: \((NSUserDefaults.standardUserDefaults().valueForKey("8Medium") as! Int)) min, \((NSUserDefaults.standardUserDefaults().valueForKey("8Medium") as! Int) % 60) sec"
+        m10.text = "Medium: \((NSUserDefaults.standardUserDefaults().valueForKey("10Medium") as! Int)) min, \((NSUserDefaults.standardUserDefaults().valueForKey("10Medium") as! Int)) sec"
+        m12.text = "Medium: \((NSUserDefaults.standardUserDefaults().valueForKey("12Medium") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("12Medium") as! Int) % 60) sec"
+        h8.text = "Hard: \((NSUserDefaults.standardUserDefaults().valueForKey("8Hard") as! Int)) min, \((NSUserDefaults.standardUserDefaults().valueForKey("8Hard") as! Int) % 60) sec"
+        h10.text = "Hard: \((NSUserDefaults.standardUserDefaults().valueForKey("10Hard") as! Int)) min, \((NSUserDefaults.standardUserDefaults().valueForKey("10Hard") as! Int) % 60) sec"
+        h12.text = "Hard: \((NSUserDefaults.standardUserDefaults().valueForKey("12Hard") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("12Hard") as! Int) % 60) sec"
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,6 +62,14 @@ class HighScoreViewController: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+    @IBAction func clearHighScores(sender: UIButton) {
+        let kArray = ["8Easy", "10Easy", "12Easy", "8Medium", "10Medium", "12Medium", "8Hard", "10Hard", "12Hard"]
+        for key in kArray {
+            NSUserDefaults.standardUserDefaults().setValue(0, forKey: key)
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        displayScores()
+    }
     /*
     // MARK: - Navigation
 
