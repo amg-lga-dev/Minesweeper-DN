@@ -38,6 +38,16 @@ class HighScoreViewController: UIViewController {
     
     
     override func viewWillAppear(animated: Bool) {
+        e8.hidden = true
+        e10.hidden = true
+        e12.hidden = true
+        m8.hidden = true
+        m10.hidden = true
+        m12.hidden = true
+        h8.hidden = true
+        h10.hidden = true
+        h12.hidden = true
+        
         displayScores()
     }
     
@@ -70,14 +80,41 @@ class HighScoreViewController: UIViewController {
         }
         displayScores()
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func showEightBoard(sender: UIButton) {
+        if e8.hidden == false{
+            e8.hidden = true
+            m8.hidden = true
+            h8.hidden = true
+        }else{
+            e8.hidden = false
+            m8.hidden = false
+            h8.hidden = false
+        }
     }
-    */
+    
+    @IBAction func showTenBoard(sender: UIButton) {
+        if e10.hidden == false{
+            e10.hidden = true
+            m10.hidden = true
+            h10.hidden = true
+        }else{
+            e10.hidden = false
+            m10.hidden = false
+            h10.hidden = false
+        }
+    }
 
+    @IBAction func showTwelveBoard(sender: UIButton) {
+        if e12.hidden == false{
+            e12.hidden = true
+            m12.hidden = true
+            h12.hidden = true
+        }else{
+            e12.hidden = false
+            m12.hidden = false
+            h12.hidden = false
+        }
+    }
+    
 }
