@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -168,6 +168,7 @@
                         <constraint firstAttribute="height" constant="30" id="QK4-k7-phh"/>
                         <constraint firstAttribute="width" constant="58" id="TEz-x4-WPk"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                     <state key="normal" title="Done">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -181,24 +182,24 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Best Times" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibq-e7-0Fc">
-                    <rect key="frame" x="408" y="25" width="167" height="40"/>
+                    <rect key="frame" x="374" y="25" width="201" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="0pJ-0V-Tno"/>
-                        <constraint firstAttribute="width" constant="167" id="DQ5-L2-6Rg"/>
+                        <constraint firstAttribute="width" constant="201" id="DQ5-L2-6Rg"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="24"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="24"/>
+                    <color key="textColor" red="1" green="0.98566749939999998" blue="0.31900312829999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AM3-il-vOi">
-                    <rect key="frame" x="8" y="552" width="107" height="32.5"/>
-                    <color key="backgroundColor" red="0.99607843139999996" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="16" y="554" width="107" height="30"/>
+                    <color key="backgroundColor" red="0.3803921569" green="0.60392156860000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="107" id="xZV-ex-U92"/>
-                        <constraint firstAttribute="height" constant="32.5" id="zfC-ud-bHv"/>
+                        <constraint firstAttribute="height" constant="30" id="WPE-cy-8NV"/>
+                        <constraint firstAttribute="width" constant="107" id="lFg-yf-fBW"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <state key="normal" title="Clear High Scores">
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                    <state key="normal" title="Clear Scores">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -219,10 +220,10 @@
                 <constraint firstItem="Qdq-hz-fb7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1.25" id="Chk-s2-eUb"/>
                 <constraint firstAttribute="bottom" secondItem="pFt-NP-Vsn" secondAttribute="bottom" constant="31" id="DKS-fk-kWV"/>
                 <constraint firstItem="RVS-mQ-2fo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1.25" id="DPS-yd-Uwt"/>
+                <constraint firstAttribute="bottom" secondItem="AM3-il-vOi" secondAttribute="bottom" constant="16" id="FSO-DC-wS9"/>
                 <constraint firstItem="LSN-lL-3At" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="FZd-N4-kzh"/>
                 <constraint firstItem="pH1-Po-dY0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="H50-C9-Sh5"/>
                 <constraint firstItem="EKn-z4-ykU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1.25" id="HcT-ld-m8a"/>
-                <constraint firstItem="AM3-il-vOi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="IDV-LO-yz2"/>
                 <constraint firstItem="qBj-0e-K7y" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1.25" id="Me7-yy-zCi"/>
                 <constraint firstItem="pH1-Po-dY0" firstAttribute="top" secondItem="LSN-lL-3At" secondAttribute="bottom" constant="107" id="MtW-BQ-k56"/>
                 <constraint firstItem="3wj-YC-kA3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1.25" id="Q7I-OU-za4"/>
@@ -233,7 +234,6 @@
                 <constraint firstItem="Qdq-hz-fb7" firstAttribute="top" secondItem="tGu-zt-aXb" secondAttribute="bottom" constant="8" id="a8X-Ch-Oyt"/>
                 <constraint firstItem="iGz-zT-6Eq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1.25" id="gRR-vs-w7J"/>
                 <constraint firstItem="ibq-e7-0Fc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="gjK-Af-pvr"/>
-                <constraint firstAttribute="bottom" secondItem="AM3-il-vOi" secondAttribute="bottom" constant="16" id="ipB-8f-NyZ"/>
                 <constraint firstItem="BTp-gE-ns0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="j1C-mI-xYI"/>
                 <constraint firstItem="EdU-mY-qyY" firstAttribute="top" secondItem="3wj-YC-kA3" secondAttribute="bottom" constant="56" id="jPv-di-Ur4"/>
                 <constraint firstItem="ptX-jM-y1c" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kYE-Pc-703"/>
@@ -241,6 +241,7 @@
                 <constraint firstAttribute="trailing" secondItem="ibq-e7-0Fc" secondAttribute="trailing" constant="25" id="lfA-z1-0Yx"/>
                 <constraint firstItem="pH1-Po-dY0" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="mGT-IK-Wdd"/>
                 <constraint firstItem="Lug-MO-R0q" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="oBl-Jn-0rS"/>
+                <constraint firstItem="AM3-il-vOi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="pGx-VG-DnO"/>
                 <constraint firstAttribute="trailing" secondItem="pFt-NP-Vsn" secondAttribute="trailing" constant="27" id="pwf-rA-rM7"/>
                 <constraint firstItem="EKn-z4-ykU" firstAttribute="top" secondItem="Lug-MO-R0q" secondAttribute="bottom" constant="8" id="qwq-HF-QH6"/>
                 <constraint firstItem="tGu-zt-aXb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1.25" id="sca-U7-5rf"/>
