@@ -53,13 +53,13 @@ class HighScoreViewController: UIViewController {
     
     func displayScores() {
         e8.text = "Easy: \((NSUserDefaults.standardUserDefaults().valueForKey("8Easy") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("8Easy") as! Int) % 60) sec"
-        e10.text = "Easy: \((NSUserDefaults.standardUserDefaults().valueForKey("10Easy") as! Int)) min, \((NSUserDefaults.standardUserDefaults().valueForKey("10Easy") as! Int) % 60) sec"
+        e10.text = "Easy: \((NSUserDefaults.standardUserDefaults().valueForKey("10Easy") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("10Easy") as! Int) % 60) sec"
         e12.text = "Easy: \((NSUserDefaults.standardUserDefaults().valueForKey("12Easy") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("12Easy") as! Int) % 60) sec"
-        m8.text = "Medium: \((NSUserDefaults.standardUserDefaults().valueForKey("8Medium") as! Int)) min, \((NSUserDefaults.standardUserDefaults().valueForKey("8Medium") as! Int) % 60) sec"
-        m10.text = "Medium: \((NSUserDefaults.standardUserDefaults().valueForKey("10Medium") as! Int)) min, \((NSUserDefaults.standardUserDefaults().valueForKey("10Medium") as! Int)) sec"
+        m8.text = "Medium: \((NSUserDefaults.standardUserDefaults().valueForKey("8Medium") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("8Medium") as! Int) % 60) sec"
+        m10.text = "Medium: \((NSUserDefaults.standardUserDefaults().valueForKey("10Medium") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("10Medium") as! Int) % 60) sec"
         m12.text = "Medium: \((NSUserDefaults.standardUserDefaults().valueForKey("12Medium") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("12Medium") as! Int) % 60) sec"
-        h8.text = "Hard: \((NSUserDefaults.standardUserDefaults().valueForKey("8Hard") as! Int)) min, \((NSUserDefaults.standardUserDefaults().valueForKey("8Hard") as! Int) % 60) sec"
-        h10.text = "Hard: \((NSUserDefaults.standardUserDefaults().valueForKey("10Hard") as! Int)) min, \((NSUserDefaults.standardUserDefaults().valueForKey("10Hard") as! Int) % 60) sec"
+        h8.text = "Hard: \((NSUserDefaults.standardUserDefaults().valueForKey("8Hard") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("8Hard") as! Int) % 60) sec"
+        h10.text = "Hard: \((NSUserDefaults.standardUserDefaults().valueForKey("10Hard") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("10Hard") as! Int) % 60) sec"
         h12.text = "Hard: \((NSUserDefaults.standardUserDefaults().valueForKey("12Hard") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("12Hard") as! Int) % 60) sec"
     }
 
