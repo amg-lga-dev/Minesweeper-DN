@@ -50,7 +50,14 @@ class MineSweeperGame: NSObject {
         }
         
         bestTimeLabel = UILabel(frame: CGRect(x: 10.0, y: Double(gvc.view.bounds.width) + 80, width: Double(gvc.view.bounds.width / 3), height: 30.0))
-        let bestTime = boardArray[(gameSize - 8) / 2].times[gameLevel]
+        //let bestTime = boardArray[(gameSize - 8) / 2].times[gameLevel]
+        var bestTime = 0
+        switch gameLevel {
+        case 0: bestTime = NSUserDefaults.standardUserDefaults().valueForKey("\(gameSize)Easy") as! Int
+        case 1: bestTime = NSUserDefaults.standardUserDefaults().valueForKey("\(gameSize)Medium") as! Int
+        case 2: bestTime = NSUserDefaults.standardUserDefaults().valueForKey("\(gameSize)Hard") as! Int
+        default: bestTime = 0
+        }
         if (bestTime % 60 < 10) {
             bestTimeLabel.text = "Best Time: \(bestTime / 60):0\(bestTime % 60)"
         }
@@ -146,7 +153,7 @@ class MineSweeperGame: NSObject {
             case 2: key = "\(gameSize)Hard"
             default: key = "error"
             }
-            if ((NSUserDefaults.standardUserDefaults().valueForKey(key) as! Int) < time) {
+            if ((NSUserDefaults.standardUserDefaults().valueForKey(key) as! Int) > time || (NSUserDefaults.standardUserDefaults().valueForKey(key) as! Int) == 0) {
                 NSUserDefaults.standardUserDefaults().setValue(time, forKey: key)
             }
             loseOrWin = 1

@@ -119,7 +119,12 @@ class GameViewController: UIViewController {
 //                }else{
                     if tile.isBomb {
                         tile.layer.backgroundColor = UIColor.whiteColor().CGColor
-                        tile.setImage(UIImage(named: "bomb"), forState: .Normal)
+                        let image1:UIImage = UIImage(named: "bomb")!
+                        let image2:UIImage = UIImage(named: "explosion")!
+                        tile.setImage(image1, forState: UIControlState.Normal)
+                        tile.imageView!.animationImages = [image1, image2]
+                        tile.imageView!.animationDuration = 1.0
+                        tile.imageView!.startAnimating()
                         game.loseGame()
                     }
                     else {
