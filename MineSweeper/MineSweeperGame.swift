@@ -93,20 +93,10 @@ class MineSweeperGame: NSObject {
         }
     }
     
-    func setBombs() {
-        for tile in tiles {
-            let y = UInt32(5 - gameLevel)
-            let x = Int(arc4random_uniform(y)) + 1  // makes more bombs if level is higher
-            if (x == 1) {
-                tile.isBomb = true
-            }
-        }
-    }
-    
-    func loseGame() {
+    func loseGame(tilePressed: Tile) {
         for tile in tiles {
             tile.enabled = false
-            if tile.isBomb {
+            if tile.isBomb && tile != tilePressed{
                 tile.layer.backgroundColor = UIColor.whiteColor().CGColor
                 tile.setImage(UIImage(named: "bomb"), forState: .Normal)
             }
@@ -204,8 +194,17 @@ class MineSweeperGame: NSObject {
                 gvc.tilePressed(tiles[index - 1 + gameSize])
             }
         }
-
-        
+    }
+    
+    
+    func setBombs() {
+        for tile in tiles {
+            let y = UInt32(5 - gameLevel)
+            let x = Int(arc4random_uniform(y)) + 1  // makes more bombs if level is higher
+            if (x == 1) {
+                tile.isBomb = true
+            }
+        }
     }
     
     func setNumbers() {

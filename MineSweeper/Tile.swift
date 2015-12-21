@@ -13,7 +13,6 @@ class Tile: UIButton {
     var marked: Bool
     var isBomb: Bool
     var number: Int
-    var centerLoc: CGPoint!
     
     override init(frame: CGRect) {
         self.number = -2
@@ -29,13 +28,5 @@ class Tile: UIButton {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }

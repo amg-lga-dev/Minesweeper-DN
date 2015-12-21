@@ -67,86 +67,76 @@ class GameViewController: UIViewController {
         }
     }
     
-    /*
-    func resetBoard(index: Int){
-        print("resetting")
-        game.tiles = []
-        game.setTilesInView()
-        if game.tiles[index].isBomb{
-            resetBoard(index)
-        }else{
-            for tile in game.tiles{
-                tile.addTarget(self, action: "tilePressed:", forControlEvents: .TouchUpInside)
-                let longPress = UILongPressGestureRecognizer(target: self, action: "tileLongPressed:")
-                longPress.minimumPressDuration = 1
-                tile.addGestureRecognizer(longPress)
-            }
-            print("Finished Checking board")
-            for tile in game.tiles{
-                tile.layer.backgroundColor = UIColor.grayColor().CGColor
-                tile.setImage(nil, forState: .Normal)
-                game.checkWinGame()
-                if (tile.number == 0) {
-                    game.clearOut(tile)
-                }
-                else {
-                    tile.setTitle("\(tile.number)", forState: .Normal)
-                    switch tile.number {
-                    case 1: tile.setTitleColor(UIColor.greenColor(), forState: .Normal)
-                    case 2: tile.setTitleColor(UIColor.blueColor(), forState: .Normal)
-                    case 3: tile.setTitleColor(UIColor.yellowColor(), forState: .Normal)
-                    case 4: tile.setTitleColor(UIColor.magentaColor(), forState: .Normal)
-                    default: tile.setTitleColor(UIColor.redColor(), forState: .Normal)
-                    }
-                }
-
-            }
+    func resetTiles(){
+        for tile in game.tiles{
+            tile.number = -2
+            tile.isBomb = false
+            tile.flipped = false
+            tile.marked = false
+            tile.backgroundColor = UIColor.blackColor()
+            tile.layer.borderColor = UIColor.whiteColor().CGColor
+            tile.layer.borderWidth = 1.0
         }
     }
-    */
+    
+    func resetBoard(tile: Tile){
+        //print("resetting")
+        resetTiles()
+        game.setBombs()
+        game.setNumbers()
+        if tile.isBomb{
+            print("Tile Number: \(tile.number)")
+            resetBoard(tile)
+        }
+    }
     
     @IBAction func tilePressed(sender: UIButton) {
         if game.pauseGame == 0{
             let tile = sender as! Tile
+            
+            // Reset Game Board if first tile pressed is a bomb
+            if game.firstTilePressed == 0{
+                //print("First tile pressed")
+                if tile.isBomb{
+                    //print("Tile Number: \(tile.number)")
+                    resetBoard(tile)
+                }
+                game.firstTilePressed = 1
+            }
+            
             if tile.flipped == false {
                 tile.flipped = true
                 tile.marked = false
-//                 tile.centerLoc = sender.center
                 
-//                // Reset Game Board if first tile pressed is a bomb
-//                if game.firstTilePressed == 0 && tile.isBomb{
-//                    resetBoard(game.tiles.indexOf(tile)!)
-//                }else{
-                    if tile.isBomb {
-                        tile.layer.backgroundColor = UIColor.whiteColor().CGColor
-                        let image1:UIImage = UIImage(named: "bomb")!
-                        let image2:UIImage = UIImage(named: "explosion")!
-                        tile.setImage(image1, forState: UIControlState.Normal)
-                        tile.imageView!.animationImages = [image1, image2]
-                        tile.imageView!.animationDuration = 1.0
-                        tile.imageView!.startAnimating()
-                        game.loseGame()
+                if tile.isBomb {
+                    tile.layer.backgroundColor = UIColor.whiteColor().CGColor
+                    let image1:UIImage = UIImage(named: "bomb")!
+                    let image2:UIImage = UIImage(named: "explosion")!
+                    tile.setImage(image1, forState: UIControlState.Normal)
+                    tile.imageView!.animationImages = [image1, image2]
+                    tile.imageView!.animationDuration = 1.0
+                    tile.imageView!.animationRepeatCount = 0
+                    tile.imageView!.startAnimating()
+                    game.loseGame(tile)
+                }
+                else {
+                    tile.layer.backgroundColor = UIColor.grayColor().CGColor
+                    tile.setImage(nil, forState: .Normal)
+                    game.checkWinGame()
+                    if (tile.number == 0) {
+                        game.clearOut(tile)
                     }
                     else {
-                        tile.layer.backgroundColor = UIColor.grayColor().CGColor
-                        tile.setImage(nil, forState: .Normal)
-                        game.checkWinGame()
-                        if (tile.number == 0) {
-                            game.clearOut(tile)
-                        }
-                        else {
-                            tile.setTitle("\(tile.number)", forState: .Normal)
-                            switch tile.number {
-                            case 1: tile.setTitleColor(UIColor.greenColor(), forState: .Normal)
-                            case 2: tile.setTitleColor(UIColor.blueColor(), forState: .Normal)
-                            case 3: tile.setTitleColor(UIColor.yellowColor(), forState: .Normal)
-                            case 4: tile.setTitleColor(UIColor.magentaColor(), forState: .Normal)
-                            default: tile.setTitleColor(UIColor.redColor(), forState: .Normal)
-                            }
+                        tile.setTitle("\(tile.number)", forState: .Normal)
+                        switch tile.number {
+                        case 1: tile.setTitleColor(UIColor.greenColor(), forState: .Normal)
+                        case 2: tile.setTitleColor(UIColor.blueColor(), forState: .Normal)
+                        case 3: tile.setTitleColor(UIColor.yellowColor(), forState: .Normal)
+                        case 4: tile.setTitleColor(UIColor.magentaColor(), forState: .Normal)
+                        default: tile.setTitleColor(UIColor.redColor(), forState: .Normal)
                         }
                     }
-//                }
-//                game.firstTilePressed = 1
+                }
             }
         }
     }
@@ -154,10 +144,13 @@ class GameViewController: UIViewController {
     @IBAction func tileLongPressed(sender: UILongPressGestureRecognizer) {
         if game.pauseGame == 0{
             let tile = sender.view as! Tile
-            if tile.flipped == false {
+            if tile.flipped == false && !tile.marked{
                 tile.marked = true
                 let image = UIImage(named: "flag")
                 tile.setImage(image, forState: .Normal)
+            }else{
+                // Take away flag image
+                
             }
         }
     }
