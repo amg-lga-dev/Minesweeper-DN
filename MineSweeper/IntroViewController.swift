@@ -45,8 +45,11 @@ class IntroViewController: UIViewController {
     
     @IBAction func showScores (sender: UIButton) {
         let svc = HighScoreViewController()
-        //self.navigationController?.pushViewController(svc, animated: true)
-        self.presentViewController(svc, animated: true, completion: nil)
+        presentViewController(svc, animated: true, completion: nil)
     }
 
+    @IBAction func showHowToPlay(sender: UIButton) {
+        let htpvc = HowToPlayViewController()
+        presentViewController(htpvc, animated: true, completion: nil)
+    }
 }

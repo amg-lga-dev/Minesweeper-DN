@@ -50,7 +50,6 @@ class MineSweeperGame: NSObject {
         }
         
         bestTimeLabel = UILabel(frame: CGRect(x: 10.0, y: Double(gvc.view.bounds.width) + 80, width: Double(gvc.view.bounds.width / 3), height: 30.0))
-        //let bestTime = boardArray[(gameSize - 8) / 2].times[gameLevel]
         var bestTime = 0
         switch gameLevel {
         case 0: bestTime = NSUserDefaults.standardUserDefaults().valueForKey("\(gameSize)Easy") as! Int
@@ -135,7 +134,6 @@ class MineSweeperGame: NSObject {
             endLabel.textAlignment = NSTextAlignment.Center
             endLabel.font = UIFont.systemFontOfSize(40, weight: 1)
             gvc.view.addSubview(endLabel)
-            boardArray[(gameSize - 8) / 2].updateScore(gameLevel, time: time)
             var key = ""
             switch self.gameLevel {
             case 0: key = "\(gameSize)Easy"

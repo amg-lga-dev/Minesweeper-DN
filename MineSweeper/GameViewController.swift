@@ -148,7 +148,8 @@ class GameViewController: UIViewController {
                 tile.marked = true
                 let image = UIImage(named: "flag")
                 tile.setImage(image, forState: .Normal)
-            }else{
+            }
+            else{
                 // Take away flag image
                 
             }

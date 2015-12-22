@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -112,16 +112,39 @@
                         <action selector="startGame:" destination="-1" eventType="touchUpInside" id="DjE-5y-ejO"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yuk-Z4-upW">
+                    <rect key="frame" x="256" y="515" width="89" height="30"/>
+                    <color key="backgroundColor" red="0.3803921569" green="0.60392156860000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="89" id="6wI-At-h7l"/>
+                        <constraint firstAttribute="height" constant="30" id="qfm-us-ePT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
+                    <state key="normal" title="How To Play">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="showHowToPlay:" destination="-1" eventType="touchUpInside" id="f3d-x7-ho7"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="QDK-13-c7f" firstAttribute="top" secondItem="kD2-ww-apo" secondAttribute="bottom" constant="16" id="1qB-0t-CDJ"/>
                 <constraint firstItem="YMo-dK-xeP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="61" id="8Bi-OM-Jiq"/>
+                <constraint firstItem="Yuk-Z4-upW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ec4-7y-GY4"/>
                 <constraint firstItem="Ufz-9M-itV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="Itp-z5-tTX"/>
                 <constraint firstItem="fFq-Ev-zjg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="P0c-L3-GpY"/>
                 <constraint firstItem="QDK-13-c7f" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Sp9-4B-eVq"/>
                 <constraint firstItem="YMo-dK-xeP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UXR-Ra-C22"/>
                 <constraint firstItem="fFq-Ev-zjg" firstAttribute="top" secondItem="YMo-dK-xeP" secondAttribute="bottom" constant="8" id="ZM1-9b-xWW"/>
+                <constraint firstItem="V9X-Ne-6fV" firstAttribute="top" secondItem="Yuk-Z4-upW" secondAttribute="bottom" constant="9" id="bKx-xu-t3S"/>
                 <constraint firstItem="V9X-Ne-6fV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gF9-XC-c1k"/>
                 <constraint firstAttribute="bottom" secondItem="V9X-Ne-6fV" secondAttribute="bottom" constant="16" id="igB-0d-XB1"/>
                 <constraint firstItem="nw4-T2-iXz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ldD-nN-Cug"/>
