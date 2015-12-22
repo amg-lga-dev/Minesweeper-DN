@@ -57,7 +57,7 @@ class GameViewController: UIViewController {
         if game.loseOrWin == 0{
             if self.navigationItem.rightBarButtonItem?.title == "Pause"{
                 game.pauseGame = 1
-                self.navigationItem.rightBarButtonItem?.title = "Play"
+                self.navigationItem.rightBarButtonItem?.title = "Resume"
                 screenCover.hidden = false
             }else{
                 game.pauseGame = 0
@@ -110,7 +110,7 @@ class GameViewController: UIViewController {
                 
                 if tile.isBomb {
                     tile.layer.backgroundColor = UIColor.whiteColor().CGColor
-                    let image1:UIImage = UIImage(named: "bomb")!
+                    let image1:UIImage = UIImage(named: "landmine")!
                     let image2:UIImage = UIImage(named: "explosion")!
                     tile.setImage(image1, forState: UIControlState.Normal)
                     tile.imageView!.animationImages = [image1, image2]
