@@ -117,6 +117,16 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uncovered all the tiles without bombs? You Won :)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DF0-hz-BV8">
+                    <rect key="frame" x="165" y="451" width="271" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="Zdx-Az-moS"/>
+                        <constraint firstAttribute="width" constant="271" id="hND-g7-W57"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZGo-cy-6uJ">
                     <rect key="frame" x="278" y="277" width="45" height="45"/>
                     <subviews>
@@ -299,21 +309,19 @@
                         <constraint firstAttribute="width" constant="45" id="Kbm-f2-iX1"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uncovered all the tiles without bombs? You Won :)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DF0-hz-BV8">
-                    <rect key="frame" x="165" y="451" width="271" height="46"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landmine" translatesAutoresizingMaskIntoConstraints="NO" id="xRw-La-gx7">
+                    <rect key="frame" x="517" y="509" width="75" height="75"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="46" id="Zdx-Az-moS"/>
-                        <constraint firstAttribute="width" constant="271" id="hND-g7-W57"/>
+                        <constraint firstAttribute="width" constant="75" id="CVU-ea-Sgs"/>
+                        <constraint firstAttribute="height" constant="75" id="UzY-wn-ppC"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="DF0-hz-BV8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="12D-YB-h6v"/>
                 <constraint firstItem="0Ly-ri-xGg" firstAttribute="leading" secondItem="XeQ-Hx-2KD" secondAttribute="trailing" constant="8" id="1xh-zt-OVf"/>
+                <constraint firstAttribute="bottom" secondItem="xRw-La-gx7" secondAttribute="bottom" constant="16" id="2my-jZ-04U"/>
                 <constraint firstItem="A4H-AC-Kgi" firstAttribute="top" secondItem="0Ly-ri-xGg" secondAttribute="bottom" constant="8" id="3iY-48-1gM"/>
                 <constraint firstItem="ZGo-cy-6uJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5Y9-Sm-iEP"/>
                 <constraint firstItem="3cd-0J-ZKy" firstAttribute="top" secondItem="XeQ-Hx-2KD" secondAttribute="bottom" constant="8" id="6LN-ZE-glP"/>
@@ -326,6 +334,7 @@
                 <constraint firstItem="JXL-0T-86c" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="JiK-Hq-odP"/>
                 <constraint firstItem="0Ly-ri-xGg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="KMJ-fK-ew4"/>
                 <constraint firstItem="qky-Lo-3GX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="N6t-VN-GWW"/>
+                <constraint firstAttribute="trailing" secondItem="xRw-La-gx7" secondAttribute="trailing" constant="8" id="NJH-Rf-MRd"/>
                 <constraint firstItem="Nme-7b-SC7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Rwf-IS-cSU"/>
                 <constraint firstItem="DF0-hz-BV8" firstAttribute="top" secondItem="3cd-0J-ZKy" secondAttribute="bottom" constant="23" id="SXT-e0-6kL"/>
                 <constraint firstItem="Y8e-vY-DTO" firstAttribute="leading" secondItem="0Ly-ri-xGg" secondAttribute="trailing" constant="8" id="TCQ-Lc-IZ1"/>
@@ -349,4 +358,7 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="landmine" width="300" height="292"/>
+    </resources>
 </document>

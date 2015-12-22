@@ -25,15 +25,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDU-xE-B3i">
-                    <rect key="frame" x="8" y="420" width="95" height="32"/>
-                    <color key="backgroundColor" red="0.3803921569" green="0.60392156860000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="8" y="420" width="85" height="32"/>
+                    <color key="backgroundColor" red="0.47058823529999999" green="0.5450980392" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="2CH-0M-JGg"/>
-                        <constraint firstAttribute="width" constant="95" id="Dlo-e0-HdC"/>
+                        <constraint firstAttribute="width" constant="85" id="Dlo-e0-HdC"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
                     <state key="normal" title="12x12 Board">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="1" green="0.98566749939999998" blue="0.31900312829999999" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -45,15 +45,15 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aj3-yF-dHO">
-                    <rect key="frame" x="8" y="150" width="95" height="32"/>
-                    <color key="backgroundColor" red="0.3803921569" green="0.60392156860000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="8" y="150" width="85" height="32"/>
+                    <color key="backgroundColor" red="0.47058823529999999" green="0.5450980392" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="95" id="TgF-r8-G0q"/>
+                        <constraint firstAttribute="width" constant="85" id="TgF-r8-G0q"/>
                         <constraint firstAttribute="height" constant="32" id="zeH-vU-ubY"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
                     <state key="normal" title="8x8 Board">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="1" green="0.98566749939999998" blue="0.31900312829999999" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -65,15 +65,15 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGF-fk-uCV">
-                    <rect key="frame" x="8" y="285" width="95" height="30"/>
-                    <color key="backgroundColor" red="0.3803921569" green="0.60392156860000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="8" y="285" width="85" height="30"/>
+                    <color key="backgroundColor" red="0.47058823529999999" green="0.5450980392" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="95" id="14j-8S-Khq"/>
+                        <constraint firstAttribute="width" constant="85" id="14j-8S-Khq"/>
                         <constraint firstAttribute="height" constant="30" id="5aQ-CW-ARG"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
                     <state key="normal" title="10x10 Board">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="1" green="0.98566749939999998" blue="0.31900312829999999" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -220,14 +220,14 @@
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AM3-il-vOi">
                     <rect key="frame" x="438" y="68" width="99" height="30"/>
-                    <color key="backgroundColor" red="0.47058823529411764" green="0.54509803921568623" blue="0.58039215686274515" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.3803921569" green="0.60392156860000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="BQi-ZP-tMg"/>
                         <constraint firstAttribute="width" constant="99" id="a8d-17-Tt2"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
                     <state key="normal" title="Clear Scores">
-                        <color key="titleColor" red="1" green="0.98566749939999998" blue="0.31900312829999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
