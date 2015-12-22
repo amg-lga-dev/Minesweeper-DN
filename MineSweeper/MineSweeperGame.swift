@@ -57,11 +57,16 @@ class MineSweeperGame: NSObject {
         case 2: bestTime = NSUserDefaults.standardUserDefaults().valueForKey("\(gameSize)Hard") as! Int
         default: bestTime = 0
         }
-        if (bestTime % 60 < 10) {
-            bestTimeLabel.text = "Best Time: \(bestTime / 60):0\(bestTime % 60)"
+        if (bestTime == 0) {
+            bestTimeLabel.text = "Best Time:"
         }
         else {
-            bestTimeLabel.text = "Best Time: \(bestTime / 60):\(bestTime % 60)"
+            if (bestTime % 60 < 10) {
+                bestTimeLabel.text = "Best Time: \(bestTime / 60):0\(bestTime % 60)"
+            }
+            else {
+                bestTimeLabel.text = "Best Time: \(bestTime / 60):\(bestTime % 60)"
+            }
         }
         gvc.view.addSubview(bestTimeLabel)
         
