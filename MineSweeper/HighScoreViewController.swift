@@ -40,15 +40,46 @@ class HighScoreViewController: UIViewController {
     }
     
     func displayScores() {
-        e8.text = "Easy: \((NSUserDefaults.standardUserDefaults().valueForKey("8Easy") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("8Easy") as! Int) % 60) sec"
-        e10.text = "Easy: \((NSUserDefaults.standardUserDefaults().valueForKey("10Easy") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("10Easy") as! Int) % 60) sec"
-        e12.text = "Easy: \((NSUserDefaults.standardUserDefaults().valueForKey("12Easy") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("12Easy") as! Int) % 60) sec"
-        m8.text = "Medium: \((NSUserDefaults.standardUserDefaults().valueForKey("8Medium") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("8Medium") as! Int) % 60) sec"
-        m10.text = "Medium: \((NSUserDefaults.standardUserDefaults().valueForKey("10Medium") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("10Medium") as! Int) % 60) sec"
-        m12.text = "Medium: \((NSUserDefaults.standardUserDefaults().valueForKey("12Medium") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("12Medium") as! Int) % 60) sec"
-        h8.text = "Hard: \((NSUserDefaults.standardUserDefaults().valueForKey("8Hard") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("8Hard") as! Int) % 60) sec"
-        h10.text = "Hard: \((NSUserDefaults.standardUserDefaults().valueForKey("10Hard") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("10Hard") as! Int) % 60) sec"
-        h12.text = "Hard: \((NSUserDefaults.standardUserDefaults().valueForKey("12Hard") as! Int) / 60) min, \((NSUserDefaults.standardUserDefaults().valueForKey("12Hard") as! Int) % 60) sec"
+        let scores = scoreToText()
+        e8.text = "Easy: " + scores[0]
+        e10.text = "Easy: " + scores[1]
+        e12.text = "Easy: " + scores[2]
+        m8.text = "Medium: " + scores[3]
+        m10.text = "Medium: " + scores[4]
+        m12.text = "Medium: " + scores[5]
+        h8.text = "Hard: " + scores[6]
+        h10.text = "Hard: " + scores[7]
+        h12.text = "Hard: " + scores[8]
+    }
+    
+    func scoreToText() -> [String] {
+        var returnArray: [String] = [];
+        let easy8 = NSUserDefaults.standardUserDefaults().valueForKey("8Easy") as! Int
+        let easy10 = NSUserDefaults.standardUserDefaults().valueForKey("10Easy") as! Int
+        let easy12 = NSUserDefaults.standardUserDefaults().valueForKey("12Easy") as! Int
+        let medium8 = NSUserDefaults.standardUserDefaults().valueForKey("8Medium") as! Int
+        let medium10 = NSUserDefaults.standardUserDefaults().valueForKey("10Medium") as! Int
+        let medium12 = NSUserDefaults.standardUserDefaults().valueForKey("12Medium") as! Int
+        let hard8 = NSUserDefaults.standardUserDefaults().valueForKey("8Hard") as! Int
+        let hard10 = NSUserDefaults.standardUserDefaults().valueForKey("10Hard") as! Int
+        let hard12 = NSUserDefaults.standardUserDefaults().valueForKey("12Hard") as! Int
+        let scores = [easy8, easy10, easy12, medium8, medium10, medium12, hard8, hard10, hard12]
+        for score in scores {
+            if (score == 0) {
+                returnArray.append("n/A")
+            }
+            else {
+                let mins = score / 60
+                let secs = score % 60
+                if (secs < 10) {
+                    returnArray.append("\(mins):0\(secs)")
+                }
+                else {
+                    returnArray.append("\(mins):\(secs)")
+                }
+            }
+        }
+        return returnArray
     }
 
     override func didReceiveMemoryWarning() {
