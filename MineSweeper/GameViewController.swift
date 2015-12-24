@@ -22,7 +22,6 @@ class GameViewController: UIViewController {
         for tile in game.tiles {
             tile.addTarget(self, action: "tilePressed:", forControlEvents: .TouchUpInside)
             let longPress = UILongPressGestureRecognizer(target: self, action: "tileLongPressed:")
-            let longRelease =
             longPress.minimumPressDuration = 1
             tile.addGestureRecognizer(longPress)
         }
