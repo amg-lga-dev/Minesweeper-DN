@@ -50,7 +50,17 @@ class GameViewController: UIViewController {
     }
     
     func quit(sender: AnyObject){
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        let alertController = UIAlertController(title: "Are you sure you want to quit?", message: nil, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
+            // What happens when quit is pressed in the alert
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }))
+        alertController.addAction(UIAlertAction(title: "No", style: .Default, handler: { (alert) -> Void in
+            // Do nothing if cancel is pressed in alert
+            
+        }))
+        alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
+        presentViewController(alertController, animated: true, completion: nil)
     }
     
     func pauseButtonPressed(sender: AnyObject){
@@ -155,11 +165,6 @@ class GameViewController: UIViewController {
                 tile.setImage(image, forState: .Normal)
             }
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func shouldAutorotate() -> Bool {

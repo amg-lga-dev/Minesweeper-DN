@@ -27,7 +27,7 @@ class HowToPlayViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         let views = [topL, topM, topR, left, right, botL, botM, botR]
         for view in views {
-            view.backgroundColor = UIColor(red: 255/255, green: 251/255, blue: 80/255, alpha: 0.8)
+            view.backgroundColor = UIColor(red: 255/255, green: 80/255, blue: 80/255, alpha: 0.8)
             let image1:UIImage = UIImage(named: "landmine")!
             let image2:UIImage = UIImage(named: "qmark")!
             view.image = image1
@@ -38,23 +38,8 @@ class HowToPlayViewController: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func returnToRoot(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

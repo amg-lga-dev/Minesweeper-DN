@@ -81,11 +81,6 @@ class HighScoreViewController: UIViewController {
         }
         return returnArray
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func returnToRoot(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)

@@ -197,7 +197,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If your selected tile contains a number, that corresponds to the number of mines nearby.  Watch Out!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qky-Lo-3GX">
-                    <rect key="frame" x="0.0" y="210" width="600" height="59"/>
+                    <rect key="frame" x="20" y="210" width="560" height="59"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="310" id="AJf-1U-PF8"/>
                         <constraint firstAttribute="height" constant="59" id="EG1-1n-9ub"/>
@@ -218,7 +218,7 @@
                 <constraint firstItem="F2O-ic-KPH" firstAttribute="top" secondItem="0Ly-ri-xGg" secondAttribute="bottom" constant="8" id="CQ7-S0-lBQ"/>
                 <constraint firstItem="4Aq-Qj-lEw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="DL9-eK-bAK"/>
                 <constraint firstItem="03w-MI-Dgp" firstAttribute="leading" secondItem="F2O-ic-KPH" secondAttribute="trailing" constant="8" id="FzU-CV-1HF"/>
-                <constraint firstItem="qky-Lo-3GX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="HHv-RS-qgL"/>
+                <constraint firstItem="qky-Lo-3GX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="HHv-RS-qgL"/>
                 <constraint firstItem="33l-Gz-qGI" firstAttribute="top" secondItem="9TL-jg-dJT" secondAttribute="bottom" constant="8" id="LRS-kf-MXQ"/>
                 <constraint firstAttribute="trailing" secondItem="xRw-La-gx7" secondAttribute="trailing" constant="19" id="NJH-Rf-MRd"/>
                 <constraint firstItem="tlg-Wt-met" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ONO-7A-PGa"/>
@@ -238,7 +238,7 @@
                 <constraint firstItem="hOr-Ep-7hi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iHI-df-dAf"/>
                 <constraint firstItem="9TL-jg-dJT" firstAttribute="leading" secondItem="Szk-yA-bLb" secondAttribute="trailing" constant="8" id="ikM-4E-y9S"/>
                 <constraint firstAttribute="bottom" secondItem="4Aq-Qj-lEw" secondAttribute="bottom" constant="16" id="j0T-HR-XZ8"/>
-                <constraint firstAttribute="trailing" secondItem="qky-Lo-3GX" secondAttribute="trailing" id="nUW-rw-c2K"/>
+                <constraint firstAttribute="trailing" secondItem="qky-Lo-3GX" secondAttribute="trailing" constant="20" id="nUW-rw-c2K"/>
                 <constraint firstItem="Nme-7b-SC7" firstAttribute="top" secondItem="1lE-yt-oc0" secondAttribute="bottom" constant="8" id="oLF-rx-sAS"/>
                 <constraint firstItem="DF0-hz-BV8" firstAttribute="top" secondItem="F2O-ic-KPH" secondAttribute="bottom" constant="15" id="t8D-yA-dcv"/>
                 <constraint firstItem="hOr-Ep-7hi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="24" id="tPw-un-Hfu"/>
