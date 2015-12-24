@@ -22,6 +22,7 @@ class GameViewController: UIViewController {
         for tile in game.tiles {
             tile.addTarget(self, action: "tilePressed:", forControlEvents: .TouchUpInside)
             let longPress = UILongPressGestureRecognizer(target: self, action: "tileLongPressed:")
+            let longRelease =
             longPress.minimumPressDuration = 1
             tile.addGestureRecognizer(longPress)
         }
@@ -104,7 +105,12 @@ class GameViewController: UIViewController {
                 game.firstTilePressed = 1
             }
             
-            if tile.flipped == false {
+            if tile.marked == true{
+                // Clear the flag
+                tile.marked = false
+                tile.setImage(nil, forState: .Normal)
+            }
+            else if tile.flipped == false {
                 tile.flipped = true
                 tile.marked = false
                 
