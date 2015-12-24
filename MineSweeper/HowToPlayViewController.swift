@@ -9,11 +9,33 @@
 import UIKit
 
 class HowToPlayViewController: UIViewController {
-
+    @IBOutlet weak var topR: UIImageView!
+    @IBOutlet weak var topM: UIImageView!
+    @IBOutlet weak var topL: UIImageView!
+    @IBOutlet weak var left: UIImageView!
+    @IBOutlet weak var right: UIImageView!
+    @IBOutlet weak var botL: UIImageView!
+    @IBOutlet weak var botM: UIImageView!
+    @IBOutlet weak var botR: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        let views = [topL, topM, topR, left, right, botL, botM, botR]
+        for view in views {
+            view.backgroundColor = UIColor.redColor()
+            let image1:UIImage = UIImage(named: "landmine")!
+            let image2:UIImage = UIImage(named: "qmark")!
+            view.image = image1
+            view.animationImages = [image1, image2]
+            view.animationDuration = 1.0
+            view.animationRepeatCount = 0
+            view.startAnimating()
+        }
     }
 
     override func didReceiveMemoryWarning() {
