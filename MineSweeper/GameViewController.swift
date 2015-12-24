@@ -61,18 +61,22 @@ class GameViewController: UIViewController {
     }
     
     func quit(sender: AnyObject){
-        game.pauseGame = 1
-        let alertController = UIAlertController(title: "Are you sure you want to quit?", message: nil, preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
-            // What happens when quit is pressed in the alert
+        if game.loseOrWin == 1{
             self.navigationController?.popToRootViewControllerAnimated(true)
-        }))
-        alertController.addAction(UIAlertAction(title: "No", style: .Default, handler: { (alert) -> Void in
-            // Do nothing if cancel is pressed in alert
-            self.game.pauseGame = 0
-        }))
-        alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
-        presentViewController(alertController, animated: true, completion: nil)
+        }else{
+            game.pauseGame = 1
+            let alertController = UIAlertController(title: "Are you sure you want to quit?", message: nil, preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
+                // What happens when quit is pressed in the alert
+                self.navigationController?.popToRootViewControllerAnimated(true)
+            }))
+            alertController.addAction(UIAlertAction(title: "No", style: .Default, handler: { (alert) -> Void in
+                // Do nothing if cancel is pressed in alert
+                self.game.pauseGame = 0
+            }))
+            alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
+            presentViewController(alertController, animated: true, completion: nil)
+        }
     }
     
     func pauseButtonPressed(sender: AnyObject){

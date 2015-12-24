@@ -105,18 +105,16 @@ class MineSweeperGame: NSObject {
             if tile.isBomb && tile != tilePressed{
                 tile.layer.backgroundColor = UIColor.blackColor().CGColor
                 tile.setImage(UIImage(named: "landmine"), forState: .Normal)
-                //tile.imageView?.opaque = true
             }
         }
         
         timer.invalidate()
-        
-        let endLabel = UILabel(frame: CGRect(x: 0, y: gvc.view.bounds.height - 60, width: gvc.view.bounds.width, height: 30))
+        let spot = timeLabel.center.y + (gvc.view.bounds.height - timeLabel.center.y)/3
+        let endLabel = UILabel(frame: CGRect(x: 0, y: spot, width: gvc.view.bounds.width, height: 50))
         endLabel.text = "Game Over"
-        endLabel.font = UIFont(name: "Gill Sans", size: 40)
+        endLabel.font = UIFont(name: "Gill Sans", size: 50)
         endLabel.textColor = UIColor.redColor()
         endLabel.textAlignment = NSTextAlignment.Center
-        //endLabel.font = UIFont.systemFontOfSize(40, weight: 1)
         gvc.view.addSubview(endLabel)
         loseOrWin = 1
     }
@@ -137,12 +135,12 @@ class MineSweeperGame: NSObject {
                 tile.enabled = false
             }
             timer.invalidate()
-            let endLabel = UILabel(frame: CGRect(x: 0, y: gvc.view.bounds.height - 60, width: gvc.view.bounds.width, height: 30))
+            let spot = timeLabel.center.y + (gvc.view.bounds.height - timeLabel.center.y)/3
+            let endLabel = UILabel(frame: CGRect(x: 0, y: spot, width: gvc.view.bounds.width, height: 50))
             endLabel.text = "You Win"
-            endLabel.font = UIFont(name: "Gill Sans", size: 40)
+            endLabel.font = UIFont(name: "Gill Sans", size: 50)
             endLabel.textColor = UIColor.greenColor()
             endLabel.textAlignment = NSTextAlignment.Center
-            //endLabel.font = UIFont.systemFontOfSize(40, weight: 1)
             gvc.view.addSubview(endLabel)
             var key = ""
             switch self.gameLevel {
