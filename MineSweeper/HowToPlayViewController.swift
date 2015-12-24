@@ -27,11 +27,12 @@ class HowToPlayViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         let views = [topL, topM, topR, left, right, botL, botM, botR]
         for view in views {
+            view.backgroundColor = UIColor(red: 255/255, green: 251/255, blue: 80/255, alpha: 0.8)
             let image1:UIImage = UIImage(named: "landmine")!
             let image2:UIImage = UIImage(named: "qmark")!
             view.image = image1
             view.animationImages = [image1, image2]
-            view.animationDuration = 3.0
+            view.animationDuration = 2.0
             view.animationRepeatCount = 0
             view.startAnimating()
         }

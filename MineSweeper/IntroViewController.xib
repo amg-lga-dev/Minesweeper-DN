@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -24,18 +24,8 @@
                         <constraint firstAttribute="width" constant="255" id="srW-Bc-FbI"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed By : Andrew Grossfeld &amp; Logan Allen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFq-Ev-zjg">
-                    <rect key="frame" x="117" y="117" width="366" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="366" id="Aqp-00-RKq"/>
-                        <constraint firstAttribute="height" constant="21" id="cnS-2C-yjk"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
-                    <color key="textColor" red="1" green="0.98566749939478948" blue="0.31900312832726185" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mine Sweeper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMo-dK-xeP">
-                    <rect key="frame" x="166" y="61" width="269" height="48"/>
+                    <rect key="frame" x="166" y="50" width="269" height="48"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="269" id="Q3X-k6-ed4"/>
                         <constraint firstAttribute="height" constant="48" id="TLh-Oz-aFn"/>
@@ -143,25 +133,36 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed By : Andrew Grossfeld &amp; Logan Allen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFq-Ev-zjg">
+                    <rect key="frame" x="0.0" y="101" width="600" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="218" id="QIr-h3-9h3"/>
+                        <constraint firstAttribute="height" constant="46" id="xY9-6B-7Tf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                    <color key="textColor" red="1" green="0.98566749939478948" blue="0.31900312832726185" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="QDK-13-c7f" firstAttribute="top" secondItem="kD2-ww-apo" secondAttribute="bottom" constant="16" id="1qB-0t-CDJ"/>
-                <constraint firstItem="YMo-dK-xeP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="61" id="8Bi-OM-Jiq"/>
+                <constraint firstItem="YMo-dK-xeP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="8Bi-OM-Jiq"/>
                 <constraint firstItem="Ufz-9M-itV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="Itp-z5-tTX"/>
                 <constraint firstAttribute="bottom" secondItem="Yuk-Z4-upW" secondAttribute="bottom" constant="16" id="Jzg-0E-VrY"/>
                 <constraint firstAttribute="bottom" secondItem="0G1-fL-e94" secondAttribute="bottom" constant="21" id="MmU-0W-fzz"/>
                 <constraint firstItem="V9X-Ne-6fV" firstAttribute="leading" secondItem="0G1-fL-e94" secondAttribute="trailing" constant="13" id="ODo-ho-ofh"/>
-                <constraint firstItem="fFq-Ev-zjg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="P0c-L3-GpY"/>
+                <constraint firstItem="fFq-Ev-zjg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RXa-mS-Gst"/>
                 <constraint firstItem="QDK-13-c7f" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Sp9-4B-eVq"/>
                 <constraint firstItem="YMo-dK-xeP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UXR-Ra-C22"/>
-                <constraint firstItem="fFq-Ev-zjg" firstAttribute="top" secondItem="YMo-dK-xeP" secondAttribute="bottom" constant="8" id="ZM1-9b-xWW"/>
                 <constraint firstItem="0G1-fL-e94" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aWS-Ow-hSE"/>
                 <constraint firstItem="V9X-Ne-6fV" firstAttribute="top" secondItem="nw4-T2-iXz" secondAttribute="bottom" constant="47" id="bog-DX-chV"/>
+                <constraint firstAttribute="trailing" secondItem="fFq-Ev-zjg" secondAttribute="trailing" id="dDA-Is-Ubn"/>
                 <constraint firstAttribute="bottom" secondItem="V9X-Ne-6fV" secondAttribute="bottom" constant="16" id="h8T-ds-fhY"/>
                 <constraint firstItem="nw4-T2-iXz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ldD-nN-Cug"/>
                 <constraint firstItem="0G1-fL-e94" firstAttribute="leading" secondItem="Yuk-Z4-upW" secondAttribute="trailing" constant="13" id="mzz-58-GDN"/>
                 <constraint firstItem="nw4-T2-iXz" firstAttribute="top" secondItem="QDK-13-c7f" secondAttribute="bottom" constant="14" id="ngp-j8-QLE"/>
+                <constraint firstItem="fFq-Ev-zjg" firstAttribute="top" secondItem="YMo-dK-xeP" secondAttribute="bottom" constant="3" id="qDs-Xr-Eyt"/>
                 <constraint firstItem="Ufz-9M-itV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rZd-pv-Pjx"/>
                 <constraint firstItem="kD2-ww-apo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xVG-Dy-wCU"/>
             </constraints>
