@@ -13,6 +13,8 @@ class GameViewController: UIViewController {
     var gameSize: Int!
     var gameLevel: Int!
     var screenCover: UIView!
+    var flagsLeft: Int = 100
+    var flagNumber: UILabel!
 
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.grayColor()
@@ -42,6 +44,15 @@ class GameViewController: UIViewController {
         
         alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
         presentViewController(alertController, animated: true, completion: nil)
+        
+        let flagImage = UIImageView(frame: CGRect(x: 10, y: self.view.bounds.height - 35, width: 25, height: 25))
+        flagImage.image = UIImage(named: "flag")
+        flagNumber = UILabel(frame: CGRect(x: 40, y: self.view.bounds.height - 35, width: 50, height: 30))
+        flagNumber.font = UIFont(name: "Gill Sans", size: 18)
+        updateFlagCounter()
+        
+        view.addSubview(flagImage)
+        view.addSubview(flagNumber)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -50,6 +61,7 @@ class GameViewController: UIViewController {
     }
     
     func quit(sender: AnyObject){
+        game.pauseGame = 1
         let alertController = UIAlertController(title: "Are you sure you want to quit?", message: nil, preferredStyle: .Alert)
         alertController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
             // What happens when quit is pressed in the alert
@@ -57,7 +69,7 @@ class GameViewController: UIViewController {
         }))
         alertController.addAction(UIAlertAction(title: "No", style: .Default, handler: { (alert) -> Void in
             // Do nothing if cancel is pressed in alert
-            
+            self.game.pauseGame = 0
         }))
         alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
         presentViewController(alertController, animated: true, completion: nil)
@@ -118,6 +130,8 @@ class GameViewController: UIViewController {
                 // Clear the flag
                 tile.marked = false
                 tile.setImage(nil, forState: .Normal)
+                flagsLeft++
+                updateFlagCounter()
             }
             else if tile.flipped == false {
                 tile.flipped = true
@@ -163,8 +177,15 @@ class GameViewController: UIViewController {
                 tile.marked = true
                 let image = UIImage(named: "flag")
                 tile.setImage(image, forState: .Normal)
+                flagsLeft--
+                updateFlagCounter()
             }
         }
+    }
+    
+    // Display the correct counter for flags
+    func updateFlagCounter(){
+        self.flagNumber.text = "\(flagsLeft)"
     }
     
     override func shouldAutorotate() -> Bool {
