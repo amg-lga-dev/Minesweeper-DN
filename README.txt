@@ -34,4 +34,4 @@ Files:
 	- The backbones of the game
 	- Initializes the tiles, their location in the view in GameViewController, and the location and number of bombs
 	- Contains methods for clicking -- displaying the bomb and ending the game, the number of bombs adjacent to the selected tile, or opening up the board nearby if no bombs are in close proximity
-	- Makes user unable to click a 'mine' on the first click by redrawing the board
+	- Makes user unable to click a 'mine' on the first click by redrawing the mine locations
