@@ -23,6 +23,13 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landmine" translatesAutoresizingMaskIntoConstraints="NO" id="xRw-La-gx7">
+                    <rect key="frame" x="481" y="484" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="CVU-ea-Sgs"/>
+                        <constraint firstAttribute="height" constant="100" id="UzY-wn-ppC"/>
+                    </constraints>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Aq-Qj-lEw">
                     <rect key="frame" x="271" y="554" width="58" height="30"/>
                     <color key="backgroundColor" red="0.3803921569" green="0.60392156860000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -125,13 +132,6 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landmine" translatesAutoresizingMaskIntoConstraints="NO" id="xRw-La-gx7">
-                    <rect key="frame" x="506" y="509" width="75" height="75"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="75" id="CVU-ea-Sgs"/>
-                        <constraint firstAttribute="height" constant="75" id="UzY-wn-ppC"/>
-                    </constraints>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="avl-iP-Uap">
                     <rect key="frame" x="225" y="277" width="45" height="45"/>
                     <color key="backgroundColor" red="0.66193553664921467" green="0.0" blue="0.0067965324345713634" alpha="1" colorSpace="calibratedRGB"/>
@@ -206,12 +206,20 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landmine" translatesAutoresizingMaskIntoConstraints="NO" id="hW6-Dn-kW2">
+                    <rect key="frame" x="15" y="525" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="6br-bI-d7e"/>
+                        <constraint firstAttribute="width" constant="60" id="a1r-79-JqG"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Szk-yA-bLb" firstAttribute="top" secondItem="qky-Lo-3GX" secondAttribute="bottom" constant="8" id="1LW-8I-Idm"/>
                 <constraint firstAttribute="bottom" secondItem="xRw-La-gx7" secondAttribute="bottom" constant="16" id="2my-jZ-04U"/>
                 <constraint firstItem="FTa-xq-v5l" firstAttribute="top" secondItem="avl-iP-Uap" secondAttribute="bottom" constant="8" id="2ql-T8-YYx"/>
+                <constraint firstItem="hW6-Dn-kW2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="38e-sO-i2R"/>
                 <constraint firstItem="F2O-ic-KPH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3s4-v8-bEJ"/>
                 <constraint firstItem="33l-Gz-qGI" firstAttribute="leading" secondItem="0Ly-ri-xGg" secondAttribute="trailing" constant="8" id="4M2-og-L3p"/>
                 <constraint firstItem="0Ly-ri-xGg" firstAttribute="leading" secondItem="FTa-xq-v5l" secondAttribute="trailing" constant="8" id="9dF-dE-Fbl"/>
@@ -221,6 +229,7 @@
                 <constraint firstItem="qky-Lo-3GX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="HHv-RS-qgL"/>
                 <constraint firstItem="33l-Gz-qGI" firstAttribute="top" secondItem="9TL-jg-dJT" secondAttribute="bottom" constant="8" id="LRS-kf-MXQ"/>
                 <constraint firstAttribute="trailing" secondItem="xRw-La-gx7" secondAttribute="trailing" constant="19" id="NJH-Rf-MRd"/>
+                <constraint firstAttribute="bottom" secondItem="hW6-Dn-kW2" secondAttribute="bottom" constant="15" id="OFB-Q8-35d"/>
                 <constraint firstItem="tlg-Wt-met" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ONO-7A-PGa"/>
                 <constraint firstItem="Nme-7b-SC7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Rwf-IS-cSU"/>
                 <constraint firstItem="avl-iP-Uap" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="UnV-rW-7v5"/>
