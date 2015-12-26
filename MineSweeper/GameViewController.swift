@@ -21,6 +21,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
+        flagsLeft = gameSize * gameSize
         for tile in game.tiles {
             tile.addTarget(self, action: "tilePressed:", forControlEvents: .TouchUpInside)
             let longPress = UILongPressGestureRecognizer(target: self, action: "tileLongPressed:")
