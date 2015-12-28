@@ -106,6 +106,11 @@ class GameViewController: UIViewController {
         }
     }
     
+    func playAgainNotification(){
+        let alertController = UIAlertController(title: "Play Again?", message: nil, preferredStyle: .Alert)
+       
+    }
+    
     func resetBoard(tile: Tile){
         //print("resetting")
         resetTiles()
