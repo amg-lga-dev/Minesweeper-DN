@@ -106,9 +106,21 @@ class GameViewController: UIViewController {
         }
     }
     
+    func recreateGame(){
+        
+    }
+    
     func playAgainNotification(){
         let alertController = UIAlertController(title: "Play Again?", message: nil, preferredStyle: .Alert)
-       
+        alertController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
+            // Reinitialize minesweepergame
+            self.recreateGame()
+        }))
+        alertController.addAction(UIAlertAction(title: "Quit", style: .Default, handler: { (action) -> Void in
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }))
+        alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
+        presentViewController(alertController, animated: true, completion: nil)
     }
     
     func resetBoard(tile: Tile){
@@ -176,6 +188,9 @@ class GameViewController: UIViewController {
                         }
                     }
                 }
+            }
+            if game.loseOrWin == 1{
+                playAgainNotification()
             }
         }
     }
