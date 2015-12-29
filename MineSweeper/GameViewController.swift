@@ -19,6 +19,7 @@ class GameViewController: UIViewController {
     var time: Int = 0
     var timeLabel: UILabel!
     var bestTimeLabel: UILabel!
+    var endLabel: UILabel!
 
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.grayColor()
@@ -72,12 +73,12 @@ class GameViewController: UIViewController {
             self.navigationController?.popToRootViewControllerAnimated(true)
         }else{
             game.pauseGame = 1
-            let alertController = UIAlertController(title: "Are you sure you want to quit?", message: nil, preferredStyle: .Alert)
-            alertController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
+            let alertController = UIAlertController(title: "Are you sure you want to quit? All progress will be lost.", message: nil, preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: "Quit", style: .Default, handler: { (action) -> Void in
                 // What happens when quit is pressed in the alert
                 self.navigationController?.popToRootViewControllerAnimated(true)
             }))
-            alertController.addAction(UIAlertAction(title: "No", style: .Default, handler: { (alert) -> Void in
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (alert) -> Void in
                 // Do nothing if cancel is pressed in alert
                 self.game.pauseGame = 0
             }))
@@ -119,6 +120,7 @@ class GameViewController: UIViewController {
         self.time = 0
         self.timeLabel.removeFromSuperview()
         self.bestTimeLabel.removeFromSuperview()
+        self.endLabel.removeFromSuperview()
         self.game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
         self.flagsLeft = gameSize * gameSize
         updateFlagCounter()
@@ -139,7 +141,7 @@ class GameViewController: UIViewController {
             // Reinitialize minesweepergame
             self.recreateGame()
         }))
-        alertController.addAction(UIAlertAction(title: "Quit", style: .Default, handler: { (action) -> Void in
+        alertController.addAction(UIAlertAction(title: "No", style: .Default, handler: { (action) -> Void in
             self.navigationController?.popToRootViewControllerAnimated(true)
         }))
         alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
