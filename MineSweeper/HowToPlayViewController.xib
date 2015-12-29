@@ -112,17 +112,17 @@
                         <constraint firstAttribute="height" constant="45" id="V1z-5J-If7"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If your selected tile contains a mine, you lose :(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlg-Wt-met">
-                    <rect key="frame" x="137" y="181" width="327" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The number on the tile corresponds to the number of mines nearby." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlg-Wt-met">
+                    <rect key="frame" x="20" y="174" width="560" height="43"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="Au8-vj-As2"/>
-                        <constraint firstAttribute="width" constant="327" id="zlL-PU-Rh9"/>
+                        <constraint firstAttribute="height" constant="43" id="arA-Rv-O6k"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="334" id="cDb-FK-69O"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uncovered all the tiles without bombs? You Won :)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DF0-hz-BV8">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uncovered all the tiles without bombs? You Win :)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DF0-hz-BV8">
                     <rect key="frame" x="165" y="443" width="271" height="46"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="Iza-4A-JR9"/>
@@ -196,16 +196,6 @@
                         <constraint firstAttribute="width" constant="45" id="cSe-j8-YwK"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If your selected tile contains a number, that corresponds to the number of mines nearby.  Watch Out!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qky-Lo-3GX">
-                    <rect key="frame" x="20" y="210" width="560" height="59"/>
-                    <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="310" id="AJf-1U-PF8"/>
-                        <constraint firstAttribute="height" constant="59" id="EG1-1n-9ub"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landmine" translatesAutoresizingMaskIntoConstraints="NO" id="hW6-Dn-kW2">
                     <rect key="frame" x="15" y="525" width="60" height="60"/>
                     <constraints>
@@ -213,24 +203,34 @@
                         <constraint firstAttribute="width" constant="60" id="a1r-79-JqG"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you click a tile with a mine underneath, you lose.  Watch Out!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qky-Lo-3GX">
+                    <rect key="frame" x="20" y="214" width="560" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="1Bq-Pd-hQr"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="334" id="puB-Ih-dPH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Szk-yA-bLb" firstAttribute="top" secondItem="qky-Lo-3GX" secondAttribute="bottom" constant="8" id="1LW-8I-Idm"/>
                 <constraint firstAttribute="bottom" secondItem="xRw-La-gx7" secondAttribute="bottom" constant="16" id="2my-jZ-04U"/>
                 <constraint firstItem="FTa-xq-v5l" firstAttribute="top" secondItem="avl-iP-Uap" secondAttribute="bottom" constant="8" id="2ql-T8-YYx"/>
                 <constraint firstItem="hW6-Dn-kW2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="38e-sO-i2R"/>
                 <constraint firstItem="F2O-ic-KPH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3s4-v8-bEJ"/>
                 <constraint firstItem="33l-Gz-qGI" firstAttribute="leading" secondItem="0Ly-ri-xGg" secondAttribute="trailing" constant="8" id="4M2-og-L3p"/>
+                <constraint firstAttribute="trailing" secondItem="tlg-Wt-met" secondAttribute="trailing" constant="20" id="6J9-gp-kN2"/>
+                <constraint firstItem="qky-Lo-3GX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="8GA-s8-zvt"/>
                 <constraint firstItem="0Ly-ri-xGg" firstAttribute="leading" secondItem="FTa-xq-v5l" secondAttribute="trailing" constant="8" id="9dF-dE-Fbl"/>
                 <constraint firstItem="F2O-ic-KPH" firstAttribute="top" secondItem="0Ly-ri-xGg" secondAttribute="bottom" constant="8" id="CQ7-S0-lBQ"/>
                 <constraint firstItem="4Aq-Qj-lEw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="DL9-eK-bAK"/>
                 <constraint firstItem="03w-MI-Dgp" firstAttribute="leading" secondItem="F2O-ic-KPH" secondAttribute="trailing" constant="8" id="FzU-CV-1HF"/>
-                <constraint firstItem="qky-Lo-3GX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="HHv-RS-qgL"/>
                 <constraint firstItem="33l-Gz-qGI" firstAttribute="top" secondItem="9TL-jg-dJT" secondAttribute="bottom" constant="8" id="LRS-kf-MXQ"/>
                 <constraint firstAttribute="trailing" secondItem="xRw-La-gx7" secondAttribute="trailing" constant="19" id="NJH-Rf-MRd"/>
                 <constraint firstAttribute="bottom" secondItem="hW6-Dn-kW2" secondAttribute="bottom" constant="15" id="OFB-Q8-35d"/>
-                <constraint firstItem="tlg-Wt-met" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ONO-7A-PGa"/>
+                <constraint firstItem="Szk-yA-bLb" firstAttribute="top" secondItem="qky-Lo-3GX" secondAttribute="bottom" constant="18" id="Ou5-6x-mAu"/>
                 <constraint firstItem="Nme-7b-SC7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Rwf-IS-cSU"/>
                 <constraint firstItem="avl-iP-Uap" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="UnV-rW-7v5"/>
                 <constraint firstItem="DF0-hz-BV8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="V5p-WT-81C"/>
@@ -239,17 +239,18 @@
                 <constraint firstItem="1lE-yt-oc0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZZ9-Dj-e9q"/>
                 <constraint firstItem="0Ly-ri-xGg" firstAttribute="top" secondItem="Szk-yA-bLb" secondAttribute="bottom" constant="8" id="Zsg-d2-PC3"/>
                 <constraint firstItem="Szk-yA-bLb" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="aK8-Wc-wCI"/>
+                <constraint firstItem="tlg-Wt-met" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="c5R-Q9-zCq"/>
                 <constraint firstItem="Szk-yA-bLb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="c6k-XJ-0ct"/>
                 <constraint firstItem="9TL-jg-dJT" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="dks-St-A1M"/>
-                <constraint firstItem="qky-Lo-3GX" firstAttribute="top" secondItem="tlg-Wt-met" secondAttribute="bottom" constant="8" id="dmN-I2-ZOi"/>
                 <constraint firstItem="F2O-ic-KPH" firstAttribute="leading" secondItem="yNp-ik-4dk" secondAttribute="trailing" constant="8" id="fe5-Jv-Q6d"/>
                 <constraint firstItem="03w-MI-Dgp" firstAttribute="top" secondItem="33l-Gz-qGI" secondAttribute="bottom" constant="8" id="g3P-ox-nCL"/>
                 <constraint firstItem="hOr-Ep-7hi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iHI-df-dAf"/>
                 <constraint firstItem="9TL-jg-dJT" firstAttribute="leading" secondItem="Szk-yA-bLb" secondAttribute="trailing" constant="8" id="ikM-4E-y9S"/>
                 <constraint firstAttribute="bottom" secondItem="4Aq-Qj-lEw" secondAttribute="bottom" constant="16" id="j0T-HR-XZ8"/>
-                <constraint firstAttribute="trailing" secondItem="qky-Lo-3GX" secondAttribute="trailing" constant="20" id="nUW-rw-c2K"/>
                 <constraint firstItem="Nme-7b-SC7" firstAttribute="top" secondItem="1lE-yt-oc0" secondAttribute="bottom" constant="8" id="oLF-rx-sAS"/>
+                <constraint firstItem="Szk-yA-bLb" firstAttribute="top" secondItem="tlg-Wt-met" secondAttribute="bottom" constant="60" id="oe7-nB-a4T"/>
                 <constraint firstItem="DF0-hz-BV8" firstAttribute="top" secondItem="F2O-ic-KPH" secondAttribute="bottom" constant="15" id="t8D-yA-dcv"/>
+                <constraint firstAttribute="trailing" secondItem="qky-Lo-3GX" secondAttribute="trailing" constant="20" id="tI9-A0-Qlo"/>
                 <constraint firstItem="hOr-Ep-7hi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="24" id="tPw-un-Hfu"/>
                 <constraint firstItem="1lE-yt-oc0" firstAttribute="top" secondItem="hOr-Ep-7hi" secondAttribute="bottom" constant="15" id="vem-jV-1hy"/>
                 <constraint firstItem="yNp-ik-4dk" firstAttribute="top" secondItem="FTa-xq-v5l" secondAttribute="bottom" constant="8" id="vtO-Mw-4sb"/>

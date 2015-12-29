@@ -12,10 +12,6 @@ class MineSweeperGame: NSObject {
     var gameSize: Int!
     var tiles: [Tile]
     var gvc: GameViewController
-    //var timer: NSTimer!
-    //var time: Int
-    //var timeLabel: UILabel!
-    //var bestTimeLabel: UILabel!
     var gameLevel: Int
     var pauseGame: Int
     var loseOrWin: Int
@@ -50,6 +46,7 @@ class MineSweeperGame: NSObject {
         
         gvc.bestTimeLabel = UILabel(frame: CGRect(x: 10.0, y: Double(gvc.view.bounds.width) + 80, width: Double(gvc.view.bounds.width / 3), height: 30.0))
         gvc.bestTimeLabel.font = UIFont(name: "Gill Sans", size: 18)
+        gvc.bestTimeLabel.textColor = UIColor.whiteColor()
         var bestTime = 0
         switch gameLevel {
         case 0: bestTime = NSUserDefaults.standardUserDefaults().valueForKey("\(gameSize)Easy") as! Int
@@ -74,6 +71,7 @@ class MineSweeperGame: NSObject {
         gvc.timeLabel.font = UIFont(name: "Gill Sans", size: 18)
         gvc.timeLabel.textAlignment = NSTextAlignment.Right
         gvc.timeLabel.text = "Time: 0:00"
+        gvc.timeLabel.textColor = UIColor.whiteColor()
         gvc.view.addSubview(gvc.timeLabel)
         
         setBombs()

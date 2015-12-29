@@ -22,7 +22,7 @@ class GameViewController: UIViewController {
     var endLabel: UILabel!
 
     override func viewDidLoad() {
-        self.view.backgroundColor = UIColor.grayColor()
+        self.view.backgroundColor = UIColor.blackColor()
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
@@ -38,23 +38,31 @@ class GameViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Mine!", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
             // action to happen when okay is selected
             self.game.initTimer()
-            self.screenCover = UIView(frame: CGRect(x: 0, y: 65, width: self.view.bounds.width, height: self.view.bounds.width))
-            self.screenCover.backgroundColor = UIColor.blackColor()
-            self.screenCover.hidden = true
-            let w = self.screenCover.bounds.width
-            let mine = UIImageView(frame: CGRect(x: w/4, y: 65, width: w/2, height: w/2))
-            mine.image = UIImage(named: "landmine")
-            self.screenCover.addSubview(mine)
-            self.view.addSubview(self.screenCover)
         }))
         
         alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
         presentViewController(alertController, animated: true, completion: nil)
         
+        self.screenCover = UIView(frame: CGRect(x: 0, y: 65, width: self.view.bounds.width, height: self.view.bounds.width))
+        self.screenCover.backgroundColor = UIColor.whiteColor()
+        self.screenCover.hidden = true
+        let w = self.screenCover.bounds.width
+        let mine = UIImageView(frame: CGRect(x: w/4, y: 65, width: w/2, height: w/2))
+        mine.image = UIImage(named: "landmine")
+        let caption = UILabel(frame: CGRect(x: 5, y: w-45, width: w-10, height: 30))
+        caption.text = "Take a breather..."
+        caption.font = UIFont(name: "Gill Sans", size: 18)
+        caption.textColor = UIColor.blackColor()
+        caption.textAlignment = .Center
+        self.screenCover.addSubview(mine)
+        self.screenCover.addSubview(caption)
+        self.view.addSubview(self.screenCover)
+        
         let flagImage = UIImageView(frame: CGRect(x: 10, y: self.view.bounds.height - 35, width: 25, height: 25))
         flagImage.image = UIImage(named: "flag")
         flagNumber = UILabel(frame: CGRect(x: 40, y: self.view.bounds.height - 35, width: 50, height: 30))
         flagNumber.font = UIFont(name: "Gill Sans", size: 18)
+        flagNumber.textColor = UIColor.whiteColor()
         updateFlagCounter()
         
         view.addSubview(flagImage)
@@ -65,6 +73,8 @@ class GameViewController: UIViewController {
         time = 0
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: " Quit", style: .Plain, target: self, action: "quit:")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: .Plain, target: self, action: "pauseButtonPressed:")
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
     }
     
     // Called when the quit nav bar item is pressed
@@ -123,6 +133,7 @@ class GameViewController: UIViewController {
         self.endLabel.removeFromSuperview()
         self.game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
         self.flagsLeft = gameSize * gameSize
+        self.view.bringSubviewToFront(screenCover)
         updateFlagCounter()
         for tile in game.tiles {
             tile.addTarget(self, action: "tilePressed:", forControlEvents: .TouchUpInside)
