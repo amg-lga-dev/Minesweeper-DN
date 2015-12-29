@@ -25,6 +25,7 @@ class GameViewController: UIViewController {
         self.view.backgroundColor = UIColor.blackColor()
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
         game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
         flagsLeft = gameSize * gameSize
         for tile in game.tiles {
@@ -51,8 +52,8 @@ class GameViewController: UIViewController {
         mine.image = UIImage(named: "landmine")
         let caption = UILabel(frame: CGRect(x: 5, y: w-45, width: w-10, height: 30))
         caption.text = "Take a breather..."
-        caption.font = UIFont(name: "Gill Sans", size: 18)
-        caption.textColor = UIColor.blackColor()
+        caption.font = UIFont(name: "Gill Sans", size: 24)
+        caption.textColor = UIColor(red: 100/255, green: 150/255, blue: 255/255, alpha: 1)
         caption.textAlignment = .Center
         self.screenCover.addSubview(mine)
         self.screenCover.addSubview(caption)
@@ -73,18 +74,18 @@ class GameViewController: UIViewController {
         time = 0
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: " Quit", style: .Plain, target: self, action: "quit:")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: .Plain, target: self, action: "pauseButtonPressed:")
-        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor(red: 100/255, green: 150/255, blue: 255/255, alpha: 1)
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 100/255, green: 150/255, blue: 255/255, alpha: 1)
     }
     
     // Called when the quit nav bar item is pressed
     func quit(sender: AnyObject){
-        if game.loseOrWin == 1{
+        if game.loseOrWin != 0{
             self.navigationController?.popToRootViewControllerAnimated(true)
         }else{
             game.pauseGame = 1
-            let alertController = UIAlertController(title: "Are you sure you want to quit? All progress will be lost.", message: nil, preferredStyle: .Alert)
-            alertController.addAction(UIAlertAction(title: "Quit", style: .Default, handler: { (action) -> Void in
+            let alertController = UIAlertController(title: "Are you sure you want to quit?", message: nil, preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: "Quit", style: .Destructive, handler: { (action) -> Void in
                 // What happens when quit is pressed in the alert
                 self.navigationController?.popToRootViewControllerAnimated(true)
             }))
@@ -146,16 +147,19 @@ class GameViewController: UIViewController {
     
     /* Called when player wins or loses.
        Notification Alert to play again or quit. */
-    func playAgainNotification(){
-        let alertController = UIAlertController(title: "Play Again?", message: nil, preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
+    func playAgainNotification(result: String, msg: String){
+        let alertController = UIAlertController(title: result, message: msg, preferredStyle: .Alert)
+        alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
+        let playAgain = UIAlertAction(title: "Play Again", style: .Default, handler: { (action) -> Void in
             // Reinitialize minesweepergame
             self.recreateGame()
-        }))
-        alertController.addAction(UIAlertAction(title: "No", style: .Default, handler: { (action) -> Void in
+        })
+        let exit = UIAlertAction(title: "Exit", style: .Default, handler: { (action) -> Void in
             self.navigationController?.popToRootViewControllerAnimated(true)
-        }))
-        alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
+        })
+        alertController.addAction(playAgain)
+        alertController.addAction(exit)
+        alertController.preferredAction = playAgain
         presentViewController(alertController, animated: true, completion: nil)
     }
     
@@ -229,7 +233,9 @@ class GameViewController: UIViewController {
                 }
             }
             if game.loseOrWin == 1{
-                playAgainNotification()
+                playAgainNotification("GAME OVER", msg: "Better luck next time!")
+            }else if game.loseOrWin == 2{
+                playAgainNotification("You won!", msg: "Great job :)")
             }
         }
     }

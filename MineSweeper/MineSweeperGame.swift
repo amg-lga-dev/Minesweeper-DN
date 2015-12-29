@@ -149,7 +149,7 @@ class MineSweeperGame: NSObject {
             if ((NSUserDefaults.standardUserDefaults().valueForKey(key) as! Int) > gvc.time || (NSUserDefaults.standardUserDefaults().valueForKey(key) as! Int) == 0) {
                 NSUserDefaults.standardUserDefaults().setValue(gvc.time, forKey: key)
             }
-            loseOrWin = 1
+            loseOrWin = 2
             NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
