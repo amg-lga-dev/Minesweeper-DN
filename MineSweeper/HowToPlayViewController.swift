@@ -18,12 +18,12 @@ class HowToPlayViewController: UIViewController {
     @IBOutlet weak var botM: UIImageView!
     @IBOutlet weak var botR: UIImageView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
+    @IBOutlet weak var first: UILabel!
+    @IBOutlet weak var second: UILabel!
+    @IBOutlet weak var third: UILabel!
+    @IBOutlet weak var leftMine: UIImageView!
+    @IBOutlet weak var rightMine: UIImageView!
+ 
     override func viewWillAppear(animated: Bool) {
         let views = [topL, topM, topR, left, right, botL, botM, botR]
         for view in views {
@@ -52,4 +52,19 @@ class HowToPlayViewController: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+    @IBAction func howToButton(sender: UIButton) {
+        if first.hidden == true{
+            first.hidden = false
+            second.hidden = false
+            third.hidden = false
+            leftMine.hidden = false
+            rightMine.hidden = false
+        }else{
+            first.hidden = true
+            second.hidden = true
+            third.hidden = true
+            leftMine.hidden = true
+            rightMine.hidden = true
+        }
+    }
 }

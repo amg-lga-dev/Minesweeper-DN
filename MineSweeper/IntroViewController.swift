@@ -13,6 +13,7 @@ class IntroViewController: UIViewController {
     @IBOutlet weak var gameTypeSelect: UISegmentedControl!
     @IBOutlet weak var gameLevelSelect: UISegmentedControl!
     @IBOutlet weak var themeButton: UIButton!
+    @IBOutlet weak var developersText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,9 @@ class IntroViewController: UIViewController {
         self.view.backgroundColor = Style.foundationColor
         for view in self.view.subviews {
             (view as? UILabel)?.textColor = Style.textColor
+        }
+        if Style.foundationColor == UIColor.blackColor(){
+            developersText.textColor = UIColor(red: 255/255, green: 251/255, blue: 81/255, alpha: 1)
         }
     }
     

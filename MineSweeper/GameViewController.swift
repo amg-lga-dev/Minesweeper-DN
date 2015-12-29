@@ -44,7 +44,6 @@ class GameViewController: UIViewController {
         presentViewController(alertController, animated: true, completion: nil)
         
         self.screenCover = UIView(frame: CGRect(x: 0, y: 65, width: self.view.bounds.width, height: self.view.bounds.width))
-        self.screenCover.backgroundColor = UIColor.whiteColor()
         self.screenCover.hidden = true
         let w = self.screenCover.bounds.width
         let mine = UIImageView(frame: CGRect(x: w/4, y: 65, width: w/2, height: w/2))
@@ -83,6 +82,7 @@ class GameViewController: UIViewController {
         self.view.backgroundColor = Style.foundationColor
 
         flagNumber.textColor = Style.textColor
+        screenCover.backgroundColor = Style.textColor
         
         self.navigationController?.navigationBar.barTintColor = Style.navBar
         

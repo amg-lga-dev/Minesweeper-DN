@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroViewController" customModule="MineSweeper" customModuleProvider="target">
             <connections>
+                <outlet property="developersText" destination="fFq-Ev-zjg" id="tCv-gR-IX7"/>
                 <outlet property="gameLevelSelect" destination="nw4-T2-iXz" id="eoW-05-T9u"/>
                 <outlet property="gameTypeSelect" destination="QDK-13-c7f" id="Ezi-xh-0R9"/>
                 <outlet property="themeButton" destination="QcA-8k-XX6" id="oNQ-Bf-lWX"/>
@@ -26,12 +27,12 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mine Sweeper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMo-dK-xeP">
-                    <rect key="frame" x="166" y="50" width="269" height="48"/>
+                    <rect key="frame" x="169" y="50" width="265" height="53"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="269" id="Q3X-k6-ed4"/>
-                        <constraint firstAttribute="height" constant="48" id="TLh-Oz-aFn"/>
+                        <constraint firstAttribute="width" constant="265" id="Q3X-k6-ed4"/>
+                        <constraint firstAttribute="height" constant="53" id="TLh-Oz-aFn"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="42"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="46"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -124,7 +125,7 @@
                         <action selector="showScores:" destination="-1" eventType="touchUpInside" id="a9C-uG-p0w"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0G1-fL-e94">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0G1-fL-e94">
                     <rect key="frame" x="298" y="558" width="5" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="AGM-Z2-kEu"/>
@@ -132,16 +133,6 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developers:  Andrew Grossfeld &amp; Logan Allen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFq-Ev-zjg">
-                    <rect key="frame" x="0.0" y="101" width="600" height="46"/>
-                    <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="218" id="QIr-h3-9h3"/>
-                        <constraint firstAttribute="height" constant="46" id="xY9-6B-7Tf"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
-                    <color key="textColor" red="1" green="0.98566749939478948" blue="0.31900312832726185" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QcA-8k-XX6">
@@ -165,6 +156,16 @@
                         <action selector="changeTheme:" destination="-1" eventType="touchUpInside" id="1I7-Rg-5cX"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developers:  Andrew Grossfeld &amp; Logan Allen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFq-Ev-zjg">
+                    <rect key="frame" x="0.0" y="98" width="600" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="218" id="QIr-h3-9h3"/>
+                        <constraint firstAttribute="height" constant="46" id="xY9-6B-7Tf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                    <color key="textColor" red="1" green="0.98566749939478948" blue="0.31900312832726185" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -177,7 +178,7 @@
                 <constraint firstItem="V9X-Ne-6fV" firstAttribute="leading" secondItem="0G1-fL-e94" secondAttribute="trailing" constant="13" id="ODo-ho-ofh"/>
                 <constraint firstItem="fFq-Ev-zjg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RXa-mS-Gst"/>
                 <constraint firstItem="QDK-13-c7f" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Sp9-4B-eVq"/>
-                <constraint firstItem="YMo-dK-xeP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UXR-Ra-C22"/>
+                <constraint firstItem="YMo-dK-xeP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1" id="UXR-Ra-C22"/>
                 <constraint firstItem="0G1-fL-e94" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aWS-Ow-hSE"/>
                 <constraint firstItem="V9X-Ne-6fV" firstAttribute="top" secondItem="nw4-T2-iXz" secondAttribute="bottom" constant="47" id="bog-DX-chV"/>
                 <constraint firstAttribute="trailing" secondItem="fFq-Ev-zjg" secondAttribute="trailing" id="dDA-Is-Ubn"/>
@@ -186,7 +187,7 @@
                 <constraint firstItem="nw4-T2-iXz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ldD-nN-Cug"/>
                 <constraint firstItem="0G1-fL-e94" firstAttribute="leading" secondItem="Yuk-Z4-upW" secondAttribute="trailing" constant="13" id="mzz-58-GDN"/>
                 <constraint firstItem="nw4-T2-iXz" firstAttribute="top" secondItem="QDK-13-c7f" secondAttribute="bottom" constant="14" id="ngp-j8-QLE"/>
-                <constraint firstItem="fFq-Ev-zjg" firstAttribute="top" secondItem="YMo-dK-xeP" secondAttribute="bottom" constant="3" id="qDs-Xr-Eyt"/>
+                <constraint firstItem="fFq-Ev-zjg" firstAttribute="top" secondItem="YMo-dK-xeP" secondAttribute="bottom" constant="-5" id="qDs-Xr-Eyt"/>
                 <constraint firstItem="Ufz-9M-itV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rZd-pv-Pjx"/>
                 <constraint firstItem="kD2-ww-apo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xVG-Dy-wCU"/>
             </constraints>

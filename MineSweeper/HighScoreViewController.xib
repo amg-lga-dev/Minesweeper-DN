@@ -25,10 +25,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landmine" translatesAutoresizingMaskIntoConstraints="NO" id="BTp-gE-ns0">
-                    <rect key="frame" x="8" y="8" width="140" height="140"/>
+                    <rect key="frame" x="8" y="24" width="130" height="130"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="140" id="5tY-hi-7al"/>
-                        <constraint firstAttribute="width" constant="140" id="vfn-3b-cfF"/>
+                        <constraint firstAttribute="height" constant="130" id="5tY-hi-7al"/>
+                        <constraint firstAttribute="width" constant="130" id="vfn-3b-cfF"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDU-xE-B3i">
@@ -92,7 +92,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Best Times" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibq-e7-0Fc">
-                    <rect key="frame" x="425" y="15" width="160" height="40"/>
+                    <rect key="frame" x="425" y="24" width="160" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="0pJ-0V-Tno"/>
                         <constraint firstAttribute="width" constant="160" id="DQ5-L2-6Rg"/>
@@ -219,7 +219,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AM3-il-vOi">
-                    <rect key="frame" x="490" y="58" width="90" height="30"/>
+                    <rect key="frame" x="490" y="65" width="90" height="30"/>
                     <color key="backgroundColor" red="0.3803921569" green="0.60392156860000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="BQi-ZP-tMg"/>
@@ -258,8 +258,8 @@
                 <constraint firstItem="Qdq-hz-fb7" firstAttribute="top" secondItem="tGu-zt-aXb" secondAttribute="bottom" constant="8" id="a8X-Ch-Oyt"/>
                 <constraint firstItem="pDU-xE-B3i" firstAttribute="top" secondItem="XGF-fk-uCV" secondAttribute="bottom" constant="105" id="eO9-a3-89h"/>
                 <constraint firstItem="iGz-zT-6Eq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1.25" id="gRR-vs-w7J"/>
-                <constraint firstItem="ibq-e7-0Fc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="gjK-Af-pvr"/>
-                <constraint firstItem="BTp-gE-ns0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="j1C-mI-xYI"/>
+                <constraint firstItem="ibq-e7-0Fc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="24" id="gjK-Af-pvr"/>
+                <constraint firstItem="BTp-gE-ns0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="24" id="j1C-mI-xYI"/>
                 <constraint firstItem="EdU-mY-qyY" firstAttribute="top" secondItem="3wj-YC-kA3" secondAttribute="bottom" constant="56" id="jPv-di-Ur4"/>
                 <constraint firstItem="ptX-jM-y1c" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kYE-Pc-703"/>
                 <constraint firstAttribute="trailing" secondItem="AM3-il-vOi" secondAttribute="trailing" constant="20" id="keO-Tq-mcy"/>
@@ -274,7 +274,7 @@
                 <constraint firstItem="iGz-zT-6Eq" firstAttribute="top" secondItem="RVS-mQ-2fo" secondAttribute="bottom" constant="8" id="stR-TI-6Y6"/>
                 <constraint firstItem="EdU-mY-qyY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1.25" id="v3k-Y1-cL6"/>
                 <constraint firstItem="Lug-MO-R0q" firstAttribute="top" secondItem="EdU-mY-qyY" secondAttribute="bottom" constant="8" id="vs0-e3-Qak"/>
-                <constraint firstItem="AM3-il-vOi" firstAttribute="top" secondItem="ibq-e7-0Fc" secondAttribute="bottom" constant="3" id="wiM-6f-t8I"/>
+                <constraint firstItem="AM3-il-vOi" firstAttribute="top" secondItem="ibq-e7-0Fc" secondAttribute="bottom" constant="1" id="wiM-6f-t8I"/>
             </constraints>
             <point key="canvasLocation" x="345" y="307"/>
         </view>
