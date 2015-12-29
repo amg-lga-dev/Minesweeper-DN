@@ -25,7 +25,7 @@ class GameViewController: UIViewController {
         self.view.backgroundColor = UIColor.blackColor()
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.barTintColor = Style.foundationColor
         game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
         flagsLeft = gameSize * gameSize
         for tile in game.tiles {
@@ -63,8 +63,11 @@ class GameViewController: UIViewController {
         flagImage.image = UIImage(named: "flag")
         flagNumber = UILabel(frame: CGRect(x: 40, y: self.view.bounds.height - 35, width: 50, height: 30))
         flagNumber.font = UIFont(name: "Gill Sans", size: 18)
-        flagNumber.textColor = UIColor.whiteColor()
+        flagNumber.textColor = Style.textColor
         updateFlagCounter()
+        
+        // set background according to theme
+        self.view.backgroundColor = Style.foundationColor
         
         view.addSubview(flagImage)
         view.addSubview(flagNumber)

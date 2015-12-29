@@ -36,6 +36,12 @@ class HighScoreViewController: UIViewController {
         h10.hidden = true
         h12.hidden = true
         
+        // set background and text colors according to theme
+        self.view.backgroundColor = Style.foundationColor
+        for view in self.view.subviews {
+            (view as? UILabel)?.textColor = Style.textColor
+        }
+        
         displayScores()
     }
     

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		500689121C0FCF69007BC5E0 /* MineSweeperGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500689111C0FCF69007BC5E0 /* MineSweeperGame.swift */; };
 		500689141C0FCFBB007BC5E0 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500689131C0FCFBB007BC5E0 /* Tile.swift */; };
+		5027612E1C32963B00CA105F /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5027612D1C32963B00CA105F /* Style.swift */; };
 		50C1458D1C0FCD03001D5575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C1458C1C0FCD03001D5575 /* AppDelegate.swift */; };
 		50C145941C0FCD03001D5575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50C145931C0FCD03001D5575 /* Assets.xcassets */; };
 		50C145971C0FCD03001D5575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50C145951C0FCD03001D5575 /* LaunchScreen.storyboard */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		500689111C0FCF69007BC5E0 /* MineSweeperGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineSweeperGame.swift; sourceTree = "<group>"; };
 		500689131C0FCFBB007BC5E0 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		5027612D1C32963B00CA105F /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		50C145891C0FCD03001D5575 /* MineSweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MineSweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50C1458C1C0FCD03001D5575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50C145931C0FCD03001D5575 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				50C145A61C0FCE52001D5575 /* GameViewController.swift */,
 				500689111C0FCF69007BC5E0 /* MineSweeperGame.swift */,
 				500689131C0FCFBB007BC5E0 /* Tile.swift */,
+				5027612D1C32963B00CA105F /* Style.swift */,
 				50C1458C1C0FCD03001D5575 /* AppDelegate.swift */,
 				50C145931C0FCD03001D5575 /* Assets.xcassets */,
 				50C145951C0FCD03001D5575 /* LaunchScreen.storyboard */,
@@ -166,6 +169,7 @@
 				500689141C0FCFBB007BC5E0 /* Tile.swift in Sources */,
 				500689121C0FCF69007BC5E0 /* MineSweeperGame.swift in Sources */,
 				50C1458D1C0FCD03001D5575 /* AppDelegate.swift in Sources */,
+				5027612E1C32963B00CA105F /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

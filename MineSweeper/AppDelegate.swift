@@ -34,6 +34,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        if NSUserDefaults.standardUserDefaults().valueForKey("theme") ==  nil {
+            NSUserDefaults.standardUserDefaults().setValue("Night", forKey: "theme")
+        }
+        Style.changeTheme()
+        
         
         return true
     }

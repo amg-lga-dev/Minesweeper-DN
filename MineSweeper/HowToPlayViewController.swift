@@ -36,6 +36,13 @@ class HowToPlayViewController: UIViewController {
             view.animationRepeatCount = 0
             view.startAnimating()
         }
+        
+        // set background and text colors according to theme
+        self.view.backgroundColor = Style.foundationColor
+        
+        for view in self.view.subviews {
+            (view as? UILabel)?.textColor = Style.textColor
+        }
     }
 
     @IBAction func returnToRoot(sender: UIButton) {

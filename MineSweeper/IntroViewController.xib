@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="gameLevelSelect" destination="nw4-T2-iXz" id="eoW-05-T9u"/>
                 <outlet property="gameTypeSelect" destination="QDK-13-c7f" id="Ezi-xh-0R9"/>
+                <outlet property="themeButton" destination="QcA-8k-XX6" id="oNQ-Bf-lWX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -143,21 +144,34 @@
                     <color key="textColor" red="1" green="0.98566749939478948" blue="0.31900312832726185" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6n-RQ-snZ">
-                    <rect key="frame" x="8" y="18" width="25" height="25"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QcA-8k-XX6">
+                    <rect key="frame" x="0.0" y="378" width="79" height="30"/>
+                    <color key="backgroundColor" red="0.3803921569" green="0.60392156860000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="25" id="6Q4-5e-909"/>
-                        <constraint firstAttribute="width" constant="25" id="s2j-K6-LhP"/>
+                        <constraint firstAttribute="height" constant="30" id="BuO-Ky-7Fk"/>
+                        <constraint firstAttribute="width" constant="79" id="KN5-yB-OhN"/>
                     </constraints>
-                    <state key="normal" image="tripleBarIcon"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
+                    <state key="normal">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="changeTheme:" destination="-1" eventType="touchUpInside" id="1I7-Rg-5cX"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="QDK-13-c7f" firstAttribute="top" secondItem="kD2-ww-apo" secondAttribute="bottom" constant="16" id="1qB-0t-CDJ"/>
+                <constraint firstItem="QcA-8k-XX6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5m9-ZW-qgW"/>
                 <constraint firstItem="YMo-dK-xeP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="8Bi-OM-Jiq"/>
                 <constraint firstItem="Ufz-9M-itV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="Itp-z5-tTX"/>
-                <constraint firstItem="j6n-RQ-snZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="JH0-l1-xq7"/>
                 <constraint firstAttribute="bottom" secondItem="Yuk-Z4-upW" secondAttribute="bottom" constant="16" id="Jzg-0E-VrY"/>
                 <constraint firstAttribute="bottom" secondItem="0G1-fL-e94" secondAttribute="bottom" constant="21" id="MmU-0W-fzz"/>
                 <constraint firstItem="V9X-Ne-6fV" firstAttribute="leading" secondItem="0G1-fL-e94" secondAttribute="trailing" constant="13" id="ODo-ho-ofh"/>
@@ -167,9 +181,9 @@
                 <constraint firstItem="0G1-fL-e94" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aWS-Ow-hSE"/>
                 <constraint firstItem="V9X-Ne-6fV" firstAttribute="top" secondItem="nw4-T2-iXz" secondAttribute="bottom" constant="47" id="bog-DX-chV"/>
                 <constraint firstAttribute="trailing" secondItem="fFq-Ev-zjg" secondAttribute="trailing" id="dDA-Is-Ubn"/>
+                <constraint firstItem="QcA-8k-XX6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="378" id="e6J-yZ-xHN"/>
                 <constraint firstAttribute="bottom" secondItem="V9X-Ne-6fV" secondAttribute="bottom" constant="16" id="h8T-ds-fhY"/>
                 <constraint firstItem="nw4-T2-iXz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ldD-nN-Cug"/>
-                <constraint firstItem="j6n-RQ-snZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="18" id="mnC-pR-hgg"/>
                 <constraint firstItem="0G1-fL-e94" firstAttribute="leading" secondItem="Yuk-Z4-upW" secondAttribute="trailing" constant="13" id="mzz-58-GDN"/>
                 <constraint firstItem="nw4-T2-iXz" firstAttribute="top" secondItem="QDK-13-c7f" secondAttribute="bottom" constant="14" id="ngp-j8-QLE"/>
                 <constraint firstItem="fFq-Ev-zjg" firstAttribute="top" secondItem="YMo-dK-xeP" secondAttribute="bottom" constant="3" id="qDs-Xr-Eyt"/>
@@ -182,6 +196,5 @@
     </objects>
     <resources>
         <image name="landmine" width="300" height="292"/>
-        <image name="tripleBarIcon" width="512" height="512"/>
     </resources>
 </document>
