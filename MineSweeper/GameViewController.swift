@@ -25,7 +25,6 @@ class GameViewController: UIViewController {
         self.view.backgroundColor = UIColor.blackColor()
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        self.navigationController?.navigationBar.barTintColor = Style.foundationColor
         game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
         flagsLeft = gameSize * gameSize
         for tile in game.tiles {
@@ -63,11 +62,9 @@ class GameViewController: UIViewController {
         flagImage.image = UIImage(named: "flag")
         flagNumber = UILabel(frame: CGRect(x: 40, y: self.view.bounds.height - 35, width: 50, height: 30))
         flagNumber.font = UIFont(name: "Gill Sans", size: 18)
-        flagNumber.textColor = Style.textColor
         updateFlagCounter()
         
-        // set background according to theme
-        self.view.backgroundColor = Style.foundationColor
+        layoutTheme()
         
         view.addSubview(flagImage)
         view.addSubview(flagNumber)
@@ -79,6 +76,16 @@ class GameViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: .Plain, target: self, action: "pauseButtonPressed:")
         self.navigationItem.leftBarButtonItem?.tintColor = UIColor(red: 100/255, green: 150/255, blue: 255/255, alpha: 1)
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 100/255, green: 150/255, blue: 255/255, alpha: 1)
+    }
+    
+    func layoutTheme() {
+        // set background according to theme
+        self.view.backgroundColor = Style.foundationColor
+
+        flagNumber.textColor = Style.textColor
+        
+        self.navigationController?.navigationBar.barTintColor = Style.navBar
+        
     }
     
     // Called when the quit nav bar item is pressed
@@ -123,8 +130,8 @@ class GameViewController: UIViewController {
             tile.isBomb = false
             tile.flipped = false
             tile.marked = false
-            tile.backgroundColor = UIColor.blackColor()
-            tile.layer.borderColor = UIColor.whiteColor().CGColor
+            tile.backgroundColor = Style.unflippedTile
+            tile.layer.borderColor = Style.tileBorder.CGColor
             tile.layer.borderWidth = 1.0
         }
     }
@@ -206,7 +213,7 @@ class GameViewController: UIViewController {
                 tile.marked = false
                 
                 if tile.isBomb {
-                    tile.layer.backgroundColor = UIColor.whiteColor().CGColor
+                    tile.layer.backgroundColor = Style.foundationColor.CGColor
                     let image1:UIImage = UIImage(named: "landmine")!
                     let image2:UIImage = UIImage(named: "explosion")!
                     tile.setImage(image1, forState: UIControlState.Normal)

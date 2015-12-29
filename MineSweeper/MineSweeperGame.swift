@@ -100,7 +100,7 @@ class MineSweeperGame: NSObject {
         for tile in tiles {
             tile.enabled = false
             if tile.isBomb && tile != tilePressed{
-                tile.layer.backgroundColor = UIColor.blackColor().CGColor
+                tile.layer.backgroundColor = Style.unflippedTile.CGColor
                 tile.setImage(UIImage(named: "landmine"), forState: .Normal)
             }
         }

@@ -13,6 +13,7 @@ class IntroViewController: UIViewController {
     @IBOutlet weak var gameTypeSelect: UISegmentedControl!
     @IBOutlet weak var gameLevelSelect: UISegmentedControl!
     @IBOutlet weak var themeButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -21,13 +22,17 @@ class IntroViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        // set background and text colors according to theme
+        let currentTheme = NSUserDefaults.standardUserDefaults().valueForKey("theme") as! String
+        themeButton.setTitle(currentTheme, forState: .Normal)
+        
+        layoutTheme()
+    }
+    
+    func layoutTheme() { // set background and text colors according to theme
         self.view.backgroundColor = Style.foundationColor
         for view in self.view.subviews {
             (view as? UILabel)?.textColor = Style.textColor
         }
-        let currentTheme = NSUserDefaults.standardUserDefaults().valueForKey("theme") as! String
-        themeButton.setTitle(currentTheme, forState: .Normal)
     }
     
     @IBAction func changeTheme(sender: UIButton) {

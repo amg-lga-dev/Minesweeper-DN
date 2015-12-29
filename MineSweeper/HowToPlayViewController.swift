@@ -37,7 +37,10 @@ class HowToPlayViewController: UIViewController {
             view.startAnimating()
         }
         
-        // set background and text colors according to theme
+        layoutTheme()
+    }
+    
+    func layoutTheme() { // set background and text colors according to theme
         self.view.backgroundColor = Style.foundationColor
         
         for view in self.view.subviews {
