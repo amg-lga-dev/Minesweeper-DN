@@ -15,6 +15,10 @@ class GameViewController: UIViewController {
     var screenCover: UIView!
     var flagsLeft: Int = 100
     var flagNumber: UILabel!
+    var timer: NSTimer!
+    var time: Int = 0
+    var timeLabel: UILabel!
+    var bestTimeLabel: UILabel!
 
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.grayColor()
@@ -57,10 +61,12 @@ class GameViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        time = 0
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: " Quit", style: .Plain, target: self, action: "quit:")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: .Plain, target: self, action: "pauseButtonPressed:")
     }
     
+    // Called when the quit nav bar item is pressed
     func quit(sender: AnyObject){
         if game.loseOrWin == 1{
             self.navigationController?.popToRootViewControllerAnimated(true)
@@ -80,6 +86,7 @@ class GameViewController: UIViewController {
         }
     }
     
+    // Called when pause button is pressed
     func pauseButtonPressed(sender: AnyObject){
         if game.loseOrWin == 0{
             if self.navigationItem.rightBarButtonItem?.title == "Pause"{
@@ -94,6 +101,7 @@ class GameViewController: UIViewController {
         }
     }
     
+    // Reset tiles to "nil" initial state
     func resetTiles(){
         for tile in game.tiles{
             tile.number = -2
@@ -106,10 +114,25 @@ class GameViewController: UIViewController {
         }
     }
     
+    // Recreate game, reset timer and flags.
     func recreateGame(){
-        
+        self.time = 0
+        self.timeLabel.removeFromSuperview()
+        self.bestTimeLabel.removeFromSuperview()
+        self.game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
+        self.flagsLeft = gameSize * gameSize
+        updateFlagCounter()
+        for tile in game.tiles {
+            tile.addTarget(self, action: "tilePressed:", forControlEvents: .TouchUpInside)
+            let longPress = UILongPressGestureRecognizer(target: self, action: "tileLongPressed:")
+            longPress.minimumPressDuration = 1
+            tile.addGestureRecognizer(longPress)
+        }
+        self.game.initTimer()
     }
     
+    /* Called when player wins or loses.
+       Notification Alert to play again or quit. */
     func playAgainNotification(){
         let alertController = UIAlertController(title: "Play Again?", message: nil, preferredStyle: .Alert)
         alertController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
@@ -123,6 +146,7 @@ class GameViewController: UIViewController {
         presentViewController(alertController, animated: true, completion: nil)
     }
     
+    // Resets the board until the first tile clicked is not a bomb
     func resetBoard(tile: Tile){
         //print("resetting")
         resetTiles()
@@ -134,6 +158,8 @@ class GameViewController: UIViewController {
         }
     }
     
+    /* Flip over an uncovered tile
+       Displays number of adjacent mines if the tile itself is not a mine */
     @IBAction func tilePressed(sender: UIButton) {
         if game.pauseGame == 0{
             let tile = sender as! Tile
@@ -195,6 +221,7 @@ class GameViewController: UIViewController {
         }
     }
     
+    // Place a flag when tile is longPressed
     @IBAction func tileLongPressed(sender: UILongPressGestureRecognizer) {
         if game.pauseGame == 0{
             let tile = sender.view as! Tile

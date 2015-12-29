@@ -12,10 +12,10 @@ class MineSweeperGame: NSObject {
     var gameSize: Int!
     var tiles: [Tile]
     var gvc: GameViewController
-    var timer: NSTimer!
-    var time: Int
-    var timeLabel: UILabel!
-    var bestTimeLabel: UILabel!
+    //var timer: NSTimer!
+    //var time: Int
+    //var timeLabel: UILabel!
+    //var bestTimeLabel: UILabel!
     var gameLevel: Int
     var pauseGame: Int
     var loseOrWin: Int
@@ -25,7 +25,6 @@ class MineSweeperGame: NSObject {
         self.gameLevel = gameLevel
         self.gvc = vc
         self.gameSize = gameSize
-        self.time = 0
         self.pauseGame = 0
         self.loseOrWin = 0
         self.firstTilePressed = 0
@@ -49,8 +48,8 @@ class MineSweeperGame: NSObject {
             }
         }
         
-        bestTimeLabel = UILabel(frame: CGRect(x: 10.0, y: Double(gvc.view.bounds.width) + 80, width: Double(gvc.view.bounds.width / 3), height: 30.0))
-        bestTimeLabel.font = UIFont(name: "Gill Sans", size: 18)
+        gvc.bestTimeLabel = UILabel(frame: CGRect(x: 10.0, y: Double(gvc.view.bounds.width) + 80, width: Double(gvc.view.bounds.width / 3), height: 30.0))
+        gvc.bestTimeLabel.font = UIFont(name: "Gill Sans", size: 18)
         var bestTime = 0
         switch gameLevel {
         case 0: bestTime = NSUserDefaults.standardUserDefaults().valueForKey("\(gameSize)Easy") as! Int
@@ -59,42 +58,42 @@ class MineSweeperGame: NSObject {
         default: bestTime = 0
         }
         if (bestTime == 0) {
-            bestTimeLabel.text = "Best Time: n/A"
+            gvc.bestTimeLabel.text = "Best Time: n/A"
         }
         else {
             if (bestTime % 60 < 10) {
-                bestTimeLabel.text = "Best Time: \(bestTime / 60):0\(bestTime % 60)"
+                gvc.bestTimeLabel.text = "Best Time: \(bestTime / 60):0\(bestTime % 60)"
             }
             else {
-                bestTimeLabel.text = "Best Time: \(bestTime / 60):\(bestTime % 60)"
+                gvc.bestTimeLabel.text = "Best Time: \(bestTime / 60):\(bestTime % 60)"
             }
         }
-        gvc.view.addSubview(bestTimeLabel)
+        gvc.view.addSubview(gvc.bestTimeLabel)
         
-        timeLabel = UILabel(frame: CGRect(x: Double(gvc.view.bounds.width / 2), y: Double(gvc.view.bounds.width) + 80, width: Double(gvc.view.bounds.width / 2) - 10.0, height: 30.0))
-        timeLabel.font = UIFont(name: "Gill Sans", size: 18)
-        timeLabel.textAlignment = NSTextAlignment.Right
-        timeLabel.text = "Time: 0:00"
-        gvc.view.addSubview(timeLabel)
+        gvc.timeLabel = UILabel(frame: CGRect(x: Double(gvc.view.bounds.width / 2), y: Double(gvc.view.bounds.width) + 80, width: Double(gvc.view.bounds.width / 2) - 10.0, height: 30.0))
+        gvc.timeLabel.font = UIFont(name: "Gill Sans", size: 18)
+        gvc.timeLabel.textAlignment = NSTextAlignment.Right
+        gvc.timeLabel.text = "Time: 0:00"
+        gvc.view.addSubview(gvc.timeLabel)
         
         setBombs()
         setNumbers()
     }
     
     func initTimer() {
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "timerFired:", userInfo: nil, repeats: true)
+        gvc.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "timerFired:", userInfo: nil, repeats: true)
     }
     
     func timerFired(sender: NSTimer) {
         if pauseGame == 0{
-            time++
-            let seconds = time % 60
-            let minutes = time / 60
+            gvc.time++
+            let seconds = gvc.time % 60
+            let minutes = gvc.time / 60
             if seconds < 10 {
-                timeLabel.text = "Time: \(minutes):0\(seconds)"
+                gvc.timeLabel.text = "Time: \(minutes):0\(seconds)"
             }
             else {
-                timeLabel.text = "Time: \(minutes):\(seconds)"
+                gvc.timeLabel.text = "Time: \(minutes):\(seconds)"
             }
         }
     }
@@ -108,8 +107,8 @@ class MineSweeperGame: NSObject {
             }
         }
         
-        timer.invalidate()
-        let spot = timeLabel.center.y + (gvc.view.bounds.height - timeLabel.center.y)/3
+        gvc.timer.invalidate()
+        let spot = gvc.timeLabel.center.y + (gvc.view.bounds.height - gvc.timeLabel.center.y)/3
         let endLabel = UILabel(frame: CGRect(x: 0, y: spot, width: gvc.view.bounds.width, height: 50))
         endLabel.text = "Game Over"
         endLabel.font = UIFont(name: "Gill Sans", size: 50)
@@ -134,8 +133,8 @@ class MineSweeperGame: NSObject {
             for tile in tiles {
                 tile.enabled = false
             }
-            timer.invalidate()
-            let spot = timeLabel.center.y + (gvc.view.bounds.height - timeLabel.center.y)/3
+            gvc.timer.invalidate()
+            let spot = gvc.timeLabel.center.y + (gvc.view.bounds.height - gvc.timeLabel.center.y)/3
             let endLabel = UILabel(frame: CGRect(x: 0, y: spot, width: gvc.view.bounds.width, height: 50))
             endLabel.text = "You Win"
             endLabel.font = UIFont(name: "Gill Sans", size: 50)
@@ -149,8 +148,8 @@ class MineSweeperGame: NSObject {
             case 2: key = "\(gameSize)Hard"
             default: key = "error"
             }
-            if ((NSUserDefaults.standardUserDefaults().valueForKey(key) as! Int) > time || (NSUserDefaults.standardUserDefaults().valueForKey(key) as! Int) == 0) {
-                NSUserDefaults.standardUserDefaults().setValue(time, forKey: key)
+            if ((NSUserDefaults.standardUserDefaults().valueForKey(key) as! Int) > gvc.time || (NSUserDefaults.standardUserDefaults().valueForKey(key) as! Int) == 0) {
+                NSUserDefaults.standardUserDefaults().setValue(gvc.time, forKey: key)
             }
             loseOrWin = 1
             NSUserDefaults.standardUserDefaults().synchronize()
