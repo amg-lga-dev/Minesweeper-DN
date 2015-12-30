@@ -10,7 +10,7 @@
                 <outlet property="backgroundImage" destination="Hdp-UF-KSb" id="69f-kR-fYu"/>
                 <outlet property="boardLabel" destination="Klo-hS-u3t" id="gUp-If-AZ3"/>
                 <outlet property="boardSeg" destination="bkF-cN-Eil" id="n9r-8d-T8o"/>
-                <outlet property="grassImage" destination="5jS-1Z-9VO" id="1rI-4X-GxU"/>
+                <outlet property="bottomImage" destination="5jS-1Z-9VO" id="gQ4-Mj-ATz"/>
                 <outlet property="levelLabel" destination="u4i-ZV-4bE" id="GEu-Ot-loN"/>
                 <outlet property="levelSeg" destination="Ngv-9U-4uh" id="f0h-PK-bpt"/>
                 <outlet property="themeLabel" destination="s85-rd-XYl" id="L9p-Eh-dBS"/>
@@ -30,13 +30,6 @@
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="dyo-Tk-iA5"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="5jS-1Z-9VO">
-                    <rect key="frame" x="0.0" y="480" width="600" height="120"/>
-                    <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="OCZ-XH-hkL"/>
-                        <constraint firstAttribute="height" constant="120" id="x82-4P-gWY"/>
-                    </constraints>
-                </imageView>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Fg-xt-VPU">
                     <rect key="frame" x="8" y="64" width="150" height="29"/>
                     <constraints>
@@ -52,16 +45,6 @@
                         <action selector="themeSegment:" destination="-1" eventType="valueChanged" id="r6p-Au-ryB"/>
                     </connections>
                 </segmentedControl>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s85-rd-XYl">
-                    <rect key="frame" x="8" y="28" width="150" height="28"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="28" id="WPD-Qt-kXQ"/>
-                        <constraint firstAttribute="width" constant="150" id="mFm-ey-mx4"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4i-ZV-4bE">
                     <rect key="frame" x="8" y="188" width="150" height="28"/>
                     <constraints>
@@ -69,7 +52,7 @@
                         <constraint firstAttribute="height" constant="28" id="kqO-ts-gx5"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bkF-cN-Eil">
@@ -111,7 +94,24 @@
                         <constraint firstAttribute="width" constant="150" id="WxT-1y-F9G"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mountains" translatesAutoresizingMaskIntoConstraints="NO" id="5jS-1Z-9VO">
+                    <rect key="frame" x="0.0" y="460" width="600" height="140"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="OCZ-XH-hkL"/>
+                        <constraint firstAttribute="height" constant="140" id="x82-4P-gWY"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s85-rd-XYl">
+                    <rect key="frame" x="8" y="28" width="150" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="WPD-Qt-kXQ"/>
+                        <constraint firstAttribute="width" constant="150" id="mFm-ey-mx4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -146,7 +146,7 @@
         </view>
     </objects>
     <resources>
-        <image name="grass" width="445" height="113"/>
+        <image name="mountains" width="1000" height="228"/>
         <image name="nightSky" width="1228" height="1080"/>
     </resources>
 </document>

@@ -21,7 +21,7 @@ class SidePanelViewController: UIViewController {
     @IBOutlet weak var levelLabel: UILabel!
     
     @IBOutlet weak var backgroundImage: UIImageView!
-    @IBOutlet weak var grassImage: UIImageView!
+    @IBOutlet weak var bottomImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,18 +54,18 @@ class SidePanelViewController: UIViewController {
     
     func setToDay(){
         backgroundImage.image = UIImage(named: "sky")
-        grassImage.layer.opacity = 1
+        bottomImage.layer.opacity = 1
         themeLabel.textColor = UIColor.blackColor()
         boardLabel.textColor = UIColor.blackColor()
         levelLabel.textColor = UIColor.blackColor()
-        themeSeg.tintColor = UIColor.blackColor()
-        boardSeg.tintColor = UIColor.blackColor()
-        levelSeg.tintColor = UIColor.blackColor()
+        //themeSeg.tintColor = UIColor.blackColor()
+        //boardSeg.tintColor = UIColor.blackColor()
+        //levelSeg.tintColor = UIColor.blackColor()
     }
     
     func setToNight(){
         backgroundImage.image = UIImage(named: "nightSky")
-        grassImage.layer.opacity = 0.7
+        bottomImage.layer.opacity = 0.7
         themeLabel.textColor = UIColor.whiteColor()
         boardLabel.textColor = UIColor.whiteColor()
         levelLabel.textColor = UIColor.whiteColor()

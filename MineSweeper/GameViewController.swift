@@ -47,13 +47,22 @@ class GameViewController: UIViewController {
         self.screenCover = UIView(frame: CGRect(x: 0, y: 65, width: self.view.bounds.width, height: self.view.bounds.width))
         self.screenCover.hidden = true
         let w = self.screenCover.bounds.width
+        let backgroundImage = UIImageView(frame: CGRect(x: 0, y: 0, width: w, height: w))
         let mine = UIImageView(frame: CGRect(x: w/4, y: 65, width: w/2, height: w/2))
         mine.image = UIImage(named: "landmine")
         let caption = UILabel(frame: CGRect(x: 5, y: w-45, width: w-10, height: 30))
         caption.text = "Take a breather..."
         caption.font = UIFont(name: "Gill Sans", size: 24)
-        caption.textColor = UIColor(red: 100/255, green: 150/255, blue: 255/255, alpha: 1)
         caption.textAlignment = .Center
+        let theme = NSUserDefaults.standardUserDefaults().valueForKey("theme") as! String
+        if theme == "Day"{
+            backgroundImage.image = UIImage(named: "sky")
+            caption.textColor = UIColor.blackColor()
+        }else{
+            backgroundImage.image = UIImage(named: "nightSky")
+            caption.textColor = UIColor.whiteColor()
+        }
+        self.screenCover.addSubview(backgroundImage)
         self.screenCover.addSubview(mine)
         self.screenCover.addSubview(caption)
         self.view.addSubview(self.screenCover)
