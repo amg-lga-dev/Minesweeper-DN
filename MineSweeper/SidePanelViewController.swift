@@ -37,27 +37,25 @@ class SidePanelViewController: UIViewController {
     }
     
     @IBAction func themeSegment(sender: UISegmentedControl) {
+        var theme: String = ""
         if sender.selectedSegmentIndex == 0{
             NSUserDefaults.standardUserDefaults().setValue("Day", forKey: "theme")
-            Style.setDayTheme()
-            setTheme("Day")
+            theme = "Day"
         }else{
             NSUserDefaults.standardUserDefaults().setValue("Night", forKey: "theme")
-            Style.setNightTheme()
-            setTheme("Night")
+            theme = "Night"
         }
         Style.changeTheme()
+        setTheme(theme)
         introVC?.viewWillAppear(true)
     }
     
     func setTheme(theme: String){
         if theme == "Day"{
-            print("Set day theme")
             backgroundImage.image = UIImage(named: "sky")
             bottomImage.layer.opacity = 1
             themeSeg.selectedSegmentIndex = 0
         }else{
-            print("Set night theme")
             backgroundImage.image = UIImage(named: "nightSky")
             bottomImage.layer.opacity = 0.7
             themeSeg.selectedSegmentIndex = 1

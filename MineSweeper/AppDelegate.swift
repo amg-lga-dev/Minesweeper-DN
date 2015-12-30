@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //window?.backgroundColor = UIColor.whiteColor()
         window?.makeKeyAndVisible()
         
-        
+        // Establish data for Best Times
         let kArray = ["8Easy", "10Easy", "12Easy", "8Medium", "10Medium", "12Medium", "8Hard", "10Hard", "12Hard"]
         for key in kArray {
             if NSUserDefaults.standardUserDefaults().valueForKey(key) == nil {
@@ -35,9 +35,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        // Establish data for number of failures
+        let fArray = ["8EasyFails", "10EasyFails", "12EasyFails", "8MediumFails", "10MediumFails", "12MediumFails", "8HardFails", "10HardFails", "12HardFails"]
+        for f in fArray{
+            if NSUserDefaults.standardUserDefaults().valueForKey(f) == nil{
+                NSUserDefaults.standardUserDefaults().setValue(0, forKey: f)
+            }
+        }
+        
+        // Establish data for number of wins
+        let wArray = ["8EasyWins", "10EasyWins", "12EasyWins", "8MediumWins", "10MediumWins", "12MediumWins", "8HardWins", "10HardWins", "12HardWins"]
+        for w in wArray{
+            if NSUserDefaults.standardUserDefaults().valueForKey(w) == nil{
+                NSUserDefaults.standardUserDefaults().setValue(0, forKey: w)
+            }
+        }
+        
+        // Establish data for theme
         if NSUserDefaults.standardUserDefaults().valueForKey("theme") ==  nil {
             NSUserDefaults.standardUserDefaults().setValue("Night", forKey: "theme")
         }
+        
         Style.changeTheme()
         
         return true
