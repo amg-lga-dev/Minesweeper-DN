@@ -11,6 +11,7 @@
                 <outlet property="backgroundImage" destination="0PU-mw-ciR" id="JWE-tM-ucM"/>
                 <outlet property="boardSeg" destination="jwe-Pi-5UH" id="u4n-wT-q5N"/>
                 <outlet property="bottomImage" destination="zN3-CC-R5M" id="nkG-zx-VSc"/>
+                <outlet property="clearButton" destination="H1x-qX-9fz" id="6Gb-2Y-EWP"/>
                 <outlet property="levelSeg" destination="sHW-wd-lIL" id="0fz-pE-eVz"/>
                 <outlet property="lossLabel" destination="hHM-4Y-IJK" id="pst-vf-Nxp"/>
                 <outlet property="timeLabel" destination="fcp-7e-nZJ" id="OsB-ff-qsh"/>
@@ -84,7 +85,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1x-qX-9fz">
-                    <rect key="frame" x="479" y="554" width="105" height="30"/>
+                    <rect key="frame" x="480" y="554" width="105" height="30"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="8QY-a2-p6m"/>
@@ -218,7 +219,7 @@
                 <constraint firstItem="hHM-4Y-IJK" firstAttribute="top" secondItem="SW6-Zt-CJF" secondAttribute="bottom" constant="18" id="Oxp-pe-GJA"/>
                 <constraint firstAttribute="trailing" secondItem="be1-WB-sDI" secondAttribute="trailing" constant="90" id="RLT-Ko-Uqz"/>
                 <constraint firstItem="zN3-CC-R5M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Rn5-ZV-CfX"/>
-                <constraint firstAttribute="trailing" secondItem="H1x-qX-9fz" secondAttribute="trailing" constant="16" id="U5I-YS-x7H"/>
+                <constraint firstAttribute="trailing" secondItem="H1x-qX-9fz" secondAttribute="trailing" constant="15" id="U5I-YS-x7H"/>
                 <constraint firstItem="11a-Mg-R6j" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WLR-27-Nhh"/>
                 <constraint firstItem="czT-ij-upM" firstAttribute="top" secondItem="sHW-wd-lIL" secondAttribute="bottom" constant="45" id="gMM-hx-zac"/>
                 <constraint firstAttribute="bottom" secondItem="H1x-qX-9fz" secondAttribute="bottom" constant="16" id="gT0-nc-DvT"/>

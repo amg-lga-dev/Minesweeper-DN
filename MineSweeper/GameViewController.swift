@@ -28,6 +28,15 @@ class GameViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         let theme = NSUserDefaults.standardUserDefaults().valueForKey("theme") as! String
         
+        let bottomImage = UIImageView(frame: CGRect(x: 0, y: self.view.bounds.height - 140, width: self.view.bounds.width, height: 140))
+        bottomImage.image = UIImage(named: "mountains.png")
+        if theme == "Day"{
+            bottomImage.layer.opacity = 1.0
+        }else{
+            bottomImage.layer.opacity = 0.7
+        }
+        self.view.addSubview(bottomImage)
+        
         game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
         //flagsLeft = gameSize * gameSize
         flagsLeft = 100
@@ -46,10 +55,9 @@ class GameViewController: UIViewController {
         
         alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
         presentViewController(alertController, animated: true, completion: nil)
-        
-        self.screenCover = UIView(frame: CGRect(x: 0, y: 65, width: self.view.bounds.width, height: self.view.bounds.width))
-        self.screenCover.hidden = true
-        let w = self.screenCover.bounds.width
+    
+        screenCover = UIView(frame: CGRect(x: 0, y: 65, width: self.view.bounds.width, height: self.view.bounds.width))
+        let w = screenCover.bounds.width
         let backgroundImage = UIImageView(frame: CGRect(x: 0, y: 0, width: w, height: w))
         let mine = UIImageView(frame: CGRect(x: w/4, y: 65, width: w/2, height: w/2))
         mine.image = UIImage(named: "landmine")
@@ -60,14 +68,21 @@ class GameViewController: UIViewController {
         if theme == "Day"{
             backgroundImage.image = UIImage(named: "sky")
             caption.textColor = UIColor.blackColor()
+            screenCover.layer.shadowColor = UIColor.blackColor().CGColor
+            screenCover.layer.shadowOpacity = 0.8
         }else{
             backgroundImage.image = UIImage(named: "nightSky")
             caption.textColor = UIColor.whiteColor()
+            screenCover.layer.shadowColor = UIColor.whiteColor().CGColor
+            screenCover.layer.shadowOpacity = 0.6
         }
-        self.screenCover.addSubview(backgroundImage)
-        self.screenCover.addSubview(mine)
-        self.screenCover.addSubview(caption)
+        screenCover.addSubview(backgroundImage)
+        screenCover.addSubview(mine)
+        screenCover.addSubview(caption)
+        screenCover.layer.shadowOffset = CGSizeMake(4, 6)
+        screenCover.layer.shadowRadius = 2
         self.view.addSubview(self.screenCover)
+        view.sendSubviewToBack(screenCover)
         
         let flagImage = UIImageView(frame: CGRect(x: 10, y: self.view.bounds.height - 35, width: 25, height: 25))
         flagImage.image = UIImage(named: "flag")
@@ -93,7 +108,7 @@ class GameViewController: UIViewController {
         // set background according to theme
         self.view.backgroundColor = Style.foundationColor
 
-        flagNumber.textColor = Style.textColor
+        flagNumber.textColor = UIColor.blackColor()
         screenCover.backgroundColor = Style.textColor
         
         self.navigationController?.navigationBar.barTintColor = Style.navBar
@@ -157,11 +172,11 @@ class GameViewController: UIViewController {
             if self.navigationItem.rightBarButtonItem?.title == "Pause"{
                 game.pauseGame = 1
                 self.navigationItem.rightBarButtonItem?.title = "Resume"
-                screenCover.hidden = false
+                view.bringSubviewToFront(screenCover)
             }else{
                 game.pauseGame = 0
                 self.navigationItem.rightBarButtonItem?.title = "Pause"
-                screenCover.hidden = true
+                view.sendSubviewToBack(screenCover)
             }
         }
     }

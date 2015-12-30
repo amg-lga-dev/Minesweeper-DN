@@ -63,6 +63,10 @@ class SidePanelViewController: UIViewController {
         for view in self.view.subviews {
             (view as? UILabel)?.textColor = Style.textColor
             (view as? UISegmentedControl)?.tintColor = UIColor.whiteColor()
+            (view as? UISegmentedControl)?.layer.shadowColor = UIColor.blackColor().CGColor
+            (view as? UISegmentedControl)?.layer.shadowOffset = CGSizeMake(3,3)
+            (view as? UISegmentedControl)?.layer.shadowRadius = 3
+            (view as? UISegmentedControl)?.layer.shadowOpacity = 0.7
         }
         
     }

@@ -56,27 +56,6 @@
                         <action selector="showHowToPlay:" destination="-1" eventType="touchUpInside" id="f3d-x7-ho7"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kD2-ww-apo">
-                    <rect key="frame" x="231" y="461" width="138" height="43"/>
-                    <color key="backgroundColor" red="0.38039215686274508" green="0.60392156862745094" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="43" id="BKU-0u-LFF"/>
-                        <constraint firstAttribute="width" constant="138" id="Ybk-7w-rMe"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
-                    <state key="normal" title="START GAME">
-                        <color key="titleColor" red="0.011171105354764791" green="0.014195303608677627" blue="0.018426865183246099" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="startGame:" destination="-1" eventType="touchUpInside" id="DjE-5y-ejO"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developers:  Andrew Grossfeld &amp; Logan Allen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFq-Ev-zjg">
                     <rect key="frame" x="0.0" y="119" width="600" height="46"/>
                     <constraints>
@@ -109,6 +88,27 @@
                         <action selector="scoreTapped:" destination="-1" eventType="touchUpInside" id="EFi-Re-dAx"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kD2-ww-apo">
+                    <rect key="frame" x="231" y="427" width="138" height="43"/>
+                    <color key="backgroundColor" red="0.38039215686274508" green="0.60392156862745094" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="fcu-9g-BuS"/>
+                        <constraint firstAttribute="width" constant="138" id="nIN-oj-Rxr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                    <state key="normal" title="START GAME">
+                        <color key="titleColor" red="0.011171105354764791" green="0.014195303608677627" blue="0.018426865183246099" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="startGame:" destination="-1" eventType="touchUpInside" id="DjE-5y-ejO"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -118,9 +118,10 @@
                 <constraint firstItem="Ufz-9M-itV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="76" id="Itp-z5-tTX"/>
                 <constraint firstItem="MnC-58-5JU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="QwV-Aa-55j"/>
                 <constraint firstItem="fFq-Ev-zjg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RXa-mS-Gst"/>
+                <constraint firstItem="Yuk-Z4-upW" firstAttribute="top" secondItem="kD2-ww-apo" secondAttribute="bottom" constant="84" id="URI-ht-6pB"/>
                 <constraint firstItem="YMo-dK-xeP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1" id="UXR-Ra-C22"/>
+                <constraint firstItem="kD2-ww-apo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="buk-TC-o16"/>
                 <constraint firstAttribute="trailing" secondItem="fFq-Ev-zjg" secondAttribute="trailing" id="dDA-Is-Ubn"/>
-                <constraint firstItem="kD2-ww-apo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gxR-y3-hXL"/>
                 <constraint firstItem="fj8-sX-EhG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="ncp-jT-gsw"/>
                 <constraint firstItem="Yuk-Z4-upW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nzK-yL-7fd"/>
                 <constraint firstItem="fFq-Ev-zjg" firstAttribute="top" secondItem="YMo-dK-xeP" secondAttribute="bottom" constant="-5" id="qDs-Xr-Eyt"/>

@@ -23,6 +23,8 @@ class ScorePanelViewController: UIViewController {
     @IBOutlet weak var lossLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
+    @IBOutlet weak var clearButton: UIButton!
+    
     var board: Int = 0
     var level: Int = 0
     
@@ -35,6 +37,10 @@ class ScorePanelViewController: UIViewController {
         board = (introVC?.gameType)!
         levelSeg.selectedSegmentIndex = (introVC?.gameLevel)!
         level = (introVC?.gameLevel)!
+        clearButton.layer.shadowOpacity = 0.7
+        clearButton.layer.shadowOffset = CGSizeMake(4, 4)
+        clearButton.layer.shadowRadius = 4
+        clearButton.layer.shadowColor = UIColor.blackColor().CGColor
         showData()
     }
     
@@ -49,6 +55,10 @@ class ScorePanelViewController: UIViewController {
         for view in self.view.subviews {
             (view as? UILabel)?.textColor = Style.textColor
             (view as? UISegmentedControl)?.tintColor = UIColor.whiteColor()
+            (view as? UISegmentedControl)?.layer.shadowColor = UIColor.blackColor().CGColor
+            (view as? UISegmentedControl)?.layer.shadowOffset = CGSizeMake(3,3)
+            (view as? UISegmentedControl)?.layer.shadowRadius = 3
+            (view as? UISegmentedControl)?.layer.shadowOpacity = 0.7
         }
     }
     
