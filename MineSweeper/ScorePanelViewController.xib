@@ -15,6 +15,7 @@
                 <outlet property="levelSeg" destination="sHW-wd-lIL" id="0fz-pE-eVz"/>
                 <outlet property="lossLabel" destination="hHM-4Y-IJK" id="pst-vf-Nxp"/>
                 <outlet property="timeLabel" destination="fcp-7e-nZJ" id="OsB-ff-qsh"/>
+                <outlet property="titleLabel" destination="11a-Mg-R6j" id="evg-ft-FTh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="winLabel" destination="SW6-Zt-CJF" id="DXY-hY-ebo"/>
             </connections>

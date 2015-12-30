@@ -18,6 +18,7 @@ class ScorePanelViewController: UIViewController {
     @IBOutlet weak var boardSeg: UISegmentedControl!
     @IBOutlet weak var levelSeg: UISegmentedControl!
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var attemptLabel: UILabel!
     @IBOutlet weak var winLabel: UILabel!
     @IBOutlet weak var lossLabel: UILabel!
@@ -60,6 +61,9 @@ class ScorePanelViewController: UIViewController {
             (view as? UISegmentedControl)?.layer.shadowRadius = 3
             (view as? UISegmentedControl)?.layer.shadowOpacity = 0.7
         }
+        titleLabel.textColor = UIColor.whiteColor()
+        titleLabel.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
+        titleLabel.shadowOffset = CGSizeMake(2,2)
     }
     
     func showData(){
