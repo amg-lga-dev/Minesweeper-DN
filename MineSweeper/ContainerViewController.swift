@@ -10,6 +10,7 @@ import UIKit
 
 enum SlideOutState {
     case LeftPanelExpanded
+    case RightPanelExpanded
     case IntroShowing
     case GameSimulation
 }
@@ -19,6 +20,7 @@ class ContainerViewController: UIViewController {
     var introNav: UINavigationController!
     var introVC: IntroViewController!
     var leftVC: SidePanelViewController?
+    var rightVC: ScorePanelViewController?
     
     var currentState: SlideOutState = .IntroShowing{
         didSet {
@@ -59,13 +61,20 @@ class ContainerViewController: UIViewController {
         
         func toggleLeftPanel() {
             print("Toggle left")
-            let notAlreadyExpanded = (currentState == .IntroShowing)
-            
+            let notAlreadyExpanded = (currentState != .LeftPanelExpanded)
             if notAlreadyExpanded {
                 addLeftPanelViewController()
             }
-            
             animateLeftPanel(notAlreadyExpanded)
+        }
+        
+        func toggleRightPanel(){
+            let notAlreadyExpanded = (currentState != .RightPanelExpanded)
+            if notAlreadyExpanded {
+                addRightPanelViewController()
+            }
+            
+            animateRightPanel(notAlreadyExpanded)
         }
         
         // Add left panel if not instantiated already
@@ -75,17 +84,25 @@ class ContainerViewController: UIViewController {
                 leftVC = SidePanelViewController()
                 leftVC!.view.backgroundColor = UIColor(red: 120/255, green: 139/255, blue: 148/255, alpha: 0.8)
                 leftVC!.introVC = self.introVC
-                addChildSidePanelController(leftVC!)
+                
+                view.insertSubview(leftVC!.view, atIndex: 0)
+                addChildViewController(leftVC!)
+                leftVC!.didMoveToParentViewController(self)
             }
         }
         
-        // Add left panel as child side panel to view
-        func addChildSidePanelController(sidePanelController: SidePanelViewController) {
-            print("Add child")
-            view.insertSubview(sidePanelController.view, atIndex: 0)
-            print("FUUFUUFDSU")
-            addChildViewController(sidePanelController)
-            sidePanelController.didMoveToParentViewController(self)
+        // Add right panel if not instantiated already
+        func addRightPanelViewController() {
+            if (rightVC == nil) {
+                print("Add left")
+                rightVC = ScorePanelViewController()
+                rightVC!.view.backgroundColor = UIColor(red: 120/255, green: 139/255, blue: 148/255, alpha: 0.8)
+                rightVC!.introVC = self.introVC
+                
+                view.insertSubview(rightVC!.view, atIndex: 0)
+                addChildViewController(rightVC!)
+                rightVC!.didMoveToParentViewController(self)
+            }
         }
         
         // Animate transition between introVC and left panel
@@ -99,6 +116,21 @@ class ContainerViewController: UIViewController {
                     self.currentState = .IntroShowing
                     self.leftVC!.view.removeFromSuperview()
                     self.leftVC = nil;
+                }
+            }
+        }
+        
+        func animateRightPanel(shouldExpand: Bool) {
+            if (shouldExpand) {
+                currentState = .RightPanelExpanded
+                
+                animateIntroPanelXPosition(-CGRectGetWidth(introNav.view.frame) + introPanelExpandedOffset)
+            } else {
+                animateIntroPanelXPosition(0) { _ in
+                    self.currentState = .IntroShowing
+                    
+                    self.rightVC!.view.removeFromSuperview()
+                    self.rightVC = nil;
                 }
             }
         }
@@ -127,28 +159,37 @@ class ContainerViewController: UIViewController {
         func handlePanGesture(recognizer: UIPanGestureRecognizer) {
             // Only recognize gestures when not running the game
             if currentState != .GameSimulation{
-                let gestureIsDraggingFromLeftToRight = (recognizer.velocityInView(view).x > 0)
-            
-                switch(recognizer.state) {
-                case .Began:
-                    if (currentState == .IntroShowing) {
-                        if (gestureIsDraggingFromLeftToRight) {
-                            addLeftPanelViewController()
+                func handlePanGesture(recognizer: UIPanGestureRecognizer) {
+                    let gestureIsDraggingFromLeftToRight = (recognizer.velocityInView(view).x > 0)
+                    
+                    switch(recognizer.state) {
+                    case .Began:
+                        if (currentState == .IntroShowing) {
+                            if (gestureIsDraggingFromLeftToRight) {
+                                addLeftPanelViewController()
+                            } else {
+                                addRightPanelViewController()
+                            }
+                            
+                            showShadowForIntroViewController(true)
                         }
-                        showShadowForIntroViewController(true)
+                    case .Changed:
+                        recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
+                        recognizer.setTranslation(CGPointZero, inView: view)
+                    case .Ended:
+                        if (leftVC != nil) {
+                            // animate the side panel open or closed based on whether the view has moved more or less than halfway
+                            let hasMovedGreaterThanHalfway = recognizer.view!.center.x > view.bounds.size.width
+                            animateLeftPanel(hasMovedGreaterThanHalfway)
+                        } else if (rightVC != nil) {
+                            let hasMovedGreaterThanHalfway = recognizer.view!.center.x < 0
+                            animateRightPanel(hasMovedGreaterThanHalfway)
+                        }
+                    default:
+                        break
                     }
-                case .Changed:
-                    recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
-                    recognizer.setTranslation(CGPointZero, inView: view)
-                case .Ended:
-                    if (leftVC != nil) {
-                        // animate the side panel open or closed based on whether the view has moved more or less than halfway
-                        let hasMovedGreaterThanHalfway = recognizer.view!.center.x > view.bounds.size.width
-                        animateLeftPanel(hasMovedGreaterThanHalfway)
-                    }
-                default:
-                    break
                 }
+
             }
         }
         

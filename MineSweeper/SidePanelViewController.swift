@@ -60,9 +60,9 @@ class SidePanelViewController: UIViewController {
         themeLabel.textColor = UIColor.blackColor()
         boardLabel.textColor = UIColor.blackColor()
         levelLabel.textColor = UIColor.blackColor()
-        //themeSeg.tintColor = UIColor.blackColor()
-        //boardSeg.tintColor = UIColor.blackColor()
-        //levelSeg.tintColor = UIColor.blackColor()
+        themeSeg.tintColor = UIColor.blackColor()
+        boardSeg.tintColor = UIColor.blackColor()
+        levelSeg.tintColor = UIColor.blackColor()
     }
     
     func setToNight(){

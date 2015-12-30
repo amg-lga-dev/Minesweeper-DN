@@ -10,6 +10,8 @@
 		02F9EC971C332F8800AFC84B /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F9EC961C332F8800AFC84B /* ContainerViewController.swift */; };
 		02F9EC9A1C33349F00AFC84B /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F9EC981C33349F00AFC84B /* SidePanelViewController.swift */; };
 		02F9EC9B1C33349F00AFC84B /* SidePanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F9EC991C33349F00AFC84B /* SidePanelViewController.xib */; };
+		02F9EC9E1C33952B00AFC84B /* ScorePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F9EC9C1C33952B00AFC84B /* ScorePanelViewController.swift */; };
+		02F9EC9F1C33952B00AFC84B /* ScorePanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F9EC9D1C33952B00AFC84B /* ScorePanelViewController.xib */; };
 		500689121C0FCF69007BC5E0 /* MineSweeperGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500689111C0FCF69007BC5E0 /* MineSweeperGame.swift */; };
 		500689141C0FCFBB007BC5E0 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500689131C0FCFBB007BC5E0 /* Tile.swift */; };
 		5027612E1C32963B00CA105F /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5027612D1C32963B00CA105F /* Style.swift */; };
@@ -29,6 +31,8 @@
 		02F9EC961C332F8800AFC84B /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		02F9EC981C33349F00AFC84B /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
 		02F9EC991C33349F00AFC84B /* SidePanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SidePanelViewController.xib; sourceTree = "<group>"; };
+		02F9EC9C1C33952B00AFC84B /* ScorePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScorePanelViewController.swift; sourceTree = "<group>"; };
+		02F9EC9D1C33952B00AFC84B /* ScorePanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScorePanelViewController.xib; sourceTree = "<group>"; };
 		500689111C0FCF69007BC5E0 /* MineSweeperGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineSweeperGame.swift; sourceTree = "<group>"; };
 		500689131C0FCFBB007BC5E0 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		5027612D1C32963B00CA105F /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 				50EDDC711C291A3900C13077 /* HowToPlayViewController.swift */,
 				50EDDC721C291A3900C13077 /* HowToPlayViewController.xib */,
 				02F9EC961C332F8800AFC84B /* ContainerViewController.swift */,
+				02F9EC9C1C33952B00AFC84B /* ScorePanelViewController.swift */,
+				02F9EC9D1C33952B00AFC84B /* ScorePanelViewController.xib */,
 				02F9EC981C33349F00AFC84B /* SidePanelViewController.swift */,
 				02F9EC991C33349F00AFC84B /* SidePanelViewController.xib */,
 				50C72B431C12443600629A0C /* HighScoreViewController.swift */,
@@ -156,6 +162,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02F9EC9F1C33952B00AFC84B /* ScorePanelViewController.xib in Resources */,
 				02F9EC9B1C33349F00AFC84B /* SidePanelViewController.xib in Resources */,
 				50C145971C0FCD03001D5575 /* LaunchScreen.storyboard in Resources */,
 				50C145941C0FCD03001D5575 /* Assets.xcassets in Resources */,
@@ -176,6 +183,7 @@
 				50C72B451C12443600629A0C /* HighScoreViewController.swift in Sources */,
 				02F9EC9A1C33349F00AFC84B /* SidePanelViewController.swift in Sources */,
 				50C145A71C0FCE52001D5575 /* GameViewController.swift in Sources */,
+				02F9EC9E1C33952B00AFC84B /* ScorePanelViewController.swift in Sources */,
 				50EDDC731C291A3900C13077 /* HowToPlayViewController.swift in Sources */,
 				500689141C0FCFBB007BC5E0 /* Tile.swift in Sources */,
 				500689121C0FCF69007BC5E0 /* MineSweeperGame.swift in Sources */,
