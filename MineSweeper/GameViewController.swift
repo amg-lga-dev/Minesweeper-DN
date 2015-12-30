@@ -25,7 +25,9 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.blackColor()
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        let theme = NSUserDefaults.standardUserDefaults().valueForKey("theme") as! String
+        
         game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
         flagsLeft = gameSize * gameSize
         for tile in game.tiles {
@@ -54,7 +56,6 @@ class GameViewController: UIViewController {
         caption.text = "Take a breather..."
         caption.font = UIFont(name: "Gill Sans", size: 24)
         caption.textAlignment = .Center
-        let theme = NSUserDefaults.standardUserDefaults().valueForKey("theme") as! String
         if theme == "Day"{
             backgroundImage.image = UIImage(named: "sky")
             caption.textColor = UIColor.blackColor()

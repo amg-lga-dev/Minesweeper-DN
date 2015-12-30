@@ -28,6 +28,8 @@ class SidePanelViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
         let theme = NSUserDefaults.standardUserDefaults().valueForKey("theme") as! String
         if theme == "Day"{
             themeSeg.selectedSegmentIndex = 0
