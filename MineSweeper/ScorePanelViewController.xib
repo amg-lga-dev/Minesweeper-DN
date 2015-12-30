@@ -58,14 +58,14 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1x-qX-9fz">
                     <rect key="frame" x="479" y="554" width="105" height="30"/>
-                    <color key="backgroundColor" red="0.47058823529999999" green="0.5450980392" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="8QY-a2-p6m"/>
                         <constraint firstAttribute="width" constant="105" id="Mqw-Ro-1FJ"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
                     <state key="normal" title="Clear Scores">
-                        <color key="titleColor" red="1" green="0.98566749939999998" blue="0.31900312829999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.3803921569" green="0.60392156860000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
