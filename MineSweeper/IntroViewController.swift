@@ -17,6 +17,8 @@ protocol IntroViewControllerDelegate {
 
 class IntroViewController: UIViewController {
     
+    @IBOutlet weak var topBarImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var developersText: UILabel!
     
     var gameType: Int = 0
@@ -39,7 +41,19 @@ class IntroViewController: UIViewController {
         }
         if Style.foundationColor == UIColor.blackColor(){
             developersText.textColor = UIColor(red: 255/255, green: 251/255, blue: 81/255, alpha: 1)
+            topBarImage.image = UIImage(named: "nightSkyBar.png")
+        }else{
+            topBarImage.image = UIImage(named: "skyBar.png")
         }
+        topBarImage.layer.shadowColor = UIColor.blackColor().CGColor
+        topBarImage.layer.shadowOffset = CGSizeMake(0,4)
+        topBarImage.layer.shadowOpacity = 0.6
+        topBarImage.layer.shadowRadius = 3
+        
+        titleLabel.layer.shadowColor = UIColor.blackColor().CGColor
+        titleLabel.layer.shadowOpacity = 0.5
+        titleLabel.layer.shadowOffset = CGSizeMake(2,2)
+        titleLabel.layer.shadowRadius = 1
     }
     
     @IBAction func startGame (sender: UIButton) {

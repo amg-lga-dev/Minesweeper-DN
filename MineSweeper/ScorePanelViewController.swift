@@ -62,8 +62,10 @@ class ScorePanelViewController: UIViewController {
             (view as? UISegmentedControl)?.layer.shadowOpacity = 0.7
         }
         titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
-        titleLabel.shadowOffset = CGSizeMake(2,2)
+        titleLabel.layer.shadowColor = UIColor.blackColor().CGColor
+        titleLabel.layer.shadowOffset = CGSizeMake(2,2)
+        titleLabel.layer.shadowOpacity = 0.6
+        titleLabel.layer.shadowRadius = 1
     }
     
     func showData(){
