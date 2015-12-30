@@ -7,8 +7,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SidePanelViewController" customModule="MineSweeper" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundImage" destination="Hdp-UF-KSb" id="69f-kR-fYu"/>
+                <outlet property="boardLabel" destination="Klo-hS-u3t" id="gUp-If-AZ3"/>
                 <outlet property="boardSeg" destination="bkF-cN-Eil" id="n9r-8d-T8o"/>
+                <outlet property="grassImage" destination="5jS-1Z-9VO" id="1rI-4X-GxU"/>
+                <outlet property="levelLabel" destination="u4i-ZV-4bE" id="GEu-Ot-loN"/>
                 <outlet property="levelSeg" destination="Ngv-9U-4uh" id="f0h-PK-bpt"/>
+                <outlet property="themeLabel" destination="s85-rd-XYl" id="L9p-Eh-dBS"/>
                 <outlet property="themeSeg" destination="2Fg-xt-VPU" id="BHr-ja-Q2z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="rNN-hT-m6S"/>
             </connections>
@@ -18,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sky" translatesAutoresizingMaskIntoConstraints="NO" id="Hdp-UF-KSb">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nightSky" translatesAutoresizingMaskIntoConstraints="NO" id="Hdp-UF-KSb">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="dsk-uU-cWb"/>
@@ -26,10 +31,10 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="5jS-1Z-9VO">
-                    <rect key="frame" x="0.0" y="500" width="600" height="100"/>
+                    <rect key="frame" x="0.0" y="480" width="600" height="120"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="OCZ-XH-hkL"/>
-                        <constraint firstAttribute="height" constant="100" id="x82-4P-gWY"/>
+                        <constraint firstAttribute="height" constant="120" id="x82-4P-gWY"/>
                     </constraints>
                 </imageView>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Fg-xt-VPU">
@@ -142,6 +147,6 @@
     </objects>
     <resources>
         <image name="grass" width="445" height="113"/>
-        <image name="sky" width="1600" height="948"/>
+        <image name="nightSky" width="1228" height="1080"/>
     </resources>
 </document>
