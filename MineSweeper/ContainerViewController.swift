@@ -82,6 +82,7 @@ class ContainerViewController: UIViewController {
             if (leftVC == nil) {
                 print("Add left")
                 leftVC = SidePanelViewController()
+                leftVC?.view.frame = self.introVC.view.frame
                 leftVC!.view.backgroundColor = UIColor(red: 120/255, green: 139/255, blue: 148/255, alpha: 0.8)
                 leftVC!.introVC = self.introVC
                 
@@ -95,6 +96,7 @@ class ContainerViewController: UIViewController {
         func addRightPanelViewController() {
             if (rightVC == nil) {
                 rightVC = ScorePanelViewController()
+                rightVC?.view.frame = self.introVC.view.frame
                 rightVC!.view.backgroundColor = UIColor(red: 120/255, green: 139/255, blue: 148/255, alpha: 0.8)
                 rightVC!.introVC = self.introVC
                 
