@@ -18,6 +18,13 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landmine" translatesAutoresizingMaskIntoConstraints="NO" id="Hdp-UF-KSb">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="dsk-uU-cWb"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="dyo-Tk-iA5"/>
+                    </constraints>
+                </imageView>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Fg-xt-VPU">
                     <rect key="frame" x="8" y="125" width="150" height="29"/>
                     <constraints>
@@ -109,6 +116,8 @@
             <color key="backgroundColor" red="0.47058823529999999" green="0.5450980392" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="HAW-l3-KBU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="1ha-Tn-w48"/>
+                <constraint firstAttribute="trailing" secondItem="Hdp-UF-KSb" secondAttribute="trailing" id="1wo-MK-Lb4"/>
+                <constraint firstAttribute="bottom" secondItem="Hdp-UF-KSb" secondAttribute="bottom" id="23i-ES-eg9"/>
                 <constraint firstItem="Klo-hS-u3t" firstAttribute="top" secondItem="2Fg-xt-VPU" secondAttribute="bottom" constant="16" id="79I-6l-2AL"/>
                 <constraint firstItem="Klo-hS-u3t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="AXF-ND-PUa"/>
                 <constraint firstItem="bkF-cN-Eil" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Deg-N2-iIu"/>
@@ -118,6 +127,8 @@
                 <constraint firstItem="s85-rd-XYl" firstAttribute="top" secondItem="HAW-l3-KBU" secondAttribute="bottom" constant="24" id="Qef-bn-eJM"/>
                 <constraint firstItem="u4i-ZV-4bE" firstAttribute="top" secondItem="bkF-cN-Eil" secondAttribute="bottom" constant="16" id="SYe-Cn-iFA"/>
                 <constraint firstItem="bkF-cN-Eil" firstAttribute="top" secondItem="Klo-hS-u3t" secondAttribute="bottom" constant="8" id="aIo-iY-aQo"/>
+                <constraint firstItem="Hdp-UF-KSb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="oDJ-Tr-UmM"/>
+                <constraint firstItem="Hdp-UF-KSb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pZW-xu-gyQ"/>
                 <constraint firstItem="Ngv-9U-4uh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="s7F-3H-aZe"/>
                 <constraint firstItem="s85-rd-XYl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="woY-zQ-SiK"/>
                 <constraint firstItem="HAW-l3-KBU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="xjd-ov-dNz"/>
@@ -125,4 +136,7 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="landmine" width="300" height="292"/>
+    </resources>
 </document>
