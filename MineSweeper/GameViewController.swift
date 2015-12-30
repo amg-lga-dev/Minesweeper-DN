@@ -29,7 +29,8 @@ class GameViewController: UIViewController {
         let theme = NSUserDefaults.standardUserDefaults().valueForKey("theme") as! String
         
         game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
-        flagsLeft = gameSize * gameSize
+        //flagsLeft = gameSize * gameSize
+        flagsLeft = 100
         for tile in game.tiles {
             tile.addTarget(self, action: "tilePressed:", forControlEvents: .TouchUpInside)
             let longPress = UILongPressGestureRecognizer(target: self, action: "tileLongPressed:")
@@ -99,6 +100,35 @@ class GameViewController: UIViewController {
         
     }
     
+    func getKey() -> String{
+        var diff: String = ""
+    
+        if gameLevel == 0{
+            diff = "Easy"
+        }else if gameLevel == 1{
+            diff = "Medium"
+        }else{
+            diff = "Hard"
+        }
+        
+        return "\(gameSize)\(diff)"
+    }
+    
+    func updateData(memo: String){
+        let key: String = getKey()
+        if memo == "quit" || game.loseOrWin == 1{
+            // Add to total losses
+            var losses = NSUserDefaults.standardUserDefaults().valueForKey("\(key)Fails") as! Int
+            losses++
+            NSUserDefaults.standardUserDefaults().setValue(losses, forKey: "\(key)Fails")
+        }else{
+            // Add to total wins
+            var wins = NSUserDefaults.standardUserDefaults().valueForKey("\(key)Wins") as! Int
+            wins++
+            NSUserDefaults.standardUserDefaults().setValue(wins, forKey: "\(key)Wins")
+        }
+    }
+    
     // Called when the quit nav bar item is pressed
     func quit(sender: AnyObject){
         if game.loseOrWin != 0{
@@ -108,6 +138,7 @@ class GameViewController: UIViewController {
             let alertController = UIAlertController(title: "Are you sure you want to quit?", message: nil, preferredStyle: .Alert)
             alertController.addAction(UIAlertAction(title: "Quit", style: .Destructive, handler: { (action) -> Void in
                 // What happens when quit is pressed in the alert
+                self.updateData("quit")
                 self.navigationController?.popToRootViewControllerAnimated(true)
                 self.introVC?.containerVC?.currentState = .IntroShowing
             }))
@@ -256,8 +287,10 @@ class GameViewController: UIViewController {
                 }
             }
             if game.loseOrWin == 1{
+                updateData("")
                 playAgainNotification("GAME OVER", msg: "Better luck next time!")
             }else if game.loseOrWin == 2{
+                updateData("")
                 playAgainNotification("You won!", msg: "Great job :)")
             }
         }

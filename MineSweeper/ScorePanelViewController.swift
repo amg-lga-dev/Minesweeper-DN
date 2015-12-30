@@ -18,13 +18,24 @@ class ScorePanelViewController: UIViewController {
     @IBOutlet weak var boardSeg: UISegmentedControl!
     @IBOutlet weak var levelSeg: UISegmentedControl!
     
+    @IBOutlet weak var attemptLabel: UILabel!
+    @IBOutlet weak var winLabel: UILabel!
+    @IBOutlet weak var lossLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    var board: Int = 0
+    var level: Int = 0
+    
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         let theme = NSUserDefaults.standardUserDefaults().valueForKey("theme") as! String
         setTheme(theme)
         boardSeg.selectedSegmentIndex = (introVC?.gameType)!
+        board = (introVC?.gameType)!
         levelSeg.selectedSegmentIndex = (introVC?.gameLevel)!
+        level = (introVC?.gameLevel)!
+        showData()
     }
     
     func setTheme(theme: String){
@@ -41,9 +52,25 @@ class ScorePanelViewController: UIViewController {
         }
     }
     
-    func getData(board: Int, level: Int) -> [String]{
+    func showData(){
+        let key: String = getKey()
+        let time = NSUserDefaults.standardUserDefaults().valueForKey(key) as! Int
+        let losses = NSUserDefaults.standardUserDefaults().valueForKey("\(key)Fails") as! Int
+        let wins = NSUserDefaults.standardUserDefaults().valueForKey("\(key)Wins") as! Int
+        let attempts = losses + wins
+        
+        attemptLabel.text = "\(attempts)"
+        winLabel.text = "\(wins)"
+        lossLabel.text = "\(losses)"
+        timeLabel.text = timeToText(time)
+        
+    }
+    
+    // Get the key for NSUserDefault
+    func getKey() -> String{
         let num = 8 + 2*board
         var diff: String = ""
+        
         if level == 0{
             diff = "Easy"
         }else if level == 1{
@@ -51,39 +78,48 @@ class ScorePanelViewController: UIViewController {
         }else{
             diff = "Hard"
         }
-        let key = "\(num)\(diff)"
-        print(key)
-        return []
+        
+        return "\(num)\(diff)"
     }
     
-    func scoreToText() -> [String] {
-        var returnArray: [String] = [];
-        let easy8 = NSUserDefaults.standardUserDefaults().valueForKey("8Easy") as! Int
-        let easy10 = NSUserDefaults.standardUserDefaults().valueForKey("10Easy") as! Int
-        let easy12 = NSUserDefaults.standardUserDefaults().valueForKey("12Easy") as! Int
-        let medium8 = NSUserDefaults.standardUserDefaults().valueForKey("8Medium") as! Int
-        let medium10 = NSUserDefaults.standardUserDefaults().valueForKey("10Medium") as! Int
-        let medium12 = NSUserDefaults.standardUserDefaults().valueForKey("12Medium") as! Int
-        let hard8 = NSUserDefaults.standardUserDefaults().valueForKey("8Hard") as! Int
-        let hard10 = NSUserDefaults.standardUserDefaults().valueForKey("10Hard") as! Int
-        let hard12 = NSUserDefaults.standardUserDefaults().valueForKey("12Hard") as! Int
-        let scores = [easy8, easy10, easy12, medium8, medium10, medium12, hard8, hard10, hard12]
-        for score in scores {
-            if (score == 0) {
-                returnArray.append("n/A")
+    // Convert time to minutes and seconds
+    func timeToText(score: Int) -> String {
+        
+        var time: String = ""
+        
+        if (score == 0) {
+            time = "unknown"
+        }
+        else {
+            let mins = score / 60
+            let secs = score % 60
+            if (secs < 10) {
+                time = "\(mins): 0\(secs)"
             }
             else {
-                let mins = score / 60
-                let secs = score % 60
-                if (secs < 10) {
-                    returnArray.append("\(mins):0\(secs)")
-                }
-                else {
-                    returnArray.append("\(mins):\(secs)")
-                }
+                time = "\(mins): \(secs)"
             }
         }
-        return returnArray
+        
+        return time
+    }
+    
+    @IBAction func boardSelected(sender: UISegmentedControl) {
+        self.board = sender.selectedSegmentIndex
+        showData()
+    }
+    @IBAction func levelSelected(sender: UISegmentedControl) {
+        self.level = sender.selectedSegmentIndex
+        showData()
+    }
+    
+    // Clear data for selected board & level
+    @IBAction func clearScores(sender: UIButton) {
+        let key: String = getKey()
+        NSUserDefaults.standardUserDefaults().setValue(0, forKey: "\(key)Fails")
+        NSUserDefaults.standardUserDefaults().setValue(0, forKey: "\(key)Wins")
+        NSUserDefaults.standardUserDefaults().setValue(0, forKey: key)
+        showData()
     }
 
 }
