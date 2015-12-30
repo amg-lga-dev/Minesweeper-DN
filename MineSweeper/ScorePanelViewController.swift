@@ -15,10 +15,6 @@ class ScorePanelViewController: UIViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var bottomImage: UIImageView!
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var boardLabel: UILabel!
-    @IBOutlet weak var levelLabel: UILabel!
-    
     @IBOutlet weak var boardSeg: UISegmentedControl!
     @IBOutlet weak var levelSeg: UISegmentedControl!
     
@@ -26,33 +22,25 @@ class ScorePanelViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         let theme = NSUserDefaults.standardUserDefaults().valueForKey("theme") as! String
-        if theme == "Day"{
-            setToDay()
-        }else{
-            setToNight()
-        }
+        setTheme(theme)
         boardSeg.selectedSegmentIndex = (introVC?.gameType)!
         levelSeg.selectedSegmentIndex = (introVC?.gameLevel)!
     }
     
-    func setToDay(){
-        backgroundImage.image = UIImage(named: "sky")
-        bottomImage.layer.opacity = 1
-        titleLabel.textColor = UIColor.blackColor()
-        boardLabel.textColor = UIColor.blackColor()
-        levelLabel.textColor = UIColor.blackColor()
-        boardSeg.tintColor = UIColor.blackColor()
-        levelSeg.tintColor = UIColor.blackColor()
-    }
     
-    func setToNight(){
-        backgroundImage.image = UIImage(named: "nightSky")
-        bottomImage.layer.opacity = 0.7
-        titleLabel.textColor = UIColor.whiteColor()
-        boardLabel.textColor = UIColor.whiteColor()
-        levelLabel.textColor = UIColor.whiteColor()
-        boardSeg.tintColor = UIColor.whiteColor()
-        levelSeg.tintColor = UIColor.whiteColor()
+    func setTheme(theme: String){
+        if theme == "Day"{
+            backgroundImage.image = UIImage(named: "sky")
+            bottomImage.layer.opacity = 1
+        }else{
+            backgroundImage.image = UIImage(named: "nightSky")
+            bottomImage.layer.opacity = 0.7
+        }
+        for view in self.view.subviews {
+            (view as? UILabel)?.textColor = Style.textColor
+            (view as? UISegmentedControl)?.tintColor = UIColor.whiteColor()
+        }
+        
     }
 
 }

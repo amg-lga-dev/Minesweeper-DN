@@ -8,12 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SidePanelViewController" customModule="MineSweeper" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundImage" destination="Hdp-UF-KSb" id="69f-kR-fYu"/>
-                <outlet property="boardLabel" destination="Klo-hS-u3t" id="gUp-If-AZ3"/>
                 <outlet property="boardSeg" destination="bkF-cN-Eil" id="n9r-8d-T8o"/>
                 <outlet property="bottomImage" destination="5jS-1Z-9VO" id="gQ4-Mj-ATz"/>
-                <outlet property="levelLabel" destination="u4i-ZV-4bE" id="GEu-Ot-loN"/>
                 <outlet property="levelSeg" destination="Ngv-9U-4uh" id="f0h-PK-bpt"/>
-                <outlet property="themeLabel" destination="s85-rd-XYl" id="L9p-Eh-dBS"/>
                 <outlet property="themeSeg" destination="2Fg-xt-VPU" id="BHr-ja-Q2z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="rNN-hT-m6S"/>
             </connections>

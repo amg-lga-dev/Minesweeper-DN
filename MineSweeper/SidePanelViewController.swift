@@ -16,9 +16,9 @@ class SidePanelViewController: UIViewController {
     @IBOutlet weak var boardSeg: UISegmentedControl!
     @IBOutlet weak var levelSeg: UISegmentedControl!
     
-    @IBOutlet weak var themeLabel: UILabel!
-    @IBOutlet weak var boardLabel: UILabel!
-    @IBOutlet weak var levelLabel: UILabel!
+//    @IBOutlet weak var themeLabel: UILabel!
+//    @IBOutlet weak var boardLabel: UILabel!
+//    @IBOutlet weak var levelLabel: UILabel!
     
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var bottomImage: UIImageView!
@@ -31,13 +31,7 @@ class SidePanelViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         let theme = NSUserDefaults.standardUserDefaults().valueForKey("theme") as! String
-        if theme == "Day"{
-            themeSeg.selectedSegmentIndex = 0
-            setToDay()
-        }else{
-            themeSeg.selectedSegmentIndex = 1
-            setToNight()
-        }
+        setTheme(theme)
         boardSeg.selectedSegmentIndex = (introVC?.gameType)!
         levelSeg.selectedSegmentIndex = (introVC?.gameLevel)!
     }
@@ -45,35 +39,34 @@ class SidePanelViewController: UIViewController {
     @IBAction func themeSegment(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0{
             NSUserDefaults.standardUserDefaults().setValue("Day", forKey: "theme")
-            setToDay()
+            Style.setDayTheme()
+            setTheme("Day")
         }else{
             NSUserDefaults.standardUserDefaults().setValue("Night", forKey: "theme")
-            setToNight()
+            Style.setNightTheme()
+            setTheme("Night")
         }
         Style.changeTheme()
         introVC?.viewWillAppear(true)
     }
     
-    func setToDay(){
-        backgroundImage.image = UIImage(named: "sky")
-        bottomImage.layer.opacity = 1
-        themeLabel.textColor = UIColor.blackColor()
-        boardLabel.textColor = UIColor.blackColor()
-        levelLabel.textColor = UIColor.blackColor()
-        themeSeg.tintColor = UIColor.blackColor()
-        boardSeg.tintColor = UIColor.blackColor()
-        levelSeg.tintColor = UIColor.blackColor()
-    }
-    
-    func setToNight(){
-        backgroundImage.image = UIImage(named: "nightSky")
-        bottomImage.layer.opacity = 0.7
-        themeLabel.textColor = UIColor.whiteColor()
-        boardLabel.textColor = UIColor.whiteColor()
-        levelLabel.textColor = UIColor.whiteColor()
-        themeSeg.tintColor = UIColor.whiteColor()
-        boardSeg.tintColor = UIColor.whiteColor()
-        levelSeg.tintColor = UIColor.whiteColor()
+    func setTheme(theme: String){
+        if theme == "Day"{
+            print("Set day theme")
+            backgroundImage.image = UIImage(named: "sky")
+            bottomImage.layer.opacity = 1
+            themeSeg.selectedSegmentIndex = 0
+        }else{
+            print("Set night theme")
+            backgroundImage.image = UIImage(named: "nightSky")
+            bottomImage.layer.opacity = 0.7
+            themeSeg.selectedSegmentIndex = 1
+        }
+        for view in self.view.subviews {
+            (view as? UILabel)?.textColor = Style.textColor
+            (view as? UISegmentedControl)?.tintColor = UIColor.whiteColor()
+        }
+        
     }
     
     @IBAction func boardSegment(sender: UISegmentedControl) {

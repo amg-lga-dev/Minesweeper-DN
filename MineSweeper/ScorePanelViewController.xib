@@ -8,12 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScorePanelViewController" customModule="MineSweeper" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundImage" destination="0PU-mw-ciR" id="JWE-tM-ucM"/>
-                <outlet property="boardLabel" destination="Ifw-fk-d5g" id="qZJ-jT-e0Q"/>
-                <outlet property="boardSeg" destination="jwe-Pi-5UH" id="SyS-nG-toL"/>
+                <outlet property="boardSeg" destination="jwe-Pi-5UH" id="u4n-wT-q5N"/>
                 <outlet property="bottomImage" destination="zN3-CC-R5M" id="nkG-zx-VSc"/>
-                <outlet property="levelLabel" destination="AgX-xq-Ezo" id="gIB-Co-en5"/>
-                <outlet property="levelSeg" destination="sHW-wd-lIL" id="Fkh-Nr-Xl2"/>
-                <outlet property="titleLabel" destination="11a-Mg-R6j" id="02a-yI-vHh"/>
+                <outlet property="levelSeg" destination="sHW-wd-lIL" id="0fz-pE-eVz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,6 +26,29 @@
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="GdB-eq-ehZ"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgX-xq-Ezo">
+                    <rect key="frame" x="442" y="164" width="150" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="3Zv-uM-TqY"/>
+                        <constraint firstAttribute="height" constant="28" id="ROi-Lh-cSP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sHW-wd-lIL">
+                    <rect key="frame" x="367" y="200" width="225" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="0Vk-fa-0to"/>
+                        <constraint firstAttribute="width" constant="225" id="yFv-4P-mze"/>
+                    </constraints>
+                    <segments>
+                        <segment title="Easy"/>
+                        <segment title="Medium"/>
+                        <segment title="Hard"/>
+                    </segments>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </segmentedControl>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Board Size" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifw-fk-d5g">
                     <rect key="frame" x="442" y="84" width="150" height="28"/>
                     <constraints>
@@ -73,16 +93,6 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgX-xq-Ezo">
-                    <rect key="frame" x="442" y="164" width="150" height="28"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="150" id="3Zv-uM-TqY"/>
-                        <constraint firstAttribute="height" constant="28" id="ROi-Lh-cSP"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jwe-Pi-5UH">
                     <rect key="frame" x="367" y="120" width="225" height="29"/>
                     <constraints>
@@ -93,19 +103,6 @@
                         <segment title="8 x 8"/>
                         <segment title="10 x 10"/>
                         <segment title="12 x 12"/>
-                    </segments>
-                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                </segmentedControl>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sHW-wd-lIL">
-                    <rect key="frame" x="367" y="200" width="225" height="29"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="28" id="0Vk-fa-0to"/>
-                        <constraint firstAttribute="width" constant="225" id="yFv-4P-mze"/>
-                    </constraints>
-                    <segments>
-                        <segment title="Easy"/>
-                        <segment title="Medium"/>
-                        <segment title="Hard"/>
                     </segments>
                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
