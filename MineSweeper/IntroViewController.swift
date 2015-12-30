@@ -52,11 +52,6 @@ class IntroViewController: UIViewController {
         self.navigationController?.pushViewController(gameVC, animated: true)
         
     }
-    
-    @IBAction func showScores (sender: UIButton) {
-        let svc = HighScoreViewController()
-        presentViewController(svc, animated: true, completion: nil)
-    }
 
     @IBAction func showHowToPlay(sender: UIButton) {
         let htpvc = HowToPlayViewController()
