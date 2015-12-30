@@ -10,6 +10,7 @@ import UIKit
 
 class GameViewController: UIViewController {
     var game: MineSweeperGame!
+    var introVC: IntroViewController!
     var gameSize: Int!
     var gameLevel: Int!
     var screenCover: UIView!
@@ -98,6 +99,7 @@ class GameViewController: UIViewController {
             alertController.addAction(UIAlertAction(title: "Quit", style: .Destructive, handler: { (action) -> Void in
                 // What happens when quit is pressed in the alert
                 self.navigationController?.popToRootViewControllerAnimated(true)
+                self.introVC?.containerVC?.currentState = .IntroShowing
             }))
             alertController.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (alert) -> Void in
                 // Do nothing if cancel is pressed in alert
@@ -166,6 +168,7 @@ class GameViewController: UIViewController {
         })
         let exit = UIAlertAction(title: "Exit", style: .Default, handler: { (action) -> Void in
             self.navigationController?.popToRootViewControllerAnimated(true)
+            self.introVC?.containerVC?.currentState = .IntroShowing
         })
         alertController.addAction(playAgain)
         alertController.addAction(exit)

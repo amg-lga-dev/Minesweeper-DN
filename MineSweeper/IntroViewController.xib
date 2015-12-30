@@ -8,9 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroViewController" customModule="MineSweeper" customModuleProvider="target">
             <connections>
                 <outlet property="developersText" destination="fFq-Ev-zjg" id="tCv-gR-IX7"/>
-                <outlet property="gameLevelSelect" destination="nw4-T2-iXz" id="eoW-05-T9u"/>
-                <outlet property="gameTypeSelect" destination="QDK-13-c7f" id="Ezi-xh-0R9"/>
-                <outlet property="themeButton" destination="QcA-8k-XX6" id="oNQ-Bf-lWX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,53 +33,6 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nw4-T2-iXz">
-                    <rect key="frame" x="196" y="479" width="209" height="29"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="209" id="Oc4-MV-UrS"/>
-                        <constraint firstAttribute="height" constant="28" id="pBS-4X-35l"/>
-                    </constraints>
-                    <segments>
-                        <segment title="Easy"/>
-                        <segment title="Medium"/>
-                        <segment title="Hard"/>
-                    </segments>
-                    <color key="tintColor" red="0.3803921569" green="0.60392156860000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
-                </segmentedControl>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QDK-13-c7f">
-                    <rect key="frame" x="196" y="437" width="209" height="29"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="209" id="5PY-K1-xve"/>
-                        <constraint firstAttribute="height" constant="28" id="bAd-wv-PYi"/>
-                    </constraints>
-                    <segments>
-                        <segment title="8 x 8"/>
-                        <segment title="10 x 10"/>
-                        <segment title="12 x 12"/>
-                    </segments>
-                    <color key="tintColor" red="0.3803921569" green="0.60392156860000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
-                </segmentedControl>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kD2-ww-apo">
-                    <rect key="frame" x="231" y="378" width="138" height="43"/>
-                    <color key="backgroundColor" red="0.38039215686274508" green="0.60392156862745094" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="138" id="TYb-fR-xdr"/>
-                        <constraint firstAttribute="height" constant="43" id="V4Q-v4-r7C"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
-                    <state key="normal" title="START GAME">
-                        <color key="titleColor" red="0.011171105354764791" green="0.014195303608677627" blue="0.018426865183246099" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="startGame:" destination="-1" eventType="touchUpInside" id="DjE-5y-ejO"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yuk-Z4-upW">
                     <rect key="frame" x="196" y="554" width="89" height="30"/>
                     <color key="backgroundColor" red="0.3803921569" green="0.60392156860000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -135,27 +85,6 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QcA-8k-XX6">
-                    <rect key="frame" x="0.0" y="378" width="79" height="30"/>
-                    <color key="backgroundColor" red="0.3803921569" green="0.60392156860000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="BuO-Ky-7Fk"/>
-                        <constraint firstAttribute="width" constant="79" id="KN5-yB-OhN"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
-                    <state key="normal">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="changeTheme:" destination="-1" eventType="touchUpInside" id="1I7-Rg-5cX"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developers:  Andrew Grossfeld &amp; Logan Allen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFq-Ev-zjg">
                     <rect key="frame" x="0.0" y="98" width="600" height="46"/>
                     <constraints>
@@ -166,30 +95,59 @@
                     <color key="textColor" red="1" green="0.98566749939478948" blue="0.31900312832726185" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MnC-58-5JU">
+                    <rect key="frame" x="8" y="32" width="30" height="25"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="Pqn-hd-O6x"/>
+                        <constraint firstAttribute="height" constant="25" id="RKZ-HV-5hy"/>
+                    </constraints>
+                    <state key="normal" image="tripleBarIcon"/>
+                    <connections>
+                        <action selector="sideTapped:" destination="-1" eventType="touchUpInside" id="Qqj-Ld-GPp"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kD2-ww-apo">
+                    <rect key="frame" x="231" y="461" width="138" height="43"/>
+                    <color key="backgroundColor" red="0.38039215686274508" green="0.60392156862745094" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="BKU-0u-LFF"/>
+                        <constraint firstAttribute="width" constant="138" id="Ybk-7w-rMe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                    <state key="normal" title="START GAME">
+                        <color key="titleColor" red="0.011171105354764791" green="0.014195303608677627" blue="0.018426865183246099" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="startGame:" destination="-1" eventType="touchUpInside" id="DjE-5y-ejO"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="QDK-13-c7f" firstAttribute="top" secondItem="kD2-ww-apo" secondAttribute="bottom" constant="16" id="1qB-0t-CDJ"/>
-                <constraint firstItem="QcA-8k-XX6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5m9-ZW-qgW"/>
+                <constraint firstItem="MnC-58-5JU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="1Nr-5e-qQe"/>
                 <constraint firstItem="YMo-dK-xeP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="8Bi-OM-Jiq"/>
+                <constraint firstItem="V9X-Ne-6fV" firstAttribute="top" secondItem="kD2-ww-apo" secondAttribute="bottom" constant="50" id="GDF-R5-4QX"/>
                 <constraint firstItem="Ufz-9M-itV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="Itp-z5-tTX"/>
                 <constraint firstAttribute="bottom" secondItem="Yuk-Z4-upW" secondAttribute="bottom" constant="16" id="Jzg-0E-VrY"/>
                 <constraint firstAttribute="bottom" secondItem="0G1-fL-e94" secondAttribute="bottom" constant="21" id="MmU-0W-fzz"/>
                 <constraint firstItem="V9X-Ne-6fV" firstAttribute="leading" secondItem="0G1-fL-e94" secondAttribute="trailing" constant="13" id="ODo-ho-ofh"/>
+                <constraint firstItem="MnC-58-5JU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="QwV-Aa-55j"/>
                 <constraint firstItem="fFq-Ev-zjg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RXa-mS-Gst"/>
-                <constraint firstItem="QDK-13-c7f" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Sp9-4B-eVq"/>
                 <constraint firstItem="YMo-dK-xeP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1" id="UXR-Ra-C22"/>
                 <constraint firstItem="0G1-fL-e94" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aWS-Ow-hSE"/>
-                <constraint firstItem="V9X-Ne-6fV" firstAttribute="top" secondItem="nw4-T2-iXz" secondAttribute="bottom" constant="47" id="bog-DX-chV"/>
                 <constraint firstAttribute="trailing" secondItem="fFq-Ev-zjg" secondAttribute="trailing" id="dDA-Is-Ubn"/>
-                <constraint firstItem="QcA-8k-XX6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="378" id="e6J-yZ-xHN"/>
+                <constraint firstItem="kD2-ww-apo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gxR-y3-hXL"/>
                 <constraint firstAttribute="bottom" secondItem="V9X-Ne-6fV" secondAttribute="bottom" constant="16" id="h8T-ds-fhY"/>
-                <constraint firstItem="nw4-T2-iXz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ldD-nN-Cug"/>
                 <constraint firstItem="0G1-fL-e94" firstAttribute="leading" secondItem="Yuk-Z4-upW" secondAttribute="trailing" constant="13" id="mzz-58-GDN"/>
-                <constraint firstItem="nw4-T2-iXz" firstAttribute="top" secondItem="QDK-13-c7f" secondAttribute="bottom" constant="14" id="ngp-j8-QLE"/>
                 <constraint firstItem="fFq-Ev-zjg" firstAttribute="top" secondItem="YMo-dK-xeP" secondAttribute="bottom" constant="-5" id="qDs-Xr-Eyt"/>
                 <constraint firstItem="Ufz-9M-itV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rZd-pv-Pjx"/>
-                <constraint firstItem="kD2-ww-apo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xVG-Dy-wCU"/>
             </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <point key="canvasLocation" x="233" y="346"/>
@@ -197,5 +155,6 @@
     </objects>
     <resources>
         <image name="landmine" width="300" height="292"/>
+        <image name="tripleBarIcon" width="512" height="512"/>
     </resources>
 </document>

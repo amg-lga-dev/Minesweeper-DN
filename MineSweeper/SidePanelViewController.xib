@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SidePanelViewController" customModule="MineSweeper" customModuleProvider="target">
+            <connections>
+                <outlet property="boardSeg" destination="bkF-cN-Eil" id="n9r-8d-T8o"/>
+                <outlet property="levelSeg" destination="Ngv-9U-4uh" id="f0h-PK-bpt"/>
+                <outlet property="themeSeg" destination="2Fg-xt-VPU" id="BHr-ja-Q2z"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="rNN-hT-m6S"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Fg-xt-VPU">
+                    <rect key="frame" x="8" y="125" width="150" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="CZQ-xz-a2v"/>
+                        <constraint firstAttribute="height" constant="28" id="ZpH-9w-zWQ"/>
+                    </constraints>
+                    <segments>
+                        <segment title="Day"/>
+                        <segment title="Night"/>
+                    </segments>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="themeSegment:" destination="-1" eventType="valueChanged" id="r6p-Au-ryB"/>
+                    </connections>
+                </segmentedControl>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAW-l3-KBU">
+                    <rect key="frame" x="8" y="32" width="88" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="9J6-q5-Dgd"/>
+                        <constraint firstAttribute="width" constant="88" id="WDU-RB-Oft"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="26"/>
+                    <color key="textColor" red="1" green="0.98566749939999998" blue="0.31900312829999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s85-rd-XYl">
+                    <rect key="frame" x="8" y="89" width="150" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="S09-la-HXb"/>
+                        <constraint firstAttribute="width" constant="150" id="VIJ-bm-ALa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4i-ZV-4bE">
+                    <rect key="frame" x="8" y="249" width="150" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="U0g-OJ-sPx"/>
+                        <constraint firstAttribute="height" constant="28" id="vMt-FA-Ee5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bkF-cN-Eil">
+                    <rect key="frame" x="8" y="205" width="225" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="225" id="Xk4-tw-C5p"/>
+                        <constraint firstAttribute="height" constant="28" id="ZAG-Ar-g7y"/>
+                    </constraints>
+                    <segments>
+                        <segment title="8 x 8"/>
+                        <segment title="10 x 10"/>
+                        <segment title="12 x 12"/>
+                    </segments>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="boardSegment:" destination="-1" eventType="valueChanged" id="prk-TX-WlB"/>
+                    </connections>
+                </segmentedControl>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ngv-9U-4uh">
+                    <rect key="frame" x="8" y="285" width="225" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="225" id="8mk-T3-yPa"/>
+                        <constraint firstAttribute="height" constant="28" id="bSj-pt-TZ3"/>
+                    </constraints>
+                    <segments>
+                        <segment title="Easy"/>
+                        <segment title="Medium"/>
+                        <segment title="Hard"/>
+                    </segments>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="levelSegment:" destination="-1" eventType="valueChanged" id="HPA-25-Nhb"/>
+                    </connections>
+                </segmentedControl>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Board Size" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Klo-hS-u3t">
+                    <rect key="frame" x="8" y="169" width="150" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="ddn-UF-D6H"/>
+                        <constraint firstAttribute="height" constant="28" id="jz6-Aj-xb1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.47058823529999999" green="0.5450980392" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="HAW-l3-KBU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="1ha-Tn-w48"/>
+                <constraint firstItem="Klo-hS-u3t" firstAttribute="top" secondItem="2Fg-xt-VPU" secondAttribute="bottom" constant="16" id="79I-6l-2AL"/>
+                <constraint firstItem="Klo-hS-u3t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="AXF-ND-PUa"/>
+                <constraint firstItem="bkF-cN-Eil" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Deg-N2-iIu"/>
+                <constraint firstItem="u4i-ZV-4bE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Icg-OO-X6J"/>
+                <constraint firstItem="Ngv-9U-4uh" firstAttribute="top" secondItem="u4i-ZV-4bE" secondAttribute="bottom" constant="8" id="LHS-q4-d9j"/>
+                <constraint firstItem="2Fg-xt-VPU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Ms2-I5-JLd"/>
+                <constraint firstItem="s85-rd-XYl" firstAttribute="top" secondItem="HAW-l3-KBU" secondAttribute="bottom" constant="24" id="Qef-bn-eJM"/>
+                <constraint firstItem="u4i-ZV-4bE" firstAttribute="top" secondItem="bkF-cN-Eil" secondAttribute="bottom" constant="16" id="SYe-Cn-iFA"/>
+                <constraint firstItem="bkF-cN-Eil" firstAttribute="top" secondItem="Klo-hS-u3t" secondAttribute="bottom" constant="8" id="aIo-iY-aQo"/>
+                <constraint firstItem="Ngv-9U-4uh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="s7F-3H-aZe"/>
+                <constraint firstItem="s85-rd-XYl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="woY-zQ-SiK"/>
+                <constraint firstItem="HAW-l3-KBU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="xjd-ov-dNz"/>
+                <constraint firstItem="2Fg-xt-VPU" firstAttribute="top" secondItem="s85-rd-XYl" secondAttribute="bottom" constant="8" id="yWv-O3-QKh"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

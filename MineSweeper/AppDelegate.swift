@@ -16,16 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        let vc = IntroViewController()
-        let nav = UINavigationController(rootViewController: vc)
+        //let vc = IntroViewController()
+        //let nav = UINavigationController(rootViewController: vc)
+        //nav.navigationBar.tintColor = UIColor.blackColor()
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window?.rootViewController = nav
-        window?.backgroundColor = UIColor.whiteColor()
+        let containerViewController = ContainerViewController()
+        window?.rootViewController = containerViewController
+        //window?.rootViewController = nav
+        //window?.backgroundColor = UIColor.whiteColor()
         window?.makeKeyAndVisible()
         
-        nav.navigationBar.tintColor = UIColor.blackColor()
-        nav.navigationBar.barTintColor = UIColor.grayColor()
         
         let kArray = ["8Easy", "10Easy", "12Easy", "8Medium", "10Medium", "12Medium", "8Hard", "10Hard", "12Hard"]
         for key in kArray {
@@ -38,7 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSUserDefaults.standardUserDefaults().setValue("Night", forKey: "theme")
         }
         Style.changeTheme()
-        
         
         return true
     }
