@@ -128,6 +128,18 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fj8-sX-EhG">
+                    <rect key="frame" x="562" y="32" width="30" height="25"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="HhL-4X-uxE"/>
+                        <constraint firstAttribute="width" constant="30" id="dcs-ec-CcK"/>
+                    </constraints>
+                    <state key="normal" image="tripleBarIcon"/>
+                    <connections>
+                        <action selector="scoreTapped:" destination="-1" eventType="touchUpInside" id="EFi-Re-dAx"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -146,8 +158,10 @@
                 <constraint firstItem="kD2-ww-apo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gxR-y3-hXL"/>
                 <constraint firstAttribute="bottom" secondItem="V9X-Ne-6fV" secondAttribute="bottom" constant="16" id="h8T-ds-fhY"/>
                 <constraint firstItem="0G1-fL-e94" firstAttribute="leading" secondItem="Yuk-Z4-upW" secondAttribute="trailing" constant="13" id="mzz-58-GDN"/>
+                <constraint firstItem="fj8-sX-EhG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="ncp-jT-gsw"/>
                 <constraint firstItem="fFq-Ev-zjg" firstAttribute="top" secondItem="YMo-dK-xeP" secondAttribute="bottom" constant="-5" id="qDs-Xr-Eyt"/>
                 <constraint firstItem="Ufz-9M-itV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rZd-pv-Pjx"/>
+                <constraint firstAttribute="trailing" secondItem="fj8-sX-EhG" secondAttribute="trailing" constant="8" id="tvA-fa-h2F"/>
             </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <point key="canvasLocation" x="233" y="346"/>

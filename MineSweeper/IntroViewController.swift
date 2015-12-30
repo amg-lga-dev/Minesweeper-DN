@@ -11,6 +11,7 @@ import UIKit
 @objc
 protocol IntroViewControllerDelegate {
     optional func toggleLeftPanel()
+    optional func toggleRightPanel()
     optional func collapseSidePanels()
 }
 
@@ -65,5 +66,8 @@ class IntroViewController: UIViewController {
     @IBAction func sideTapped(sender: AnyObject) {
         print("FUCK YOU")
         delegate?.toggleLeftPanel?()
+    }
+    @IBAction func scoreTapped(sender: UIButton) {
+        delegate?.toggleRightPanel?()
     }
 }

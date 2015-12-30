@@ -94,7 +94,6 @@ class ContainerViewController: UIViewController {
         // Add right panel if not instantiated already
         func addRightPanelViewController() {
             if (rightVC == nil) {
-                print("Add left")
                 rightVC = ScorePanelViewController()
                 rightVC!.view.backgroundColor = UIColor(red: 120/255, green: 139/255, blue: 148/255, alpha: 0.8)
                 rightVC!.introVC = self.introVC
