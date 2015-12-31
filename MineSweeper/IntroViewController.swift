@@ -40,7 +40,7 @@ class IntroViewController: UIViewController {
             (view as? UILabel)?.textColor = Style.textColor
         }
         if Style.foundationColor == UIColor.blackColor(){
-            developersText.textColor = UIColor(red: 255/255, green: 251/255, blue: 81/255, alpha: 1)
+            //developersText.textColor = UIColor(red: 255/255, green: 251/255, blue: 81/255, alpha: 1)
             topBarImage.image = UIImage(named: "nightSkyBar.png")
         }else{
             topBarImage.image = UIImage(named: "skyBar.png")

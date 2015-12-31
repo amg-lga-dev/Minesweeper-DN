@@ -16,12 +16,15 @@ class SidePanelViewController: UIViewController {
     @IBOutlet weak var boardSeg: UISegmentedControl!
     @IBOutlet weak var levelSeg: UISegmentedControl!
     
-//    @IBOutlet weak var themeLabel: UILabel!
-//    @IBOutlet weak var boardLabel: UILabel!
-//    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var attemptsLabel: UILabel!
+    @IBOutlet weak var winsLabel: UILabel!
+    @IBOutlet weak var lossesLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var bottomImage: UIImageView!
+    
+    @IBOutlet weak var clearButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,20 +37,61 @@ class SidePanelViewController: UIViewController {
         setTheme(theme)
         boardSeg.selectedSegmentIndex = (introVC?.gameType)!
         levelSeg.selectedSegmentIndex = (introVC?.gameLevel)!
+        clearButton.layer.shadowOpacity = 0.7
+        clearButton.layer.shadowOffset = CGSizeMake(4, 4)
+        clearButton.layer.shadowRadius = 4
+        clearButton.layer.shadowColor = UIColor.blackColor().CGColor
+        showData()
     }
     
-    @IBAction func themeSegment(sender: UISegmentedControl) {
-        var theme: String = ""
-        if sender.selectedSegmentIndex == 0{
-            NSUserDefaults.standardUserDefaults().setValue("Day", forKey: "theme")
-            theme = "Day"
+    
+    func showData(){
+        let key: String = getKey()
+        let time = NSUserDefaults.standardUserDefaults().valueForKey(key) as! Int
+        let losses = NSUserDefaults.standardUserDefaults().valueForKey("\(key)Fails") as! Int
+        let wins = NSUserDefaults.standardUserDefaults().valueForKey("\(key)Wins") as! Int
+        let attempts = losses + wins
+        
+        attemptsLabel.text = "\(attempts)"
+        winsLabel.text = "\(wins)"
+        lossesLabel.text = "\(losses)"
+        timeLabel.text = timeToText(time)
+    }
+    
+    // Get the key for NSUserDefault
+    func getKey() -> String{
+        let num = 8 + 2*boardSeg.selectedSegmentIndex
+        var diff: String = ""
+        
+        if levelSeg.selectedSegmentIndex == 0{
+            diff = "Easy"
+        }else if levelSeg.selectedSegmentIndex == 1{
+            diff = "Medium"
         }else{
-            NSUserDefaults.standardUserDefaults().setValue("Night", forKey: "theme")
-            theme = "Night"
+            diff = "Hard"
         }
-        Style.changeTheme()
-        setTheme(theme)
-        introVC?.viewWillAppear(true)
+        
+        return "\(num)\(diff)"
+    }
+    
+    // Convert time to minutes and seconds
+    func timeToText(score: Int) -> String {
+        var time: String = ""
+        
+        if (score == 0) {
+            time = "unknown"
+        }
+        else {
+            let mins = score / 60
+            let secs = score % 60
+            if (secs < 10) {
+                time = "\(mins): 0\(secs)"
+            }
+            else {
+                time = "\(mins): \(secs)"
+            }
+        }
+        return time
     }
     
     func setTheme(theme: String){
@@ -68,14 +112,38 @@ class SidePanelViewController: UIViewController {
             (view as? UISegmentedControl)?.layer.shadowRadius = 3
             (view as? UISegmentedControl)?.layer.shadowOpacity = 0.7
         }
-        
+    }
+    
+    @IBAction func themeSegment(sender: UISegmentedControl) {
+        var theme: String = ""
+        if sender.selectedSegmentIndex == 0{
+            NSUserDefaults.standardUserDefaults().setValue("Day", forKey: "theme")
+            theme = "Day"
+        }else{
+            NSUserDefaults.standardUserDefaults().setValue("Night", forKey: "theme")
+            theme = "Night"
+        }
+        Style.changeTheme()
+        setTheme(theme)
+        introVC?.viewWillAppear(true)
     }
     
     @IBAction func boardSegment(sender: UISegmentedControl) {
         introVC?.gameType = sender.selectedSegmentIndex
+        showData()
     }
     @IBAction func levelSegment(sender: UISegmentedControl) {
         introVC?.gameLevel = sender.selectedSegmentIndex
+        showData()
+    }
+    
+    // Clear data for selected board & level
+    @IBAction func clearScores(sender: UIButton) {
+        let key: String = getKey()
+        NSUserDefaults.standardUserDefaults().setValue(0, forKey: "\(key)Fails")
+        NSUserDefaults.standardUserDefaults().setValue(0, forKey: "\(key)Wins")
+        NSUserDefaults.standardUserDefaults().setValue(0, forKey: key)
+        showData()
     }
 
 }

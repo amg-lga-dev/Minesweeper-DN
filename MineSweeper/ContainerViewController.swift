@@ -39,7 +39,7 @@ class ContainerViewController: UIViewController {
         introVC.delegate = self
         introVC.containerVC = self
         
-        introPanelExpandedOffset = self.view.bounds.width/4
+        introPanelExpandedOffset = self.view.bounds.width/5
         
         // wrap the introViewController in a navigation controller, so we can push views to it
         // and display bar button items in the navigation bar
@@ -111,9 +111,11 @@ class ContainerViewController: UIViewController {
         func animateLeftPanel(shouldExpand: Bool) {
             print("Animate")
             if (shouldExpand) {
+                self.introNav.view.layer.opacity = 0.7
                 currentState = .LeftPanelExpanded
                 animateIntroPanelXPosition(CGRectGetWidth(introNav.view.frame) - introPanelExpandedOffset)
             } else {
+                self.introNav.view.layer.opacity = 1.0
                 animateIntroPanelXPosition(0) { finished in
                     self.currentState = .IntroShowing
                     self.leftVC!.view.removeFromSuperview()
@@ -124,13 +126,13 @@ class ContainerViewController: UIViewController {
         
         func animateRightPanel(shouldExpand: Bool) {
             if (shouldExpand) {
+                self.introNav.view.layer.opacity = 0.7
                 currentState = .RightPanelExpanded
-                
                 animateIntroPanelXPosition(-CGRectGetWidth(introNav.view.frame) + introPanelExpandedOffset)
             } else {
+                self.introNav.view.layer.opacity = 1.0
                 animateIntroPanelXPosition(0) { _ in
                     self.currentState = .IntroShowing
-                    
                     self.rightVC!.view.removeFromSuperview()
                     self.rightVC = nil;
                 }
