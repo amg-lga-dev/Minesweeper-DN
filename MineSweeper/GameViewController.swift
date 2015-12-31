@@ -149,7 +149,9 @@ class GameViewController: UIViewController {
         if game.loseOrWin != 0{
             self.navigationController?.popToRootViewControllerAnimated(true)
         }else{
-            game.pauseGame = 1
+            let alreadyPaused = (game.pauseGame == 1)
+            if !alreadyPaused { game.pauseGame = 1 }
+            
             let alertController = UIAlertController(title: "Are you sure you want to quit?", message: nil, preferredStyle: .Alert)
             alertController.addAction(UIAlertAction(title: "Quit", style: .Destructive, handler: { (action) -> Void in
                 // What happens when quit is pressed in the alert
@@ -159,7 +161,8 @@ class GameViewController: UIViewController {
             }))
             alertController.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (alert) -> Void in
                 // Do nothing if cancel is pressed in alert
-                self.game.pauseGame = 0
+                // Unpause game if wasn't already paused
+                if !alreadyPaused {self.game.pauseGame = 0 }
             }))
             alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
             presentViewController(alertController, animated: true, completion: nil)
