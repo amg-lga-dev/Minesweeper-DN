@@ -202,7 +202,6 @@ class GameViewController: UIViewController {
         self.endLabel.removeFromSuperview()
         self.game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
         self.flagsLeft = gameSize * gameSize
-        self.view.bringSubviewToFront(screenCover)
         updateFlagCounter()
         for tile in game.tiles {
             tile.addTarget(self, action: "tilePressed:", forControlEvents: .TouchUpInside)
