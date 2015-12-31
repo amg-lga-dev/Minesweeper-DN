@@ -38,14 +38,30 @@ class SidePanelViewController: UIViewController {
         setTheme(theme)
         boardSeg.selectedSegmentIndex = (introVC?.gameType)!
         levelSeg.selectedSegmentIndex = (introVC?.gameLevel)!
+        
+        // Set title's color and shadow
+        titleLabel.textColor = UIColor.whiteColor()
+        titleLabel.layer.shadowColor = UIColor.blackColor().CGColor
+        titleLabel.layer.shadowOffset = CGSizeMake(2,2)
+        titleLabel.layer.shadowOpacity = 0.6
+        titleLabel.layer.shadowRadius = 1
+        
+        // Set bottom image's shadow
+        bottomImage.layer.shadowColor = UIColor.blackColor().CGColor
+        bottomImage.layer.shadowOffset = CGSizeMake(4, 3)
+        bottomImage.layer.shadowOpacity = 0.6
+        bottomImage.layer.shadowRadius = 2
+        
+        // Set clear data button's shadow
         clearButton.layer.shadowOpacity = 0.7
         clearButton.layer.shadowOffset = CGSizeMake(4, 4)
         clearButton.layer.shadowRadius = 4
         clearButton.layer.shadowColor = UIColor.blackColor().CGColor
+        
         showData()
     }
     
-    
+    // Update the text displaying the times and attempts
     func showData(){
         let key: String = getKey()
         let time = NSUserDefaults.standardUserDefaults().valueForKey(key) as! Int
@@ -95,6 +111,7 @@ class SidePanelViewController: UIViewController {
         return time
     }
     
+    // Set the theme depending on Day or Night
     func setTheme(theme: String){
         if theme == "Day"{
             backgroundImage.image = UIImage(named: "sky")
@@ -105,10 +122,6 @@ class SidePanelViewController: UIViewController {
             bottomImage.layer.opacity = 0.7
             themeSeg.selectedSegmentIndex = 1
         }
-        bottomImage.layer.shadowColor = UIColor.blackColor().CGColor
-        bottomImage.layer.shadowOffset = CGSizeMake(4, 3)
-        bottomImage.layer.shadowOpacity = 0.6
-        bottomImage.layer.shadowRadius = 2
         
         for view in self.view.subviews {
             (view as? UILabel)?.textColor = Style.textColor
@@ -118,13 +131,9 @@ class SidePanelViewController: UIViewController {
             (view as? UISegmentedControl)?.layer.shadowRadius = 3
             (view as? UISegmentedControl)?.layer.shadowOpacity = 0.7
         }
-        titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.layer.shadowColor = UIColor.blackColor().CGColor
-        titleLabel.layer.shadowOffset = CGSizeMake(2,2)
-        titleLabel.layer.shadowOpacity = 0.6
-        titleLabel.layer.shadowRadius = 1
     }
     
+    // Switch between themes
     @IBAction func themeSegment(sender: UISegmentedControl) {
         var theme: String = ""
         if sender.selectedSegmentIndex == 0{

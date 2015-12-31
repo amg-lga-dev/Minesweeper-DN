@@ -27,12 +27,9 @@ class InfoPanelViewController: UIViewController {
         
         let theme = NSUserDefaults.standardUserDefaults().valueForKey("theme") as! String
         setTheme(theme)
-        instructionsButton.layer.shadowOpacity = 0.7
-        instructionsButton.layer.shadowOffset = CGSizeMake(4, 4)
-        instructionsButton.layer.shadowRadius = 4
-        instructionsButton.layer.shadowColor = UIColor.blackColor().CGColor
     }
     
+    // Set theme depending on Day or Night
     func setTheme(theme: String){
         if theme == "Day"{
             backgroundImage.image = UIImage(named: "sky")
@@ -54,12 +51,20 @@ class InfoPanelViewController: UIViewController {
             (view as? UISegmentedControl)?.layer.shadowRadius = 3
             (view as? UISegmentedControl)?.layer.shadowOpacity = 0.7
         }
+        // Set title's color and shadow
         titleLabel.textColor = UIColor.whiteColor()
         titleLabel.layer.shadowColor = UIColor.blackColor().CGColor
         titleLabel.layer.shadowOffset = CGSizeMake(2,2)
         titleLabel.layer.shadowOpacity = 0.6
         titleLabel.layer.shadowRadius = 1
+        
+        // Set instruction button's shadow
+        instructionsButton.layer.shadowOpacity = 0.7
+        instructionsButton.layer.shadowOffset = CGSizeMake(4, 4)
+        instructionsButton.layer.shadowRadius = 4
+        instructionsButton.layer.shadowColor = UIColor.blackColor().CGColor
     }
+
     @IBAction func showHTPVC(sender: UIButton) {
         let htpvc = HowToPlayViewController()
         presentViewController(htpvc, animated: true, completion: nil)

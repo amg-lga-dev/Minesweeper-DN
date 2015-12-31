@@ -18,8 +18,11 @@ protocol IntroViewControllerDelegate {
 class IntroViewController: UIViewController {
     
     @IBOutlet weak var topBarImage: UIImageView!
+    @IBOutlet weak var leftBarIcon: UIButton!
+    @IBOutlet weak var rightBarIcon: UIButton!
+    
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var developersText: UILabel!
+    @IBOutlet weak var titleMineImage: UIImageView!
     
     var gameType: Int = 0
     var gameLevel: Int = 0
@@ -27,20 +30,28 @@ class IntroViewController: UIViewController {
     var delegate: IntroViewControllerDelegate?
     var containerVC: ContainerViewController?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Set shadows for top bar buttons
+        for button in self.view.subviews{
+            (button as? UIButton)?.layer.shadowColor = UIColor.blackColor().CGColor
+            (button as? UIButton)?.layer.shadowOffset = CGSizeMake(1,1)
+            (button as? UIButton)?.layer.shadowOpacity = 0.9
+            (button as? UIButton)?.layer.shadowRadius = 1
+        }
+        self.viewWillAppear(true)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         layoutTheme()
     }
     
-     // set background and text colors according to theme
+     // Set background and text colors according to theme
     func layoutTheme() {
         self.view.backgroundColor = Style.foundationColor
-        for view in self.view.subviews {
-            (view as? UILabel)?.textColor = Style.textColor
-        }
         if Style.foundationColor == UIColor.blackColor(){
-            //developersText.textColor = UIColor(red: 255/255, green: 251/255, blue: 81/255, alpha: 1)
             topBarImage.image = UIImage(named: "nightSkyBar.png")
         }else{
             topBarImage.image = UIImage(named: "skyBar.png")
@@ -50,12 +61,14 @@ class IntroViewController: UIViewController {
         topBarImage.layer.shadowOpacity = 0.6
         topBarImage.layer.shadowRadius = 3
         
+        titleLabel.textColor = Style.textColor
         titleLabel.layer.shadowColor = UIColor.blackColor().CGColor
         titleLabel.layer.shadowOpacity = 0.5
         titleLabel.layer.shadowOffset = CGSizeMake(2,2)
         titleLabel.layer.shadowRadius = 1
     }
     
+    // Button to start minesweeper game
     @IBAction func startGame (sender: UIButton) {
         let gameVC = GameViewController()
         
@@ -68,7 +81,6 @@ class IntroViewController: UIViewController {
     }
     
     @IBAction func sideTapped(sender: AnyObject) {
-        print("FUCK YOU")
         delegate?.toggleLeftPanel?()
     }
     @IBAction func scoreTapped(sender: UIButton) {
