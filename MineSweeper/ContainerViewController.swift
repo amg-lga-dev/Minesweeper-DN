@@ -49,7 +49,6 @@ class ContainerViewController: UIViewController {
         
         introNav.didMoveToParentViewController(self)
         
-        let date = NSDate.
         
         // Add gestures
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
