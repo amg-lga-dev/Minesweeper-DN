@@ -51,9 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        // Establish data for theme
+        // Establish data for theme (initially Day)
         if NSUserDefaults.standardUserDefaults().valueForKey("theme") ==  nil {
-            NSUserDefaults.standardUserDefaults().setValue("Night", forKey: "theme")
+            NSUserDefaults.standardUserDefaults().setValue("Day", forKey: "theme")
         }
         
         Style.changeTheme()
