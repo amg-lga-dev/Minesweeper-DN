@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  MineSweeper
 //
-//  Created by Andrew Grossfeld on 12/2/15.
-//  Copyright © 2015 Andrew Grossfeld. All rights reserved.
+//  Created by Andrew Grossfeld & Logan Allen on 12/2/15.
+//  Copyright © 2015 A.G. & L.A. All rights reserved.
 //
 
 import UIKit
@@ -13,18 +13,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        //let vc = IntroViewController()
-        //let nav = UINavigationController(rootViewController: vc)
-        //nav.navigationBar.tintColor = UIColor.blackColor()
-        
+        // Set containerVC as window's root
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let containerViewController = ContainerViewController()
         window?.rootViewController = containerViewController
-        //window?.rootViewController = nav
-        //window?.backgroundColor = UIColor.whiteColor()
         window?.makeKeyAndVisible()
         
         // Establish data for Best Times

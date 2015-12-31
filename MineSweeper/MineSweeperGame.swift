@@ -2,8 +2,8 @@
 //  MineSweeperGame.swift
 //  MineSweeper
 //
-//  Created by Andrew Grossfeld on 12/2/15.
-//  Copyright © 2015 Andrew Grossfeld. All rights reserved.
+//  Created by Andrew Grossfeld & Logan Allen on 12/2/15.
+//  Copyright © 2015 A.G. & L.A. All rights reserved.
 //
 
 import UIKit
@@ -17,6 +17,7 @@ class MineSweeperGame: NSObject {
     var loseOrWin: Int
     var firstTilePressed: Int
     
+    // Constructor
     init(gameSize: Int, gameLevel: Int, vc: GameViewController) {
         self.gameLevel = gameLevel
         self.gvc = vc
@@ -29,11 +30,12 @@ class MineSweeperGame: NSObject {
         setTilesInView()
     }
     
-    
+    // Draw tiles and time lables in the gameVC
     func setTilesInView() {
         let tileSide = Double(gvc.view.bounds.width) / Double(gameSize)
         var counter = 0
         
+        // Draw tiles
         for row in 0...(gameSize - 1) {
             for column in 0...(gameSize - 1) {
                 let newTile = Tile(frame: CGRect(x: tileSide * Double(column), y: 65 + tileSide * Double(row), width: tileSide, height: tileSide))
@@ -44,6 +46,7 @@ class MineSweeperGame: NSObject {
             }
         }
         
+        // Create best time label
         gvc.bestTimeLabel = UILabel(frame: CGRect(x: 10.0, y: Double(gvc.view.bounds.width) + 80, width: Double(gvc.view.bounds.width / 3), height: 30.0))
         gvc.bestTimeLabel.font = UIFont(name: "Gill Sans", size: 18)
         gvc.bestTimeLabel.textColor = Style.textColor
@@ -67,6 +70,7 @@ class MineSweeperGame: NSObject {
         }
         gvc.view.addSubview(gvc.bestTimeLabel)
         
+        // Create current timer label
         gvc.timeLabel = UILabel(frame: CGRect(x: Double(gvc.view.bounds.width / 2), y: Double(gvc.view.bounds.width) + 80, width: Double(gvc.view.bounds.width / 2) - 10.0, height: 30.0))
         gvc.timeLabel.font = UIFont(name: "Gill Sans", size: 18)
         gvc.timeLabel.textAlignment = NSTextAlignment.Right
@@ -74,14 +78,17 @@ class MineSweeperGame: NSObject {
         gvc.timeLabel.textColor = Style.textColor
         gvc.view.addSubview(gvc.timeLabel)
         
+        // Call functions to place bombs and numbers in tiles
         setBombs()
         setNumbers()
     }
     
+    // Initiate the current timer
     func initTimer() {
         gvc.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "timerFired:", userInfo: nil, repeats: true)
     }
     
+    // Increase timer every second
     func timerFired(sender: NSTimer) {
         if pauseGame == 0{
             gvc.time++
@@ -96,6 +103,7 @@ class MineSweeperGame: NSObject {
         }
     }
     
+    // Display hidden bombs on the game board and display "Game Over" label
     func loseGame(tilePressed: Tile) {
         for tile in tiles {
             tile.enabled = false
@@ -116,6 +124,7 @@ class MineSweeperGame: NSObject {
         loseOrWin = 1
     }
     
+    // Checks if all non-mine tiles are flipped and displays "You Win" label if so
     func checkWinGame() {
         var win = true
         for tile in tiles {
@@ -146,6 +155,8 @@ class MineSweeperGame: NSObject {
             case 2: key = "\(gameSize)Hard"
             default: key = "error"
             }
+            
+            // Update best time if applicable
             if ((NSUserDefaults.standardUserDefaults().valueForKey(key) as! Int) > gvc.time || (NSUserDefaults.standardUserDefaults().valueForKey(key) as! Int) == 0) {
                 NSUserDefaults.standardUserDefaults().setValue(gvc.time, forKey: key)
             }
@@ -154,6 +165,7 @@ class MineSweeperGame: NSObject {
         }
     }
     
+    // Function clearing out adjacent tiles if the tile pressed was blank
     func clearOut(tile: Tile) {
         let index = tiles.indexOf(tile)!
         
@@ -199,7 +211,7 @@ class MineSweeperGame: NSObject {
         }
     }
     
-    
+    // Sets mines randomly depending on difficulty
     func setBombs() {
         for tile in tiles {
             let y = UInt32(5 - gameLevel)
@@ -210,6 +222,7 @@ class MineSweeperGame: NSObject {
         }
     }
     
+    // Sets corresponding numbers to non-mine tiles
     func setNumbers() {
         for tile in tiles {
             if tile.isBomb {

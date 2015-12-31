@@ -2,8 +2,8 @@
 //  Style.swift
 //  MineSweeper
 //
-//  Created by Andrew Grossfeld on 12/29/15.
-//  Copyright © 2015 Andrew Grossfeld. All rights reserved.
+//  Created by Andrew Grossfeld & Logan Allen on 12/29/15.
+//  Copyright © 2015 A.G. & L.A. All rights reserved.
 //
 
 import Foundation
@@ -17,12 +17,14 @@ struct Style {
     static var tileBorder = UIColor.whiteColor()
     static var navBar = UIColor.blackColor()
     
+    // Change the theme of the app
     static func changeTheme() {
         let theme = NSUserDefaults.standardUserDefaults().valueForKey("theme") as! String
         if theme == "Day" { setDayTheme() }
         if theme == "Night" { setNightTheme() }
     }
     
+    // Set to night theme -- black with white text
     static func setNightTheme() {
         foundationColor = UIColor.blackColor()
         textColor = UIColor.whiteColor()
@@ -31,6 +33,7 @@ struct Style {
         navBar = UIColor.blackColor()
     }
     
+    // Set to day theme -- white with black text
     static func setDayTheme() {
         foundationColor = UIColor.whiteColor()
         textColor = UIColor.blackColor()

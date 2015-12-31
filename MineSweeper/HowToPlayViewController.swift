@@ -2,10 +2,9 @@
 //  HowToPlayViewController.swift
 //  MineSweeper
 //
-//  Created by Andrew Grossfeld on 12/21/15.
-//  Copyright © 2015 Andrew Grossfeld. All rights reserved.
+//  Created by Andrew Grossfeld & Logan Allen on 12/21/15.
+//  Copyright © 2015 A.G. & L.A. All rights reserved.
 //
-
 import UIKit
 
 class HowToPlayViewController: UIViewController {

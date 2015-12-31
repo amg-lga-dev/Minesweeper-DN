@@ -2,8 +2,8 @@
 //  IntroViewController.swift
 //  MineSweeperPractice
 //
-//  Created by Andrew Grossfeld on 11/28/15.
-//  Copyright © 2015 Andrew Grossfeld. All rights reserved.
+//  Created by Andrew Grossfeld & Logan Allen on 11/28/15.
+//  Copyright © 2015 A.G. & L.A. All rights reserved.
 //
 
 import UIKit

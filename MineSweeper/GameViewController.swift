@@ -2,8 +2,8 @@
 //  GameViewController.swift
 //  MineSweeper
 //
-//  Created by Andrew Grossfeld on 12/2/15.
-//  Copyright © 2015 Andrew Grossfeld. All rights reserved.
+//  Created by Andrew Grossfeld & Logan Allen on 12/2/15.
+//  Copyright © 2015 A.G. & L.A. All rights reserved.
 //
 
 import UIKit
@@ -22,12 +22,14 @@ class GameViewController: UIViewController {
     var bestTimeLabel: UILabel!
     var endLabel: UILabel!
 
+    // View did load
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.blackColor()
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         let theme = NSUserDefaults.standardUserDefaults().valueForKey("theme") as! String
         
+        // Create bottom image with shadows
         let bottomImage = UIImageView(frame: CGRect(x: 0, y: self.view.bounds.height - 140, width: self.view.bounds.width, height: 140))
         bottomImage.image = UIImage(named: "mountains.png")
         if theme == "Day"{
@@ -42,6 +44,7 @@ class GameViewController: UIViewController {
         bottomImage.layer.shadowRadius = 2
         self.view.addSubview(bottomImage)
         
+        // Create actual mine sweeper game
         game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
         //flagsLeft = gameSize * gameSize
         flagsLeft = 100
@@ -52,15 +55,16 @@ class GameViewController: UIViewController {
             tile.addGestureRecognizer(longPress)
         }
         
+        // Popup alert to start the timer
         let alertController = UIAlertController(title: "Ready to Sweep?", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Mine!", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
-            // action to happen when okay is selected
+            // action to happen when proceed is selected
             self.game.initTimer()
         }))
-        
         alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
         presentViewController(alertController, animated: true, completion: nil)
     
+        // Create pause screen cover
         screenCover = UIView(frame: CGRect(x: 0, y: 65, width: self.view.bounds.width, height: self.view.bounds.width))
         let w = screenCover.bounds.width
         let backgroundImage = UIImageView(frame: CGRect(x: 0, y: 0, width: w, height: w))
@@ -89,6 +93,7 @@ class GameViewController: UIViewController {
         self.view.addSubview(self.screenCover)
         view.sendSubviewToBack(screenCover)
         
+        // Create flag image and counter
         let flagImage = UIImageView(frame: CGRect(x: 10, y: self.view.bounds.height - 35, width: 25, height: 25))
         flagImage.image = UIImage(named: "flag")
         flagImage.layer.shadowRadius = 2
@@ -98,13 +103,14 @@ class GameViewController: UIViewController {
         flagNumber = UILabel(frame: CGRect(x: 40, y: self.view.bounds.height - 35, width: 50, height: 30))
         flagNumber.font = UIFont(name: "Gill Sans", size: 18)
         updateFlagCounter()
-        
         view.addSubview(flagImage)
         view.addSubview(flagNumber)
         
+        // Set the theme
         layoutTheme()
     }
     
+    // Set navigation bar items
     override func viewWillAppear(animated: Bool) {
         time = 0
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: " Quit", style: .Plain, target: self, action: "quit:")
@@ -113,6 +119,7 @@ class GameViewController: UIViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 100/255, green: 150/255, blue: 255/255, alpha: 1)
     }
     
+    // Establish the color theme
     func layoutTheme() {
         // set background according to theme
         self.view.backgroundColor = Style.foundationColor
@@ -124,6 +131,7 @@ class GameViewController: UIViewController {
         
     }
     
+    // Returns key for current board size and difficulty
     func getKey() -> String{
         var diff: String = ""
     
@@ -138,6 +146,7 @@ class GameViewController: UIViewController {
         return "\(gameSize)\(diff)"
     }
     
+    // Updates text showing best time and attempts
     func updateData(memo: String){
         let key: String = getKey()
         if memo == "quit" || game.loseOrWin == 1{
@@ -155,12 +164,15 @@ class GameViewController: UIViewController {
     
     // Called when the quit nav bar item is pressed
     func quit(sender: AnyObject){
+        // Quit automatically if game is already lost
         if game.loseOrWin != 0{
             self.navigationController?.popToRootViewControllerAnimated(true)
         }else{
+            // Pause game if not already paused
             let alreadyPaused = (game.pauseGame == 1)
             if !alreadyPaused { game.pauseGame = 1 }
             
+            // Popup alert to double-check if use wants to quit
             let alertController = UIAlertController(title: "Are you sure you want to quit?", message: nil, preferredStyle: .Alert)
             alertController.addAction(UIAlertAction(title: "Quit", style: .Destructive, handler: { (action) -> Void in
                 // What happens when quit is pressed in the alert
@@ -182,10 +194,12 @@ class GameViewController: UIViewController {
     func pauseButtonPressed(sender: AnyObject){
         if game.loseOrWin == 0{
             if self.navigationItem.rightBarButtonItem?.title == "Pause"{
+                // Pause game and display screen cover
                 game.pauseGame = 1
                 self.navigationItem.rightBarButtonItem?.title = "Resume"
                 view.bringSubviewToFront(screenCover)
             }else{
+                // Unpause game and hide screen cover
                 game.pauseGame = 0
                 self.navigationItem.rightBarButtonItem?.title = "Pause"
                 view.sendSubviewToBack(screenCover)
@@ -206,7 +220,7 @@ class GameViewController: UIViewController {
         }
     }
     
-    // Recreate game, reset timer and flags.
+    // Recreate game, timer, and flags.
     func recreateGame(){
         self.time = 0
         self.timeLabel.removeFromSuperview()

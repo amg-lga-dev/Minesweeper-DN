@@ -2,8 +2,8 @@
 //  ScorePanelViewController.swift
 //  MineSweeper
 //
-//  Created by Logan Allen on 12/29/15.
-//  Copyright © 2015 Andrew Grossfeld. All rights reserved.
+//  Created by Andrew Grossfeld & Logan Allen on 12/29/15.
+//  Copyright © 2015 A.G. & L.A. All rights reserved.
 //
 
 import UIKit
