@@ -55,5 +55,9 @@ class ScorePanelViewController: UIViewController {
         titleLabel.layer.shadowOpacity = 0.6
         titleLabel.layer.shadowRadius = 1
     }
+    @IBAction func showHTPVC(sender: UIButton) {
+        let htpvc = HowToPlayViewController()
+        presentViewController(htpvc, animated: true, completion: nil)
+    }
 
 }
