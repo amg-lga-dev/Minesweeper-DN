@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -48,27 +48,6 @@
                     <state key="normal" image="tripleBarIcon"/>
                     <connections>
                         <action selector="sideTapped:" destination="-1" eventType="touchUpInside" id="Qqj-Ld-GPp"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yuk-Z4-upW">
-                    <rect key="frame" x="503" y="519" width="89" height="30"/>
-                    <color key="backgroundColor" red="0.3803921569" green="0.60392156860000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="89" id="OFH-mt-gDq"/>
-                        <constraint firstAttribute="height" constant="30" id="PVo-a0-p19"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
-                    <state key="normal" title="How To Play">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="showHowToPlay:" destination="-1" eventType="touchUpInside" id="f3d-x7-ho7"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kD2-ww-apo">
@@ -158,7 +137,6 @@
                 <constraint firstAttribute="trailing" secondItem="fj8-sX-EhG" secondAttribute="trailing" constant="8" id="ZBu-BU-ft6"/>
                 <constraint firstAttribute="bottom" secondItem="kD2-ww-apo" secondAttribute="bottom" constant="46" id="dcd-rm-Wjd"/>
                 <constraint firstItem="YMo-dK-xeP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dzV-Ol-5wH"/>
-                <constraint firstAttribute="bottom" secondItem="Yuk-Z4-upW" secondAttribute="bottom" constant="51" id="h0k-2s-SJI"/>
                 <constraint firstItem="kD2-ww-apo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="j1g-h6-2sU"/>
                 <constraint firstItem="YFO-Tf-lWb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="j4A-YT-Tz5"/>
                 <constraint firstItem="fFq-Ev-zjg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lpD-ek-fCe"/>
@@ -169,7 +147,6 @@
                 <constraint firstItem="MnC-58-5JU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="qjD-vu-wrt"/>
                 <constraint firstItem="nYS-V0-sdL" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="sYF-iv-JH1"/>
                 <constraint firstItem="MnC-58-5JU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="t0k-u5-eNB"/>
-                <constraint firstAttribute="trailing" secondItem="Yuk-Z4-upW" secondAttribute="trailing" constant="8" id="tH1-PG-umJ"/>
             </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <point key="canvasLocation" x="233" y="346"/>

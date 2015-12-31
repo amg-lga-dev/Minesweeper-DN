@@ -66,11 +66,6 @@ class IntroViewController: UIViewController {
         self.navigationController?.pushViewController(gameVC, animated: true)
         
     }
-
-    @IBAction func showHowToPlay(sender: UIButton) {
-        let htpvc = HowToPlayViewController()
-        presentViewController(htpvc, animated: true, completion: nil)
-    }
     
     @IBAction func sideTapped(sender: AnyObject) {
         print("FUCK YOU")

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScorePanelViewController: UIViewController {
+class InfoPanelViewController: UIViewController {
     
     var introVC: IntroViewController?
 
