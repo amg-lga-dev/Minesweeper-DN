@@ -16,6 +16,7 @@
                 <outlet property="lossesLabel" destination="syo-1N-O5X" id="hI3-0B-orv"/>
                 <outlet property="themeSeg" destination="2Fg-xt-VPU" id="BHr-ja-Q2z"/>
                 <outlet property="timeLabel" destination="qAL-0f-5we" id="aTm-b0-2uJ"/>
+                <outlet property="titleLabel" destination="LTv-xH-qbj" id="X1N-Ij-43i"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="rNN-hT-m6S"/>
                 <outlet property="winsLabel" destination="7qb-QH-JBL" id="3oj-Bt-vsO"/>
             </connections>
@@ -33,12 +34,12 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings and Scores" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTv-xH-qbj">
-                    <rect key="frame" x="32" y="28" width="200" height="35"/>
+                    <rect key="frame" x="32" y="28" width="216" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="bU8-Zh-bzc"/>
-                        <constraint firstAttribute="width" constant="200" id="vPa-LP-ydy"/>
+                        <constraint firstAttribute="width" constant="216" id="vPa-LP-ydy"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="24"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="26"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>

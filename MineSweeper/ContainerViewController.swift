@@ -109,7 +109,6 @@ class ContainerViewController: UIViewController {
         
         // Animate transition between introVC and left panel
         func animateLeftPanel(shouldExpand: Bool) {
-            print("Animate")
             if (shouldExpand) {
                 self.introNav.view.layer.opacity = 0.7
                 currentState = .LeftPanelExpanded

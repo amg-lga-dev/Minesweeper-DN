@@ -39,7 +39,7 @@
                         <constraint firstAttribute="height" constant="28" id="0Hd-1a-JDD"/>
                         <constraint firstAttribute="width" constant="150" id="NFi-8K-Syc"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="24"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="26"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>

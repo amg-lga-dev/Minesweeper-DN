@@ -36,11 +36,16 @@ class InfoPanelViewController: UIViewController {
     func setTheme(theme: String){
         if theme == "Day"{
             backgroundImage.image = UIImage(named: "sky")
-            bottomImage.layer.opacity = 1
+            bottomImage.layer.opacity = 1.0
         }else{
             backgroundImage.image = UIImage(named: "nightSky")
             bottomImage.layer.opacity = 0.7
         }
+        bottomImage.layer.shadowColor = UIColor.blackColor().CGColor
+        bottomImage.layer.shadowOffset = CGSizeMake(4, 3)
+        bottomImage.layer.shadowOpacity = 0.6
+        bottomImage.layer.shadowRadius = 2
+        
         for view in self.view.subviews {
             (view as? UILabel)?.textColor = Style.textColor
             (view as? UISegmentedControl)?.tintColor = UIColor.whiteColor()

@@ -32,9 +32,14 @@ class GameViewController: UIViewController {
         bottomImage.image = UIImage(named: "mountains.png")
         if theme == "Day"{
             bottomImage.layer.opacity = 1.0
+            bottomImage.layer.shadowColor = UIColor.blackColor().CGColor
         }else{
             bottomImage.layer.opacity = 0.7
+            bottomImage.layer.shadowColor = UIColor.whiteColor().CGColor
         }
+        bottomImage.layer.shadowOffset = CGSizeMake(4, 3)
+        bottomImage.layer.shadowOpacity = 0.6
+        bottomImage.layer.shadowRadius = 2
         self.view.addSubview(bottomImage)
         
         game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
@@ -69,7 +74,7 @@ class GameViewController: UIViewController {
             backgroundImage.image = UIImage(named: "sky")
             caption.textColor = UIColor.blackColor()
             screenCover.layer.shadowColor = UIColor.blackColor().CGColor
-            screenCover.layer.shadowOpacity = 0.8
+            screenCover.layer.shadowOpacity = 0.6
         }else{
             backgroundImage.image = UIImage(named: "nightSky")
             caption.textColor = UIColor.whiteColor()
@@ -86,14 +91,18 @@ class GameViewController: UIViewController {
         
         let flagImage = UIImageView(frame: CGRect(x: 10, y: self.view.bounds.height - 35, width: 25, height: 25))
         flagImage.image = UIImage(named: "flag")
+        flagImage.layer.shadowRadius = 2
+        flagImage.layer.shadowColor = UIColor.blackColor().CGColor
+        flagImage.layer.shadowOffset = CGSizeMake(2, 2)
+        flagImage.layer.shadowOpacity = 0.7
         flagNumber = UILabel(frame: CGRect(x: 40, y: self.view.bounds.height - 35, width: 50, height: 30))
         flagNumber.font = UIFont(name: "Gill Sans", size: 18)
         updateFlagCounter()
         
-        layoutTheme()
-        
         view.addSubview(flagImage)
         view.addSubview(flagNumber)
+        
+        layoutTheme()
     }
     
     override func viewWillAppear(animated: Bool) {

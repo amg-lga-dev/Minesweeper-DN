@@ -16,6 +16,7 @@ class SidePanelViewController: UIViewController {
     @IBOutlet weak var boardSeg: UISegmentedControl!
     @IBOutlet weak var levelSeg: UISegmentedControl!
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var attemptsLabel: UILabel!
     @IBOutlet weak var winsLabel: UILabel!
     @IBOutlet weak var lossesLabel: UILabel!
@@ -97,13 +98,18 @@ class SidePanelViewController: UIViewController {
     func setTheme(theme: String){
         if theme == "Day"{
             backgroundImage.image = UIImage(named: "sky")
-            bottomImage.layer.opacity = 1
+            bottomImage.layer.opacity = 1.0
             themeSeg.selectedSegmentIndex = 0
         }else{
             backgroundImage.image = UIImage(named: "nightSky")
             bottomImage.layer.opacity = 0.7
             themeSeg.selectedSegmentIndex = 1
         }
+        bottomImage.layer.shadowColor = UIColor.blackColor().CGColor
+        bottomImage.layer.shadowOffset = CGSizeMake(4, 3)
+        bottomImage.layer.shadowOpacity = 0.6
+        bottomImage.layer.shadowRadius = 2
+        
         for view in self.view.subviews {
             (view as? UILabel)?.textColor = Style.textColor
             (view as? UISegmentedControl)?.tintColor = UIColor.whiteColor()
@@ -112,6 +118,11 @@ class SidePanelViewController: UIViewController {
             (view as? UISegmentedControl)?.layer.shadowRadius = 3
             (view as? UISegmentedControl)?.layer.shadowOpacity = 0.7
         }
+        titleLabel.textColor = UIColor.whiteColor()
+        titleLabel.layer.shadowColor = UIColor.blackColor().CGColor
+        titleLabel.layer.shadowOffset = CGSizeMake(2,2)
+        titleLabel.layer.shadowOpacity = 0.6
+        titleLabel.layer.shadowRadius = 1
     }
     
     @IBAction func themeSegment(sender: UISegmentedControl) {
