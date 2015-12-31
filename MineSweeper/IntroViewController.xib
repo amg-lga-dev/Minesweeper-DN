@@ -8,7 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroViewController" customModule="MineSweeper" customModuleProvider="target">
             <connections>
                 <outlet property="leftBarIcon" destination="MnC-58-5JU" id="YtK-bz-9gK"/>
+                <outlet property="mainMineImage" destination="Ufz-9M-itV" id="jTe-eY-vCT"/>
                 <outlet property="rightBarIcon" destination="fj8-sX-EhG" id="m6W-v5-cjH"/>
+                <outlet property="startButton" destination="kD2-ww-apo" id="bRM-VP-T0x"/>
                 <outlet property="titleLabel" destination="YMo-dK-xeP" id="28d-Nt-jzn"/>
                 <outlet property="titleMineImage" destination="yfd-eH-bo2" id="3Zp-2v-8pV"/>
                 <outlet property="topBarImage" destination="YFO-Tf-lWb" id="4vS-47-afa"/>
@@ -20,11 +22,11 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landmine" translatesAutoresizingMaskIntoConstraints="NO" id="yfd-eH-bo2">
-                    <rect key="frame" x="393" y="103" width="64" height="64"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landmine" translatesAutoresizingMaskIntoConstraints="NO" id="Ufz-9M-itV">
+                    <rect key="frame" x="175" y="175" width="250" height="250"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="64" id="6cz-Op-BYm"/>
-                        <constraint firstAttribute="width" constant="64" id="AcB-wN-h5x"/>
+                        <constraint firstAttribute="width" constant="250" id="C87-VH-uQq"/>
+                        <constraint firstAttribute="height" constant="250" id="fsh-9b-dLc"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YFO-Tf-lWb">
@@ -32,13 +34,6 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="65" id="QhN-qs-P5r"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="dBv-3B-SPX"/>
-                    </constraints>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landmine" translatesAutoresizingMaskIntoConstraints="NO" id="Ufz-9M-itV">
-                    <rect key="frame" x="170" y="170" width="260" height="260"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="260" id="C87-VH-uQq"/>
-                        <constraint firstAttribute="height" constant="260" id="fsh-9b-dLc"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MnC-58-5JU">
@@ -53,16 +48,15 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kD2-ww-apo">
-                    <rect key="frame" x="231" y="511" width="138" height="43"/>
-                    <color key="backgroundColor" red="0.38039215686274508" green="0.60392156862745094" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="215" y="499" width="170" height="55"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="138" id="I56-4v-27V"/>
-                        <constraint firstAttribute="height" constant="43" id="S4t-s7-JNo"/>
+                        <constraint firstAttribute="width" constant="170" id="I56-4v-27V"/>
+                        <constraint firstAttribute="height" constant="55" id="S4t-s7-JNo"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
-                    <state key="normal" title="START GAME">
-                        <color key="titleColor" red="0.011171105354764791" green="0.014195303608677627" blue="0.018426865183246099" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="24"/>
+                    <state key="normal" title="START GAME" backgroundImage="skyBar">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" red="0.01117110535" green="0.01419530361" blue="0.018426865180000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -73,16 +67,6 @@
                         <action selector="startGame:" destination="-1" eventType="touchUpInside" id="DjE-5y-ejO"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mine Sweeper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMo-dK-xeP">
-                    <rect key="frame" x="168" y="97" width="265" height="53"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="265" id="TZd-fh-yyk"/>
-                        <constraint firstAttribute="height" constant="53" id="wtV-3l-2Re"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="46"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fj8-sX-EhG">
                     <rect key="frame" x="557" y="23" width="35" height="35"/>
                     <constraints>
@@ -104,13 +88,30 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landmine" translatesAutoresizingMaskIntoConstraints="NO" id="yfd-eH-bo2">
+                    <rect key="frame" x="397" y="107" width="64" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="6cz-Op-BYm"/>
+                        <constraint firstAttribute="width" constant="64" id="AcB-wN-h5x"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mine Sweeper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMo-dK-xeP">
+                    <rect key="frame" x="168" y="97" width="265" height="53"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="265" id="TZd-fh-yyk"/>
+                        <constraint firstAttribute="height" constant="53" id="wtV-3l-2Re"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="46"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="nYS-V0-sdL" firstAttribute="top" secondItem="YMo-dK-xeP" secondAttribute="bottom" id="0lQ-ap-kdi"/>
                 <constraint firstItem="Ufz-9M-itV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3wm-Lc-pjk"/>
                 <constraint firstItem="fj8-sX-EhG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="23" id="8pV-R7-1sf"/>
-                <constraint firstItem="yfd-eH-bo2" firstAttribute="top" secondItem="YFO-Tf-lWb" secondAttribute="bottom" constant="38" id="BB3-ZF-fs8"/>
+                <constraint firstItem="yfd-eH-bo2" firstAttribute="top" secondItem="YFO-Tf-lWb" secondAttribute="bottom" constant="42" id="BB3-ZF-fs8"/>
                 <constraint firstItem="YFO-Tf-lWb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="R5p-2F-aKQ"/>
                 <constraint firstItem="Ufz-9M-itV" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="V37-6j-qUT"/>
                 <constraint firstAttribute="trailing" secondItem="fj8-sX-EhG" secondAttribute="trailing" constant="8" id="ZBu-BU-ft6"/>
@@ -118,7 +119,7 @@
                 <constraint firstItem="YMo-dK-xeP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dzV-Ol-5wH"/>
                 <constraint firstItem="kD2-ww-apo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="j1g-h6-2sU"/>
                 <constraint firstItem="YFO-Tf-lWb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="j4A-YT-Tz5"/>
-                <constraint firstItem="yfd-eH-bo2" firstAttribute="leading" secondItem="nYS-V0-sdL" secondAttribute="trailing" constant="68" id="o2Q-9C-xh3"/>
+                <constraint firstItem="yfd-eH-bo2" firstAttribute="leading" secondItem="nYS-V0-sdL" secondAttribute="trailing" constant="72" id="o2Q-9C-xh3"/>
                 <constraint firstAttribute="trailing" secondItem="YFO-Tf-lWb" secondAttribute="trailing" id="o6y-Nh-9hu"/>
                 <constraint firstItem="YMo-dK-xeP" firstAttribute="top" secondItem="YFO-Tf-lWb" secondAttribute="bottom" constant="32" id="o9G-UI-WGf"/>
                 <constraint firstItem="MnC-58-5JU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="23" id="qjD-vu-wrt"/>
@@ -133,5 +134,6 @@
         <image name="infoIcon" width="256" height="256"/>
         <image name="landmine" width="300" height="292"/>
         <image name="settings2" width="256" height="256"/>
+        <image name="skyBar" width="842" height="151"/>
     </resources>
 </document>

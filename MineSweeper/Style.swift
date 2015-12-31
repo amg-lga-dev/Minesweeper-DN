@@ -14,6 +14,7 @@ struct Style {
     static var foundationColor = UIColor.blackColor()
     static var textColor = UIColor.whiteColor()
     static var unflippedTile = UIColor.blackColor()
+    static var unflippedTileImage = UIImage(named: "skyTile.jpg")
     static var tileBorder = UIColor.whiteColor()
     static var navBar = UIColor.blackColor()
     
@@ -29,6 +30,7 @@ struct Style {
         foundationColor = UIColor.blackColor()
         textColor = UIColor.whiteColor()
         unflippedTile = UIColor.blackColor()
+        unflippedTileImage = UIImage(named: "nightSkyTile.jpg")
         tileBorder = UIColor.whiteColor()
         navBar = UIColor.blackColor()
     }
@@ -38,6 +40,7 @@ struct Style {
         foundationColor = UIColor.whiteColor()
         textColor = UIColor.blackColor()
         unflippedTile = UIColor.whiteColor()
+        unflippedTileImage = UIImage(named: "skyTile.jpg")
         tileBorder = UIColor.blackColor()
         navBar = UIColor.whiteColor()
     }

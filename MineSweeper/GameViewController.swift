@@ -295,6 +295,7 @@ class GameViewController: UIViewController {
             else if tile.flipped == false {
                 tile.flipped = true
                 tile.marked = false
+                tile.setBackgroundImage(nil, forState: .Normal)
                 
                 if tile.isBomb {
                     tile.layer.backgroundColor = Style.foundationColor.CGColor
@@ -308,7 +309,12 @@ class GameViewController: UIViewController {
                     game.loseGame(tile)
                 }
                 else {
-                    tile.layer.backgroundColor = UIColor.grayColor().CGColor
+                    // Make flipped tile color lighter in day, darker in night
+                    if Style.foundationColor == UIColor.blackColor(){
+                        tile.layer.backgroundColor = UIColor(red: 130/255, green: 130/255, blue: 130/255, alpha: 1).CGColor
+                    }else{
+                        tile.layer.backgroundColor = UIColor(red: 190/255, green: 190/255, blue: 190/255, alpha: 1).CGColor
+                    }
                     tile.setImage(nil, forState: .Normal)
                     game.checkWinGame()
                     if (tile.number == 0) {

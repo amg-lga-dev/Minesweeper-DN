@@ -23,6 +23,7 @@ class ContainerViewController: UIViewController {
     var rightVC: InfoPanelViewController?
     
     var introPanelExpandedOffset: CGFloat!
+    var w: Float = 0
     
     var currentState: SlideOutState = .IntroShowing{
         didSet {
@@ -35,23 +36,27 @@ class ContainerViewController: UIViewController {
     // View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Initialize intro view controller (central view)
         introVC = IntroViewController()
         introVC.delegate = self
         introVC.containerVC = self
         
         introPanelExpandedOffset = self.view.bounds.width/5
         
-        // wrap the introViewController in a navigation controller, so we can push views to it
-        // and display bar button items in the navigation bar
+        // Wrap the introViewController in a navigation controller and add to parent
         introNav = UINavigationController(rootViewController: introVC)
         view.addSubview(introNav.view)
         addChildViewController(introNav)
         
         introNav.didMoveToParentViewController(self)
         
-        // Add gestures
+        // Add gestures to navigation controller
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
         introNav.view.addGestureRecognizer(panGestureRecognizer)
+        
+        
+        w = Float(self.introNav.view.bounds.width)
     }
     
 }
@@ -111,9 +116,9 @@ extension ContainerViewController: IntroViewControllerDelegate {
     // Animate transition between introVC and left panel
     func animateLeftPanel(shouldExpand: Bool) {
         if (shouldExpand) {
-            self.introNav.view.layer.opacity = 0.7
+            self.introNav.view.layer.opacity = 0.75
             currentState = .LeftPanelExpanded
-            animateIntroPanelXPosition(CGRectGetWidth(introNav.view.frame) - introPanelExpandedOffset)
+            animateIntroPanelXPosition(introNav.view.frame.width - introPanelExpandedOffset)
         } else {
             self.introNav.view.layer.opacity = 1.0
                 animateIntroPanelXPosition(0) { finished in
@@ -127,9 +132,9 @@ extension ContainerViewController: IntroViewControllerDelegate {
     // Animate transition between introVC and right panel
     func animateRightPanel(shouldExpand: Bool) {
         if (shouldExpand) {
-            self.introNav.view.layer.opacity = 0.7
+            self.introNav.view.layer.opacity = 0.75
             currentState = .RightPanelExpanded
-            animateIntroPanelXPosition(-CGRectGetWidth(introNav.view.frame) + introPanelExpandedOffset)
+            animateIntroPanelXPosition(-introNav.view.frame.width + introPanelExpandedOffset)
         } else {
             self.introNav.view.layer.opacity = 1.0
             animateIntroPanelXPosition(0) { _ in
@@ -140,7 +145,7 @@ extension ContainerViewController: IntroViewControllerDelegate {
         }
     }
     
-    // Expanding animation of introVC
+    // Animate introVC to target position
     func animateIntroPanelXPosition(targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
             self.introNav.view.frame.origin.x = targetPosition
@@ -149,7 +154,13 @@ extension ContainerViewController: IntroViewControllerDelegate {
         
     // Show shadow for introVC when panels are expanded
     func showShadowForIntroViewController(shouldShowShadow: Bool) {
+        // let theme = NSUserDefaults.standardUserDefaults().valueForKey("theme") as! String
         if (shouldShowShadow) {
+//            if theme == "Day"{
+//                introNav.view.layer.shadowColor = UIColor.blackColor().CGColor
+//            }else{
+//                introNav.view.layer.shadowColor = UIColor.whiteColor().CGColor
+//            }
             introNav.view.layer.shadowOpacity = 0.8
         } else {
             introNav.view.layer.shadowOpacity = 0.0
@@ -160,39 +171,41 @@ extension ContainerViewController: IntroViewControllerDelegate {
     
 // Gesture recognizer delegate
 extension ContainerViewController: UIGestureRecognizerDelegate {
-        
+    
     func handlePanGesture(recognizer: UIPanGestureRecognizer) {
         // Only recognize gestures when not running the game
         if currentState != .GameSimulation{
-            func handlePanGesture(recognizer: UIPanGestureRecognizer) {
-                let gestureIsDraggingFromLeftToRight = (recognizer.velocityInView(view).x > 0)
+            let gestureIsDraggingFromLeftToRight = (recognizer.velocityInView(view).x > 0)
+            
+            switch(recognizer.state) {
+            case .Began:
+                if (currentState == .IntroShowing) {
+                    if (gestureIsDraggingFromLeftToRight) {
+                        addLeftPanelViewController()
+                    } else {
+                        addRightPanelViewController()
+                    }
                     
-                switch(recognizer.state) {
-                case .Began:
-                    if (currentState == .IntroShowing) {
-                        if (gestureIsDraggingFromLeftToRight) {
-                            addLeftPanelViewController()
-                        } else {
-                            addRightPanelViewController()
-                        }
-                            
-                        showShadowForIntroViewController(true)
-                    }
-                case .Changed:
-                    recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
-                    recognizer.setTranslation(CGPointZero, inView: view)
-                case .Ended:
-                    if (leftVC != nil) {
-                        // animate the side panel open or closed based on whether the view has moved more or less than halfway
-                        let hasMovedGreaterThanHalfway = recognizer.view!.center.x > view.bounds.size.width
-                        animateLeftPanel(hasMovedGreaterThanHalfway)
-                    } else if (rightVC != nil) {
-                        let hasMovedGreaterThanHalfway = recognizer.view!.center.x < 0
-                        animateRightPanel(hasMovedGreaterThanHalfway)
-                    }
-                default:
-                    break
+                    showShadowForIntroViewController(true)
                 }
+            case .Changed:
+                recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
+                recognizer.setTranslation(CGPointZero, inView: view)
+                // Gradual adjust introNav's opacity according to position
+                let opacityOffset = 3*Float(abs(introNav.view.frame.origin.x))/(8*w)
+                self.introNav.view.layer.opacity = 1.0 - opacityOffset
+                
+            case .Ended:
+                if (leftVC != nil) {
+                    // animate the side panel open or closed based on whether the view has moved more or less than halfway
+                    let hasMovedGreaterThanHalfway = recognizer.view!.center.x > view.bounds.size.width
+                    animateLeftPanel(hasMovedGreaterThanHalfway)
+                } else if (rightVC != nil) {
+                    let hasMovedGreaterThanHalfway = recognizer.view!.center.x < 0
+                    animateRightPanel(hasMovedGreaterThanHalfway)
+                }
+            default:
+                break
             }
         }
     }

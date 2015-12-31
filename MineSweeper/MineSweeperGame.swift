@@ -106,9 +106,10 @@ class MineSweeperGame: NSObject {
     // Display hidden bombs on the game board and display "Game Over" label
     func loseGame(tilePressed: Tile) {
         for tile in tiles {
-            tile.enabled = false
+            //tile.enabled = false
             if tile.isBomb && tile != tilePressed{
                 tile.layer.backgroundColor = Style.unflippedTile.CGColor
+                tile.setBackgroundImage(nil, forState: .Normal)
                 tile.setImage(UIImage(named: "landmine"), forState: .Normal)
             }
         }

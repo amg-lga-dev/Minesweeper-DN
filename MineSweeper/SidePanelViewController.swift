@@ -39,8 +39,7 @@ class SidePanelViewController: UIViewController {
         boardSeg.selectedSegmentIndex = (introVC?.gameType)!
         levelSeg.selectedSegmentIndex = (introVC?.gameLevel)!
         
-        // Set title's color and shadow
-        titleLabel.textColor = UIColor.whiteColor()
+        // Set title's shadow
         titleLabel.layer.shadowColor = UIColor.blackColor().CGColor
         titleLabel.layer.shadowOffset = CGSizeMake(2,2)
         titleLabel.layer.shadowOpacity = 0.6
@@ -131,6 +130,8 @@ class SidePanelViewController: UIViewController {
             (view as? UISegmentedControl)?.layer.shadowRadius = 3
             (view as? UISegmentedControl)?.layer.shadowOpacity = 0.7
         }
+        // Keep title text as white
+        titleLabel.textColor = UIColor.whiteColor()
     }
     
     // Switch between themes
