@@ -43,7 +43,7 @@ class GameViewController: UIViewController {
         bottomImage.layer.shadowOpacity = 0.6
         bottomImage.layer.shadowRadius = 2
         self.view.addSubview(bottomImage)
-        
+       
         // Create actual mine sweeper game
         game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
         //flagsLeft = gameSize * gameSize
