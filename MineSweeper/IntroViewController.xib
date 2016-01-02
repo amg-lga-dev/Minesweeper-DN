@@ -89,13 +89,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landmine" translatesAutoresizingMaskIntoConstraints="NO" id="yfd-eH-bo2">
-                    <rect key="frame" x="385" y="107" width="64" height="64"/>
+                    <rect key="frame" x="393" y="107" width="64" height="64"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="6cz-Op-BYm"/>
                         <constraint firstAttribute="width" constant="64" id="AcB-wN-h5x"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MineSweep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMo-dK-xeP">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MineSweeper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMo-dK-xeP">
                     <rect key="frame" x="168" y="97" width="265" height="53"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="265" id="TZd-fh-yyk"/>
@@ -119,7 +119,7 @@
                 <constraint firstItem="YMo-dK-xeP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dzV-Ol-5wH"/>
                 <constraint firstItem="kD2-ww-apo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="j1g-h6-2sU"/>
                 <constraint firstItem="YFO-Tf-lWb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="j4A-YT-Tz5"/>
-                <constraint firstItem="yfd-eH-bo2" firstAttribute="leading" secondItem="nYS-V0-sdL" secondAttribute="trailing" constant="60" id="o2Q-9C-xh3"/>
+                <constraint firstItem="yfd-eH-bo2" firstAttribute="leading" secondItem="nYS-V0-sdL" secondAttribute="trailing" constant="68" id="o2Q-9C-xh3"/>
                 <constraint firstAttribute="trailing" secondItem="YFO-Tf-lWb" secondAttribute="trailing" id="o6y-Nh-9hu"/>
                 <constraint firstItem="YMo-dK-xeP" firstAttribute="top" secondItem="YFO-Tf-lWb" secondAttribute="bottom" constant="32" id="o9G-UI-WGf"/>
                 <constraint firstItem="MnC-58-5JU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="23" id="qjD-vu-wrt"/>
