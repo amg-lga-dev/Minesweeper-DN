@@ -129,7 +129,7 @@
 				TargetAttributes = {
 					50C145881C0FCD03001D5575 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 9EJG7FBTNS;
+						DevelopmentTeam = R8MGTW9Q8N;
 					};
 				};
 			};
@@ -288,7 +288,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MineSweeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Andrew-Grossfeld.MineSweeper";
+				PRODUCT_BUNDLE_IDENTIFIER = "Logan-Allen.MineSweeper";
 				PRODUCT_NAME = MineSweeper;
 				PROVISIONING_PROFILE = "";
 			};
@@ -302,7 +302,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MineSweeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Andrew-Grossfeld.MineSweeper";
+				PRODUCT_BUNDLE_IDENTIFIER = "Logan-Allen.MineSweeper";
 				PRODUCT_NAME = MineSweeper;
 				PROVISIONING_PROFILE = "";
 			};

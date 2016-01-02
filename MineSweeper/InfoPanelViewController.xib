@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="backgroundImage" destination="0PU-mw-ciR" id="JWE-tM-ucM"/>
                 <outlet property="bottomImage" destination="zN3-CC-R5M" id="nkG-zx-VSc"/>
+                <outlet property="captionBorderView" destination="PHF-Vb-3Lh" id="48E-6q-Xb4"/>
                 <outlet property="instructionsButton" destination="bTJ-EJ-OgA" id="ThL-Zi-KzK"/>
                 <outlet property="titleLabel" destination="11a-Mg-R6j" id="evg-ft-FTh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -63,6 +64,40 @@
                         <action selector="showHTPVC:" destination="-1" eventType="touchUpInside" id="e36-cC-Rbk"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed by Logan Allen and Andrew Grossfeld." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoB-pn-pAb">
+                    <rect key="frame" x="394" y="84" width="190" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="190" id="1hP-DW-LNs"/>
+                        <constraint firstAttribute="height" constant="49" id="h4q-JM-j03"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2016.  All rights reserved. " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHe-OQ-ZxX">
+                    <rect key="frame" x="447" y="133" width="137" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="137" id="DrN-SZ-0kP"/>
+                        <constraint firstAttribute="height" constant="49" id="ITu-gh-EhT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHF-Vb-3Lh">
+                    <rect key="frame" x="372" y="82" width="220" height="102"/>
+                    <color key="backgroundColor" red="0.69215593434343436" green="0.69215593434343436" blue="0.69215593434343436" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="220" id="STc-Wk-afB"/>
+                        <constraint firstAttribute="width" constant="198" id="mwz-lr-UuK"/>
+                        <constraint firstAttribute="height" constant="102" id="oii-f8-aJL"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="mwz-lr-UuK"/>
+                        </mask>
+                    </variation>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -73,11 +108,17 @@
                 <constraint firstAttribute="trailing" secondItem="11a-Mg-R6j" secondAttribute="trailing" constant="32" id="Hwt-C0-vJQ"/>
                 <constraint firstItem="0PU-mw-ciR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="K2g-hy-Aae"/>
                 <constraint firstItem="11a-Mg-R6j" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="28" id="MWd-8G-jvI"/>
+                <constraint firstAttribute="trailing" secondItem="EHe-OQ-ZxX" secondAttribute="trailing" constant="16" id="MuR-DW-koY"/>
+                <constraint firstItem="GoB-pn-pAb" firstAttribute="top" secondItem="11a-Mg-R6j" secondAttribute="bottom" constant="28" id="NRN-5J-iAS"/>
                 <constraint firstItem="zN3-CC-R5M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Rn5-ZV-CfX"/>
+                <constraint firstItem="EHe-OQ-ZxX" firstAttribute="top" secondItem="GoB-pn-pAb" secondAttribute="bottom" id="RuK-WS-aEW"/>
                 <constraint firstAttribute="trailing" secondItem="bTJ-EJ-OgA" secondAttribute="trailing" constant="26" id="SSB-MX-eYm"/>
                 <constraint firstItem="11a-Mg-R6j" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WLR-27-Nhh"/>
+                <constraint firstAttribute="trailing" secondItem="GoB-pn-pAb" secondAttribute="trailing" constant="16" id="ZTx-UP-Ksy"/>
                 <constraint firstAttribute="bottom" secondItem="bTJ-EJ-OgA" secondAttribute="bottom" constant="22" id="c7x-4g-8N7"/>
+                <constraint firstItem="PHF-Vb-3Lh" firstAttribute="top" secondItem="11a-Mg-R6j" secondAttribute="bottom" constant="26" id="ebI-rS-uTz"/>
                 <constraint firstAttribute="bottom" secondItem="0PU-mw-ciR" secondAttribute="bottom" id="lqQ-6Q-d2S"/>
+                <constraint firstAttribute="trailing" secondItem="PHF-Vb-3Lh" secondAttribute="trailing" constant="8" id="uIQ-3N-Gva"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">

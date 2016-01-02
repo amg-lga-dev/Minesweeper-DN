@@ -16,6 +16,7 @@ class InfoPanelViewController: UIViewController {
     @IBOutlet weak var bottomImage: UIImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var captionBorderView: UIView!
     
     @IBOutlet weak var instructionsButton: UIButton!
     
@@ -39,17 +40,16 @@ class InfoPanelViewController: UIViewController {
             bottomImage.layer.opacity = 0.7
         }
         bottomImage.layer.shadowColor = UIColor.blackColor().CGColor
-        bottomImage.layer.shadowOffset = CGSizeMake(4, 3)
+        bottomImage.layer.shadowOffset = CGSizeMake(3, 2)
         bottomImage.layer.shadowOpacity = 0.6
         bottomImage.layer.shadowRadius = 2
         
-        for view in self.view.subviews {
-            (view as? UILabel)?.textColor = Style.textColor
-            (view as? UISegmentedControl)?.tintColor = UIColor.whiteColor()
-            (view as? UISegmentedControl)?.layer.shadowColor = UIColor.blackColor().CGColor
-            (view as? UISegmentedControl)?.layer.shadowOffset = CGSizeMake(3,3)
-            (view as? UISegmentedControl)?.layer.shadowRadius = 3
-            (view as? UISegmentedControl)?.layer.shadowOpacity = 0.7
+        captionBorderView.backgroundColor = UIColor.clearColor()
+        captionBorderView.layer.borderColor = UIColor.whiteColor().CGColor
+        captionBorderView.layer.borderWidth = 1
+        
+        for label in self.view.subviews{
+            (label as? UILabel)?.textColor = Style.textColor
         }
         // Set title's color and shadow
         titleLabel.textColor = UIColor.whiteColor()
@@ -59,10 +59,10 @@ class InfoPanelViewController: UIViewController {
         titleLabel.layer.shadowRadius = 1
         
         // Set instruction button's shadow
-        instructionsButton.layer.shadowOpacity = 0.7
-        instructionsButton.layer.shadowOffset = CGSizeMake(4, 4)
-        instructionsButton.layer.shadowRadius = 4
         instructionsButton.layer.shadowColor = UIColor.blackColor().CGColor
+        instructionsButton.layer.shadowOffset = CGSizeMake(4, 4)
+        instructionsButton.layer.shadowOpacity = 0.7
+        instructionsButton.layer.shadowRadius = 4
     }
 
     @IBAction func showHTPVC(sender: UIButton) {

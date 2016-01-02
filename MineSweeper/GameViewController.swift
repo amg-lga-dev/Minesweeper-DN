@@ -66,24 +66,32 @@ class GameViewController: UIViewController {
     
         // Create pause screen cover
         screenCover = UIView(frame: CGRect(x: 0, y: 65, width: self.view.bounds.width, height: self.view.bounds.width))
+        screenCover.layer.shadowOpacity = 0.6
         let w = screenCover.bounds.width
         let backgroundImage = UIImageView(frame: CGRect(x: 0, y: 0, width: w, height: w))
         let mine = UIImageView(frame: CGRect(x: w/4, y: 65, width: w/2, height: w/2))
         mine.image = UIImage(named: "landmine")
+        mine.layer.shadowOpacity = 0.6
+        mine.layer.shadowOffset = CGSizeMake(2, 2)
+        mine.layer.shadowRadius = 2
         let caption = UILabel(frame: CGRect(x: 5, y: w-45, width: w-10, height: 30))
         caption.text = "Take a breather..."
         caption.font = UIFont(name: "Gill Sans", size: 24)
         caption.textAlignment = .Center
+        caption.layer.shadowColor = UIColor.blackColor().CGColor
+        caption.layer.shadowOpacity = 0.6
+        caption.layer.shadowOffset = CGSizeMake(1,1)
+        caption.layer.shadowRadius = 1;
         if theme == "Day"{
             backgroundImage.image = UIImage(named: "sky")
             caption.textColor = UIColor.blackColor()
             screenCover.layer.shadowColor = UIColor.blackColor().CGColor
-            screenCover.layer.shadowOpacity = 0.6
+            mine.layer.shadowColor = UIColor.blackColor().CGColor
         }else{
             backgroundImage.image = UIImage(named: "nightSky")
             caption.textColor = UIColor.whiteColor()
             screenCover.layer.shadowColor = UIColor.whiteColor().CGColor
-            screenCover.layer.shadowOpacity = 0.6
+            mine.layer.shadowColor = UIColor.whiteColor().CGColor
         }
         screenCover.addSubview(backgroundImage)
         screenCover.addSubview(mine)
@@ -313,7 +321,7 @@ class GameViewController: UIViewController {
                     if Style.foundationColor == UIColor.blackColor(){
                         tile.layer.backgroundColor = UIColor(red: 130/255, green: 130/255, blue: 130/255, alpha: 1).CGColor
                     }else{
-                        tile.layer.backgroundColor = UIColor(red: 190/255, green: 190/255, blue: 190/255, alpha: 1).CGColor
+                        tile.layer.backgroundColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1).CGColor
                     }
                     tile.setImage(nil, forState: .Normal)
                     game.checkWinGame()
