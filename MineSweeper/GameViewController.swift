@@ -306,10 +306,12 @@ class GameViewController: UIViewController {
                 tile.setBackgroundImage(nil, forState: .Normal)
                 
                 if tile.isBomb {
-                    tile.layer.backgroundColor = Style.foundationColor.CGColor
+                    tile.layer.backgroundColor = UIColor.whiteColor().CGColor
                     let image1:UIImage = UIImage(named: "landmine")!
                     let image2:UIImage = UIImage(named: "explosion")!
                     tile.setImage(image1, forState: UIControlState.Normal)
+                    let size = tile.frame.width
+                    tile.imageEdgeInsets = UIEdgeInsets(top: size/8, left: size/8, bottom: size/8, right: size/8)
                     tile.imageView!.animationImages = [image1, image2]
                     tile.imageView!.animationDuration = 1.0
                     tile.imageView!.animationRepeatCount = 0
@@ -357,7 +359,13 @@ class GameViewController: UIViewController {
             if tile.flipped == false && !tile.marked{
                 tile.marked = true
                 let image = UIImage(named: "flag")
+                let size = tile.frame.width
                 tile.setImage(image, forState: .Normal)
+                tile.imageEdgeInsets = UIEdgeInsets(top: size/6, left: size/5, bottom: size/6, right: size/6)
+                tile.imageView?.layer.shadowColor = UIColor.blackColor().CGColor
+                tile.imageView?.layer.shadowOffset = CGSizeMake(1, 1)
+                tile.imageView?.layer.shadowOpacity = 0.7
+                tile.imageView?.layer.shadowRadius = 1
                 flagsLeft--
                 updateFlagCounter()
             }

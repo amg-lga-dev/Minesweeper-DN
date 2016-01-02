@@ -20,7 +20,7 @@ class Tile: UIButton {
         self.flipped = false
         self.marked = false
         super.init(frame: frame)
-        self.backgroundColor = Style.unflippedTile
+        self.backgroundColor = Style.textColor
         self.setBackgroundImage(Style.unflippedTileImage, forState: .Normal)
         self.layer.borderColor = Style.tileBorder.CGColor
         self.layer.borderWidth = 1.0
