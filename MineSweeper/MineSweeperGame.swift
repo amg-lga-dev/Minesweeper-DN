@@ -47,7 +47,7 @@ class MineSweeperGame: NSObject {
         }
         
         // Create best time label
-        gvc.bestTimeLabel = UILabel(frame: CGRect(x: 10.0, y: Double(gvc.view.bounds.width) + 80, width: Double(gvc.view.bounds.width / 3), height: 30.0))
+        gvc.bestTimeLabel = UILabel(frame: CGRect(x: 10.0, y: Double(gvc.view.bounds.width) + 80, width: Double(gvc.view.bounds.width / 2), height: 30.0))
         gvc.bestTimeLabel.font = UIFont(name: "Gill Sans", size: 18)
         gvc.bestTimeLabel.textColor = Style.textColor
         var bestTime = 0
