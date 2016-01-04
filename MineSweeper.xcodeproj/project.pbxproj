@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02ECE48D1C38856000D36E3D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02ECE48C1C38856000D36E3D /* Default-568h@2x.png */; };
 		02F9EC971C332F8800AFC84B /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F9EC961C332F8800AFC84B /* ContainerViewController.swift */; };
 		02F9EC9A1C33349F00AFC84B /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F9EC981C33349F00AFC84B /* SidePanelViewController.swift */; };
 		02F9EC9B1C33349F00AFC84B /* SidePanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F9EC991C33349F00AFC84B /* SidePanelViewController.xib */; };
@@ -16,6 +15,9 @@
 		500689121C0FCF69007BC5E0 /* MineSweeperGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500689111C0FCF69007BC5E0 /* MineSweeperGame.swift */; };
 		500689141C0FCFBB007BC5E0 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500689131C0FCFBB007BC5E0 /* Tile.swift */; };
 		5027612E1C32963B00CA105F /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5027612D1C32963B00CA105F /* Style.swift */; };
+		509045B51C3B1D4B00FCE04E /* DimBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509045B41C3B1D4B00FCE04E /* DimBackground.swift */; };
+		509045B71C3B1D9B00FCE04E /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509045B61C3B1D9B00FCE04E /* PopViewController.swift */; };
+		509045B91C3B1E9100FCE04E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 509045B81C3B1E9100FCE04E /* Default-568h@2x.png */; };
 		50C1458D1C0FCD03001D5575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C1458C1C0FCD03001D5575 /* AppDelegate.swift */; };
 		50C145941C0FCD03001D5575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50C145931C0FCD03001D5575 /* Assets.xcassets */; };
 		50C145971C0FCD03001D5575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50C145951C0FCD03001D5575 /* LaunchScreen.storyboard */; };
@@ -27,7 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		02ECE48C1C38856000D36E3D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		02F9EC961C332F8800AFC84B /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		02F9EC981C33349F00AFC84B /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
 		02F9EC991C33349F00AFC84B /* SidePanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SidePanelViewController.xib; sourceTree = "<group>"; };
@@ -36,6 +37,9 @@
 		500689111C0FCF69007BC5E0 /* MineSweeperGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineSweeperGame.swift; sourceTree = "<group>"; };
 		500689131C0FCFBB007BC5E0 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		5027612D1C32963B00CA105F /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		509045B41C3B1D4B00FCE04E /* DimBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimBackground.swift; sourceTree = "<group>"; };
+		509045B61C3B1D9B00FCE04E /* PopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
+		509045B81C3B1E9100FCE04E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../../.Trash/Default-568h@2x.png"; sourceTree = "<group>"; };
 		50C145891C0FCD03001D5575 /* MineSweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MineSweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50C1458C1C0FCD03001D5575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50C145931C0FCD03001D5575 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,7 +66,7 @@
 		50C145801C0FCD03001D5575 = {
 			isa = PBXGroup;
 			children = (
-				02ECE48C1C38856000D36E3D /* Default-568h@2x.png */,
+				509045B81C3B1E9100FCE04E /* Default-568h@2x.png */,
 				50C1458B1C0FCD03001D5575 /* MineSweeper */,
 				50C1458A1C0FCD03001D5575 /* Products */,
 			);
@@ -86,6 +90,7 @@
 				02F9EC981C33349F00AFC84B /* SidePanelViewController.swift */,
 				02F9EC991C33349F00AFC84B /* SidePanelViewController.xib */,
 				02F9EC9C1C33952B00AFC84B /* InfoPanelViewController.swift */,
+				509045B61C3B1D9B00FCE04E /* PopViewController.swift */,
 				02F9EC9D1C33952B00AFC84B /* InfoPanelViewController.xib */,
 				50EDDC711C291A3900C13077 /* HowToPlayViewController.swift */,
 				50EDDC721C291A3900C13077 /* HowToPlayViewController.xib */,
@@ -93,6 +98,7 @@
 				500689111C0FCF69007BC5E0 /* MineSweeperGame.swift */,
 				500689131C0FCFBB007BC5E0 /* Tile.swift */,
 				5027612D1C32963B00CA105F /* Style.swift */,
+				509045B41C3B1D4B00FCE04E /* DimBackground.swift */,
 				50C145931C0FCD03001D5575 /* Assets.xcassets */,
 				50C145951C0FCD03001D5575 /* LaunchScreen.storyboard */,
 				50C145981C0FCD03001D5575 /* Info.plist */,
@@ -164,7 +170,7 @@
 				50C145971C0FCD03001D5575 /* LaunchScreen.storyboard in Resources */,
 				50C145941C0FCD03001D5575 /* Assets.xcassets in Resources */,
 				50EDDC741C291A3900C13077 /* HowToPlayViewController.xib in Resources */,
-				02ECE48D1C38856000D36E3D /* Default-568h@2x.png in Resources */,
+				509045B91C3B1E9100FCE04E /* Default-568h@2x.png in Resources */,
 				50C145AB1C0FCEDC001D5575 /* IntroViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,10 +185,12 @@
 				50C145AA1C0FCEDC001D5575 /* IntroViewController.swift in Sources */,
 				02F9EC9A1C33349F00AFC84B /* SidePanelViewController.swift in Sources */,
 				50C145A71C0FCE52001D5575 /* GameViewController.swift in Sources */,
+				509045B51C3B1D4B00FCE04E /* DimBackground.swift in Sources */,
 				02F9EC9E1C33952B00AFC84B /* InfoPanelViewController.swift in Sources */,
 				50EDDC731C291A3900C13077 /* HowToPlayViewController.swift in Sources */,
 				500689141C0FCFBB007BC5E0 /* Tile.swift in Sources */,
 				500689121C0FCF69007BC5E0 /* MineSweeperGame.swift in Sources */,
+				509045B71C3B1D9B00FCE04E /* PopViewController.swift in Sources */,
 				50C1458D1C0FCD03001D5575 /* AppDelegate.swift in Sources */,
 				02F9EC971C332F8800AFC84B /* ContainerViewController.swift in Sources */,
 				5027612E1C32963B00CA105F /* Style.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InfoPanelViewController: UIViewController {
+class InfoPanelViewController: UIViewController, Dimmable {
     
     var introVC: IntroViewController?
 
@@ -22,6 +22,8 @@ class InfoPanelViewController: UIViewController {
     
     var board: Int = 0
     var level: Int = 0
+    let dimLevel: CGFloat = 0.5
+    let dimSpeed: Double = 0.5
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -66,8 +68,14 @@ class InfoPanelViewController: UIViewController {
     }
 
     @IBAction func showHTPVC(sender: UIButton) {
-        let htpvc = HowToPlayViewController()
-        presentViewController(htpvc, animated: true, completion: nil)
+        //let htpvc = HowToPlayViewController()
+        //presentViewController(htpvc, animated: true, completion: nil)
+        let vc = PopViewController()
+        vc.selectedContent = "Step 1"
+        vc.parentVC = self
+        vc.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        dim(.In, alpha: dimLevel, speed: dimSpeed)
+        presentViewController(vc, animated: true, completion: nil)
     }
 
 }
