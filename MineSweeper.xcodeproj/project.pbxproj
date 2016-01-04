@@ -63,6 +63,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5093598C1C3B1F9900AD919E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				50C145A81C0FCEDC001D5575 /* IntroViewController.swift */,
+				50C145A91C0FCEDC001D5575 /* IntroViewController.xib */,
+				02F9EC961C332F8800AFC84B /* ContainerViewController.swift */,
+				02F9EC981C33349F00AFC84B /* SidePanelViewController.swift */,
+				02F9EC991C33349F00AFC84B /* SidePanelViewController.xib */,
+				02F9EC9C1C33952B00AFC84B /* InfoPanelViewController.swift */,
+				509045B61C3B1D9B00FCE04E /* PopViewController.swift */,
+				02F9EC9D1C33952B00AFC84B /* InfoPanelViewController.xib */,
+				50EDDC711C291A3900C13077 /* HowToPlayViewController.swift */,
+				50EDDC721C291A3900C13077 /* HowToPlayViewController.xib */,
+				50C145A61C0FCE52001D5575 /* GameViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		50C145801C0FCD03001D5575 = {
 			isa = PBXGroup;
 			children = (
@@ -84,17 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				50C1458C1C0FCD03001D5575 /* AppDelegate.swift */,
-				50C145A81C0FCEDC001D5575 /* IntroViewController.swift */,
-				50C145A91C0FCEDC001D5575 /* IntroViewController.xib */,
-				02F9EC961C332F8800AFC84B /* ContainerViewController.swift */,
-				02F9EC981C33349F00AFC84B /* SidePanelViewController.swift */,
-				02F9EC991C33349F00AFC84B /* SidePanelViewController.xib */,
-				02F9EC9C1C33952B00AFC84B /* InfoPanelViewController.swift */,
-				509045B61C3B1D9B00FCE04E /* PopViewController.swift */,
-				02F9EC9D1C33952B00AFC84B /* InfoPanelViewController.xib */,
-				50EDDC711C291A3900C13077 /* HowToPlayViewController.swift */,
-				50EDDC721C291A3900C13077 /* HowToPlayViewController.xib */,
-				50C145A61C0FCE52001D5575 /* GameViewController.swift */,
+				5093598C1C3B1F9900AD919E /* ViewControllers */,
 				500689111C0FCF69007BC5E0 /* MineSweeperGame.swift */,
 				500689131C0FCFBB007BC5E0 /* Tile.swift */,
 				5027612D1C32963B00CA105F /* Style.swift */,
