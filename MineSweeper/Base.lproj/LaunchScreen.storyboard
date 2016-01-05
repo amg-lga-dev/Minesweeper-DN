@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -16,7 +16,40 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RSJ-dN-7MY">
+                                <rect key="frame" x="252" y="285" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="d3v-nx-3uP"/>
+                                    <constraint firstAttribute="width" constant="97" id="xhw-mK-cTj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landmine" translatesAutoresizingMaskIntoConstraints="NO" id="pxK-vF-uDg">
+                                <rect key="frame" x="180" y="180" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Cg3-LO-uYY"/>
+                                    <constraint firstAttribute="height" constant="240" id="kUO-bK-e9v"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="Sig-mT-xBN">
+                                <rect key="frame" x="244" y="97" width="113" height="145"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="113" id="kra-Ez-taQ"/>
+                                    <constraint firstAttribute="height" constant="145" id="ltz-hX-0eI"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RSJ-dN-7MY" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="7FT-zU-XiY"/>
+                            <constraint firstItem="RSJ-dN-7MY" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Gdz-9X-EWq"/>
+                            <constraint firstItem="pxK-vF-uDg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="KIv-jn-9EO"/>
+                            <constraint firstItem="RSJ-dN-7MY" firstAttribute="top" secondItem="Sig-mT-xBN" secondAttribute="bottom" constant="43" id="SiL-0U-8MB"/>
+                            <constraint firstItem="Sig-mT-xBN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="cSt-X3-m9R"/>
+                            <constraint firstItem="pxK-vF-uDg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="fOS-kT-tgh"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +57,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="flag" width="460" height="512"/>
+        <image name="landmine" width="300" height="292"/>
+    </resources>
 </document>

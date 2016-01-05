@@ -181,11 +181,10 @@ class PopViewController: UIViewController {
             guard let temp = view as? UIImageView
                 else {continue}
             temp.backgroundColor = Style.textColor
-            let image1:UIImage = UIImage(named: "landmine")!
-            let image2:UIImage = UIImage(named: "flag")!
+            let image1: UIImage = UIImage(named: "landmine")!
+            let image2: UIImage = UIImage(named: "flag")!
             temp.image = image1
-            //let size = temp.frame.width
-            //temp.bounds = CGRectInset(temp.frame, size/8, size/8)
+            temp.contentMode = .ScaleAspectFit
             temp.animationImages = [image1, image2]
             temp.animationDuration = 2.0
             temp.animationRepeatCount = 0
