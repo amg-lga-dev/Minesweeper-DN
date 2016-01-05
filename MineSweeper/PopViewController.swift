@@ -182,7 +182,7 @@ class PopViewController: UIViewController {
                 else {continue}
             temp.backgroundColor = Style.textColor
             let image1:UIImage = UIImage(named: "landmine")!
-            let image2:UIImage = UIImage(named: "qmark")!
+            let image2:UIImage = UIImage(named: "flag")!
             temp.image = image1
             //let size = temp.frame.width
             //temp.bounds = CGRectInset(temp.frame, size/8, size/8)
