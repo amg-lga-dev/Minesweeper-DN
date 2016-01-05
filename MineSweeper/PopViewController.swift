@@ -69,6 +69,10 @@ class PopViewController: UIViewController {
         initButtons()
         initGraphic()
         setContent()
+        
+        smallView.userInteractionEnabled = true
+        let panGesture = UIPanGestureRecognizer(target: self, action: "handlePan:")
+        smallView.addGestureRecognizer(panGesture)
     }
     
     func initButtons() {
@@ -237,6 +241,14 @@ class PopViewController: UIViewController {
         case "Step 4": stepThree()
         case "Step 5": stepFour()
         default: stepOne()
+        }
+    }
+    
+    @IBAction func handlePan(sender: UIPanGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.Ended {
+            let velocity = sender.velocityInView(smallView)
+            if (velocity.x > 0 && selectedContent != "Step 1") { prevPressed(prevButton) }
+            if (velocity.x < 0 && selectedContent != "Step 5") { nextPressed(nextButton) }
         }
     }
 
