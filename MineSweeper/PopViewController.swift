@@ -169,7 +169,10 @@ class PopViewController: UIViewController {
         let centerP = CGPoint(x: smallView.bounds.width/2 - 20, y: smallView.bounds.height/2 - 20)
         let center = UILabel(frame: CGRect(x: centerP.x, y: centerP.y, width: 40, height: 40))
         center.backgroundColor = UIColor.grayColor()
+        center.layer.borderColor = Style.textColor.CGColor
+        center.layer.borderWidth = 1
         center.text = "#"
+        center.font = UIFont(name: "Gill Sans", size: 20)
         center.textColor = UIColor.whiteColor()
         center.textAlignment = NSTextAlignment.Center
         let topL = Tile(frame: CGRect(x: centerP.x - 45, y: centerP.y - 45, width: 40, height: 40))
@@ -191,10 +194,10 @@ class PopViewController: UIViewController {
             let size = temp.frame.width
             temp.imageEdgeInsets = UIEdgeInsets(top: size/8, left: size/8, bottom: size/8, right: size/8)
             temp.imageView!.animationImages = [image1, image2]
-            temp.imageView!.animationDuration = 1.0
+            temp.imageView!.animationDuration = 2.5
             temp.imageView!.animationRepeatCount = 0
             temp.imageView!.startAnimating()
-            temp.imageEdgeInsets = UIEdgeInsets(top: size/6, left: size/5, bottom: size/6, right: size/6)
+//            temp.imageEdgeInsets = UIEdgeInsets(top: size/6, left: size/5, bottom: size/6, right: size/6)
             temp.contentMode = .ScaleAspectFit
         }
         for view in imageViews {

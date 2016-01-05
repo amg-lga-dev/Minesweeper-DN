@@ -235,7 +235,7 @@ class GameViewController: UIViewController {
         self.bestTimeLabel.removeFromSuperview()
         self.endLabel.removeFromSuperview()
         self.game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
-        self.flagsLeft = gameSize * gameSize
+        self.flagsLeft = 100
         updateFlagCounter()
         for tile in game.tiles {
             tile.addTarget(self, action: "tilePressed:", forControlEvents: .TouchUpInside)
