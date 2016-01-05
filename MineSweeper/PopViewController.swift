@@ -163,7 +163,7 @@ class PopViewController: UIViewController {
     func initGraphic() {
         let centerP = CGPoint(x: smallView.bounds.width/2 - 20, y: smallView.bounds.height/2 - 20)
         let center = UILabel(frame: CGRect(x: centerP.x, y: centerP.y, width: 40, height: 40))
-        center.backgroundColor = UIColor.blueColor()
+        center.backgroundColor = UIColor.grayColor()
         center.text = "#"
         center.textColor = UIColor.whiteColor()
         center.textAlignment = NSTextAlignment.Center
