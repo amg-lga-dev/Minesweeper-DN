@@ -15,7 +15,7 @@ protocol IntroViewControllerDelegate {
     optional func collapseSidePanels()
 }
 
-class IntroViewController: UIViewController {
+class IntroViewController: UIViewController, Dimmable {
     
     @IBOutlet weak var topBarImage: UIImageView!
     @IBOutlet weak var leftBarIcon: UIButton!
@@ -29,6 +29,8 @@ class IntroViewController: UIViewController {
     
     var gameType: Int = 0
     var gameLevel: Int = 0
+    let dimLevel: CGFloat = 0.7
+    let dimSpeed: Double = 0.5
     
     var delegate: IntroViewControllerDelegate?
     var containerVC: ContainerViewController?

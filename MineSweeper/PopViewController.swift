@@ -21,6 +21,7 @@ class PopViewController: UIViewController {
     var imageViews: [UIView]!
     var backButton: UIButton!
     var parentVC: InfoPanelViewController!
+    var introVC: IntroViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -181,7 +182,7 @@ class PopViewController: UIViewController {
                 else {continue}
             temp.backgroundColor = Style.textColor
             let image1:UIImage = UIImage(named: "landmine")!
-            let image2:UIImage = UIImage(named: "flag")!
+            let image2:UIImage = UIImage(named: "qmark")!
             temp.image = image1
             //let size = temp.frame.width
             //temp.bounds = CGRectInset(temp.frame, size/8, size/8)
@@ -212,7 +213,9 @@ class PopViewController: UIViewController {
     
     @IBAction func backToVC(sender:UIButton) {
         let pvc = self.parentVC as InfoPanelViewController
+        let ivc = self.introVC as IntroViewController
         pvc.dim(.Out, speed: pvc.dimSpeed)
+        ivc.dim(.Out, speed: ivc.dimSpeed)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

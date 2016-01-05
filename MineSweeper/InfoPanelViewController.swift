@@ -22,7 +22,7 @@ class InfoPanelViewController: UIViewController, Dimmable {
     
     var board: Int = 0
     var level: Int = 0
-    let dimLevel: CGFloat = 0.5
+    let dimLevel: CGFloat = 0.7
     let dimSpeed: Double = 0.5
     
     override func viewWillAppear(animated: Bool) {
@@ -75,6 +75,10 @@ class InfoPanelViewController: UIViewController, Dimmable {
         vc.parentVC = self
         vc.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         dim(.In, alpha: dimLevel, speed: dimSpeed)
+        if (self.introVC != nil) {
+            introVC?.dim(.In, alpha: dimLevel, speed: dimSpeed)
+            vc.introVC = introVC
+        }
         presentViewController(vc, animated: true, completion: nil)
     }
 
