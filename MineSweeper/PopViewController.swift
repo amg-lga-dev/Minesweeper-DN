@@ -183,8 +183,8 @@ class PopViewController: UIViewController {
             let image1:UIImage = UIImage(named: "landmine")!
             let image2:UIImage = UIImage(named: "flag")!
             temp.image = image1
-            let size = temp.frame.width
-            temp.image?.imageWithAlignmentRectInsets(UIEdgeInsets(top: size/8, left: size/8, bottom: size/8, right: size/8))
+            //let size = temp.frame.width
+            //temp.bounds = CGRectInset(temp.frame, size/8, size/8)
             temp.animationImages = [image1, image2]
             temp.animationDuration = 2.0
             temp.animationRepeatCount = 0
