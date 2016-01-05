@@ -10,9 +10,10 @@ import UIKit
 
 let content = ["Step 1", "Step 2", "Step 3", "Step 5"]
 class PopViewController: UIViewController {
-
+    
     var selectedContent: String!
     var smallView: UIView!
+    var topImage: UIImageView!
     var titleLabel: UILabel!
     var nextButton: UIButton!
     var prevButton: UIButton!
@@ -24,44 +25,83 @@ class PopViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.clearColor()
+        
         smallView = UIView(frame: CGRect(x: self.view.bounds.width/2 - 150, y: self.view.bounds.height/2 - 150
             , width: 300, height: 300))
         smallView.backgroundColor = Style.foundationColor
+        smallView.layer.borderColor = Style.textColor.CGColor
+        smallView.layer.borderWidth = 1
+//        smallView.layer.cornerRadius = 10
         self.view.addSubview(smallView)
-        titleLabel = UILabel(frame: CGRect(x: smallView.bounds.origin.x, y: smallView.bounds.origin.y + 15, width: smallView.bounds.width, height: 20))
-        titleLabel.textColor = Style.textColor
+        
+        topImage = UIImageView(frame: CGRect(x: smallView.bounds.origin.x, y: smallView.bounds.origin.y, width: smallView.bounds.width, height: 47))
+        if Style.foundationColor == UIColor.blackColor(){
+            topImage.image = UIImage(named: "nightSkyBar.png")
+            topImage.layer.shadowOpacity = 0.4
+        }else{
+            topImage.image = UIImage(named: "skyBar.png")
+            topImage.layer.shadowOpacity = 0.5
+        }
+        topImage.layer.shadowColor = Style.textColor.CGColor
+        topImage.layer.shadowOffset = CGSizeMake(0,4)
+        topImage.layer.shadowRadius = 4
+        smallView.addSubview(topImage)
+        
+        titleLabel = UILabel(frame: CGRect(x: smallView.bounds.origin.x, y: smallView.bounds.origin.y + 10, width: smallView.bounds.width, height: 30))
+        titleLabel.textColor = UIColor.whiteColor()
+        titleLabel.font = UIFont(name: "Gill Sans", size: 24)
         titleLabel.textAlignment = NSTextAlignment.Center
+        titleLabel.layer.shadowColor = UIColor.blackColor().CGColor
+        titleLabel.layer.shadowOffset = CGSizeMake(2,1)
+        titleLabel.layer.shadowOpacity = 0.9
+        titleLabel.layer.shadowRadius = 1
         smallView.addSubview(titleLabel)
-        textView =  UITextView(frame: CGRect(x: smallView.bounds.origin.x, y: titleLabel.bounds.origin.y + 50, width: smallView.bounds.width, height: 150))
+        
+        textView =  UITextView(frame: CGRect(x: smallView.bounds.origin.x, y: titleLabel.bounds.origin.y + 70, width: smallView.bounds.width, height: smallView.bounds.height-130))
         textView.textColor = Style.textColor
+        textView.font = UIFont(name: "Gill Sans", size: 16)
         textView.textAlignment = NSTextAlignment.Center
         textView.backgroundColor = UIColor.clearColor()
         textView.editable = false
         smallView.addSubview(textView)
+        
         initButtons()
         initGraphic()
         setContent()
     }
     
     func initButtons() {
-        nextButton = UIButton(frame: CGRect(x: smallView.bounds.origin.x + smallView.bounds.width - 50, y: smallView.bounds.origin.y + smallView.bounds.height - 15, width: 50, height: 15))
-        prevButton = UIButton(frame: CGRect(x: smallView.bounds.origin.x, y: smallView.bounds.origin.y + smallView.bounds.height - 15, width: 50, height: 15))
-        backButton = UIButton(frame: CGRect(x: smallView.bounds.origin.x + smallView.bounds.width/2 - 25, y: smallView.bounds.origin.y + smallView.bounds.height - 15, width: 50, height: 15))
+        nextButton = UIButton(frame: CGRect(x: smallView.bounds.origin.x + smallView.bounds.width - 71, y: smallView.bounds.origin.y + smallView.bounds.height - 40, width: 56, height: 25))
+        prevButton = UIButton(frame: CGRect(x: smallView.bounds.origin.x + 21, y: smallView.bounds.origin.y + smallView.bounds.height - 40, width: 56, height: 25))
+        backButton = UIButton(frame: CGRect(x: smallView.bounds.origin.x + smallView.bounds.width/2 - 28, y: smallView.bounds.origin.y + smallView.bounds.height - 40, width: 56, height: 25))
         nextButton.setTitle("Next", forState: .Normal)
         prevButton.setTitle("Prev", forState: .Normal)
-        backButton.setTitle("Back", forState: .Normal)
-        nextButton.titleLabel?.textColor = UIColor.blackColor()
-        prevButton.titleLabel?.textColor = UIColor.blackColor()
-        backButton.titleLabel?.textColor = UIColor.blackColor()
+        backButton.setTitle("Done", forState: .Normal)
         nextButton.addTarget(self, action: "nextPressed:", forControlEvents: .TouchUpInside)
         prevButton.addTarget(self, action: "prevPressed:", forControlEvents: .TouchUpInside)
         backButton.addTarget(self, action: "backToVC:", forControlEvents: .TouchUpInside)
-        nextButton.backgroundColor = UIColor.blueColor()
-        prevButton.backgroundColor = UIColor.blueColor()
-        backButton.backgroundColor = UIColor.blueColor()
-        smallView.addSubview(prevButton)
-        smallView.addSubview(nextButton)
-        smallView.addSubview(backButton)
+        setupButtonAttributes(nextButton, done: false)
+        setupButtonAttributes(prevButton, done: false)
+        setupButtonAttributes(backButton, done: true)
+    }
+    
+    func setupButtonAttributes(button: UIButton, done: Bool){
+        button.titleLabel?.font = UIFont(name: "Gill Sans", size: 18)
+        button.titleLabel?.textColor = UIColor.whiteColor()
+        if Style.foundationColor == UIColor.blackColor(){
+            button.setBackgroundImage(UIImage(named: "nightSkyBar.png"), forState: .Normal)
+            button.layer.shadowColor = UIColor.whiteColor().CGColor
+            button.layer.shadowOpacity = 0.4
+        }else{
+            button.setBackgroundImage(UIImage(named: "skyBar.png"), forState: .Normal)
+            button.layer.shadowColor = UIColor.blackColor().CGColor
+            button.layer.shadowOpacity = 0.5
+        }
+        button.layer.shadowOffset = CGSizeMake(2, 2)
+        button.layer.shadowRadius = 2
+        button.layer.cornerRadius = 4
+        button.imageView?.layer.cornerRadius = 4
+        smallView.addSubview(button)
     }
     
     func setContent() {
@@ -80,7 +120,7 @@ class PopViewController: UIViewController {
         titleLabel.text = selectedContent
         prevButton.hidden = true
         nextButton.hidden = false
-        textView.text = "Select a board size and difficulty"
+        textView.text = "Select a board size and difficulty.\n\nThe higher the difficulty, the more hidden mines."
         hideGraphic()
     }
     func stepTwo() {
@@ -88,7 +128,7 @@ class PopViewController: UIViewController {
         titleLabel.text = selectedContent
         nextButton.hidden = false
         prevButton.hidden = false
-        textView.text = "Click on tiles to uncover what is underneath.\nClick and hold to place a flag"
+        textView.text = "Click on tiles to uncover what is underneath.\n\nClick and hold to place a flag."
         hideGraphic()
         
     }
@@ -97,13 +137,13 @@ class PopViewController: UIViewController {
         titleLabel.text = selectedContent
         nextButton.hidden = false
         prevButton.hidden = false
-        textView.text = "The number on the tile corresponds to the number of mines nearby.\n\nIf you click a tile with a mine underneath, you lose\nWatch Out!"
+        textView.text = "Once uncovered, the tile's number corresponds to the number of mines nearby.\n\nIf you click a tile with a mine underneath, you lose.\n\nWatch Out!"
         hideGraphic()
     }
     
     func stepFour() {
         selectedContent = "Step 4"
-        titleLabel.text = ""
+        titleLabel.text = "Example"
         nextButton.hidden = false
         prevButton.hidden = false
         textView.text = ""
@@ -115,7 +155,7 @@ class PopViewController: UIViewController {
         titleLabel.text = selectedContent
         nextButton.hidden = true
         prevButton.hidden = false
-        textView.text = "Uncovered all the tiles without bombs?\nYou Win! :)"
+        textView.text = "Uncovered all the tiles without mines?\n\nYou Win! :)"
         hideGraphic()
         
     }
@@ -128,28 +168,23 @@ class PopViewController: UIViewController {
         center.textColor = UIColor.whiteColor()
         center.textAlignment = NSTextAlignment.Center
         let topL = UIImageView(frame: CGRect(x: centerP.x - 45, y: centerP.y - 45, width: 40, height: 40))
-        topL.backgroundColor = UIColor.redColor()
         let top = UIImageView(frame: CGRect(x: centerP.x, y: centerP.y - 45, width: 40, height: 40))
-        top.backgroundColor = UIColor.redColor()
         let topR = UIImageView(frame: CGRect(x: centerP.x + 45, y: centerP.y - 45, width: 40, height: 40))
-        topR.backgroundColor = UIColor.redColor()
         let r = UIImageView(frame: CGRect(x: centerP.x + 45, y: centerP.y, width: 40, height: 40))
-        r.backgroundColor = UIColor.redColor()
         let l = UIImageView(frame: CGRect(x: centerP.x - 45, y: centerP.y, width: 40, height: 40))
-        l.backgroundColor = UIColor.redColor()
         let botL = UIImageView(frame: CGRect(x: centerP.x - 45, y: centerP.y + 45, width: 40, height: 40))
-        botL.backgroundColor = UIColor.redColor()
         let bot = UIImageView(frame: CGRect(x: centerP.x, y: centerP.y + 45, width: 40, height: 40))
-        bot.backgroundColor = UIColor.redColor()
         let botR = UIImageView(frame: CGRect(x: centerP.x + 45, y: centerP.y + 45, width: 40, height: 40))
-        botR.backgroundColor = UIColor.redColor()
         imageViews = [center, topL, top, topR, r, l, botL, bot, botR]
         for view in imageViews {
             guard let temp = view as? UIImageView
                 else {continue}
+            temp.backgroundColor = Style.textColor
             let image1:UIImage = UIImage(named: "landmine")!
             let image2:UIImage = UIImage(named: "flag")!
             temp.image = image1
+            let size = temp.frame.width
+            temp.image?.imageWithAlignmentRectInsets(UIEdgeInsets(top: size/8, left: size/8, bottom: size/8, right: size/8))
             temp.animationImages = [image1, image2]
             temp.animationDuration = 2.0
             temp.animationRepeatCount = 0
