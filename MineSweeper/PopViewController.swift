@@ -172,27 +172,30 @@ class PopViewController: UIViewController {
         center.text = "#"
         center.textColor = UIColor.whiteColor()
         center.textAlignment = NSTextAlignment.Center
-        let topL = UIImageView(frame: CGRect(x: centerP.x - 45, y: centerP.y - 45, width: 40, height: 40))
-        let top = UIImageView(frame: CGRect(x: centerP.x, y: centerP.y - 45, width: 40, height: 40))
-        let topR = UIImageView(frame: CGRect(x: centerP.x + 45, y: centerP.y - 45, width: 40, height: 40))
-        let r = UIImageView(frame: CGRect(x: centerP.x + 45, y: centerP.y, width: 40, height: 40))
-        let l = UIImageView(frame: CGRect(x: centerP.x - 45, y: centerP.y, width: 40, height: 40))
-        let botL = UIImageView(frame: CGRect(x: centerP.x - 45, y: centerP.y + 45, width: 40, height: 40))
-        let bot = UIImageView(frame: CGRect(x: centerP.x, y: centerP.y + 45, width: 40, height: 40))
-        let botR = UIImageView(frame: CGRect(x: centerP.x + 45, y: centerP.y + 45, width: 40, height: 40))
+        let topL = Tile(frame: CGRect(x: centerP.x - 45, y: centerP.y - 45, width: 40, height: 40))
+        let top = Tile(frame: CGRect(x: centerP.x, y: centerP.y - 45, width: 40, height: 40))
+        let topR = Tile(frame: CGRect(x: centerP.x + 45, y: centerP.y - 45, width: 40, height: 40))
+        let r = Tile(frame: CGRect(x: centerP.x + 45, y: centerP.y, width: 40, height: 40))
+        let l = Tile(frame: CGRect(x: centerP.x - 45, y: centerP.y, width: 40, height: 40))
+        let botL = Tile(frame: CGRect(x: centerP.x - 45, y: centerP.y + 45, width: 40, height: 40))
+        let bot = Tile(frame: CGRect(x: centerP.x, y: centerP.y + 45, width: 40, height: 40))
+        let botR = Tile(frame: CGRect(x: centerP.x + 45, y: centerP.y + 45, width: 40, height: 40))
         imageViews = [center, topL, top, topR, r, l, botL, bot, botR]
         for view in imageViews {
-            guard let temp = view as? UIImageView
+            guard let temp = view as? Tile
                 else {continue}
             temp.backgroundColor = Style.textColor
             let image1: UIImage = UIImage(named: "landmine")!
             let image2: UIImage = UIImage(named: "flag")!
-            temp.image = image1
+            temp.setImage(image1, forState: .Normal)
+            let size = temp.frame.width
+            temp.imageEdgeInsets = UIEdgeInsets(top: size/8, left: size/8, bottom: size/8, right: size/8)
+            temp.imageView!.animationImages = [image1, image2]
+            temp.imageView!.animationDuration = 1.0
+            temp.imageView!.animationRepeatCount = 0
+            temp.imageView!.startAnimating()
+            temp.imageEdgeInsets = UIEdgeInsets(top: size/6, left: size/5, bottom: size/6, right: size/6)
             temp.contentMode = .ScaleAspectFit
-            temp.animationImages = [image1, image2]
-            temp.animationDuration = 2.0
-            temp.animationRepeatCount = 0
-            temp.startAnimating()
         }
         for view in imageViews {
             smallView.addSubview(view)
