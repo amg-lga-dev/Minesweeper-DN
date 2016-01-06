@@ -32,17 +32,17 @@ class MineSweeperGame: NSObject {
     
     // Draw tiles and time lables in the gameVC
     func setTilesInView() {
-        let tileSide = Double(gvc.view.bounds.width) / Double(gameSize)
+        let tileSide = Double(gvc.boardView.bounds.width) / Double(gameSize)
         var counter = 0
         
         // Draw tiles
         for row in 0...(gameSize - 1) {
             for column in 0...(gameSize - 1) {
-                let newTile = Tile(frame: CGRect(x: tileSide * Double(column), y: 65 + tileSide * Double(row), width: tileSide, height: tileSide))
+                let newTile = Tile(frame: CGRect(x: tileSide * Double(column), y: tileSide * Double(row), width: tileSide, height: tileSide))
                 newTile.tag = counter
                 counter++
                 tiles.append(newTile)
-                gvc.view.addSubview(newTile)
+                gvc.boardView.addSubview(newTile)
             }
         }
         

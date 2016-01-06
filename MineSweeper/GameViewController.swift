@@ -13,7 +13,10 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     var introVC: IntroViewController!
     var gameSize: Int!
     var gameLevel: Int!
+    var scrollView: UIScrollView!
+    var boardView: UIView!
     var screenCover: UIView!
+    var backgroundImage: UIImageView!
     var flagsLeft: Int = 100
     var flagNumber: UILabel!
     var timer: NSTimer!
@@ -29,25 +32,15 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         let theme = NSUserDefaults.standardUserDefaults().valueForKey("theme") as! String
         
-        // Create bottom image with shadows
-        let bottomImage = UIImageView(frame: CGRect(x: 0, y: self.view.bounds.height - 140, width: self.view.bounds.width, height: 140))
-        bottomImage.image = UIImage(named: "mountains.png")
-        if theme == "Day"{
-            bottomImage.layer.opacity = 1.0
-            bottomImage.layer.shadowColor = UIColor.blackColor().CGColor
-        }else{
-            bottomImage.layer.opacity = 0.7
-            bottomImage.layer.shadowColor = UIColor.whiteColor().CGColor
-        }
-        bottomImage.layer.shadowOffset = CGSizeMake(4, 3)
-        bottomImage.layer.shadowOpacity = 0.6
-        bottomImage.layer.shadowRadius = 2
-        self.view.addSubview(bottomImage)
-       
+        createBottomImage(theme)
+        createScrollViews()
+        createScreen(theme)
+        createFlag()
+        
         // Create actual mine sweeper game
         game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
-        //flagsLeft = gameSize * gameSize
         flagsLeft = 100
+        // Add actions to tiles
         for tile in game.tiles {
             tile.addTarget(self, action: "tilePressed:", forControlEvents: .TouchUpInside)
             let longPress = UILongPressGestureRecognizer(target: self, action: "tileLongPressed:")
@@ -63,12 +56,70 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         }))
         alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
         presentViewController(alertController, animated: true, completion: nil)
+        
+        // Set the theme
+        layoutTheme()
+    }
     
-        // Create pause screen cover
+    // Set navigation bar items
+    override func viewWillAppear(animated: Bool) {
+        time = 0
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: " Quit", style: .Plain, target: self, action: "quit:")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: .Plain, target: self, action: "pauseButtonPressed:")
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor(red: 100/255, green: 150/255, blue: 255/255, alpha: 1)
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 100/255, green: 150/255, blue: 255/255, alpha: 1)
+    }
+    
+    // Zoom in on boardView when pinched
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return boardView
+    }
+    
+    // Create bottom image with shadows
+    func createBottomImage(theme: String){
+        let bottomImage = UIImageView(frame: CGRect(x: 0, y: self.view.bounds.height - 140, width: self.view.bounds.width, height: 140))
+        bottomImage.image = UIImage(named: "mountains.png")
+        if theme == "Day"{
+            bottomImage.layer.opacity = 1.0
+            bottomImage.layer.shadowColor = UIColor.blackColor().CGColor
+        }else{
+            bottomImage.layer.opacity = 0.7
+            bottomImage.layer.shadowColor = UIColor.whiteColor().CGColor
+        }
+        bottomImage.layer.shadowOffset = CGSizeMake(4, 3)
+        bottomImage.layer.shadowOpacity = 0.6
+        bottomImage.layer.shadowRadius = 2
+        self.view.addSubview(bottomImage)
+    }
+    
+    // Create scroll view and board view on top of it
+    func createScrollViews(){
+        scrollView = UIScrollView(frame: CGRect(x: 0, y: 65, width: self.view.bounds.width, height: self.view.bounds.width))
+        scrollView.backgroundColor = UIColor.grayColor()
+        scrollView.delegate = self
+        scrollView.minimumZoomScale = 1.0
+        print("Gamesize: \(gameSize)")
+        if (gameSize > 10){
+            print("Gamesize: \(gameSize)")
+            scrollView.maximumZoomScale = 1.5
+        }else{
+            scrollView.maximumZoomScale = 1.0
+        }
+        boardView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.width))
+        boardView.backgroundColor = Style.textColor
+        scrollView.addSubview(boardView)
+        self.view.addSubview(scrollView)
+    }
+    
+    // Create pause screen cover
+    func createScreen(theme: String){
         screenCover = UIView(frame: CGRect(x: 0, y: 65, width: self.view.bounds.width, height: self.view.bounds.width))
         screenCover.layer.shadowOpacity = 0.6
+        screenCover.layer.shadowOffset = CGSizeMake(4, 6)
+        screenCover.layer.shadowRadius = 2
+        screenCover.backgroundColor = UIColor.clearColor()
         let w = screenCover.bounds.width
-        let backgroundImage = UIImageView(frame: CGRect(x: 0, y: 0, width: w, height: w))
+        backgroundImage = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.width))
         let mine = UIImageView(frame: CGRect(x: w/4, y: 65, width: w/2, height: w/2))
         mine.image = UIImage(named: "landmine")
         mine.layer.shadowOpacity = 0.6
@@ -93,15 +144,15 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
             screenCover.layer.shadowColor = UIColor.whiteColor().CGColor
             mine.layer.shadowColor = UIColor.whiteColor().CGColor
         }
+        backgroundImage.addSubview(mine)
+        backgroundImage.addSubview(caption)
         screenCover.addSubview(backgroundImage)
-        screenCover.addSubview(mine)
-        screenCover.addSubview(caption)
-        screenCover.layer.shadowOffset = CGSizeMake(4, 6)
-        screenCover.layer.shadowRadius = 2
-        self.view.addSubview(self.screenCover)
+        self.view.addSubview(screenCover)
         view.sendSubviewToBack(screenCover)
-        
-        // Create flag image and counter
+    }
+    
+    // Create flag image and counter
+    func createFlag(){
         let flagImage = UIImageView(frame: CGRect(x: 10, y: self.view.bounds.height - 35, width: 25, height: 25))
         flagImage.image = UIImage(named: "flag")
         flagImage.layer.shadowRadius = 2
@@ -113,22 +164,6 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         updateFlagCounter()
         view.addSubview(flagImage)
         view.addSubview(flagNumber)
-        
-        // Set the theme
-        layoutTheme()
-    }
-    
-    // Set navigation bar items
-    override func viewWillAppear(animated: Bool) {
-        time = 0
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: " Quit", style: .Plain, target: self, action: "quit:")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: .Plain, target: self, action: "pauseButtonPressed:")
-        self.navigationItem.leftBarButtonItem?.tintColor = UIColor(red: 100/255, green: 150/255, blue: 255/255, alpha: 1)
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 100/255, green: 150/255, blue: 255/255, alpha: 1)
-    }
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        return
     }
     
     // Establish the color theme
@@ -137,7 +172,6 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         self.view.backgroundColor = Style.foundationColor
 
         flagNumber.textColor = UIColor.blackColor()
-        screenCover.backgroundColor = Style.textColor
         
         self.navigationController?.navigationBar.barTintColor = Style.navBar
         
@@ -337,11 +371,14 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
                     else {
                         tile.setTitle("\(tile.number)", forState: .Normal)
                         switch tile.number {
-                        case 1: tile.setTitleColor(UIColor.greenColor(), forState: .Normal)
-                        case 2: tile.setTitleColor(UIColor.blueColor(), forState: .Normal)
+                        case 1: tile.setTitleColor(UIColor.cyanColor(), forState: .Normal)
+                        case 2: tile.setTitleColor(UIColor.purpleColor(), forState: .Normal)
                         case 3: tile.setTitleColor(UIColor.yellowColor(), forState: .Normal)
                         case 4: tile.setTitleColor(UIColor.magentaColor(), forState: .Normal)
-                        default: tile.setTitleColor(UIColor.redColor(), forState: .Normal)
+                        case 5: tile.setTitleColor(UIColor.greenColor(), forState: .Normal)
+                        case 6: tile.setTitleColor(UIColor.blueColor(), forState: .Normal)
+                        case 7: tile.setTitleColor(UIColor.redColor(), forState: .Normal)
+                        default: tile.setTitleColor(UIColor.blackColor(), forState: .Normal)
                         }
                     }
                 }
