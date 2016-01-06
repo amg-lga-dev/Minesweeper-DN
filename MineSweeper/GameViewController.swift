@@ -114,17 +114,6 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         view.addSubview(flagImage)
         view.addSubview(flagNumber)
         
-        let topView = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
-        topView.backgroundColor = UIColor(red: 200/255, green: 0, blue: 0, alpha: 0.4)
-        topView.contentSize = CGSizeMake(400, 400)
-        topView.showsHorizontalScrollIndicator = true
-        topView.showsVerticalScrollIndicator = true
-        let imgg = UIImageView(frame: topView.frame)
-        imgg.image = UIImage(named: "landmine")
-        topView.addSubview(imgg)
-        view.addSubview(topView)
-        topView.delegate = self
-        
         // Set the theme
         layoutTheme()
     }

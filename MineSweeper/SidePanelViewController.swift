@@ -164,11 +164,22 @@ class SidePanelViewController: UIViewController {
     
     // Clear data for selected board & level
     @IBAction func clearScores(sender: UIButton) {
-        let key: String = getKey()
-        NSUserDefaults.standardUserDefaults().setValue(0, forKey: "\(key)Fails")
-        NSUserDefaults.standardUserDefaults().setValue(0, forKey: "\(key)Wins")
-        NSUserDefaults.standardUserDefaults().setValue(0, forKey: key)
-        showData()
+        // Popup alert to double-check if use wants to clear scores
+        let alertController = UIAlertController(title: "Clear data?", message: nil, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "Yes", style: .Destructive, handler: { (action) -> Void in
+            // Go ahead and clear scores
+            let key: String = self.getKey()
+            NSUserDefaults.standardUserDefaults().setValue(0, forKey: "\(key)Fails")
+            NSUserDefaults.standardUserDefaults().setValue(0, forKey: "\(key)Wins")
+            NSUserDefaults.standardUserDefaults().setValue(0, forKey: key)
+            self.showData()
+
+        }))
+        alertController.addAction(UIAlertAction(title: "No", style: .Default, handler: { (alert) -> Void in
+            // Do nothing if cancel is pressed in alert
+        }))
+        alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
+        presentViewController(alertController, animated: true, completion: nil)
     }
 
 }
