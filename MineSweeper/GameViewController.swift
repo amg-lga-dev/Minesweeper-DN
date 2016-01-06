@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, UIScrollViewDelegate {
     var game: MineSweeperGame!
     var introVC: IntroViewController!
     var gameSize: Int!
@@ -114,6 +114,17 @@ class GameViewController: UIViewController {
         view.addSubview(flagImage)
         view.addSubview(flagNumber)
         
+        let topView = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
+        topView.backgroundColor = UIColor(red: 200/255, green: 0, blue: 0, alpha: 0.4)
+        topView.contentSize = CGSizeMake(400, 400)
+        topView.showsHorizontalScrollIndicator = true
+        topView.showsVerticalScrollIndicator = true
+        let imgg = UIImageView(frame: topView.frame)
+        imgg.image = UIImage(named: "landmine")
+        topView.addSubview(imgg)
+        view.addSubview(topView)
+        topView.delegate = self
+        
         // Set the theme
         layoutTheme()
     }
@@ -125,6 +136,10 @@ class GameViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: .Plain, target: self, action: "pauseButtonPressed:")
         self.navigationItem.leftBarButtonItem?.tintColor = UIColor(red: 100/255, green: 150/255, blue: 255/255, alpha: 1)
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 100/255, green: 150/255, blue: 255/255, alpha: 1)
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        return
     }
     
     // Establish the color theme
