@@ -24,8 +24,6 @@
 		50C145A71C0FCE52001D5575 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C145A61C0FCE52001D5575 /* GameViewController.swift */; };
 		50C145AA1C0FCEDC001D5575 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C145A81C0FCEDC001D5575 /* IntroViewController.swift */; };
 		50C145AB1C0FCEDC001D5575 /* IntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50C145A91C0FCEDC001D5575 /* IntroViewController.xib */; };
-		50EDDC731C291A3900C13077 /* HowToPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EDDC711C291A3900C13077 /* HowToPlayViewController.swift */; };
-		50EDDC741C291A3900C13077 /* HowToPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50EDDC721C291A3900C13077 /* HowToPlayViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,8 +46,6 @@
 		50C145A61C0FCE52001D5575 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		50C145A81C0FCEDC001D5575 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		50C145A91C0FCEDC001D5575 /* IntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroViewController.xib; sourceTree = "<group>"; };
-		50EDDC711C291A3900C13077 /* HowToPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToPlayViewController.swift; sourceTree = "<group>"; };
-		50EDDC721C291A3900C13077 /* HowToPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HowToPlayViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,8 +70,6 @@
 				02F9EC9C1C33952B00AFC84B /* InfoPanelViewController.swift */,
 				02F9EC9D1C33952B00AFC84B /* InfoPanelViewController.xib */,
 				509045B61C3B1D9B00FCE04E /* PopViewController.swift */,
-				50EDDC711C291A3900C13077 /* HowToPlayViewController.swift */,
-				50EDDC721C291A3900C13077 /* HowToPlayViewController.xib */,
 				50C145A61C0FCE52001D5575 /* GameViewController.swift */,
 			);
 			name = ViewControllers;
@@ -177,7 +171,6 @@
 				02F9EC9B1C33349F00AFC84B /* SidePanelViewController.xib in Resources */,
 				50C145971C0FCD03001D5575 /* LaunchScreen.storyboard in Resources */,
 				50C145941C0FCD03001D5575 /* Assets.xcassets in Resources */,
-				50EDDC741C291A3900C13077 /* HowToPlayViewController.xib in Resources */,
 				02B9AD531C3B5AE2004C2B48 /* Default-568h@2x.png in Resources */,
 				50C145AB1C0FCEDC001D5575 /* IntroViewController.xib in Resources */,
 			);
@@ -195,7 +188,6 @@
 				50C145A71C0FCE52001D5575 /* GameViewController.swift in Sources */,
 				509045B51C3B1D4B00FCE04E /* DimBackground.swift in Sources */,
 				02F9EC9E1C33952B00AFC84B /* InfoPanelViewController.swift in Sources */,
-				50EDDC731C291A3900C13077 /* HowToPlayViewController.swift in Sources */,
 				500689141C0FCFBB007BC5E0 /* Tile.swift in Sources */,
 				500689121C0FCF69007BC5E0 /* MineSweeperGame.swift in Sources */,
 				509045B71C3B1D9B00FCE04E /* PopViewController.swift in Sources */,

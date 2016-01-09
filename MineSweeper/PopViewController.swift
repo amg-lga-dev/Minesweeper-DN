@@ -32,9 +32,21 @@ class PopViewController: UIViewController {
         smallView.backgroundColor = Style.foundationColor
         smallView.layer.borderColor = Style.textColor.CGColor
         smallView.layer.borderWidth = 1
-//        smallView.layer.cornerRadius = 10
         self.view.addSubview(smallView)
         
+        initTopImage()
+        initTitle()
+        initText()
+        initButtons()
+        initGraphic()
+        setContent()
+        
+        smallView.userInteractionEnabled = true
+        let panGesture = UIPanGestureRecognizer(target: self, action: "handlePan:")
+        smallView.addGestureRecognizer(panGesture)
+    }
+    
+    func initTopImage(){
         topImage = UIImageView(frame: CGRect(x: smallView.bounds.origin.x, y: smallView.bounds.origin.y, width: smallView.bounds.width, height: 47))
         if Style.foundationColor == UIColor.blackColor(){
             topImage.image = UIImage(named: "nightSkyBar.png")
@@ -47,7 +59,9 @@ class PopViewController: UIViewController {
         topImage.layer.shadowOffset = CGSizeMake(0,4)
         topImage.layer.shadowRadius = 4
         smallView.addSubview(topImage)
-        
+    }
+    
+    func initTitle(){
         titleLabel = UILabel(frame: CGRect(x: smallView.bounds.origin.x, y: smallView.bounds.origin.y + 10, width: smallView.bounds.width, height: 30))
         titleLabel.textColor = UIColor.whiteColor()
         titleLabel.font = UIFont(name: "Gill Sans", size: 24)
@@ -57,7 +71,9 @@ class PopViewController: UIViewController {
         titleLabel.layer.shadowOpacity = 0.9
         titleLabel.layer.shadowRadius = 1
         smallView.addSubview(titleLabel)
-        
+    }
+    
+    func initText(){
         textView =  UITextView(frame: CGRect(x: smallView.bounds.origin.x, y: titleLabel.bounds.origin.y + 70, width: smallView.bounds.width, height: smallView.bounds.height-130))
         textView.textColor = Style.textColor
         textView.font = UIFont(name: "Gill Sans", size: 16)
@@ -65,14 +81,6 @@ class PopViewController: UIViewController {
         textView.backgroundColor = UIColor.clearColor()
         textView.editable = false
         smallView.addSubview(textView)
-        
-        initButtons()
-        initGraphic()
-        setContent()
-        
-        smallView.userInteractionEnabled = true
-        let panGesture = UIPanGestureRecognizer(target: self, action: "handlePan:")
-        smallView.addGestureRecognizer(panGesture)
     }
     
     func initButtons() {
