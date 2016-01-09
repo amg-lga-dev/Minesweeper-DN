@@ -98,7 +98,6 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         scrollView.backgroundColor = UIColor.grayColor()
         scrollView.delegate = self
         scrollView.minimumZoomScale = 1.0
-        print("Gamesize: \(gameSize)")
         if (gameSize > 10){
             print("Gamesize: \(gameSize)")
             scrollView.maximumZoomScale = 1.5

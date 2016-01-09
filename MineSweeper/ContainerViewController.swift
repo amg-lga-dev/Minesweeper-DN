@@ -66,7 +66,6 @@ extension ContainerViewController: IntroViewControllerDelegate {
     
     // Toggle left settings & scores panel
     func toggleLeftPanel() {
-        print("Toggle left")
         let notAlreadyExpanded = (currentState != .LeftPanelExpanded)
         if notAlreadyExpanded {
             addLeftPanelViewController()
@@ -87,7 +86,6 @@ extension ContainerViewController: IntroViewControllerDelegate {
     // Add left panel if not instantiated already
     func addLeftPanelViewController() {
         if (leftVC == nil) {
-            print("Add left")
             leftVC = SidePanelViewController()
             leftVC?.view.frame = self.introVC.view.frame
             leftVC!.view.backgroundColor = UIColor(red: 120/255, green: 139/255, blue: 148/255, alpha: 0.8)
