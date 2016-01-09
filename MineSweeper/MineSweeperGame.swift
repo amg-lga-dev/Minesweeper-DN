@@ -86,6 +86,7 @@ class MineSweeperGame: NSObject {
     // Initiate the current timer
     func initTimer() {
         gvc.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "timerFired:", userInfo: nil, repeats: true)
+        NSRunLoop.mainRunLoop().addTimer(gvc.timer, forMode: NSRunLoopCommonModes)
     }
     
     // Increase timer every second
