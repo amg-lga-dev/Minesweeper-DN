@@ -23,7 +23,7 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     var time: Int = 0
     var timeLabel: UILabel!
     var bestTimeLabel: UILabel!
-    var endLabel: UILabel!
+//    var endLabel: UILabel!
 
     // View did load
     override func viewDidLoad() {
@@ -44,9 +44,12 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         for tile in game.tiles {
             tile.addTarget(self, action: "tilePressed:", forControlEvents: .TouchUpInside)
             let longPress = UILongPressGestureRecognizer(target: self, action: "tileLongPressed:")
-            longPress.minimumPressDuration = 1
+            longPress.minimumPressDuration = 0.5
             tile.addGestureRecognizer(longPress)
         }
+        
+        // Set the theme
+        layoutTheme()
         
         // Popup alert to start the timer
         let alertController = UIAlertController(title: "Ready to Sweep?", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
@@ -55,10 +58,9 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
             self.game.initTimer()
         }))
         alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
+
         presentViewController(alertController, animated: true, completion: nil)
         
-        // Set the theme
-        layoutTheme()
     }
     
     // Set navigation bar items
@@ -270,7 +272,7 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         self.time = 0
         self.timeLabel.removeFromSuperview()
         self.bestTimeLabel.removeFromSuperview()
-        self.endLabel.removeFromSuperview()
+//        self.endLabel.removeFromSuperview()
         self.game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
         self.flagsLeft = 100
         updateFlagCounter()

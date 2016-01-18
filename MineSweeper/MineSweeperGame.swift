@@ -118,13 +118,13 @@ class MineSweeperGame: NSObject {
         }
         
         gvc.timer.invalidate()
-        let spot = gvc.timeLabel.center.y + (gvc.view.bounds.height - gvc.timeLabel.center.y)/3
-        gvc.endLabel = UILabel(frame: CGRect(x: 0, y: spot, width: gvc.view.bounds.width, height: 50))
-        gvc.endLabel.text = "Game Over"
-        gvc.endLabel.font = UIFont(name: "Gill Sans", size: 50)
-        gvc.endLabel.textColor = UIColor.redColor()
-        gvc.endLabel.textAlignment = NSTextAlignment.Center
-        gvc.view.addSubview(gvc.endLabel)
+//        let spot = gvc.timeLabel.center.y + (gvc.view.bounds.height - gvc.timeLabel.center.y)/3
+//        gvc.endLabel = UILabel(frame: CGRect(x: 0, y: spot, width: gvc.view.bounds.width, height: 50))
+//        gvc.endLabel.text = "Game Over"
+//        gvc.endLabel.font = UIFont(name: "Gill Sans", size: 50)
+//        gvc.endLabel.textColor = UIColor.redColor()
+//        gvc.endLabel.textAlignment = NSTextAlignment.Center
+//        gvc.view.addSubview(gvc.endLabel)
         loseOrWin = 1
     }
     
@@ -145,13 +145,13 @@ class MineSweeperGame: NSObject {
                 tile.enabled = false
             }
             gvc.timer.invalidate()
-            let spot = gvc.timeLabel.center.y + (gvc.view.bounds.height - gvc.timeLabel.center.y)/3
-            gvc.endLabel = UILabel(frame: CGRect(x: 0, y: spot, width: gvc.view.bounds.width, height: 50))
-            gvc.endLabel.text = "You Win"
-            gvc.endLabel.font = UIFont(name: "Gill Sans", size: 50)
-            gvc.endLabel.textColor = UIColor.greenColor()
-            gvc.endLabel.textAlignment = NSTextAlignment.Center
-            gvc.view.addSubview(gvc.endLabel)
+//            let spot = gvc.timeLabel.center.y + (gvc.view.bounds.height - gvc.timeLabel.center.y)/3
+//            gvc.endLabel = UILabel(frame: CGRect(x: 0, y: spot, width: gvc.view.bounds.width, height: 50))
+//            gvc.endLabel.text = "You Win"
+//            gvc.endLabel.font = UIFont(name: "Gill Sans", size: 50)
+//            gvc.endLabel.textColor = UIColor.greenColor()
+//            gvc.endLabel.textAlignment = NSTextAlignment.Center
+//            gvc.view.addSubview(gvc.endLabel)
             var key = ""
             switch self.gameLevel {
             case 0: key = "\(gameSize)Easy"
