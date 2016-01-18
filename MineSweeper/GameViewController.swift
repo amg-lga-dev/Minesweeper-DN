@@ -39,14 +39,7 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         
         // Create actual mine sweeper game
         game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
-        flagsLeft = 100
-        // Add actions to tiles
-        for tile in game.tiles {
-            tile.addTarget(self, action: "tilePressed:", forControlEvents: .TouchUpInside)
-            let longPress = UILongPressGestureRecognizer(target: self, action: "tileLongPressed:")
-            longPress.minimumPressDuration = 0.5
-            tile.addGestureRecognizer(longPress)
-        }
+        activateTiles()
         
         // Set the theme
         layoutTheme()
@@ -101,7 +94,6 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         scrollView.minimumZoomScale = 1.0
         if (gameSize > 10){
-            print("Gamesize: \(gameSize)")
             scrollView.maximumZoomScale = 1.5
         }else{
             scrollView.maximumZoomScale = 1.0
@@ -162,6 +154,11 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         flagImage.layer.shadowOpacity = 0.7
         flagNumber = UILabel(frame: CGRect(x: 40, y: self.view.bounds.height - 35, width: 50, height: 30))
         flagNumber.font = UIFont(name: "Gill Sans", size: 18)
+        if gameSize<=10{
+            flagsLeft = 100
+        }else{
+            flagsLeft = 150
+        }
         updateFlagCounter()
         view.addSubview(flagImage)
         view.addSubview(flagNumber)
@@ -176,6 +173,16 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         
         self.navigationController?.navigationBar.barTintColor = Style.navBar
         
+    }
+    
+    // Add actions to tiles
+    func activateTiles(){
+        for tile in game.tiles {
+            tile.addTarget(self, action: "tilePressed:", forControlEvents: .TouchUpInside)
+            let longPress = UILongPressGestureRecognizer(target: self, action: "tileLongPressed:")
+            longPress.minimumPressDuration = 0.5
+            tile.addGestureRecognizer(longPress)
+        }
     }
     
     // Returns key for current board size and difficulty
@@ -274,14 +281,13 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         self.bestTimeLabel.removeFromSuperview()
 //        self.endLabel.removeFromSuperview()
         self.game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
-        self.flagsLeft = 100
-        updateFlagCounter()
-        for tile in game.tiles {
-            tile.addTarget(self, action: "tilePressed:", forControlEvents: .TouchUpInside)
-            let longPress = UILongPressGestureRecognizer(target: self, action: "tileLongPressed:")
-            longPress.minimumPressDuration = 1
-            tile.addGestureRecognizer(longPress)
+        if gameSize<=10{
+            self.flagsLeft = 100
+        }else{
+            self.flagsLeft = 150
         }
+        updateFlagCounter()
+        activateTiles()
         self.game.initTimer()
     }
     
@@ -311,7 +317,6 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         game.setBombs()
         game.setNumbers()
         if tile.isBomb{
-            print("Tile Number: \(tile.number)")
             resetBoard(tile)
         }
     }
