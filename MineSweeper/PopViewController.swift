@@ -2,8 +2,8 @@
 //  PopViewController.swift
 //  MineSweeper
 //
-//  Created by Andrew Grossfeld on 1/4/16.
-//  Copyright © 2016 Andrew Grossfeld. All rights reserved.
+//  Created by Andrew Grossfeld & Logan Allen on 1/4/16.
+//  Copyright © 2016 A.G. & L.A. All rights reserved.
 //
 
 import UIKit
@@ -218,14 +218,12 @@ class PopViewController: UIViewController {
         for view in imageViews {
             view.hidden = false
         }
-        
     }
     
     func hideGraphic() {
         for view in imageViews {
             view.hidden = true
         }
-        
     }
     
     @IBAction func backToVC(sender:UIButton) {

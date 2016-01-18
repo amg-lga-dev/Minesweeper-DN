@@ -42,7 +42,8 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         activateTiles()
         
         // Set the theme
-        layoutTheme()
+        self.view.backgroundColor = Style.foundationColor
+        self.navigationController?.navigationBar.barTintColor = Style.navBar
         
         // Popup alert to start the timer
         let alertController = UIAlertController(title: "Ready to Sweep?", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
@@ -51,7 +52,6 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
             self.game.initTimer()
         }))
         alertController.view.frame = CGRect(x: 0, y: 0, width: 340, height: 450)
-
         presentViewController(alertController, animated: true, completion: nil)
         
     }
@@ -154,6 +154,7 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         flagImage.layer.shadowOpacity = 0.7
         flagNumber = UILabel(frame: CGRect(x: 40, y: self.view.bounds.height - 35, width: 50, height: 30))
         flagNumber.font = UIFont(name: "Gill Sans", size: 18)
+        flagNumber.textColor = UIColor.blackColor()
         if gameSize<=10{
             flagsLeft = 100
         }else{
@@ -162,17 +163,6 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         updateFlagCounter()
         view.addSubview(flagImage)
         view.addSubview(flagNumber)
-    }
-    
-    // Establish the color theme
-    func layoutTheme() {
-        // set background according to theme
-        self.view.backgroundColor = Style.foundationColor
-
-        flagNumber.textColor = UIColor.blackColor()
-        
-        self.navigationController?.navigationBar.barTintColor = Style.navBar
-        
     }
     
     // Add actions to tiles
