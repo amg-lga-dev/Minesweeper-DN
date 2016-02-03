@@ -114,7 +114,7 @@ extension ContainerViewController: IntroViewControllerDelegate {
     // Animate transition between introVC and left panel
     func animateLeftPanel(shouldExpand: Bool) {
         if (shouldExpand) {
-            self.introNav.view.layer.opacity = 0.75
+//            self.introNav.view.layer.opacity = 0.75
             currentState = .LeftPanelExpanded
             animateIntroPanelXPosition(introNav.view.frame.width - introPanelExpandedOffset)
         } else {
@@ -130,7 +130,7 @@ extension ContainerViewController: IntroViewControllerDelegate {
     // Animate transition between introVC and right panel
     func animateRightPanel(shouldExpand: Bool) {
         if (shouldExpand) {
-            self.introNav.view.layer.opacity = 0.75
+//            self.introNav.view.layer.opacity = 0.75
             currentState = .RightPanelExpanded
             animateIntroPanelXPosition(-introNav.view.frame.width + introPanelExpandedOffset)
         } else {
@@ -145,7 +145,7 @@ extension ContainerViewController: IntroViewControllerDelegate {
     
     // Animate introVC to target position
     func animateIntroPanelXPosition(targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
-        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
+        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
             self.introNav.view.frame.origin.x = targetPosition
             }, completion: completion)
     }
@@ -154,12 +154,7 @@ extension ContainerViewController: IntroViewControllerDelegate {
     func showShadowForIntroViewController(shouldShowShadow: Bool) {
         // let theme = NSUserDefaults.standardUserDefaults().valueForKey("theme") as! String
         if (shouldShowShadow) {
-//            if theme == "Day"{
-//                introNav.view.layer.shadowColor = UIColor.blackColor().CGColor
-//            }else{
-//                introNav.view.layer.shadowColor = UIColor.whiteColor().CGColor
-//            }
-            introNav.view.layer.shadowOpacity = 0.8
+            introNav.view.layer.shadowOpacity = 0.7
         } else {
             introNav.view.layer.shadowOpacity = 0.0
         }
@@ -190,8 +185,8 @@ extension ContainerViewController: UIGestureRecognizerDelegate {
                 recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
                 recognizer.setTranslation(CGPointZero, inView: view)
                 // Gradual adjust introNav's opacity according to position
-                let opacityOffset = 3*Float(abs(introNav.view.frame.origin.x))/(8*w)
-                self.introNav.view.layer.opacity = 1.0 - opacityOffset
+//                let opacityOffset = 3*Float(abs(introNav.view.frame.origin.x))/(8*w)
+//                self.introNav.view.layer.opacity = 1.0 - opacityOffset
                 
             case .Ended:
                 if (leftVC != nil) {

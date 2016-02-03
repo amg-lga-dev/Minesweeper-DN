@@ -41,10 +41,10 @@ class IntroViewController: UIViewController, Dimmable {
         for button in self.view.subviews{
             (button as? UIButton)?.layer.shadowColor = UIColor.blackColor().CGColor
             (button as? UIButton)?.layer.shadowOffset = CGSizeMake(2,1)
-            (button as? UIButton)?.layer.shadowOpacity = 0.9
+            (button as? UIButton)?.layer.shadowOpacity = 0.8
             (button as? UIButton)?.layer.shadowRadius = 1
         }
-        topBarImage.layer.shadowOffset = CGSizeMake(0,4)
+        topBarImage.layer.shadowOffset = CGSizeMake(0,2)
         topBarImage.layer.shadowRadius = 4
         
         titleLabel.layer.shadowColor = UIColor.blackColor().CGColor
@@ -52,10 +52,10 @@ class IntroViewController: UIViewController, Dimmable {
         titleLabel.layer.shadowOffset = CGSizeMake(2,1)
         titleLabel.layer.shadowRadius = 1
         
-        titleMineImage.layer.shadowOffset = CGSizeMake(1,1)
-        titleMineImage.layer.shadowRadius = 2
-        mainMineImage.layer.shadowOffset = CGSizeMake(3,3)
-        mainMineImage.layer.shadowRadius = 2
+//        titleMineImage.layer.shadowOffset = CGSizeMake(1,1)
+//        titleMineImage.layer.shadowRadius = 2
+//        mainMineImage.layer.shadowOffset = CGSizeMake(3,3)
+//        mainMineImage.layer.shadowRadius = 2
         
         startButton.layer.shadowOffset = CGSizeMake(4,4)
         startButton.layer.shadowRadius = 4
@@ -75,22 +75,16 @@ class IntroViewController: UIViewController, Dimmable {
         if Style.foundationColor == UIColor.blackColor(){
             topBarImage.image = UIImage(named: "nightSkyBar.png")
             startButton.setBackgroundImage(UIImage(named: "nightSkyBar.png"), forState: .Normal)
-            startButton.layer.shadowColor = UIColor.whiteColor().CGColor
             startButton.layer.shadowOpacity = 0.4
-            for imageView in self.view.subviews{
-                (imageView as? UIImageView)?.layer.shadowColor = UIColor.whiteColor().CGColor
-                (imageView as? UIImageView)?.layer.shadowOpacity = 0.4
-            }
+            topBarImage.layer.shadowOpacity = 0.3
         }else{
             topBarImage.image = UIImage(named: "skyBar.png")
             startButton.setBackgroundImage(UIImage(named: "skyBar.png"), forState: .Normal)
-            startButton.layer.shadowColor = UIColor.blackColor().CGColor
             startButton.layer.shadowOpacity = 0.5
-            for imageView in self.view.subviews{
-                (imageView as? UIImageView)?.layer.shadowColor = UIColor.blackColor().CGColor
-                (imageView as? UIImageView)?.layer.shadowOpacity = 0.5
-            }
+            topBarImage.layer.shadowOpacity = 0.4
         }
+        startButton.layer.shadowColor = Style.textColor.CGColor
+        topBarImage.layer.shadowColor = Style.textColor.CGColor
         titleLabel.textColor = Style.textColor
     }
     

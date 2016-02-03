@@ -50,13 +50,13 @@ class PopViewController: UIViewController {
         topImage = UIImageView(frame: CGRect(x: smallView.bounds.origin.x, y: smallView.bounds.origin.y, width: smallView.bounds.width, height: 47))
         if Style.foundationColor == UIColor.blackColor(){
             topImage.image = UIImage(named: "nightSkyBar.png")
-            topImage.layer.shadowOpacity = 0.4
+            topImage.layer.shadowOpacity = 0.3
         }else{
             topImage.image = UIImage(named: "skyBar.png")
-            topImage.layer.shadowOpacity = 0.5
+            topImage.layer.shadowOpacity = 0.4
         }
         topImage.layer.shadowColor = Style.textColor.CGColor
-        topImage.layer.shadowOffset = CGSizeMake(0,4)
+        topImage.layer.shadowOffset = CGSizeMake(0,2)
         topImage.layer.shadowRadius = 4
         smallView.addSubview(topImage)
     }
@@ -68,8 +68,8 @@ class PopViewController: UIViewController {
         titleLabel.textAlignment = NSTextAlignment.Center
         titleLabel.layer.shadowColor = UIColor.blackColor().CGColor
         titleLabel.layer.shadowOffset = CGSizeMake(2,1)
-        titleLabel.layer.shadowOpacity = 0.9
-        titleLabel.layer.shadowRadius = 1
+        titleLabel.layer.shadowOpacity = 0.8
+        titleLabel.layer.shadowRadius = 4
         smallView.addSubview(titleLabel)
     }
     

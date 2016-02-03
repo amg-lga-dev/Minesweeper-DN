@@ -61,8 +61,8 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         time = 0
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: " Quit", style: .Plain, target: self, action: "quit:")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: .Plain, target: self, action: "pauseButtonPressed:")
-        self.navigationItem.leftBarButtonItem?.tintColor = UIColor(red: 100/255, green: 150/255, blue: 255/255, alpha: 1)
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 100/255, green: 150/255, blue: 255/255, alpha: 1)
+        self.navigationItem.leftBarButtonItem?.tintColor = Style.textColor
+        self.navigationItem.rightBarButtonItem?.tintColor = Style.textColor
     }
     
     // Zoom in on boardView when pinched
@@ -74,15 +74,10 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     func createBottomImage(theme: String){
         let bottomImage = UIImageView(frame: CGRect(x: 0, y: self.view.bounds.height - 140, width: self.view.bounds.width, height: 140))
         bottomImage.image = UIImage(named: "mountains.png")
-        if theme == "Day"{
-            bottomImage.layer.opacity = 1.0
-            bottomImage.layer.shadowColor = UIColor.blackColor().CGColor
-        }else{
-            bottomImage.layer.opacity = 0.7
-            bottomImage.layer.shadowColor = UIColor.whiteColor().CGColor
-        }
-        bottomImage.layer.shadowOffset = CGSizeMake(4, 3)
-        bottomImage.layer.shadowOpacity = 0.6
+        bottomImage.layer.opacity = 1.0
+        bottomImage.layer.shadowColor = Style.textColor.CGColor
+        bottomImage.layer.shadowOffset = CGSizeMake(3, 2)
+        bottomImage.layer.shadowOpacity = 0.5
         bottomImage.layer.shadowRadius = 2
         self.view.addSubview(bottomImage)
     }
@@ -107,35 +102,32 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     // Create pause screen cover
     func createScreen(theme: String){
         screenCover = UIView(frame: CGRect(x: 0, y: 65, width: self.view.bounds.width, height: self.view.bounds.width))
-        screenCover.layer.shadowOpacity = 0.6
-        screenCover.layer.shadowOffset = CGSizeMake(4, 6)
-        screenCover.layer.shadowRadius = 2
+        screenCover.layer.shadowOpacity = 0.4
+        screenCover.layer.shadowOffset = CGSizeMake(0, 5)
+        screenCover.layer.shadowRadius = 3
         screenCover.backgroundColor = UIColor.clearColor()
+        screenCover.hidden = true
+        screenCover.layer.shadowColor = Style.textColor.CGColor
         let w = screenCover.bounds.width
         backgroundImage = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.width))
         let mine = UIImageView(frame: CGRect(x: w/4, y: 65, width: w/2, height: w/2))
         mine.image = UIImage(named: "landmine")
-        mine.layer.shadowOpacity = 0.6
-        mine.layer.shadowOffset = CGSizeMake(2, 2)
-        mine.layer.shadowRadius = 2
+//        mine.layer.shadowOpacity = 0.6
+//        mine.layer.shadowOffset = CGSizeMake(2, 2)
+//        mine.layer.shadowRadius = 2
         let caption = UILabel(frame: CGRect(x: 5, y: w-45, width: w-10, height: 30))
         caption.text = "Take a breather..."
         caption.font = UIFont(name: "Gill Sans", size: 24)
+        caption.textColor = Style.textColor
         caption.textAlignment = .Center
-        caption.layer.shadowColor = UIColor.blackColor().CGColor
-        caption.layer.shadowOpacity = 0.6
-        caption.layer.shadowOffset = CGSizeMake(1,1)
-        caption.layer.shadowRadius = 1;
+//        caption.layer.shadowColor = UIColor.blackColor().CGColor
+//        caption.layer.shadowOpacity = 0.6
+//        caption.layer.shadowOffset = CGSizeMake(1,1)
+//        caption.layer.shadowRadius = 1;
         if theme == "Day"{
             backgroundImage.image = UIImage(named: "sky")
-            caption.textColor = UIColor.blackColor()
-            screenCover.layer.shadowColor = UIColor.blackColor().CGColor
-            mine.layer.shadowColor = UIColor.blackColor().CGColor
         }else{
             backgroundImage.image = UIImage(named: "nightSky")
-            caption.textColor = UIColor.whiteColor()
-            screenCover.layer.shadowColor = UIColor.whiteColor().CGColor
-            mine.layer.shadowColor = UIColor.whiteColor().CGColor
         }
         backgroundImage.addSubview(mine)
         backgroundImage.addSubview(caption)
@@ -241,11 +233,13 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
                 // Pause game and display screen cover
                 game.pauseGame = 1
                 self.navigationItem.rightBarButtonItem?.title = "Resume"
+                screenCover.hidden = false
                 view.bringSubviewToFront(screenCover)
             }else{
                 // Unpause game and hide screen cover
                 game.pauseGame = 0
                 self.navigationItem.rightBarButtonItem?.title = "Pause"
+                screenCover.hidden = true
                 view.sendSubviewToBack(screenCover)
             }
         }
