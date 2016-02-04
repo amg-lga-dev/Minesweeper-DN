@@ -259,8 +259,10 @@ class PopViewController: UIViewController {
     @IBAction func handlePan(sender: UIPanGestureRecognizer) {
         if sender.state == UIGestureRecognizerState.Ended {
             let velocity = sender.velocityInView(smallView)
-            if (velocity.x > 0 && selectedContent != "Step 1") { prevPressed(prevButton) }
-            if (velocity.x < 0 && selectedContent != "Step 5") { nextPressed(nextButton) }
+            if (velocity.y > 0 && abs(velocity.x) > 1) { backToVC(backButton) }
+            else if (velocity.x > 0 && selectedContent != "Step 1") { prevPressed(prevButton) }
+            else if (velocity.x < 0 && selectedContent != "Step 5") { nextPressed(nextButton) }
+            else { }
         }
     }
 
