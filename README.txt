@@ -17,9 +17,11 @@ Files:
 	- Dismisses back to IntroViewController
 	- Ability to clear save high scores
 
->> HowToPlayViewController:
+>> PopViewController:
 	- Directions on how to play the game
 	- Small graphical display giving a taste of what the board looks like
+	- Pops up in front of IntroViewController and dims the background
+	- Supports swiping to change content and swipe down to dismiss the view
 	- Dismisses back to IntroViewController
 
 >> GameViewController:
