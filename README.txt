@@ -1,28 +1,36 @@
 Mine Sweeper
 
-Devopers and Designers: Andrew Grossfeld & Logan Allen
+Developers and Designers: Andrew Grossfeld & Logan Allen
 
-This repository contains the contents of a fully functioning, unique minesweeper. The game was created on Xcode and runs on most iOS platforms. The design of this app consists of a main introduction screen that branches out into three other views: a high score view, "how to play" view, and the game simulatio view. Best time scores are saved using core data.
+This repository contains the contents of a fully functioning, unique minesweeper. The game was created on Xcode and runs on most iOS platforms. The design of this app consists of a main introduction screen that branches out into three other views: a settings and high score side view, a information side view, and the game simulation view. Best time scores are saved using core data.
 
 Files:
->> IntroViewController:
-	- Options to select the board size (8x8, 10x10, 12x12) as well as the difficulty (easy, med, hard)
-	- "Scores" button displays a high score page modally
-	- "How to Play" button displays instruction page modally
-	- "Start" button displays the mine sweeper game pushed throught the navigation controller
+>> ContainerViewController:
+	-Contains IntroViewController as main view controller
+	-Ability to toggle SidePanelViewController on left-side and 				InfoPanelViewController on right-side
 
->> HighScoreViewController:
-	- Presented modally
-	- Displays all of the scores for each board and it's respective difficulty 		levels
-	- Dismisses back to IntroViewController
-	- Ability to clear save high scores
+>> IntroViewController:
+	- "Start" button displays the mine sweeper game pushed through the 			navigation controller
+	- Swiping left or “Settings” button in the top left displays 			SidePanelViewController
+	- Swiping right or “Info” button in the top right displays 				InfoPanelViewController
+
+>> SidePanelViewController:
+	- Allows user to change the app theme: day or night
+	- Gives options for selecting game difficulty and board size
+	- Displays high scores and user info for selected board size and difficulty
+	- “Clear Data” button allows clearing of saved high scores
+
+>> InfoPanelViewController:
+	- Shows information about developers and the app’s development
+	- “Instructions” button that displays a PopViewController
 
 >> PopViewController:
+	- Presented modally
 	- Directions on how to play the game
 	- Small graphical display giving a taste of what the board looks like
 	- Pops up in front of IntroViewController and dims the background
 	- Supports swiping to change content and swipe down to dismiss the view
-	- Dismisses back to IntroViewController
+	- Dismisses back to InfoPanelViewController
 
 >> GameViewController:
 	- Presented via the navigation controller
