@@ -1,6 +1,7 @@
 Mine Sweeper
 
 Developers and Designers: Andrew Grossfeld & Logan Allen
+Now on the iTunes App Store!!: https://itunes.apple.com/us/app/minesweeper-dn/id1083262173?mt=8
 
 This repository contains the contents of a fully functioning, unique minesweeper. The game was created on Xcode and runs on most iOS platforms. The design of this app consists of a main introduction screen that branches out into three other views: a settings and high score side view, a information side view, and the game simulation view. Best time scores are saved using core data.
 
