@@ -116,7 +116,9 @@ extension ContainerViewController: IntroViewControllerDelegate {
         if (shouldExpand) {
 //            self.introNav.view.layer.opacity = 0.75
             currentState = .LeftPanelExpanded
-            animateIntroPanelXPosition(introNav.view.frame.width - introPanelExpandedOffset)
+            if (introNav.view.frame.origin.x > 0) {
+                animateIntroPanelXPosition(introNav.view.frame.width - introPanelExpandedOffset)
+            }
         } else {
             self.introNav.view.layer.opacity = 1.0
                 animateIntroPanelXPosition(0) { finished in
@@ -145,7 +147,7 @@ extension ContainerViewController: IntroViewControllerDelegate {
     
     // Animate introVC to target position
     func animateIntroPanelXPosition(targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
-        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
+        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .CurveEaseInOut, animations: {
             self.introNav.view.frame.origin.x = targetPosition
             }, completion: completion)
     }

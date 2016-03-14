@@ -140,7 +140,12 @@
 				TargetAttributes = {
 					50C145881C0FCD03001D5575 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 9EJG7FBTNS;
+						DevelopmentTeam = 9VSJZHVUGP;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -299,10 +304,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MineSweeper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Andrew-Grossfeld.MineSweeper";
+				PRODUCT_BUNDLE_IDENTIFIER = "Allen-Logan.MineSweeper";
 				PRODUCT_NAME = MineSweeper;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -313,10 +320,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MineSweeper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Andrew-Grossfeld.MineSweeper";
+				PRODUCT_BUNDLE_IDENTIFIER = "Allen-Logan.MineSweeper";
 				PRODUCT_NAME = MineSweeper;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
