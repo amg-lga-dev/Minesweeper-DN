@@ -87,7 +87,9 @@ extension ContainerViewController: IntroViewControllerDelegate {
     func addLeftPanelViewController() {
         if (leftVC == nil) {
             leftVC = SidePanelViewController()
-            leftVC?.view.frame = self.introVC.view.frame
+            let introFrame = self.introVC.view.frame
+//            leftVC?.view.frame = CGRect(x: -50, y: 0, width: introFrame.width, height: introFrame.height)
+            leftVC?.view.frame = introFrame
             leftVC!.view.backgroundColor = UIColor(red: 120/255, green: 139/255, blue: 148/255, alpha: 0.8)
             leftVC!.introVC = self.introVC
             
@@ -95,13 +97,16 @@ extension ContainerViewController: IntroViewControllerDelegate {
             addChildViewController(leftVC!)
             leftVC!.didMoveToParentViewController(self)
         }
+        self.currentState = .LeftPanelExpanded
     }
     
     // Add right panel if not instantiated already
     func addRightPanelViewController() {
         if (rightVC == nil) {
             rightVC = InfoPanelViewController()
-            rightVC?.view.frame = self.introVC.view.frame
+            let introFrame = self.introVC.view.frame
+//            rightVC?.view.frame = CGRect(x: 50, y: 0, width: introFrame.width, height: introFrame.height)
+            rightVC?.view.frame = introFrame
             rightVC!.view.backgroundColor = UIColor(red: 120/255, green: 139/255, blue: 148/255, alpha: 0.8)
             rightVC!.introVC = self.introVC
             
@@ -109,19 +114,17 @@ extension ContainerViewController: IntroViewControllerDelegate {
             addChildViewController(rightVC!)
             rightVC!.didMoveToParentViewController(self)
         }
+        self.currentState = .RightPanelExpanded
     }
     
     // Animate transition between introVC and left panel
     func animateLeftPanel(shouldExpand: Bool) {
         if (shouldExpand) {
-//            self.introNav.view.layer.opacity = 0.75
             currentState = .LeftPanelExpanded
-            if (introNav.view.frame.origin.x > 0) {
-                animateIntroPanelXPosition(introNav.view.frame.width - introPanelExpandedOffset)
-            }
+            animateIntroPanelXPosition(introNav.view.frame.width - introPanelExpandedOffset)
         } else {
             self.introNav.view.layer.opacity = 1.0
-                animateIntroPanelXPosition(0) { finished in
+            animateIntroPanelXPosition(0) { finished in
                 self.currentState = .IntroShowing
                 self.leftVC!.view.removeFromSuperview()
                 self.leftVC = nil;
@@ -132,7 +135,6 @@ extension ContainerViewController: IntroViewControllerDelegate {
     // Animate transition between introVC and right panel
     func animateRightPanel(shouldExpand: Bool) {
         if (shouldExpand) {
-//            self.introNav.view.layer.opacity = 0.75
             currentState = .RightPanelExpanded
             animateIntroPanelXPosition(-introNav.view.frame.width + introPanelExpandedOffset)
         } else {
@@ -147,7 +149,7 @@ extension ContainerViewController: IntroViewControllerDelegate {
     
     // Animate introVC to target position
     func animateIntroPanelXPosition(targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
-        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .CurveEaseInOut, animations: {
+        UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .CurveEaseInOut, animations: {
             self.introNav.view.frame.origin.x = targetPosition
             }, completion: completion)
     }
@@ -156,7 +158,7 @@ extension ContainerViewController: IntroViewControllerDelegate {
     func showShadowForIntroViewController(shouldShowShadow: Bool) {
         // let theme = NSUserDefaults.standardUserDefaults().valueForKey("theme") as! String
         if (shouldShowShadow) {
-            introNav.view.layer.shadowOpacity = 0.7
+            introNav.view.layer.shadowOpacity = 0.9
         } else {
             introNav.view.layer.shadowOpacity = 0.0
         }
@@ -184,11 +186,21 @@ extension ContainerViewController: UIGestureRecognizerDelegate {
                     showShadowForIntroViewController(true)
                 }
             case .Changed:
-                recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
+                var location = recognizer.view!.center.x + recognizer.translationInView(view).x
+                let center = recognizer.view!.frame.width/2
+                if currentState == .LeftPanelExpanded{
+                    if location < center{
+                        location = center
+                    }
+                }else if currentState == .RightPanelExpanded{
+                    if location > center{
+                        location = center
+                    }
+                }
+                recognizer.view!.center.x = location
                 recognizer.setTranslation(CGPointZero, inView: view)
                 // Gradual adjust introNav's opacity according to position
 //                let opacityOffset = 3*Float(abs(introNav.view.frame.origin.x))/(8*w)
-//                self.introNav.view.layer.opacity = 1.0 - opacityOffset
                 
             case .Ended:
                 if (leftVC != nil) {
