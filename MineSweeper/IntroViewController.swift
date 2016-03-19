@@ -26,6 +26,7 @@ class IntroViewController: UIViewController, Dimmable {
     @IBOutlet weak var mainMineImage: UIImageView!
     
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var backgroundButton: UIButton!
     
     var gameType: Int = 0
     var gameLevel: Int = 0
@@ -52,13 +53,11 @@ class IntroViewController: UIViewController, Dimmable {
         titleLabel.layer.shadowOffset = CGSizeMake(2,1)
         titleLabel.layer.shadowRadius = 1
         
-//        titleMineImage.layer.shadowOffset = CGSizeMake(1,1)
-//        titleMineImage.layer.shadowRadius = 2
-//        mainMineImage.layer.shadowOffset = CGSizeMake(3,3)
-//        mainMineImage.layer.shadowRadius = 2
-        
         startButton.layer.shadowOffset = CGSizeMake(4,4)
         startButton.layer.shadowRadius = 4
+        
+        backgroundButton.enabled = false
+        backgroundButton.hidden = true
         
         self.viewWillAppear(true)
     }
@@ -105,5 +104,11 @@ class IntroViewController: UIViewController, Dimmable {
     }
     @IBAction func scoreTapped(sender: UIButton) {
         delegate?.toggleRightPanel?()
+    }
+    
+    @IBAction func backgroundButtonPressed(sender: UIButton) {
+        backgroundButton.enabled = false
+        backgroundButton.hidden = true
+        delegate?.collapseSidePanels?()
     }
 }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroViewController" customModule="MineSweeper" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundButton" destination="hDD-4H-xeM" id="6v8-bN-f8N"/>
                 <outlet property="leftBarIcon" destination="MnC-58-5JU" id="YtK-bz-9gK"/>
                 <outlet property="mainMineImage" destination="Ufz-9M-itV" id="jTe-eY-vCT"/>
                 <outlet property="rightBarIcon" destination="fj8-sX-EhG" id="m6W-v5-cjH"/>
@@ -105,6 +105,12 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDD-4H-xeM">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <connections>
+                        <action selector="backgroundButtonPressed:" destination="-1" eventType="touchUpInside" id="1ov-57-pHL"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -112,11 +118,14 @@
                 <constraint firstItem="Ufz-9M-itV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3wm-Lc-pjk"/>
                 <constraint firstItem="fj8-sX-EhG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="23" id="8pV-R7-1sf"/>
                 <constraint firstItem="yfd-eH-bo2" firstAttribute="top" secondItem="YFO-Tf-lWb" secondAttribute="bottom" constant="42" id="BB3-ZF-fs8"/>
+                <constraint firstAttribute="trailing" secondItem="hDD-4H-xeM" secondAttribute="trailing" id="BD5-O9-qhk"/>
                 <constraint firstItem="YFO-Tf-lWb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="R5p-2F-aKQ"/>
+                <constraint firstAttribute="bottom" secondItem="hDD-4H-xeM" secondAttribute="bottom" id="TQZ-FS-V0z"/>
                 <constraint firstItem="Ufz-9M-itV" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="V37-6j-qUT"/>
                 <constraint firstAttribute="trailing" secondItem="fj8-sX-EhG" secondAttribute="trailing" constant="8" id="ZBu-BU-ft6"/>
                 <constraint firstAttribute="bottom" secondItem="kD2-ww-apo" secondAttribute="bottom" constant="46" id="dcd-rm-Wjd"/>
                 <constraint firstItem="YMo-dK-xeP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dzV-Ol-5wH"/>
+                <constraint firstItem="hDD-4H-xeM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gip-8j-xAS"/>
                 <constraint firstItem="kD2-ww-apo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="j1g-h6-2sU"/>
                 <constraint firstItem="YFO-Tf-lWb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="j4A-YT-Tz5"/>
                 <constraint firstItem="yfd-eH-bo2" firstAttribute="leading" secondItem="nYS-V0-sdL" secondAttribute="trailing" constant="68" id="o2Q-9C-xh3"/>
@@ -125,6 +134,7 @@
                 <constraint firstItem="MnC-58-5JU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="23" id="qjD-vu-wrt"/>
                 <constraint firstItem="nYS-V0-sdL" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="sYF-iv-JH1"/>
                 <constraint firstItem="MnC-58-5JU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="t0k-u5-eNB"/>
+                <constraint firstItem="hDD-4H-xeM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xwN-HA-sUn"/>
             </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <point key="canvasLocation" x="233" y="346"/>

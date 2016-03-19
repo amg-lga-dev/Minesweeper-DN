@@ -79,8 +79,16 @@ extension ContainerViewController: IntroViewControllerDelegate {
         if notAlreadyExpanded {
             addRightPanelViewController()
         }
-        
         animateRightPanel(notAlreadyExpanded)
+    }
+    
+    // Collapse side panels to show intro screen
+    func collapseSidePanels() {
+        if currentState == .LeftPanelExpanded{
+            animateLeftPanel(false)
+        }else{
+            animateRightPanel(false)
+        }
     }
     
     // Add left panel if not instantiated already
@@ -98,6 +106,8 @@ extension ContainerViewController: IntroViewControllerDelegate {
             leftVC!.didMoveToParentViewController(self)
         }
         self.currentState = .LeftPanelExpanded
+        introVC.backgroundButton.enabled = true
+        introVC.backgroundButton.hidden = false
     }
     
     // Add right panel if not instantiated already
@@ -115,6 +125,8 @@ extension ContainerViewController: IntroViewControllerDelegate {
             rightVC!.didMoveToParentViewController(self)
         }
         self.currentState = .RightPanelExpanded
+        introVC.backgroundButton.enabled = true
+        introVC.backgroundButton.hidden = false
     }
     
     // Animate transition between introVC and left panel
@@ -123,11 +135,11 @@ extension ContainerViewController: IntroViewControllerDelegate {
             currentState = .LeftPanelExpanded
             animateIntroPanelXPosition(introNav.view.frame.width - introPanelExpandedOffset)
         } else {
-            self.introNav.view.layer.opacity = 1.0
+//            self.introNav.view.layer.opacity = 1.0
             animateIntroPanelXPosition(0) { finished in
                 self.currentState = .IntroShowing
                 self.leftVC!.view.removeFromSuperview()
-                self.leftVC = nil;
+                self.leftVC = nil
             }
         }
     }
@@ -138,11 +150,11 @@ extension ContainerViewController: IntroViewControllerDelegate {
             currentState = .RightPanelExpanded
             animateIntroPanelXPosition(-introNav.view.frame.width + introPanelExpandedOffset)
         } else {
-            self.introNav.view.layer.opacity = 1.0
+//            self.introNav.view.layer.opacity = 1.0
             animateIntroPanelXPosition(0) { _ in
                 self.currentState = .IntroShowing
                 self.rightVC!.view.removeFromSuperview()
-                self.rightVC = nil;
+                self.rightVC = nil
             }
         }
     }
@@ -151,8 +163,20 @@ extension ContainerViewController: IntroViewControllerDelegate {
     func animateIntroPanelXPosition(targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
         UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .CurveEaseInOut, animations: {
             self.introNav.view.frame.origin.x = targetPosition
-            }, completion: completion)
+            }) { (finished) -> Void in
+                if (self.introNav.view.center.x == UIScreen.mainScreen().bounds.width/2){
+                    if self.currentState == .LeftPanelExpanded{
+                        self.leftVC!.view.removeFromSuperview()
+                        self.leftVC = nil
+                    }else if self.currentState == .RightPanelExpanded{
+                        self.rightVC!.view.removeFromSuperview()
+                        self.rightVC = nil
+                    }
+                    self.currentState = .IntroShowing
+                }
+        }
     }
+
         
     // Show shadow for introVC when panels are expanded
     func showShadowForIntroViewController(shouldShowShadow: Bool) {
@@ -182,7 +206,6 @@ extension ContainerViewController: UIGestureRecognizerDelegate {
                     } else {
                         addRightPanelViewController()
                     }
-                    
                     showShadowForIntroViewController(true)
                 }
             case .Changed:
@@ -199,9 +222,6 @@ extension ContainerViewController: UIGestureRecognizerDelegate {
                 }
                 recognizer.view!.center.x = location
                 recognizer.setTranslation(CGPointZero, inView: view)
-                // Gradual adjust introNav's opacity according to position
-//                let opacityOffset = 3*Float(abs(introNav.view.frame.origin.x))/(8*w)
-                
             case .Ended:
                 if (leftVC != nil) {
                     // animate the side panel open or closed based on whether the view has moved more or less than halfway
@@ -211,6 +231,17 @@ extension ContainerViewController: UIGestureRecognizerDelegate {
                     let hasMovedGreaterThanHalfway = recognizer.view!.center.x < 0
                     animateRightPanel(hasMovedGreaterThanHalfway)
                 }
+//                if (self.introNav.view.center.x == UIScreen.mainScreen().bounds.width/2){
+//                    if currentState == .LeftPanelExpanded{
+//                        self.leftVC!.view.removeFromSuperview()
+//                        self.leftVC = nil
+//                        self.currentState = .IntroShowing
+//                    }else if currentState == .RightPanelExpanded{
+//                        self.rightVC!.view.removeFromSuperview()
+//                        self.rightVC = nil
+//                        self.currentState = .IntroShowing
+//                    }
+//                }
             default:
                 break
             }
