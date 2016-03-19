@@ -10,7 +10,5 @@ This is a modern version of the classic minesweeper game. There are two themes t
 ![Mou icon](Readme_Assets/mineDayGame.png)
 
 ###Developers & Designers: 
-Logan Allen and Andrew Grossfeld
-
-Copyright (c) 2016.
+Logan Allen and Andrew Grossfeld. Copyright (c) 2016.
 
