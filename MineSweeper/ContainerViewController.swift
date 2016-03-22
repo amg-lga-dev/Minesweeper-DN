@@ -231,17 +231,6 @@ extension ContainerViewController: UIGestureRecognizerDelegate {
                     let hasMovedGreaterThanHalfway = recognizer.view!.center.x < 0
                     animateRightPanel(hasMovedGreaterThanHalfway)
                 }
-//                if (self.introNav.view.center.x == UIScreen.mainScreen().bounds.width/2){
-//                    if currentState == .LeftPanelExpanded{
-//                        self.leftVC!.view.removeFromSuperview()
-//                        self.leftVC = nil
-//                        self.currentState = .IntroShowing
-//                    }else if currentState == .RightPanelExpanded{
-//                        self.rightVC!.view.removeFromSuperview()
-//                        self.rightVC = nil
-//                        self.currentState = .IntroShowing
-//                    }
-//                }
             default:
                 break
             }

@@ -123,12 +123,18 @@ class SidePanelViewController: UIViewController {
     func setTheme(theme: String){
         if theme == "Day"{
             backgroundImage.image = UIImage(named: "sky")
-            bottomImage.layer.opacity = 1.0
             themeSeg.selectedSegmentIndex = 0
+            UIApplication.sharedApplication().statusBarStyle = .Default
+            UIView.animateWithDuration(0.5, animations: {
+                self.bottomImage.layer.opacity = 1.0
+                }, completion: nil)
         }else{
             backgroundImage.image = UIImage(named: "nightSky")
-            bottomImage.layer.opacity = 0.7
             themeSeg.selectedSegmentIndex = 1
+            UIApplication.sharedApplication().statusBarStyle = .LightContent
+            UIView.animateWithDuration(0.5, animations: {
+                self.bottomImage.layer.opacity = 0.8
+                }, completion: nil)
         }
         
         for view in self.view.subviews {
