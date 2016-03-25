@@ -158,7 +158,7 @@ extension ContainerViewController: IntroViewControllerDelegate {
     
     // Animate introVC to target position
     func animateIntroPanelXPosition(targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
-        UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .CurveEaseInOut, animations: {
+        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.3, options: .CurveEaseInOut, animations: {
             self.introNav.view.frame.origin.x = targetPosition
             }) { (finished) -> Void in
                 if (self.introNav.view.center.x == UIScreen.mainScreen().bounds.width/2){

@@ -39,7 +39,7 @@ class InfoPanelViewController: UIViewController, Dimmable {
             bottomImage.layer.opacity = 1.0
         }else{
             backgroundImage.image = UIImage(named: "nightSky")
-            bottomImage.layer.opacity = 0.7
+            bottomImage.layer.opacity = 0.9
         }
         bottomImage.layer.shadowColor = UIColor.blackColor().CGColor
         bottomImage.layer.shadowOffset = CGSizeMake(3, 2)

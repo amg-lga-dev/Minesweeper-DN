@@ -125,16 +125,12 @@ class SidePanelViewController: UIViewController {
             backgroundImage.image = UIImage(named: "sky")
             themeSeg.selectedSegmentIndex = 0
             UIApplication.sharedApplication().statusBarStyle = .Default
-            UIView.animateWithDuration(0.5, animations: {
-                self.bottomImage.layer.opacity = 1.0
-                }, completion: nil)
+            bottomImage.layer.opacity = 1.0
         }else{
             backgroundImage.image = UIImage(named: "nightSky")
             themeSeg.selectedSegmentIndex = 1
             UIApplication.sharedApplication().statusBarStyle = .LightContent
-            UIView.animateWithDuration(0.5, animations: {
-                self.bottomImage.layer.opacity = 1.0
-                }, completion: nil)
+            bottomImage.layer.opacity = 0.9
         }
         
         for view in self.view.subviews {

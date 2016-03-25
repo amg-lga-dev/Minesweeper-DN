@@ -75,9 +75,9 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         let bottomImage = UIImageView(frame: CGRect(x: 0, y: self.view.bounds.height - 140, width: self.view.bounds.width, height: 140))
         bottomImage.image = UIImage(named: "mountains.png")
         bottomImage.layer.opacity = 1.0
-        bottomImage.layer.shadowColor = Style.textColor.CGColor
+        bottomImage.layer.shadowColor = UIColor.blackColor().CGColor
         bottomImage.layer.shadowOffset = CGSizeMake(3, 2)
-        bottomImage.layer.shadowOpacity = 0.5
+        bottomImage.layer.shadowOpacity = 0.6
         bottomImage.layer.shadowRadius = 2
         self.view.addSubview(bottomImage)
     }
