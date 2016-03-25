@@ -23,7 +23,6 @@ class ContainerViewController: UIViewController {
     var rightVC: InfoPanelViewController?
     
     var introPanelExpandedOffset: CGFloat!
-    var w: Float = 0
     
     var currentState: SlideOutState = .IntroShowing{
         didSet {
@@ -52,11 +51,9 @@ class ContainerViewController: UIViewController {
         introNav.didMoveToParentViewController(self)
         
         // Add gestures to navigation controller
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ContainerViewController.handlePanGesture(_:)))
         introNav.view.addGestureRecognizer(panGestureRecognizer)
         
-        
-        w = Float(self.introNav.view.bounds.width)
     }
     
 }
@@ -223,13 +220,22 @@ extension ContainerViewController: UIGestureRecognizerDelegate {
                 recognizer.view!.center.x = location
                 recognizer.setTranslation(CGPointZero, inView: view)
             case .Ended:
+                var hasMovedPastOffset: Bool = false;
                 if (leftVC != nil) {
                     // animate the side panel open or closed based on whether the view has moved more or less than halfway
-                    let hasMovedGreaterThanHalfway = recognizer.view!.center.x > view.bounds.size.width
-                    animateLeftPanel(hasMovedGreaterThanHalfway)
+                    if gestureIsDraggingFromLeftToRight{
+                        hasMovedPastOffset = (recognizer.view!.center.x + recognizer.view!.bounds.width/4) > view.bounds.size.width
+                    }else{
+                        hasMovedPastOffset = recognizer.view!.center.x > view.bounds.size.width
+                    }
+                    animateLeftPanel(hasMovedPastOffset)
                 } else if (rightVC != nil) {
-                    let hasMovedGreaterThanHalfway = recognizer.view!.center.x < 0
-                    animateRightPanel(hasMovedGreaterThanHalfway)
+                    if !gestureIsDraggingFromLeftToRight{
+                        hasMovedPastOffset = (recognizer.view!.center.x - recognizer.view!.bounds.width/4) < 0
+                    }else{
+                        hasMovedPastOffset = recognizer.view!.center.x < 0
+                    }
+                    animateRightPanel(hasMovedPastOffset)
                 }
             default:
                 break

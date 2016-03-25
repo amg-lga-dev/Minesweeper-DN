@@ -133,7 +133,7 @@ class SidePanelViewController: UIViewController {
             themeSeg.selectedSegmentIndex = 1
             UIApplication.sharedApplication().statusBarStyle = .LightContent
             UIView.animateWithDuration(0.5, animations: {
-                self.bottomImage.layer.opacity = 0.8
+                self.bottomImage.layer.opacity = 1.0
                 }, completion: nil)
         }
         

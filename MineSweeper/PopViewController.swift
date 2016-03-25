@@ -42,7 +42,7 @@ class PopViewController: UIViewController {
         setContent()
         
         smallView.userInteractionEnabled = true
-        let panGesture = UIPanGestureRecognizer(target: self, action: "handlePan:")
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(PopViewController.handlePan(_:)))
         smallView.addGestureRecognizer(panGesture)
     }
     
@@ -90,9 +90,9 @@ class PopViewController: UIViewController {
         nextButton.setTitle("Next", forState: .Normal)
         prevButton.setTitle("Prev", forState: .Normal)
         backButton.setTitle("Done", forState: .Normal)
-        nextButton.addTarget(self, action: "nextPressed:", forControlEvents: .TouchUpInside)
-        prevButton.addTarget(self, action: "prevPressed:", forControlEvents: .TouchUpInside)
-        backButton.addTarget(self, action: "backToVC:", forControlEvents: .TouchUpInside)
+        nextButton.addTarget(self, action: #selector(PopViewController.nextPressed(_:)), forControlEvents: .TouchUpInside)
+        prevButton.addTarget(self, action: #selector(PopViewController.prevPressed(_:)), forControlEvents: .TouchUpInside)
+        backButton.addTarget(self, action: #selector(PopViewController.backToVC(_:)), forControlEvents: .TouchUpInside)
         setupButtonAttributes(nextButton, done: false)
         setupButtonAttributes(prevButton, done: false)
         setupButtonAttributes(backButton, done: true)

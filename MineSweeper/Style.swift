@@ -33,6 +33,7 @@ struct Style {
         unflippedTileImage = UIImage(named: "nightSkyTile.jpg")
         tileBorder = UIColor.whiteColor()
         navBar = UIColor.blackColor()
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
     }
     
     // Set to day theme -- white with black text
@@ -43,6 +44,7 @@ struct Style {
         unflippedTileImage = UIImage(named: "skyTile.jpg")
         tileBorder = UIColor.blackColor()
         navBar = UIColor.whiteColor()
+        UIApplication.sharedApplication().statusBarStyle = .Default
     }
     
 }

@@ -59,8 +59,8 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     // Set navigation bar items
     override func viewWillAppear(animated: Bool) {
         time = 0
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: " Quit", style: .Plain, target: self, action: "quit:")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: .Plain, target: self, action: "pauseButtonPressed:")
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: " Quit", style: .Plain, target: self, action: #selector(GameViewController.quit(_:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: .Plain, target: self, action: #selector(GameViewController.pauseButtonPressed(_:)))
         self.navigationItem.leftBarButtonItem?.tintColor = Style.textColor
         self.navigationItem.rightBarButtonItem?.tintColor = Style.textColor
     }
@@ -160,8 +160,8 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     // Add actions to tiles
     func activateTiles(){
         for tile in game.tiles {
-            tile.addTarget(self, action: "tilePressed:", forControlEvents: .TouchUpInside)
-            let longPress = UILongPressGestureRecognizer(target: self, action: "tileLongPressed:")
+            tile.addTarget(self, action: #selector(GameViewController.tilePressed(_:)), forControlEvents: .TouchUpInside)
+            let longPress = UILongPressGestureRecognizer(target: self, action: #selector(GameViewController.tileLongPressed(_:)))
             longPress.minimumPressDuration = 0.5
             tile.addGestureRecognizer(longPress)
         }
@@ -188,12 +188,12 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         if memo == "quit" || game.loseOrWin == 1{
             // Add to total losses
             var losses = NSUserDefaults.standardUserDefaults().valueForKey("\(key)Fails") as! Int
-            losses++
+            losses += 1
             NSUserDefaults.standardUserDefaults().setValue(losses, forKey: "\(key)Fails")
         }else{
             // Add to total wins
             var wins = NSUserDefaults.standardUserDefaults().valueForKey("\(key)Wins") as! Int
-            wins++
+            wins += 1
             NSUserDefaults.standardUserDefaults().setValue(wins, forKey: "\(key)Wins")
         }
     }
@@ -325,7 +325,7 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
                 // Clear the flag
                 tile.marked = false
                 tile.setImage(nil, forState: .Normal)
-                flagsLeft++
+                flagsLeft += 1
                 updateFlagCounter()
             }
             else if tile.flipped == false {
@@ -397,7 +397,7 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
                 tile.imageView?.layer.shadowOffset = CGSizeMake(1, 1)
                 tile.imageView?.layer.shadowOpacity = 0.7
                 tile.imageView?.layer.shadowRadius = 1
-                flagsLeft--
+                flagsLeft -= 1
                 updateFlagCounter()
             }
         }
