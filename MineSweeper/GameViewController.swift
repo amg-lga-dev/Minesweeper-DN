@@ -286,11 +286,10 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         resetTiles()
         game.numMines = 0
         game.setBombs()
-        game.setNumbers()
-        game.checkNumMines()
         if tile.isBomb{
             resetBoard(tile)
         }
+        game.setNumbers()
     }
     
     // Reset tiles to "nil" initial state
