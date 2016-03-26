@@ -9,7 +9,7 @@
 import UIKit
 
 let content = ["Step 1", "Step 2", "Step 3", "Step 5"]
-class PopViewController: UIViewController {
+class PopViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var selectedContent: String!
     var smallView: UIView!
@@ -23,18 +23,19 @@ class PopViewController: UIViewController {
     var parentVC: InfoPanelViewController!
     var introVC: IntroViewController!
     
+    private var tapGestureRecognizer: UITapGestureRecognizer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.clearColor()
         
         smallView = UIView(frame: CGRect(x: self.view.bounds.width/2 - 150, y: self.view.bounds.height/2 - 150
             , width: 300, height: 300))
-//        smallView.backgroundColor = Style.foundationColor
         smallView.backgroundColor = UIColor.whiteColor()
-//        smallView.layer.borderColor = Style.textColor.CGColor
         smallView.layer.borderColor = UIColor.blackColor().CGColor
         smallView.layer.borderWidth = 1
         self.view.addSubview(smallView)
+        self.view.bringSubviewToFront(smallView)
         
         initTopImage()
         initTitle()
@@ -46,6 +47,24 @@ class PopViewController: UIViewController {
         smallView.userInteractionEnabled = true
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(PopViewController.handlePan(_:)))
         smallView.addGestureRecognizer(panGesture)
+        
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dimmedBackgroundTapped(_:)))
+        tapGestureRecognizer?.delegate = self
+        tapGestureRecognizer?.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGestureRecognizer!)
+    }
+    
+    func dimmedBackgroundTapped(sender: UITapGestureRecognizer){
+        let tapPoint = sender.locationInView(self.view)
+        let hitView = self.view.hitTest(tapPoint, withEvent: nil)
+        
+        if hitView == view{
+            let pvc = self.parentVC as InfoPanelViewController
+            let ivc = self.introVC as IntroViewController
+            pvc.dim(.Out, speed: pvc.dimSpeed)
+            ivc.dim(.Out, speed: ivc.dimSpeed)
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     
     func initTopImage(){
@@ -103,22 +122,12 @@ class PopViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "Gill Sans", size: 16)
         button.setTitleColor(UIColor(red: 128/255, green: 172/255, blue: 248/255, alpha: 1), forState: .Normal)
         button.setTitleColor(UIColor.blackColor(), forState: .Highlighted)
-//        if Style.foundationColor == UIColor.blackColor(){
-//            button.setBackgroundImage(UIImage(named: "nightSkyBar.png"), forState: .Normal)
-//            button.layer.shadowColor = UIColor.whiteColor().CGColor
-//            button.layer.shadowOpacity = 0.4
-//        }else{
-//            button.setBackgroundImage(UIImage(named: "skyBar.png"), forState: .Normal)
-//            button.layer.shadowColor = UIColor.blackColor().CGColor
-//            button.layer.shadowOpacity = 0.5
-//        }
         button.backgroundColor = UIColor.blackColor()
         button.layer.shadowColor = UIColor.blackColor().CGColor
         button.layer.shadowOffset = CGSizeMake(2, 2)
         button.layer.shadowRadius = 2
         button.layer.shadowOpacity = 0.4
         button.layer.cornerRadius = 5
-//        button.imageView?.layer.cornerRadius = 4
         smallView.addSubview(button)
     }
     
