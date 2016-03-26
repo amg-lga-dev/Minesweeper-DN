@@ -29,8 +29,10 @@ class PopViewController: UIViewController {
         
         smallView = UIView(frame: CGRect(x: self.view.bounds.width/2 - 150, y: self.view.bounds.height/2 - 150
             , width: 300, height: 300))
-        smallView.backgroundColor = Style.foundationColor
-        smallView.layer.borderColor = Style.textColor.CGColor
+//        smallView.backgroundColor = Style.foundationColor
+        smallView.backgroundColor = UIColor.whiteColor()
+//        smallView.layer.borderColor = Style.textColor.CGColor
+        smallView.layer.borderColor = UIColor.blackColor().CGColor
         smallView.layer.borderWidth = 1
         self.view.addSubview(smallView)
         
@@ -50,12 +52,11 @@ class PopViewController: UIViewController {
         topImage = UIImageView(frame: CGRect(x: smallView.bounds.origin.x, y: smallView.bounds.origin.y, width: smallView.bounds.width, height: 47))
         if Style.foundationColor == UIColor.blackColor(){
             topImage.image = UIImage(named: "nightSkyBar.png")
-            topImage.layer.shadowOpacity = 0.3
         }else{
             topImage.image = UIImage(named: "skyBar.png")
-            topImage.layer.shadowOpacity = 0.4
         }
-        topImage.layer.shadowColor = Style.textColor.CGColor
+        topImage.layer.shadowOpacity = 0.5
+        topImage.layer.shadowColor = UIColor.blackColor().CGColor
         topImage.layer.shadowOffset = CGSizeMake(0,2)
         topImage.layer.shadowRadius = 4
         smallView.addSubview(topImage)
@@ -75,7 +76,7 @@ class PopViewController: UIViewController {
     
     func initText(){
         textView =  UITextView(frame: CGRect(x: smallView.bounds.origin.x, y: titleLabel.bounds.origin.y + 70, width: smallView.bounds.width, height: smallView.bounds.height-130))
-        textView.textColor = Style.textColor
+        textView.textColor = UIColor.blackColor()
         textView.font = UIFont(name: "Gill Sans", size: 16)
         textView.textAlignment = NSTextAlignment.Center
         textView.backgroundColor = UIColor.clearColor()
@@ -99,21 +100,25 @@ class PopViewController: UIViewController {
     }
     
     func setupButtonAttributes(button: UIButton, done: Bool){
-        button.titleLabel?.font = UIFont(name: "Gill Sans", size: 18)
-        button.titleLabel?.textColor = UIColor.whiteColor()
-        if Style.foundationColor == UIColor.blackColor(){
-            button.setBackgroundImage(UIImage(named: "nightSkyBar.png"), forState: .Normal)
-            button.layer.shadowColor = UIColor.whiteColor().CGColor
-            button.layer.shadowOpacity = 0.4
-        }else{
-            button.setBackgroundImage(UIImage(named: "skyBar.png"), forState: .Normal)
-            button.layer.shadowColor = UIColor.blackColor().CGColor
-            button.layer.shadowOpacity = 0.5
-        }
+        button.titleLabel?.font = UIFont(name: "Gill Sans", size: 16)
+        button.setTitleColor(UIColor(red: 128/255, green: 172/255, blue: 248/255, alpha: 1), forState: .Normal)
+        button.setTitleColor(UIColor.blackColor(), forState: .Highlighted)
+//        if Style.foundationColor == UIColor.blackColor(){
+//            button.setBackgroundImage(UIImage(named: "nightSkyBar.png"), forState: .Normal)
+//            button.layer.shadowColor = UIColor.whiteColor().CGColor
+//            button.layer.shadowOpacity = 0.4
+//        }else{
+//            button.setBackgroundImage(UIImage(named: "skyBar.png"), forState: .Normal)
+//            button.layer.shadowColor = UIColor.blackColor().CGColor
+//            button.layer.shadowOpacity = 0.5
+//        }
+        button.backgroundColor = UIColor.blackColor()
+        button.layer.shadowColor = UIColor.blackColor().CGColor
         button.layer.shadowOffset = CGSizeMake(2, 2)
         button.layer.shadowRadius = 2
-        button.layer.cornerRadius = 4
-        button.imageView?.layer.cornerRadius = 4
+        button.layer.shadowOpacity = 0.4
+        button.layer.cornerRadius = 5
+//        button.imageView?.layer.cornerRadius = 4
         smallView.addSubview(button)
     }
     
@@ -181,7 +186,7 @@ class PopViewController: UIViewController {
         center.layer.borderWidth = 1
         center.text = "#"
         center.font = UIFont(name: "Gill Sans", size: 20)
-        center.textColor = UIColor.whiteColor()
+        center.textColor = Style.foundationColor
         center.textAlignment = NSTextAlignment.Center
         let topL = Tile(frame: CGRect(x: centerP.x - 45, y: centerP.y - 45, width: 40, height: 40))
         let top = Tile(frame: CGRect(x: centerP.x, y: centerP.y - 45, width: 40, height: 40))

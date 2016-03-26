@@ -219,7 +219,6 @@ class MineSweeperGame: NSObject {
     //
     func checkNumMines() -> Bool {
         let totalTiles: Double = Double(gameSize*gameSize)
-        print("\(round(mineRanges[0]*totalTiles)), \(round(mineRanges[1]*totalTiles)), \(round(mineRanges[2]*totalTiles)), \(round(mineRanges[3]*totalTiles))")
         if gameLevel == 0{
             if Double(numMines) < round(mineRanges[0]*totalTiles) || round(mineRanges[1]*totalTiles) < Double(numMines){
                 return false
@@ -241,17 +240,13 @@ class MineSweeperGame: NSObject {
         for tile in tiles {
             let y = UInt32(5 - gameLevel)
             let x = Int(arc4random_uniform(y)) + 1
-            // Easy: 1/6
-            // Med: 1/5
-            // Hard: 1/4
+            // Easy: 1/6, Med: 1/5, Hard: 1/4
             if (x == 1) {
                 tile.isBomb = true
                 numMines += 1
             }
         }
-        print("Total mines: \(numMines)")
         if checkNumMines() == false{
-            print("resetting mines")
             for tile in tiles { tile.isBomb = false }
             numMines = 0
             setBombs()
