@@ -41,7 +41,7 @@
                         <constraint firstAttribute="height" constant="33" id="NH5-8b-nE4"/>
                         <constraint firstAttribute="width" constant="33" id="O97-XO-FOs"/>
                     </constraints>
-                    <state key="normal" image="settings2"/>
+                    <state key="normal" image="settings"/>
                     <connections>
                         <action selector="sideTapped:" destination="-1" eventType="touchUpInside" id="Qqj-Ld-GPp"/>
                     </connections>
@@ -132,7 +132,7 @@
     <resources>
         <image name="infoIcon" width="256" height="256"/>
         <image name="landmine" width="300" height="292"/>
-        <image name="settings2" width="256" height="256"/>
+        <image name="settings" width="256" height="256"/>
         <image name="skyBar" width="842" height="151"/>
     </resources>
 </document>
