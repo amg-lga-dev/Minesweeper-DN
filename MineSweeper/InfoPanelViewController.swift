@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InfoPanelViewController: UIViewController, Dimmable {
+class InfoPanelViewController: UIViewController, Dimmable{
     
     var introVC: IntroViewController?
 

@@ -93,7 +93,6 @@ extension ContainerViewController: IntroViewControllerDelegate {
         if (leftVC == nil) {
             leftVC = SidePanelViewController()
             let introFrame = self.introVC.view.frame
-//            leftVC?.view.frame = CGRect(x: -50, y: 0, width: introFrame.width, height: introFrame.height)
             leftVC?.view.frame = introFrame
             leftVC!.view.backgroundColor = UIColor(red: 120/255, green: 139/255, blue: 148/255, alpha: 0.8)
             leftVC!.introVC = self.introVC
@@ -110,7 +109,6 @@ extension ContainerViewController: IntroViewControllerDelegate {
         if (rightVC == nil) {
             rightVC = InfoPanelViewController()
             let introFrame = self.introVC.view.frame
-//            rightVC?.view.frame = CGRect(x: 50, y: 0, width: introFrame.width, height: introFrame.height)
             rightVC?.view.frame = introFrame
             rightVC!.view.backgroundColor = UIColor(red: 120/255, green: 139/255, blue: 148/255, alpha: 0.8)
             rightVC!.introVC = self.introVC
@@ -156,10 +154,6 @@ extension ContainerViewController: IntroViewControllerDelegate {
     func animateIntroPanelXPosition(targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
         UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.3, options: .CurveEaseInOut, animations: {
             self.introNav.view.frame.origin.x = targetPosition
-            if targetPosition != 0{
-                self.introVC.backgroundButton.enabled = true
-                self.introVC.backgroundButton.hidden = false
-            }
             }) { (finished) -> Void in
                 if (self.introNav.view.center.x == UIScreen.mainScreen().bounds.width/2){
                     if self.currentState == .LeftPanelExpanded{
