@@ -62,7 +62,7 @@ class InfoPanelViewController: UIViewController, Dimmable {
         
         // Set instruction button's shadow
         instructionsButton.layer.shadowColor = UIColor.blackColor().CGColor
-        instructionsButton.layer.shadowOffset = CGSizeMake(4, 4)
+        instructionsButton.layer.shadowOffset = CGSizeMake(2, 4)
         instructionsButton.layer.shadowOpacity = 0.7
         instructionsButton.layer.shadowRadius = 4
     }

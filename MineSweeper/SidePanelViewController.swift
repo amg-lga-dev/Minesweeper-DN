@@ -47,13 +47,13 @@ class SidePanelViewController: UIViewController {
         
         // Set bottom image's shadow
         bottomImage.layer.shadowColor = UIColor.blackColor().CGColor
-        bottomImage.layer.shadowOffset = CGSizeMake(3, 2)
+        bottomImage.layer.shadowOffset = CGSizeMake(-3, 2)
         bottomImage.layer.shadowOpacity = 0.6
         bottomImage.layer.shadowRadius = 2
         
         // Set clear data button's shadow
         clearButton.layer.shadowColor = UIColor.blackColor().CGColor
-        clearButton.layer.shadowOffset = CGSizeMake(4, 4)
+        clearButton.layer.shadowOffset = CGSizeMake(-2, 4)
         clearButton.layer.shadowOpacity = 0.7
         clearButton.layer.shadowRadius = 4
         
