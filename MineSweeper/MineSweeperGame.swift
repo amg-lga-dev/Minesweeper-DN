@@ -16,6 +16,8 @@ class MineSweeperGame: NSObject {
     var pauseGame: Int
     var loseOrWin: Int
     var firstTilePressed: Int
+    var numMines: Int
+    let easyMineRange: [Int] = []
     
     // Constructor
     init(gameSize: Int, gameLevel: Int, vc: GameViewController) {
@@ -25,6 +27,7 @@ class MineSweeperGame: NSObject {
         self.pauseGame = 0
         self.loseOrWin = 0
         self.firstTilePressed = 0
+        self.numMines = 0
         tiles = []
         super.init()
         setTilesInView()
@@ -118,13 +121,6 @@ class MineSweeperGame: NSObject {
         }
         
         gvc.timer.invalidate()
-//        let spot = gvc.timeLabel.center.y + (gvc.view.bounds.height - gvc.timeLabel.center.y)/3
-//        gvc.endLabel = UILabel(frame: CGRect(x: 0, y: spot, width: gvc.view.bounds.width, height: 50))
-//        gvc.endLabel.text = "Game Over"
-//        gvc.endLabel.font = UIFont(name: "Gill Sans", size: 50)
-//        gvc.endLabel.textColor = UIColor.redColor()
-//        gvc.endLabel.textAlignment = NSTextAlignment.Center
-//        gvc.view.addSubview(gvc.endLabel)
         loseOrWin = 1
     }
     
@@ -145,13 +141,6 @@ class MineSweeperGame: NSObject {
                 tile.enabled = false
             }
             gvc.timer.invalidate()
-//            let spot = gvc.timeLabel.center.y + (gvc.view.bounds.height - gvc.timeLabel.center.y)/3
-//            gvc.endLabel = UILabel(frame: CGRect(x: 0, y: spot, width: gvc.view.bounds.width, height: 50))
-//            gvc.endLabel.text = "You Win"
-//            gvc.endLabel.font = UIFont(name: "Gill Sans", size: 50)
-//            gvc.endLabel.textColor = UIColor.greenColor()
-//            gvc.endLabel.textAlignment = NSTextAlignment.Center
-//            gvc.view.addSubview(gvc.endLabel)
             var key = ""
             switch self.gameLevel {
             case 0: key = "\(gameSize)Easy"
@@ -215,6 +204,13 @@ class MineSweeperGame: NSObject {
         }
     }
     
+    // Checks if number of mines is within specified range
+    //
+    func checkNumMines() -> Bool {
+        
+        return false;
+    }
+    
     // Sets mines randomly depending on difficulty
     func setBombs() {
         for tile in tiles {
@@ -222,6 +218,7 @@ class MineSweeperGame: NSObject {
             let x = Int(arc4random_uniform(y)) + 1  // makes more bombs if level is higher
             if (x == 1) {
                 tile.isBomb = true
+                numMines += 1
             }
         }
     }

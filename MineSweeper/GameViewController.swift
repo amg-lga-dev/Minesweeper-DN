@@ -245,25 +245,11 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    // Reset tiles to "nil" initial state
-    func resetTiles(){
-        for tile in game.tiles{
-            tile.number = -2
-            tile.isBomb = false
-            tile.flipped = false
-            tile.marked = false
-            tile.backgroundColor = Style.unflippedTile
-            tile.layer.borderColor = Style.tileBorder.CGColor
-            tile.layer.borderWidth = 1.0
-        }
-    }
-    
     // Recreate game, timer, and flags.
     func recreateGame(){
         self.time = 0
         self.timeLabel.removeFromSuperview()
         self.bestTimeLabel.removeFromSuperview()
-//        self.endLabel.removeFromSuperview()
         self.game = MineSweeperGame(gameSize: gameSize, gameLevel: gameLevel, vc: self)
         if gameSize<=10{
             self.flagsLeft = 100
@@ -298,10 +284,25 @@ class GameViewController: UIViewController, UIScrollViewDelegate {
     func resetBoard(tile: Tile){
         //print("resetting")
         resetTiles()
+        game.numMines = 0
         game.setBombs()
         game.setNumbers()
+        game.checkNumMines()
         if tile.isBomb{
             resetBoard(tile)
+        }
+    }
+    
+    // Reset tiles to "nil" initial state
+    func resetTiles(){
+        for tile in game.tiles{
+            tile.number = -2
+            tile.isBomb = false
+            tile.flipped = false
+            tile.marked = false
+            tile.backgroundColor = Style.unflippedTile
+            tile.layer.borderColor = Style.tileBorder.CGColor
+            tile.layer.borderWidth = 1.0
         }
     }
     
