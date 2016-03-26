@@ -56,6 +56,7 @@ class IntroViewController: UIViewController, Dimmable {
         startButton.layer.shadowOffset = CGSizeMake(4,4)
         startButton.layer.shadowRadius = 4
         
+        self.view.bringSubviewToFront(backgroundButton)
         backgroundButton.enabled = false
         backgroundButton.hidden = true
         
@@ -74,7 +75,7 @@ class IntroViewController: UIViewController, Dimmable {
         if Style.foundationColor == UIColor.blackColor(){
             topBarImage.image = UIImage(named: "nightSkyBar.png")
             startButton.setBackgroundImage(UIImage(named: "nightSkyBar.png"), forState: .Normal)
-            startButton.layer.shadowOpacity = 0.4
+            startButton.layer.shadowOpacity = 0.3
             topBarImage.layer.shadowOpacity = 0.3
         }else{
             topBarImage.image = UIImage(named: "skyBar.png")

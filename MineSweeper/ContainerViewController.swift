@@ -103,8 +103,6 @@ extension ContainerViewController: IntroViewControllerDelegate {
             leftVC!.didMoveToParentViewController(self)
         }
         self.currentState = .LeftPanelExpanded
-        introVC.backgroundButton.enabled = true
-        introVC.backgroundButton.hidden = false
     }
     
     // Add right panel if not instantiated already
@@ -122,8 +120,6 @@ extension ContainerViewController: IntroViewControllerDelegate {
             rightVC!.didMoveToParentViewController(self)
         }
         self.currentState = .RightPanelExpanded
-        introVC.backgroundButton.enabled = true
-        introVC.backgroundButton.hidden = false
     }
     
     // Animate transition between introVC and left panel
@@ -160,6 +156,10 @@ extension ContainerViewController: IntroViewControllerDelegate {
     func animateIntroPanelXPosition(targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
         UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.3, options: .CurveEaseInOut, animations: {
             self.introNav.view.frame.origin.x = targetPosition
+            if targetPosition != 0{
+                self.introVC.backgroundButton.enabled = true
+                self.introVC.backgroundButton.hidden = false
+            }
             }) { (finished) -> Void in
                 if (self.introNav.view.center.x == UIScreen.mainScreen().bounds.width/2){
                     if self.currentState == .LeftPanelExpanded{
