@@ -15,7 +15,7 @@ protocol IntroViewControllerDelegate {
     optional func collapseSidePanels()
 }
 
-class IntroViewController: UIViewController, Dimmable {
+class IntroViewController: UIViewController, Dimmable, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var topBarImage: UIImageView!
     @IBOutlet weak var leftBarIcon: UIButton!
@@ -26,7 +26,8 @@ class IntroViewController: UIViewController, Dimmable {
     @IBOutlet weak var mainMineImage: UIImageView!
     
     @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var backgroundButton: UIButton!
+    
+    private var tapGestureRecognizer: UITapGestureRecognizer?
     
     var gameType: Int = 0
     var gameLevel: Int = 0
@@ -56,9 +57,10 @@ class IntroViewController: UIViewController, Dimmable {
         startButton.layer.shadowOffset = CGSizeMake(4,4)
         startButton.layer.shadowRadius = 4
         
-        self.view.bringSubviewToFront(backgroundButton)
-        backgroundButton.enabled = false
-        backgroundButton.hidden = true
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.backgroundPressed(_:)))
+        tapGestureRecognizer!.delegate = self
+        tapGestureRecognizer!.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGestureRecognizer!)
         
         self.viewWillAppear(true)
     }
@@ -100,16 +102,15 @@ class IntroViewController: UIViewController, Dimmable {
         
     }
     
+    func backgroundPressed(sender: UITapGestureRecognizer){
+        if containerVC?.currentState != .IntroShowing{ delegate?.collapseSidePanels?() }
+    }
+    
     @IBAction func sideTapped(sender: AnyObject) {
         delegate?.toggleLeftPanel?()
     }
+    
     @IBAction func scoreTapped(sender: UIButton) {
         delegate?.toggleRightPanel?()
-    }
-    
-    @IBAction func backgroundButtonPressed(sender: UIButton) {
-        backgroundButton.enabled = false
-        backgroundButton.hidden = true
-        delegate?.collapseSidePanels?()
     }
 }

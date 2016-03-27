@@ -16,6 +16,8 @@ class MineSweeperGame: NSObject {
     var pauseGame: Int
     var loseOrWin: Int
     var firstTilePressed: Int
+    var numMines: Int
+    let mineRanges: [Double] = [0.16, 0.2, 0.24, 0.28]
     
     // Constructor
     init(gameSize: Int, gameLevel: Int, vc: GameViewController) {
@@ -25,6 +27,7 @@ class MineSweeperGame: NSObject {
         self.pauseGame = 0
         self.loseOrWin = 0
         self.firstTilePressed = 0
+        self.numMines = 0
         tiles = []
         super.init()
         setTilesInView()
@@ -118,13 +121,6 @@ class MineSweeperGame: NSObject {
         }
         
         gvc.timer.invalidate()
-//        let spot = gvc.timeLabel.center.y + (gvc.view.bounds.height - gvc.timeLabel.center.y)/3
-//        gvc.endLabel = UILabel(frame: CGRect(x: 0, y: spot, width: gvc.view.bounds.width, height: 50))
-//        gvc.endLabel.text = "Game Over"
-//        gvc.endLabel.font = UIFont(name: "Gill Sans", size: 50)
-//        gvc.endLabel.textColor = UIColor.redColor()
-//        gvc.endLabel.textAlignment = NSTextAlignment.Center
-//        gvc.view.addSubview(gvc.endLabel)
         loseOrWin = 1
     }
     
@@ -145,13 +141,6 @@ class MineSweeperGame: NSObject {
                 tile.enabled = false
             }
             gvc.timer.invalidate()
-//            let spot = gvc.timeLabel.center.y + (gvc.view.bounds.height - gvc.timeLabel.center.y)/3
-//            gvc.endLabel = UILabel(frame: CGRect(x: 0, y: spot, width: gvc.view.bounds.width, height: 50))
-//            gvc.endLabel.text = "You Win"
-//            gvc.endLabel.font = UIFont(name: "Gill Sans", size: 50)
-//            gvc.endLabel.textColor = UIColor.greenColor()
-//            gvc.endLabel.textAlignment = NSTextAlignment.Center
-//            gvc.view.addSubview(gvc.endLabel)
             var key = ""
             switch self.gameLevel {
             case 0: key = "\(gameSize)Easy"
@@ -173,41 +162,52 @@ class MineSweeperGame: NSObject {
     func clearOut(tile: Tile) {
         let index = tiles.indexOf(tile)!
         
-        if (index % gameSize == 0) { //tile is on far left
-            gvc.tilePressed(tiles[index + 1]) // press right tile
+        if (index % gameSize == 0) {
+            // tile is on far left
+            gvc.tilePressed(tiles[index + 1])
+            // press right tile
             
-            if (index - gameSize >= 0) { //press top and top right if not in top row
+            if (index - gameSize >= 0) {
+                // press top and top right if not in top row
                 gvc.tilePressed(tiles[index - gameSize])
                 gvc.tilePressed(tiles[index + 1 - gameSize])
             }
-            if (index + gameSize < (gameSize * gameSize)) { //press bot and bot right if not in bot row
+            if (index + gameSize < (gameSize * gameSize)) {
+                // press bot and bot right if not in bot row
                 gvc.tilePressed(tiles[index + gameSize])
                 gvc.tilePressed(tiles[index + 1 + gameSize])
             }
         }
-        else if (index % gameSize == gameSize - 1) {  //tile is on far right
-            gvc.tilePressed(tiles[index - 1])   // press left
+        else if (index % gameSize == gameSize - 1) {
+            // tile is on far right
+            gvc.tilePressed(tiles[index - 1])
+            // press left
             
-            if (index - gameSize >= 0) { //press top and top left if not in top row
+            if (index - gameSize >= 0) {
+                // press top and top left if not in top row
                 gvc.tilePressed(tiles[index - gameSize])
                 gvc.tilePressed(tiles[index - 1 - gameSize])
             }
-            if (index + gameSize < (gameSize * gameSize)) { //press bot and bot left if not in bot row
+            if (index + gameSize < (gameSize * gameSize)) {
+                // press bot and bot left if not in bot row
                 gvc.tilePressed(tiles[index + gameSize])
                 gvc.tilePressed(tiles[index - 1 + gameSize])
             }
             
         }
-        else {  //tile is somewhere in the middle
+        else {
+            // tile is somewhere in the middle
             gvc.tilePressed(tiles[index - 1])   //press left
             gvc.tilePressed(tiles[index + 1])   //press right
             
-            if (index - gameSize >= 0) { //press top, top right, and top left if not in top row
+            if (index - gameSize >= 0) {
+                // press top, top right, and top left if not in top row
                 gvc.tilePressed(tiles[index - gameSize])
                 gvc.tilePressed(tiles[index + 1 - gameSize])
                 gvc.tilePressed(tiles[index - 1 - gameSize])
             }
-            if (index + gameSize < (gameSize * gameSize)) { //press bot, bot right, and bot left if not in bot row
+            if (index + gameSize < (gameSize * gameSize)) {
+                // press bot, bot right, and bot left if not in bot row
                 gvc.tilePressed(tiles[index + gameSize])
                 gvc.tilePressed(tiles[index + 1 + gameSize])
                 gvc.tilePressed(tiles[index - 1 + gameSize])
@@ -215,14 +215,41 @@ class MineSweeperGame: NSObject {
         }
     }
     
+    // Checks if number of mines is within specified range
+    //
+    func checkNumMines() -> Bool {
+        let totalTiles: Double = Double(gameSize*gameSize)
+        if gameLevel == 0{
+            if Double(numMines) < round(mineRanges[0]*totalTiles) || round(mineRanges[1]*totalTiles) < Double(numMines){
+                return false
+            }
+        }else if gameLevel == 1{
+            if Double(numMines) < round(mineRanges[1]*totalTiles) || round(mineRanges[2]*totalTiles) < Double(numMines){
+                return false
+            }
+        }else{
+            if Double(numMines) < round(mineRanges[2]*totalTiles) || round(mineRanges[3]*totalTiles) < Double(numMines){
+                return false
+            }
+        }
+        return true;
+    }
+    
     // Sets mines randomly depending on difficulty
     func setBombs() {
         for tile in tiles {
             let y = UInt32(5 - gameLevel)
-            let x = Int(arc4random_uniform(y)) + 1  // makes more bombs if level is higher
+            let x = Int(arc4random_uniform(y)) + 1
+            // Easy: 1/6, Med: 1/5, Hard: 1/4
             if (x == 1) {
                 tile.isBomb = true
+                numMines += 1
             }
+        }
+        if checkNumMines() == false{
+            for tile in tiles { tile.isBomb = false }
+            numMines = 0
+            setBombs()
         }
     }
     
@@ -236,41 +263,54 @@ class MineSweeperGame: NSObject {
                 var counter = 0
                 let index = tiles.indexOf(tile)!
                 
-                if (index % gameSize == 0) { //tile is on far left
-                    if (tiles[index + 1].isBomb) { counter += 1 } // check right
+                if (index % gameSize == 0) {
+                    // tile is on far left
+                    if (tiles[index + 1].isBomb) { counter += 1 }
+                    // check right
                     
-                    if (index - gameSize >= 0) { //check top and top right if not in top row
+                    if (index - gameSize >= 0) {
+                        // check top and top right if not in top row
                         if (tiles[index - gameSize].isBomb) { counter += 1 }
                         if (tiles[index + 1 - gameSize].isBomb) { counter += 1 }
                     }
-                    if (index + gameSize < (gameSize * gameSize)) { //check bot and bot right if not in bot row
+                    if (index + gameSize < (gameSize * gameSize)) {
+                        // check bot and bot right if not in bot row
                         if (tiles[index + gameSize].isBomb) { counter += 1 }
                         if (tiles[index + 1 + gameSize].isBomb) { counter += 1 }
                     }
                 }
-                else if (index % gameSize == gameSize - 1) {  //tile is on far right
-                    if (tiles[index - 1].isBomb) { counter += 1 } // check left
+                else if (index % gameSize == gameSize - 1) {
+                    // tile is on far right
+                    if (tiles[index - 1].isBomb) { counter += 1 }
+                    // check left
                     
-                    if (index - gameSize >= 0) { //check top and top left if not in top row
+                    if (index - gameSize >= 0) {
+                        // check top and top left if not in top row
                         if (tiles[index - gameSize].isBomb) { counter += 1 }
                         if (tiles[index - 1 - gameSize].isBomb) { counter += 1 }
                     }
-                    if (index + gameSize < (gameSize * gameSize)) { //check bot and bot left if not in bot row
+                    if (index + gameSize < (gameSize * gameSize)) {
+                        // check bot and bot left if not in bot row
                         if (tiles[index + gameSize].isBomb) { counter += 1 }
                         if (tiles[index - 1 + gameSize].isBomb) { counter += 1 }
                     }
                     
                 }
-                else {  //tile is somewhere in the middle
-                    if (tiles[index + 1].isBomb) { counter += 1 } // check right
-                    if (tiles[index - 1].isBomb) { counter += 1 } // check left
+                else {
+                    // tile is somewhere in the middle
+                    if (tiles[index + 1].isBomb) { counter += 1 }
+                    // check right
+                    if (tiles[index - 1].isBomb) { counter += 1 }
+                    // check left
                     
-                    if (index - gameSize >= 0) { //check top, top right, and top left if not in top row
+                    if (index - gameSize >= 0) {
+                        // check top, top right, and top left if not in top row
                         if (tiles[index - gameSize].isBomb) { counter += 1 }
                         if (tiles[index + 1 - gameSize].isBomb) { counter += 1 }
                         if (tiles[index - 1 - gameSize].isBomb) { counter += 1 }
                     }
-                    if (index + gameSize < (gameSize * gameSize)) { //check bot, bot right, and bot left if not in bot row
+                    if (index + gameSize < (gameSize * gameSize)) {
+                        // check bot, bot right, and bot left if not in bot row
                         if (tiles[index + gameSize].isBomb) { counter += 1 }
                         if (tiles[index + 1 + gameSize].isBomb) { counter += 1 }
                         if (tiles[index - 1 + gameSize].isBomb) { counter += 1 }
