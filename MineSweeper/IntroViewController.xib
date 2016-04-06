@@ -22,10 +22,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landmine" translatesAutoresizingMaskIntoConstraints="NO" id="Ufz-9M-itV">
-                    <rect key="frame" x="188" y="188" width="225" height="225"/>
+                    <rect key="frame" x="200" y="200" width="200" height="200"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="225" id="C87-VH-uQq"/>
-                        <constraint firstAttribute="height" constant="225" id="fsh-9b-dLc"/>
+                        <constraint firstAttribute="width" constant="200" id="C87-VH-uQq"/>
+                        <constraint firstAttribute="height" constant="200" id="fsh-9b-dLc"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YFO-Tf-lWb">
@@ -78,7 +78,7 @@
                     </connections>
                 </button>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="center" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYS-V0-sdL">
-                    <rect key="frame" x="275" y="150" width="50" height="21"/>
+                    <rect key="frame" x="275" y="156" width="50" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="5rF-xH-lIu"/>
                         <constraint firstAttribute="width" constant="50" id="RBP-HZ-LO3"/>
@@ -88,17 +88,17 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landmine" translatesAutoresizingMaskIntoConstraints="NO" id="yfd-eH-bo2">
-                    <rect key="frame" x="389" y="113" width="64" height="64"/>
+                    <rect key="frame" x="389" y="118" width="64" height="64"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="6cz-Op-BYm"/>
                         <constraint firstAttribute="width" constant="64" id="AcB-wN-h5x"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MineSweeper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMo-dK-xeP">
-                    <rect key="frame" x="151" y="97" width="300" height="53"/>
+                    <rect key="frame" x="151" y="101" width="300" height="55"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="300" id="TZd-fh-yyk"/>
-                        <constraint firstAttribute="height" constant="53" id="wtV-3l-2Re"/>
+                        <constraint firstAttribute="height" constant="55" id="wtV-3l-2Re"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="46"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -110,7 +110,7 @@
                 <constraint firstItem="nYS-V0-sdL" firstAttribute="top" secondItem="YMo-dK-xeP" secondAttribute="bottom" id="0lQ-ap-kdi"/>
                 <constraint firstItem="Ufz-9M-itV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3wm-Lc-pjk"/>
                 <constraint firstItem="fj8-sX-EhG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="23" id="8pV-R7-1sf"/>
-                <constraint firstItem="yfd-eH-bo2" firstAttribute="top" secondItem="YFO-Tf-lWb" secondAttribute="bottom" constant="48" id="BB3-ZF-fs8"/>
+                <constraint firstItem="yfd-eH-bo2" firstAttribute="top" secondItem="YFO-Tf-lWb" secondAttribute="bottom" constant="53" id="BB3-ZF-fs8"/>
                 <constraint firstItem="YFO-Tf-lWb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="R5p-2F-aKQ"/>
                 <constraint firstItem="Ufz-9M-itV" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="V37-6j-qUT"/>
                 <constraint firstAttribute="trailing" secondItem="fj8-sX-EhG" secondAttribute="trailing" constant="12" id="ZBu-BU-ft6"/>
@@ -120,7 +120,7 @@
                 <constraint firstItem="YFO-Tf-lWb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="j4A-YT-Tz5"/>
                 <constraint firstItem="yfd-eH-bo2" firstAttribute="leading" secondItem="nYS-V0-sdL" secondAttribute="trailing" constant="64" id="o2Q-9C-xh3"/>
                 <constraint firstAttribute="trailing" secondItem="YFO-Tf-lWb" secondAttribute="trailing" id="o6y-Nh-9hu"/>
-                <constraint firstItem="YMo-dK-xeP" firstAttribute="top" secondItem="YFO-Tf-lWb" secondAttribute="bottom" constant="32" id="o9G-UI-WGf"/>
+                <constraint firstItem="YMo-dK-xeP" firstAttribute="top" secondItem="YFO-Tf-lWb" secondAttribute="bottom" constant="36" id="o9G-UI-WGf"/>
                 <constraint firstItem="MnC-58-5JU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="23" id="qjD-vu-wrt"/>
                 <constraint firstItem="nYS-V0-sdL" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="sYF-iv-JH1"/>
                 <constraint firstItem="MnC-58-5JU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="t0k-u5-eNB"/>
