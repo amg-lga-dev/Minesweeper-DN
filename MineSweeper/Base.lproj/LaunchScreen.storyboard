@@ -17,16 +17,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="center" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCh-lF-VD1">
+                                <rect key="frame" x="275" y="290" width="50" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="URi-Z3-teW"/>
+                                    <constraint firstAttribute="height" constant="20" id="poh-gp-42d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mineSweeperBackground" translatesAutoresizingMaskIntoConstraints="NO" id="wu0-cN-gnF">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="0WM-Cd-1CP">
+                                <rect key="frame" x="250" y="126" width="100" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="GCa-kI-0tZ"/>
+                                    <constraint firstAttribute="height" constant="110" id="HA7-BM-ETS"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wu0-cN-gnF" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="46t-vY-YnT"/>
+                            <constraint firstItem="zCh-lF-VD1" firstAttribute="top" secondItem="0WM-Cd-1CP" secondAttribute="bottom" constant="54" id="Q3g-h8-OTD"/>
                             <constraint firstItem="wu0-cN-gnF" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="VS3-r1-n0x"/>
+                            <constraint firstItem="0WM-Cd-1CP" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="coB-Ob-ehr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wu0-cN-gnF" secondAttribute="trailing" constant="-20" id="igy-nI-i6g"/>
+                            <constraint firstItem="zCh-lF-VD1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="mLe-uC-dWI"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="wu0-cN-gnF" secondAttribute="bottom" id="oyy-3r-oTv"/>
+                            <constraint firstItem="zCh-lF-VD1" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="zsR-Jr-xQw"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -36,6 +57,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="flag" width="460" height="512"/>
         <image name="mineSweeperBackground" width="900" height="900"/>
     </resources>
 </document>

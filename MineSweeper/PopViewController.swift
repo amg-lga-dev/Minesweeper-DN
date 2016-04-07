@@ -104,9 +104,9 @@ class PopViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func initButtons() {
-        nextButton = UIButton(frame: CGRect(x: smallView.bounds.origin.x + smallView.bounds.width - 71, y: smallView.bounds.origin.y + smallView.bounds.height - 40, width: 56, height: 25))
-        prevButton = UIButton(frame: CGRect(x: smallView.bounds.origin.x + 21, y: smallView.bounds.origin.y + smallView.bounds.height - 40, width: 56, height: 25))
-        backButton = UIButton(frame: CGRect(x: smallView.bounds.origin.x + smallView.bounds.width/2 - 28, y: smallView.bounds.origin.y + smallView.bounds.height - 40, width: 56, height: 25))
+        nextButton = UIButton(frame: CGRect(x: smallView.bounds.origin.x + smallView.bounds.width - 86, y: smallView.bounds.origin.y + smallView.bounds.height - 45, width: 62, height: 28))
+        prevButton = UIButton(frame: CGRect(x: smallView.bounds.origin.x + 24, y: smallView.bounds.origin.y + smallView.bounds.height - 45, width: 62, height: 28))
+        backButton = UIButton(frame: CGRect(x: smallView.bounds.origin.x + smallView.bounds.width/2 - 31, y: smallView.bounds.origin.y + smallView.bounds.height - 45, width: 62, height: 28))
         nextButton.setTitle("Next", forState: .Normal)
         prevButton.setTitle("Prev", forState: .Normal)
         backButton.setTitle("Done", forState: .Normal)
